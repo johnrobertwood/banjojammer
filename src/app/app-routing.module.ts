@@ -11,34 +11,33 @@ const appRoutes: Routes = [
   {
     path: 'compose',
     component: ComposeMessageComponent,
-    outlet: 'popup'
+    outlet: 'popup',
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
-    canLoad: [AuthGuard]
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+    canLoad: [AuthGuard],
   },
   {
     path: 'crisis-center',
-    loadChildren: () => import('./crisis-center/crisis-center.module').then(m => m.CrisisCenterModule),
-    data: { preload: true }
+    loadChildren: () =>
+      import('./crisis-center/crisis-center.module').then(
+        (m) => m.CrisisCenterModule
+      ),
+    data: { preload: true },
   },
-  { path: '',   redirectTo: '/superheroes', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '', redirectTo: '/superheroes', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(
-      appRoutes,
-      {
-        enableTracing: false, // <-- debugging purposes only
-        preloadingStrategy: SelectivePreloadingStrategyService,
-      }
-    )
+    RouterModule.forRoot(appRoutes, {
+      enableTracing: false, // <-- debugging purposes only
+      preloadingStrategy: SelectivePreloadingStrategyService,
+    }),
   ],
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

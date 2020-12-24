@@ -9,7 +9,7 @@ import { Hero } from '../hero';
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css']
+  styleUrls: ['./hero-detail.component.css'],
 })
 export class HeroDetailComponent implements OnInit {
   hero$: Observable<Hero>;
@@ -20,11 +20,9 @@ export class HeroDetailComponent implements OnInit {
     private service: HeroService
   ) {}
 
-
   ngOnInit() {
     this.hero$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.service.getHero(params.get('id')))
+      switchMap((params: ParamMap) => this.service.getHero(params.get('id')))
     );
   }
 

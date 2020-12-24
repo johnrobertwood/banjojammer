@@ -23,25 +23,21 @@ const crisisCenterRoutes: Routes = [
             component: CrisisDetailComponent,
             canDeactivate: [CanDeactivateGuard],
             resolve: {
-              crisis: CrisisDetailResolverService
-            }
+              crisis: CrisisDetailResolverService,
+            },
           },
           {
             path: '',
-            component: CrisisCenterHomeComponent
-          }
-        ]
-      }
-    ]
-  }
+            component: CrisisCenterHomeComponent,
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(crisisCenterRoutes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forChild(crisisCenterRoutes)],
+  exports: [RouterModule],
 })
-export class CrisisCenterRoutingModule { }
+export class CrisisCenterRoutingModule {}

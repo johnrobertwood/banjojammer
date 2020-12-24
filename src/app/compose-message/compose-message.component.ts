@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-compose-message',
   templateUrl: './compose-message.component.html',
-  styleUrls: ['./compose-message.component.css']
+  styleUrls: ['./compose-message.component.css'],
 })
 export class ComposeMessageComponent {
   details: string;
@@ -30,6 +30,6 @@ export class ComposeMessageComponent {
   closePopup() {
     // Providing a `null` value to the named outlet
     // clears the contents of the named outlet
-    this.router.navigate([{ outlets: { popup: null }}]);
+    this.router.navigate([{ outlets: { popup: null } }]);
   }
 }
