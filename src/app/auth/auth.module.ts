@@ -9,4 +9,4 @@ import { AuthRoutingModule } from './auth-routing.module';
   imports: [CommonModule, FormsModule, AuthRoutingModule],
   declarations: [LoginComponent],
 })
-export class AuthModule {}
+export class AuthenticationModule {}

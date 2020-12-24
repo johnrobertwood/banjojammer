@@ -11,7 +11,8 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
 
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
-import { AuthModule } from './auth/auth.module';
+import { AuthenticationModule } from './auth/auth.module';
+import { AuthModule } from '@auth0/auth0-angular';
 
 @NgModule({
   imports: [
@@ -19,22 +20,21 @@ import { AuthModule } from './auth/auth.module';
     BrowserAnimationsModule,
     FormsModule,
     HeroesModule,
-    AuthModule,
+    AuthenticationModule,
+    AuthModule.forRoot({
+      domain: 'woodjohn.auth0.com',
+      clientId: 'BVZwf9OHssu09UursIXOlHs6iiQntLzR',
+    }),
     AppRoutingModule,
   ],
-  declarations: [
-    AppComponent,
-    ComposeMessageComponent,
-    PageNotFoundComponent
-  ],
-  bootstrap: [ AppComponent ]
+  declarations: [AppComponent, ComposeMessageComponent, PageNotFoundComponent],
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   // Diagnostic only: inspect router configuration
   constructor(router: Router) {
     // Use a custom replacer to display function names in the route configs
     // const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
-
     // console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
   }
 }
