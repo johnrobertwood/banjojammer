@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -13,6 +13,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { AuthenticationModule } from './auth/auth.module';
 import { AuthModule } from '@auth0/auth0-angular';
+import { TechniquesModule } from './techniques/techniques.module';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
   imports: [
@@ -20,12 +23,20 @@ import { AuthModule } from '@auth0/auth0-angular';
     BrowserAnimationsModule,
     FormsModule,
     HeroesModule,
+    TechniquesModule,
     AuthenticationModule,
     AuthModule.forRoot({
       domain: 'woodjohn.auth0.com',
       clientId: 'BVZwf9OHssu09UursIXOlHs6iiQntLzR',
     }),
     AppRoutingModule,
+    HttpClientModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+    }),
   ],
   declarations: [AppComponent, ComposeMessageComponent, PageNotFoundComponent],
   bootstrap: [AppComponent],

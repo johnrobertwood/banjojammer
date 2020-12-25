@@ -1,0 +1,17 @@
+<div *ngIf="technique$ | async as technique">
+  <h2>{{ technique.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ technique.id }}</div>
+  <div>
+    <label
+      >name:
+      <input #editTechnique [(ngModel)]="technique.name" placeholder="name" />
+      <button mat-button color="primary" (click)="save(editTechnique.value)">
+        save
+      </button>
+    </label>
+  </div>
+  <div *ngIf="quiz$ | async as quiz">
+    <app-dialog-content-example [quiz]="quiz"></app-dialog-content-example>
+  </div>
+  <button (click)="goBack(technique.id)">go back</button>
+</div>

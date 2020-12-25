@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { AuthGuard } from './auth/auth.guard';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
+import { TechniqueListComponent } from './techniques/technique-list/technique-list.component';
 
 const appRoutes: Routes = [
   {
@@ -26,6 +27,10 @@ const appRoutes: Routes = [
         (m) => m.CrisisCenterModule
       ),
     data: { preload: true },
+  },
+  {
+    path: 'techniques',
+    component: TechniqueListComponent,
   },
   { path: '', redirectTo: '/superheroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
