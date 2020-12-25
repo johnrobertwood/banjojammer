@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     path: 'techniques',
     component: TechniqueListComponent,
   },
-  { path: '', redirectTo: '/superheroes', pathMatch: 'full' },
+  { path: '', redirectTo: '/techniques', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 

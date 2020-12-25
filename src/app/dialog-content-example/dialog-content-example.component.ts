@@ -46,10 +46,6 @@ export class DialogContentExampleComponent {
       this.correctAnswer = result.correctAnswer;
     });
   }
-
-  closePopup() {
-    this.router.navigate([{ outlets: { popup: null } }]);
-  }
 }
 
 @Component({

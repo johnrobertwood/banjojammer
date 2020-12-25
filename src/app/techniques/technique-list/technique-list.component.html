@@ -1,28 +1,28 @@
 <h2>Techniques</h2>
 
-<!-- <div>
+<div>
   <label
     >Technique name:
     <input #techniqueName />
-  </label> -->
-<!-- (click) passes input value to add() and then clears the input -->
-<!-- <button
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button
     [disabled]="isDisabled"
     [style.color]="isDisabled ? 'red' : 'green'"
     (click)="add(techniqueName.value); techniqueName.value = ''"
   >
     {{ isDisabled ? "adding" : "add" }}
   </button>
-</div> -->
+</div>
 
 <ul class="techniques">
   <li
     *ngFor="let technique of techniques"
     [class.selected]="technique.id === selectedId"
   >
-    <a class="item" [routerLink]="['/technique', technique.id]">
+    <a [routerLink]="['/technique', technique.id]">
       <span class="badge">{{ technique.id }}</span
-      ><span class="tech-name">{{ technique.name }}</span>
+      ><span>{{ technique.name }}</span>
     </a>
     <button class="delete" title="delete technique" (click)="delete(technique)">
       x
