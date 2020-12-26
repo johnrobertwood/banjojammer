@@ -10,19 +10,18 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HeroesModule } from './heroes/heroes.module';
 import { AuthenticationModule } from './auth/auth.module';
 import { AuthModule } from '@auth0/auth0-angular';
 import { TechniquesModule } from './techniques/techniques.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    HeroesModule,
     TechniquesModule,
     AuthenticationModule,
     AuthModule.forRoot({
@@ -38,7 +37,7 @@ import { InMemoryDataService } from './in-memory-data.service';
       dataEncapsulation: false,
     }),
   ],
-  declarations: [AppComponent, ComposeMessageComponent, PageNotFoundComponent],
+  declarations: [AppComponent, ComposeMessageComponent, PageNotFoundComponent, ProfileComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {

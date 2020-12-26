@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuard } from './auth/auth.guard';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 import { TechniqueListComponent } from './techniques/technique-list/technique-list.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
   {
@@ -31,6 +32,11 @@ const appRoutes: Routes = [
   {
     path: 'techniques',
     component: TechniqueListComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
   },
   { path: '', redirectTo: '/techniques', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
