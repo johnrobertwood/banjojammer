@@ -17,6 +17,7 @@ import { QuizService } from '../../quiz.service';
 export class TechniqueDetailComponent implements OnInit {
   technique$: Observable<Technique>;
   quiz$: Observable<Quiz>;
+  display = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -61,5 +62,9 @@ export class TechniqueDetailComponent implements OnInit {
         // In memory API is returning NULL for PUT so hardcoding the id here
       )
       .subscribe(() => this.goBack(11));
+  }
+
+  showDialog() {
+    this.display = true;
   }
 }
