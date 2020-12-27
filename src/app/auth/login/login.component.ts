@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({

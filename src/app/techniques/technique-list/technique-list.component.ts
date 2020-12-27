@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Technique } from '../technique';
 import { TechniqueService } from '../technique.service';
 import { MessageService } from '../../message.service';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-technique-list',

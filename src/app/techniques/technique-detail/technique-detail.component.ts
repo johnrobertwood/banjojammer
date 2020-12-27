@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from '../technique.service';
 import { Technique } from '../technique';
 
-import { switchMap, map, mergeMap, tap } from 'rxjs/operators';
+import { switchMap, map, mergeMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Quiz } from '../../quiz';
 import { QuizService } from '../../quiz.service';
@@ -55,7 +55,6 @@ export class TechniqueDetailComponent implements OnInit {
     this.technique$
       .pipe(
         map((technique: Technique) => ({ ...technique, name: inputValue })),
-        tap((technique) => console.log(technique)),
         mergeMap((technique: Technique) =>
           this.techniqueService.updateTechnique(technique)
         )
