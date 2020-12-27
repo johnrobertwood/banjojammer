@@ -1,7 +1,9 @@
 <div>
   <ul>
     <li>
-      <button mat-raised-button (click)="openDialog()">Take Quiz</button>
+      <button mat-button color="primary" (click)="openDialog()">
+        Take Quiz
+      </button>
     </li>
     <li *ngIf="answered">
       Your answer was: <i>{{ correctAnswer ? "Correct" : "Incorrect" }}</i>

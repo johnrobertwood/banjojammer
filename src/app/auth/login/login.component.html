@@ -1,10 +1,20 @@
 <h2>LOGIN</h2>
 <p>{{ message }}</p>
 <p>
-  <button (click)="login()" *ngIf="!authenticationService.isLoggedIn">
+  <button
+    mat-button
+    color="primary"
+    (click)="login()"
+    *ngIf="!authenticationService.isLoggedIn"
+  >
     Login
   </button>
-  <button (click)="logout()" *ngIf="authenticationService.isLoggedIn">
+  <button
+    mat-button
+    color="warn"
+    (click)="logout()"
+    *ngIf="authenticationService.isLoggedIn"
+  >
     Logout
   </button>
 </p>

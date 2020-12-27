@@ -63,8 +63,4 @@ export class TechniqueDetailComponent implements OnInit {
       )
       .subscribe(() => this.goBack(11));
   }
-
-  showDialog() {
-    this.display = true;
-  }
 }

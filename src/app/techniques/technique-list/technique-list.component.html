@@ -1,19 +1,23 @@
 <h2>Techniques</h2>
 
-<div>
-  <label
-    >Technique name:
-    <input #techniqueName />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button
-    [disabled]="isDisabled"
-    [style.color]="isDisabled ? 'red' : 'green'"
-    (click)="add(techniqueName.value); techniqueName.value = ''"
-  >
-    {{ isDisabled ? "adding" : "add" }}
-  </button>
-</div>
+<!-- <div>
+  <form>
+    <mat-form-field>
+      <mat-label>Technique name: </mat-label>
+      <input matInput #techniqueName />
+    </mat-form-field>
+    <mat-form-field>
+      <button
+        mat-button
+        [disabled]="isDisabled"
+        [style.color]="isDisabled ? 'red' : 'green'"
+        (click)="add(techniqueName.value); techniqueName.value = ''"
+      >
+        {{ isDisabled ? "adding" : "add" }}
+      </button>
+    </mat-form-field>
+  </form>
+</div> -->
 
 <ul class="techniques">
   <li

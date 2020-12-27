@@ -4,7 +4,12 @@
   <div>
     <label
       >name:
-      <input #editTechnique [(ngModel)]="technique.name" placeholder="name" />
+      <input
+        matInput
+        #editTechnique
+        [(ngModel)]="technique.name"
+        placeholder="name"
+      />
       <button mat-button color="primary" (click)="save(editTechnique.value)">
         save
       </button>
@@ -13,9 +18,8 @@
   <div *ngIf="quiz$ | async as quiz">
     <app-dialog-content-example [quiz]="quiz"></app-dialog-content-example>
   </div>
-  <p-dialog header="Title" [(visible)]="display"> Content </p-dialog>
 
-  <button type="button" (click)="showDialog()" pButton label="Show"></button>
-
-  <button (click)="goBack(technique.id)">go back</button>
+  <button mat-button color="warn" (click)="goBack(technique.id)">
+    go back
+  </button>
 </div>

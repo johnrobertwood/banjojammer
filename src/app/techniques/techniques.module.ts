@@ -12,8 +12,7 @@ import {
 import { TechniquesRoutingModule } from './techniques-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { DialogModule } from 'primeng/dialog';
-import { ButtonModule } from 'primeng/button';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import { ButtonModule } from 'primeng/button';
     TechniquesRoutingModule,
     MatDialogModule,
     MatButtonModule,
-    DialogModule,
-    ButtonModule,
+    MatInputModule,
   ],
 })
 export class TechniquesModule {}

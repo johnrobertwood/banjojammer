@@ -1,13 +1,15 @@
-<h1 class="title">Jits Pro</h1>
-<nav>
-  <a routerLink="/techniques" routerLinkActive="active">Techniques</a>
-  <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
-  <a routerLink="/admin" routerLinkActive="active">Admin</a>
-  <a routerLink="/profile" routerLinkActive="active">Profile</a>
-  <a routerLink="/login" routerLinkActive="active">Login</a>
-  <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
-</nav>
-<div [@routeAnimation]="getAnimationData(routerOutlet)">
-  <router-outlet #routerOutlet="outlet"></router-outlet>
+<div class="content">
+  <h1 class="title">Jits Pro</h1>
+  <nav>
+    <a routerLink="/techniques" routerLinkActive="active">Techniques</a>
+    <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
+    <a routerLink="/admin" routerLinkActive="active">Admin</a>
+    <a routerLink="/profile" routerLinkActive="active">Profile</a>
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+    <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
+  </nav>
+  <div [@routeAnimation]="getAnimationData(routerOutlet)">
+    <router-outlet #routerOutlet="outlet"></router-outlet>
+  </div>
+  <router-outlet name="popup"></router-outlet>
 </div>
-<router-outlet name="popup"></router-outlet>
