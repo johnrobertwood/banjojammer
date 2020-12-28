@@ -1,6 +1,6 @@
 <div *ngIf="technique$ | async as technique">
   <h2>{{ technique.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{ technique.id }}</div>
+  <!-- <div><span>id: </span>{{ technique.id }}</div> -->
   <div>
     <mat-label>name: </mat-label>
     <input
@@ -14,7 +14,7 @@
       color="primary"
       (click)="save(editTechnique.value)"
     >
-      Save
+      save
     </button>
   </div>
   <div>
