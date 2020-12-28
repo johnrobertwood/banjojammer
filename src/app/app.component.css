@@ -1,5 +1,11 @@
-.content {
-  margin: 12px auto 32px;
-  padding: 0 16px;
-  max-width: 960px;
+mat-sidenav {
+  width: 300px;
+}
+
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

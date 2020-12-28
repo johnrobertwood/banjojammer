@@ -2,7 +2,7 @@
 <p>{{ message }}</p>
 <p>
   <button
-    mat-button
+    mat-raised-button
     color="primary"
     (click)="login()"
     *ngIf="!authenticationService.isLoggedIn"
@@ -10,7 +10,7 @@
     Login
   </button>
   <button
-    mat-button
+    mat-raised-button
     color="warn"
     (click)="logout()"
     *ngIf="authenticationService.isLoggedIn"

@@ -11,8 +11,8 @@ import {
 
 import { TechniquesRoutingModule } from './techniques-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { AppMaterialModule } from '../app-material.module';
 
 @NgModule({
   declarations: [
@@ -26,8 +26,8 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     TechniquesRoutingModule,
     MatDialogModule,
-    MatButtonModule,
     MatInputModule,
+    AppMaterialModule,
   ],
 })
 export class TechniquesModule {}
