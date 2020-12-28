@@ -19,6 +19,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { ProfileComponent } from './profile/profile.component';
 import { AppMaterialModule } from './app-material.module';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { AppMaterialModule } from './app-material.module';
     }),
     AppRoutingModule,
     HttpClientModule,
+    LayoutModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
