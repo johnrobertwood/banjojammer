@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { MatInputModule } from '@angular/material/input';
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { ManageCrisesComponent } from './manage-crises/manage-crises.component';
 
 import { AdminRoutingModule } from './admin-routing.module';
+import { ManageTechniqueDetailComponent } from './manage-technique-detail/manage-technique-detail.component';
+import { ManageTechniqueListComponent } from './manage-technique-list/manage-technique-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, AdminRoutingModule],
+  imports: [CommonModule, AdminRoutingModule, MatInputModule, FormsModule],
   declarations: [
     AdminComponent,
     AdminDashboardComponent,
-    ManageCrisesComponent,
+    ManageTechniqueDetailComponent,
+    ManageTechniqueListComponent,
   ],
 })
 export class AdminModule {}

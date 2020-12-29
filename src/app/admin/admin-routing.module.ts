@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { ManageCrisesComponent } from './manage-crises/manage-crises.component';
 
 import { AuthGuard } from '../auth/auth.guard';
+import { ManageTechniqueListComponent } from './manage-technique-list/manage-technique-list.component';
+import { ManageTechniqueDetailComponent } from './manage-technique-detail/manage-technique-detail.component';
 
 const adminRoutes: Routes = [
   {
@@ -17,7 +18,14 @@ const adminRoutes: Routes = [
         path: '',
         canActivateChild: [AuthGuard],
         children: [
-          { path: 'crises', component: ManageCrisesComponent },
+          {
+            path: 'manage-technique-list',
+            component: ManageTechniqueListComponent,
+          },
+          {
+            path: 'manage-technique-detail/:id',
+            component: ManageTechniqueDetailComponent,
+          },
           { path: '', component: AdminDashboardComponent },
         ],
       },

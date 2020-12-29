@@ -1,0 +1,35 @@
+<h2>Techniques</h2>
+
+<!-- <div>
+  <form>
+    <mat-form-field>
+      <mat-label>Technique name: </mat-label>
+      <input matInput #techniqueName />
+    </mat-form-field>
+    <mat-form-field>
+      <button
+        mat-button
+        [disabled]="isDisabled"
+        [style.color]="isDisabled ? 'red' : 'green'"
+        (click)="add(techniqueName.value); techniqueName.value = ''"
+      >
+        {{ isDisabled ? "adding" : "add" }}
+      </button>
+    </mat-form-field>
+  </form>
+</div> -->
+
+<ul class="techniques">
+  <li
+    *ngFor="let technique of techniques"
+    [class.selected]="technique.id === selectedId"
+  >
+    <a [routerLink]="['/admin/manage-technique-detail', technique.id]">
+      <span class="badge">{{ technique.id }}</span
+      ><span>{{ technique.name }}</span>
+    </a>
+    <button class="delete" title="delete technique" (click)="delete(technique)">
+      x
+    </button>
+  </li>
+</ul>
