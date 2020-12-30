@@ -2,11 +2,11 @@
   <ul>
     <li>
       <button mat-raised-button color="primary" (click)="openDialog()">
+        <mat-icon aria-hidden="false" [class.goldstar]="correctAnswer"
+          >star</mat-icon
+        >
         quiz
       </button>
-    </li>
-    <li *ngIf="answered">
-      Your answer was: <i>{{ correctAnswer ? "Correct" : "Incorrect" }}</i>
     </li>
   </ul>
 </div>

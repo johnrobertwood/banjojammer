@@ -2,6 +2,9 @@
   <ul>
     <li>
       <button mat-raised-button color="primary" (click)="openDialog()">
+        <mat-icon aria-hidden="false" [class.goldstar]="answered"
+          >star</mat-icon
+        >
         flashcard
       </button>
     </li>

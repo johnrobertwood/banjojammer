@@ -7,9 +7,9 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
-/* button:hover {
+button:hover {
   background-color: #cfd8dc;
-} */
+}
 button:disabled {
   background-color: #eee;
   color: #ccc;
@@ -20,6 +20,9 @@ button:disabled {
 }
 .red {
   background-color: red;
+}
+.goldstar {
+  color: yellow;
 }
 ul {
   list-style-type: none;

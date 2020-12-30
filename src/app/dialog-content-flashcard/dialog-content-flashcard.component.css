@@ -21,6 +21,9 @@ button:disabled {
 .red {
   background-color: red;
 }
+.goldstar {
+  color: yellow;
+}
 ul {
   list-style-type: none;
   padding-left: 0;

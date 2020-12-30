@@ -2,14 +2,14 @@
   <h2>{{ technique.name | uppercase }} Details</h2>
   <!-- <div><span>id: </span>{{ technique.id }}</div> -->
   <div>
-    <iframe
+    <!-- <iframe
       width="560"
       height="315"
       src="https://www.youtube.com/embed/5-sfG8BV8wU"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
-    ></iframe>
+    ></iframe> -->
   </div>
   <div *ngIf="quiz$ | async as quiz">
     <app-dialog-content-example [quiz]="quiz"></app-dialog-content-example>

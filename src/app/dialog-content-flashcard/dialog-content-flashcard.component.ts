@@ -21,11 +21,11 @@ export interface DialogData {
 })
 export class DialogContentFlashcardComponent {
   @Input() flashcard: Flashcard;
+  answered = false;
 
   constructor(public dialog: MatDialog, private router: Router) {}
 
   openDialog(): void {
-    // this.answered = false;
     const dialogRef = this.dialog.open(DialogContentFlashcardDialogComponent, {
       width: '500px',
       data: {
@@ -34,6 +34,7 @@ export class DialogContentFlashcardComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      this.answered = true;
       console.log('The dialog was closed');
     });
   }
