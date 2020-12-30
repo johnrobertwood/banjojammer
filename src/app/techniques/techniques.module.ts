@@ -12,7 +12,6 @@ import {
   DialogContentFlashcardComponent,
   DialogContentFlashcardDialogComponent,
 } from 'src/app/dialog-content-flashcard/dialog-content-flashcard.component';
-import { GameCardComponent } from 'src/app/game-card/game-card.component';
 
 import { TechniquesRoutingModule } from './techniques-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -27,7 +26,6 @@ import { AppMaterialModule } from 'src/app/app-material.module';
     DialogContentExampleDialogComponent,
     DialogContentFlashcardComponent,
     DialogContentFlashcardDialogComponent,
-    GameCardComponent,
   ],
   imports: [
     CommonModule,
