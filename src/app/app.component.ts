@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     this.getTechniques();
 
     this._breakpointObserver
-      .observe(['(max-width: 901px)'])
+      .observe(['(max-width: 501px)'])
       .pipe(pluck('matches'))
       .subscribe((m: boolean) => (this.isSmallScreen = m));
   }

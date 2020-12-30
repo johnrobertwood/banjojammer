@@ -7,7 +7,6 @@
     position="end"
   >
     <mat-toolbar color="warn">
-      <button mat-button [matMenuTriggerFor]="menu">Menu</button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
           <a mat-menu-item routerLink="/techniques" routerLinkActive="active"
@@ -39,15 +38,17 @@
         mat-list-item
         [class.selected]="technique.id === selectedId"
         [routerLink]="['technique', technique.id]"
+        (click)="sidenav.toggle()"
         >{{ technique.name }}</a
       ></mat-nav-list
     >
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <!-- <button mat-button (click)="sidenav.toggle()">
+      <button mat-button [matMenuTriggerFor]="menu">Login</button>
+      <button mat-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
-      </button> -->
+      </button>
     </mat-toolbar>
     <div class="main-container">
       <div [@routeAnimation]="getAnimationData(routerOutlet)">

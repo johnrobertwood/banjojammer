@@ -38,7 +38,7 @@ const appRoutes: Routes = [
     component: ProfileComponent,
     canActivate: [AuthGuard],
   },
-  { path: '', redirectTo: '/techniques', pathMatch: 'full' },
+  { path: '', redirectTo: '/technique/11', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 
