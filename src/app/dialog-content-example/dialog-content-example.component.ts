@@ -5,7 +5,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Quiz } from '../quiz';
+import { Quiz } from 'src/app/quiz';
 
 export interface DialogData {
   answered: boolean;

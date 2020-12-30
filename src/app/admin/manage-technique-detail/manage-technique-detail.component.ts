@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
-import { TechniqueService } from '../../techniques/technique.service';
-import { Technique } from '../../techniques/technique';
+import { TechniqueService } from 'src/app/techniques/technique.service';
+import { Technique } from 'src/app/techniques/technique';
 
 import { switchMap, map, mergeMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Quiz } from '../../quiz';
-import { QuizService } from '../../quiz.service';
+import { Quiz } from 'src/app/quiz';
+import { QuizService } from 'src/app/quiz.service';
 
 @Component({
   selector: 'app-manage-technique-detail',
@@ -48,10 +48,10 @@ export class ManageTechniqueDetailComponent implements OnInit {
   // }
 
   goBack(techniqueId: number): void {
-    this.router.navigate(['/techniques', { id: techniqueId }]);
+    this.router.navigate(['/admin/manage-technique-list', { id: techniqueId }]);
   }
 
-  save(inputValue): void {
+  save(inputValue: string): void {
     this.technique$
       .pipe(
         map((technique: Technique) => ({ ...technique, name: inputValue })),

@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { Technique } from './technique';
-import { MessageService } from '../message.service';
+import { MessageService } from 'src/app/message.service';
 
 @Injectable({ providedIn: 'root' })
 export class TechniqueService {

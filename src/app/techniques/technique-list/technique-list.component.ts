@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Technique } from '../technique';
-import { TechniqueService } from '../technique.service';
-import { MessageService } from '../../message.service';
+import { Technique } from 'src/app/techniques/technique';
+import { TechniqueService } from 'src/app/techniques/technique.service';
+import { MessageService } from 'src/app/message.service';
 import { switchMap } from 'rxjs/operators';
 
 @Component({

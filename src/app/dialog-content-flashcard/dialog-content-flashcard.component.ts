@@ -5,7 +5,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Flashcard } from '../flashcard';
+import { Flashcard } from 'src/app/flashcard';
 
 export interface DialogData {
   flashcard: Flashcard;
