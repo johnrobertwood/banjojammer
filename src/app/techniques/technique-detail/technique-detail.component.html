@@ -11,22 +11,6 @@
       allowfullscreen
     ></iframe>
   </div>
-  <div>
-    <mat-label>name: </mat-label>
-    <input
-      matInput
-      #editTechnique
-      [(ngModel)]="technique.name"
-      placeholder="name"
-    />
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="save(editTechnique.value)"
-    >
-      save
-    </button>
-  </div>
   <div *ngIf="quiz$ | async as quiz">
     <app-dialog-content-example [quiz]="quiz"></app-dialog-content-example>
   </div>

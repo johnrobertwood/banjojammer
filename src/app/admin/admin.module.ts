@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
@@ -10,7 +11,13 @@ import { ManageTechniqueListComponent } from './manage-technique-list/manage-tec
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, AdminRoutingModule, MatInputModule, FormsModule],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule,
+  ],
   declarations: [
     AdminComponent,
     AdminDashboardComponent,

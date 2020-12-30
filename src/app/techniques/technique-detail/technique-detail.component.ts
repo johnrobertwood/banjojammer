@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from '../technique.service';
 import { Technique } from '../technique';
 
-import { switchMap, map, mergeMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Quiz } from '../../quiz';
 import { QuizService } from '../../quiz.service';
@@ -49,17 +49,5 @@ export class TechniqueDetailComponent implements OnInit {
 
   goBack(techniqueId: number): void {
     this.router.navigate(['/techniques', { id: techniqueId }]);
-  }
-
-  save(inputValue): void {
-    this.technique$
-      .pipe(
-        map((technique: Technique) => ({ ...technique, name: inputValue })),
-        mergeMap((technique: Technique) =>
-          this.techniqueService.updateTechnique(technique)
-        )
-        // In memory API is returning NULL for PUT so hardcoding the id here
-      )
-      .subscribe(() => this.goBack(11));
   }
 }
