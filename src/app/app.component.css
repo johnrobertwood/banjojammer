@@ -2,6 +2,11 @@ mat-sidenav {
   width: 300px;
 }
 
+mat-toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .nav-container {
   position: absolute;
   top: 0;

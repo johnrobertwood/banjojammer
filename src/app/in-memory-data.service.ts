@@ -18,6 +18,16 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 18, name: 'Americana' },
       { id: 19, name: 'Straight Armlock' },
       { id: 20, name: 'Straight Kneebar' },
+      { id: 21, name: 'Armbar2' },
+      { id: 22, name: 'Triangle2' },
+      { id: 23, name: 'Kimura2' },
+      { id: 24, name: 'Rear Naked Choke2' },
+      { id: 25, name: 'Omoplata2' },
+      { id: 26, name: 'Guillotine2' },
+      { id: 27, name: 'Head and Arm Choke2' },
+      { id: 28, name: 'Americana2' },
+      { id: 29, name: 'Straight Armlock2' },
+      { id: 30, name: 'Straight Kneebar2' },
     ];
 
     const quizzes = [
@@ -47,8 +57,31 @@ export class InMemoryDataService implements InMemoryDbService {
           { text: 'This is answer d', correct: false },
         ],
       },
-      { id: 13, name: 'Kimura Quiz' },
-      { id: 14, name: 'Rear Naked Choke Quiz' },
+      {
+        id: 13,
+        name: 'Kimura Quiz',
+        question: 'Kimura works from many different positions',
+        responses: [
+          { text: 'True', correct: true },
+          { text: 'False', correct: false },
+        ],
+      },
+      {
+        id: 14,
+        name: 'Rear Naked Choke Quiz',
+        question: 'How do you finish a RNC',
+        responses: [
+          {
+            text:
+              'Bottom arm chokes, ear to ear, staying tight while arching and extending with hips',
+            correct: true,
+          },
+          {
+            text: 'Top arm choking',
+            correct: false,
+          },
+        ],
+      },
       { id: 15, name: 'Omoplata Quiz' },
       { id: 16, name: 'Guillotine Quiz' },
       { id: 17, name: 'Head and Arm Choke Quiz' },
@@ -64,18 +97,30 @@ export class InMemoryDataService implements InMemoryDbService {
         question: 'What is the armbar postion',
         answer: 'Cross grip pull over body',
       },
+      {
+        id: 12,
+        name: 'Triangle',
+        question: 'What is the triangle key points',
+        answer: 'Stuff one hand and pull the other',
+      },
+      {
+        id: 13,
+        name: 'Kimura',
+        question:
+          'True or False: Kimura works in a large variety of different positions',
+        answer:
+          'True, Kimura is a great control technique in many different guard and attack positions',
+      },
+      {
+        id: 14,
+        name: 'Rear Naked Choke',
+        question: 'Steps to finish a Rear Naked Choke',
+        answer:
+          'Finish RNC with bottom arm choking, ear to ear in tight then arch hips',
+      },
     ];
 
-    const histories = [
-      { id: 11, name: 'Monday' },
-      { id: 12, name: 'Tuesday' },
-      { id: 13, name: 'Wednesday' },
-      { id: 14, name: 'Thursday' },
-      { id: 15, name: 'Friday' },
-      { id: 16, name: 'Saturday' },
-      { id: 17, name: 'Sunday' },
-    ];
-    return { techniques, quizzes, flashcards, histories };
+    return { techniques, quizzes, flashcards };
   }
 
   // Overrides the genId method to ensure that a technique always has an id.
