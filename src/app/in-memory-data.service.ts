@@ -94,27 +94,27 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 11,
         name: 'Armbar',
-        question: 'What is the armbar postion',
+        question: 'What is the armbar postion?',
         answer: 'Cross grip pull over body',
       },
       {
         id: 12,
         name: 'Triangle',
-        question: 'What is the triangle key points',
+        question: 'What is the triangle key points?',
         answer: 'Stuff one hand and pull the other',
       },
       {
         id: 13,
         name: 'Kimura',
         question:
-          'True or False: Kimura works in a large variety of different positions',
+          'True or False: Kimura works in a large variety of different positions?',
         answer:
           'True, Kimura is a great control technique in many different guard and attack positions',
       },
       {
         id: 14,
         name: 'Rear Naked Choke',
-        question: 'Steps to finish a Rear Naked Choke',
+        question: 'Steps to finish a Rear Naked Choke?',
         answer:
           'Finish RNC with bottom arm choking, ear to ear in tight then arch hips',
       },

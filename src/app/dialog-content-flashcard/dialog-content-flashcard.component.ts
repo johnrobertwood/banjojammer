@@ -29,7 +29,7 @@ export class DialogContentFlashcardComponent {
     const dialogRef = this.dialog.open(DialogContentFlashcardDialogComponent, {
       width: '500px',
       data: {
-        quiz: this.flashcard,
+        flashcard: this.flashcard,
       },
     });
 
@@ -46,6 +46,8 @@ export class DialogContentFlashcardComponent {
   styleUrls: ['dialog-content-flashcard.component.css'],
 })
 export class DialogContentFlashcardDialogComponent {
+  flipped: boolean;
+
   constructor(
     public dialogRef: MatDialogRef<DialogContentFlashcardDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData

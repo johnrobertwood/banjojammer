@@ -1,4 +1,19 @@
-<app-game-card></app-game-card>
+<div class="card-container">
+  <h2>{{ data.flashcard.name }}</h2>
+  <div
+    class="flippable-card"
+    [ngClass]="{ flipped: flipped }"
+    (click)="flipped = !flipped"
+  >
+    <mat-card>
+      <mat-card-title>{{ data.flashcard.question }}</mat-card-title>
+    </mat-card>
+
+    <mat-card class="back">
+      <mat-card-title>{{ data.flashcard.answer }}</mat-card-title>
+    </mat-card>
+  </div>
+</div>
 <button
   mat-raised-button
   color="warn"
