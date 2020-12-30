@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
-import { TechniqueService } from '../technique.service';
-import { Technique } from '../technique';
+import { TechniqueService } from 'src/app/techniques/technique.service';
+import { Technique } from 'src/app/techniques/technique';
 
 import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Quiz } from '../../quiz';
-import { QuizService } from '../../quiz.service';
+import { Quiz } from 'src/app/quiz';
+import { QuizService } from 'src/app/quiz.service';
+import { Flashcard } from 'src/app/flashcard';
+import { FlashcardService } from 'src/app/flashcard.service';
 
 @Component({
   selector: 'app-technique-detail',
@@ -17,18 +19,21 @@ import { QuizService } from '../../quiz.service';
 export class TechniqueDetailComponent implements OnInit {
   technique$: Observable<Technique>;
   quiz$: Observable<Quiz>;
+  flashcard$: Observable<Flashcard>;
   display = false;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private techniqueService: TechniqueService,
-    private quizService: QuizService
+    private quizService: QuizService,
+    private flashcardService: FlashcardService
   ) {}
 
   ngOnInit(): void {
     this.getTechnique();
     this.getQuiz();
+    this.getFlashcard();
   }
 
   getTechnique(): void {
@@ -43,6 +48,14 @@ export class TechniqueDetailComponent implements OnInit {
     this.quiz$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.quizService.getQuiz(+params.get('id'))
+      )
+    );
+  }
+
+  getFlashcard(): void {
+    this.flashcard$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.flashcardService.getFlashcard(+params.get('id'))
       )
     );
   }

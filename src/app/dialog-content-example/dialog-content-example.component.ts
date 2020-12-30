@@ -19,7 +19,7 @@ export interface DialogData {
 @Component({
   selector: 'app-dialog-content-example',
   templateUrl: 'dialog-content-example.component.html',
-  styleUrls: ['dialog-content-example.component.scss'],
+  styleUrls: ['dialog-content-example.component.css'],
 })
 export class DialogContentExampleComponent {
   @Input() quiz: Quiz;

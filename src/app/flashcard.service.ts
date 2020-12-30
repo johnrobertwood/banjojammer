@@ -4,13 +4,13 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Quiz } from './quiz';
+import { Flashcard } from './flashcard';
 import { MessageService } from './message.service';
 import { tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
-export class QuizService {
-  private quizzesUrl = 'api/quizzes'; // URL to web api
+export class FlashcardService {
+  private flashcardsUrl = 'api/flashcards'; // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -21,20 +21,20 @@ export class QuizService {
     private messageService: MessageService
   ) {}
 
-  getQuiz(id: number): Observable<Quiz> {
-    const url = `${this.quizzesUrl}/${id}`;
-    this.messageService.add(`QuizService: fetched quiz id=${id}`);
-    return this.http.get<Quiz>(url).pipe(
+  getFlashcard(id: number): Observable<Flashcard> {
+    const url = `${this.flashcardsUrl}/${id}`;
+    this.messageService.add(`FlashcardService: fetched flashcard id=${id}`);
+    return this.http.get<Flashcard>(url).pipe(
       tap((_) => this.log(`fetched technique id=${id}`)),
-      catchError(this.handleError<Quiz>('getTechnique'))
+      catchError(this.handleError<Flashcard>('getTechnique'))
     );
   }
 
-  // updateQuiz(quiz: Quiz): Observable<Quiz> {
-  //   console.log('update quiz in service now');
-  //   return this.http.put(this.quizzesUrl, quiz, this.httpOptions).pipe(
-  //     tap((_) => this.log(`updated quiz id=${quiz.id}`)),
-  //     catchError(this.handleError<any>('updateQuiz'))
+  // updateFlashcard(flashcard: Flashcard): Observable<Flashcard> {
+  //   console.log('update flashcard in service now');
+  //   return this.http.put(this.flashcardzesUrl, flashcard, this.httpOptions).pipe(
+  //     tap((_) => this.log(`updated flashcard id=${flashcard.id}`)),
+  //     catchError(this.handleError<any>('updateFlashcard'))
   //   );
   // }
 

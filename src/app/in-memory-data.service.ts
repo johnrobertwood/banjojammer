@@ -57,6 +57,15 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 20, name: 'Straight Kneebar Quiz' },
     ];
 
+    const flashcards = [
+      {
+        id: 11,
+        name: 'Armbar',
+        question: 'What is the armbar postion',
+        answer: 'Cross grip pull over body',
+      },
+    ];
+
     const histories = [
       { id: 11, name: 'Monday' },
       { id: 12, name: 'Tuesday' },
@@ -66,7 +75,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 16, name: 'Saturday' },
       { id: 17, name: 'Sunday' },
     ];
-    return { techniques, quizzes, histories };
+    return { techniques, quizzes, flashcards, histories };
   }
 
   // Overrides the genId method to ensure that a technique always has an id.

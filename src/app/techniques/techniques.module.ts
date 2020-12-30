@@ -8,6 +8,11 @@ import {
   DialogContentExampleComponent,
   DialogContentExampleDialogComponent,
 } from '../dialog-content-example/dialog-content-example.component';
+import {
+  DialogContentFlashcardComponent,
+  DialogContentFlashcardDialogComponent,
+} from '../dialog-content-flashcard/dialog-content-flashcard.component';
+import { GameCardComponent } from '../game-card/game-card.component';
 
 import { TechniquesRoutingModule } from './techniques-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -20,6 +25,9 @@ import { AppMaterialModule } from '../app-material.module';
     TechniqueDetailComponent,
     DialogContentExampleComponent,
     DialogContentExampleDialogComponent,
+    DialogContentFlashcardComponent,
+    DialogContentFlashcardDialogComponent,
+    GameCardComponent,
   ],
   imports: [
     CommonModule,
