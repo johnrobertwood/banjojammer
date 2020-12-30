@@ -4,7 +4,7 @@
   <ul class="questions">
     <li *ngFor="let response of data.quiz.responses">
       <button
-        mat-button
+        mat-raised-button
         (click)="selectAnswer(response.correct)"
         [ngClass]="{ green: data.answered && response.correct }"
       >
@@ -14,4 +14,11 @@
   </ul>
 </div>
 
-<button mat-button [mat-dialog-close]="data" cdkFocusInitial>Close</button>
+<button
+  mat-raised-button
+  color="warn"
+  [mat-dialog-close]="data"
+  cdkFocusInitial
+>
+  Close
+</button>
