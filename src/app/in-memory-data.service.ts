@@ -82,7 +82,21 @@ export class InMemoryDataService implements InMemoryDbService {
           },
         ],
       },
-      { id: 15, name: 'Omoplata Quiz' },
+      {
+        id: 15,
+        name: 'Omoplata Quiz',
+        question: 'What is first move of Omoplata',
+        responses: [
+          {
+            text: 'Put oppponents hand in your pocket',
+            correct: true,
+          },
+          {
+            text: 'Wrong answer',
+            correct: false,
+          },
+        ],
+      },
       { id: 16, name: 'Guillotine Quiz' },
       { id: 17, name: 'Head and Arm Choke Quiz' },
       { id: 18, name: 'Americana Quiz' },
@@ -118,9 +132,38 @@ export class InMemoryDataService implements InMemoryDbService {
         answer:
           'Finish RNC with bottom arm choking, ear to ear in tight then arch hips',
       },
+      {
+        id: 15,
+        name: 'Omoplata',
+        question: 'Direction to point feet on Omoplata finish',
+        answer: 'Point feet away from opponent',
+      },
     ];
 
-    return { techniques, quizzes, flashcards };
+    const videos = [
+      {
+        id: 11,
+        url: 'https://www.youtube.com/embed/pQ43Oy5k9yQ',
+      },
+      {
+        id: 12,
+        url: 'https://www.youtube.com/embed/oVvEQeasAxQ',
+      },
+      {
+        id: 13,
+        url: 'https://www.youtube.com/embed/mVkKOPNGvjA',
+      },
+      {
+        id: 14,
+        url: 'https://www.youtube.com/embed/LppnEfRoFIM',
+      },
+      {
+        id: 15,
+        url: 'https://www.youtube.com/embed/tfvEGtSCIRI',
+      },
+    ];
+
+    return { techniques, quizzes, flashcards, videos };
   }
 
   // Overrides the genId method to ensure that a technique always has an id.

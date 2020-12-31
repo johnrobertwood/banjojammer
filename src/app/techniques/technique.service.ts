@@ -10,6 +10,7 @@ import { MessageService } from 'src/app/message.service';
 @Injectable({ providedIn: 'root' })
 export class TechniqueService {
   private techniquesUrl = 'api/techniques'; // URL to web api
+  private videosUrl = 'api/videos';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -25,6 +26,15 @@ export class TechniqueService {
     return this.http.get<Technique[]>(this.techniquesUrl).pipe(
       tap((_) => this.log('fetched techniques')),
       catchError(this.handleError<Technique[]>('getTechniques', []))
+    );
+  }
+
+  getVideo(id: number): Observable<any> {
+    const url = `${this.videosUrl}/${id}`;
+    this.messageService.add(`TechniqueService: fetched video id=${id}`);
+    return this.http.get<any>(url).pipe(
+      tap((_) => this.log(`fetched technique id=${id}`)),
+      catchError(this.handleError<Technique>('getVideo'))
     );
   }
 

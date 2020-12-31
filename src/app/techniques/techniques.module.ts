@@ -17,6 +17,7 @@ import { TechniquesRoutingModule } from './techniques-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { AppMaterialModule } from 'src/app/app-material.module';
+import { SafePipe } from '../safe.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AppMaterialModule } from 'src/app/app-material.module';
     DialogContentExampleDialogComponent,
     DialogContentFlashcardComponent,
     DialogContentFlashcardDialogComponent,
+    SafePipe,
   ],
   imports: [
     CommonModule,

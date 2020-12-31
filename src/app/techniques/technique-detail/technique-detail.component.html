@@ -1,8 +1,10 @@
 <div *ngIf="technique$ | async as technique">
   <h2>{{ technique.name | uppercase }} Details</h2>
-  <div>
+  <div *ngIf="videoUrl$ | async as videoUrl">
     <iframe
-      src="https://www.youtube.com/embed/5-sfG8BV8wU"
+      width="560"
+      height="315"
+      [src]="videoUrl.url | safe"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen

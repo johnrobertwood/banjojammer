@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Quiz } from 'src/app/quiz';
 import { QuizService } from 'src/app/quiz.service';
@@ -21,6 +21,8 @@ export class TechniqueDetailComponent implements OnInit {
   quiz$: Observable<Quiz>;
   flashcard$: Observable<Flashcard>;
   display = false;
+  videoUrl$: Observable<any>;
+  videoUrl = 'https://www.youtube.com/embed/XxV9jHMcQ-w';
 
   constructor(
     private route: ActivatedRoute,
@@ -34,6 +36,15 @@ export class TechniqueDetailComponent implements OnInit {
     this.getTechnique();
     this.getQuiz();
     this.getFlashcard();
+    this.getVideoUrl();
+  }
+
+  getVideoUrl(): void {
+    this.videoUrl$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.techniqueService.getVideo(+params.get('id'))
+      )
+    );
   }
 
   getTechnique(): void {
