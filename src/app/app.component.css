@@ -2,7 +2,7 @@
   width: 300px;
 } */
 
-mat-toolbar {
+.content-nav {
   display: flex;
   justify-content: flex-end;
 }
@@ -16,5 +16,7 @@ mat-toolbar {
 }
 
 .main-container {
+  display: flex;
   padding: 20px;
+  max-width: 600px;
 }
