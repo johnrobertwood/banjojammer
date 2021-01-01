@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   selectedId: number;
 
   constructor(
-    private _breakpointObserver: BreakpointObserver,
+    private breakpointObserver: BreakpointObserver,
     private techniqueService: TechniqueService,
     private route: ActivatedRoute
   ) {}
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.getTechniques();
 
-    this._breakpointObserver
+    this.breakpointObserver
       .observe(['(max-width: 800px)'])
       .pipe(pluck('matches'))
       .subscribe((m: boolean) => (this.isSmallScreen = m));

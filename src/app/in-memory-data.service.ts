@@ -18,16 +18,6 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 18, name: 'Americana' },
       { id: 19, name: 'Straight Armlock' },
       { id: 20, name: 'Straight Kneebar' },
-      { id: 21, name: 'Armbar2' },
-      { id: 22, name: 'Triangle2' },
-      { id: 23, name: 'Kimura2' },
-      { id: 24, name: 'Rear Naked Choke2' },
-      { id: 25, name: 'Omoplata2' },
-      { id: 26, name: 'Guillotine2' },
-      { id: 27, name: 'Head and Arm Choke2' },
-      { id: 28, name: 'Americana2' },
-      { id: 29, name: 'Straight Armlock2' },
-      { id: 30, name: 'Straight Kneebar2' },
     ];
 
     const quizzes = [
@@ -97,11 +87,89 @@ export class InMemoryDataService implements InMemoryDbService {
           },
         ],
       },
-      { id: 16, name: 'Guillotine Quiz' },
-      { id: 17, name: 'Head and Arm Choke Quiz' },
-      { id: 18, name: 'Americana Quiz' },
-      { id: 19, name: 'Straight Armlock Quiz' },
-      { id: 20, name: 'Straight Kneebar Quiz' },
+      {
+        id: 16,
+        name: 'Guillotine Quiz',
+        question: 'T/F To finish a guillotine you crunch and squeeze',
+        responses: [
+          {
+            text: 'True',
+            correct: true,
+          },
+          {
+            text: 'False',
+            correct: false,
+          },
+        ],
+      },
+      {
+        id: 17,
+        name: 'Head and Arm Choke Quiz',
+        question: 'What is the final step to finish arm triangle choke?',
+        responses: [
+          {
+            text: 'Sink the hips low and flatten out',
+            correct: true,
+          },
+          {
+            text: 'Crank their face',
+            correct: false,
+          },
+          {
+            text: 'Lift up on your toes',
+            correct: false,
+          },
+          {
+            text: 'Explode up with your hips',
+            correct: false,
+          },
+        ],
+      },
+      {
+        id: 18,
+        name: 'Americana Quiz',
+        question: 'T/F Americana works best when his elbow is near his hip',
+        responses: [
+          {
+            text: 'True',
+            correct: true,
+          },
+          {
+            text: 'False',
+            correct: false,
+          },
+        ],
+      },
+      {
+        id: 19,
+        name: 'Straight Armlock Quiz',
+        question: 'T/F Straight arm lock goes well with Americana',
+        responses: [
+          {
+            text: 'True',
+            correct: true,
+          },
+          {
+            text: 'False',
+            correct: false,
+          },
+        ],
+      },
+      {
+        id: 20,
+        name: 'Straight Kneebar Quiz',
+        question: 'T/F Straight knee bar is IBJJF legal',
+        responses: [
+          {
+            text: 'True',
+            correct: true,
+          },
+          {
+            text: 'False',
+            correct: false,
+          },
+        ],
+      },
     ];
 
     const flashcards = [
@@ -138,6 +206,36 @@ export class InMemoryDataService implements InMemoryDbService {
         question: 'Direction to point feet on Omoplata finish',
         answer: 'Point feet away from opponent',
       },
+      {
+        id: 16,
+        name: 'Guillotine',
+        question: 'How to finish a guillotine',
+        answer: 'Crunch in with arms and squeeze, don"t pull',
+      },
+      {
+        id: 17,
+        name: 'Head and Arm Choke',
+        question: 'What is the finish for head and arm choke',
+        answer: 'Sink with the hips and flatten out low',
+      },
+      {
+        id: 18,
+        name: 'Americana',
+        question: 'How to finish an Americana',
+        answer: 'Bring his arm down towards his hip',
+      },
+      {
+        id: 19,
+        name: 'Straight Arm Lock',
+        question: 'Works with which other arm locks?',
+        answer: 'Americana or kimura',
+      },
+      {
+        id: 20,
+        name: 'Straight Knee Bar',
+        question: 'The Straight Knee Bar is IBJJF legal?',
+        answer: 'True',
+      },
     ];
 
     const videos = [
@@ -160,6 +258,26 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 15,
         url: 'https://www.youtube.com/embed/tfvEGtSCIRI',
+      },
+      {
+        id: 16,
+        url: 'https://www.youtube.com/embed/UbcqJETDUY8',
+      },
+      {
+        id: 17,
+        url: 'https://www.youtube.com/embed/xWR68zc-3GE',
+      },
+      {
+        id: 18,
+        url: 'https://www.youtube.com/embed/FNyL93v5fGs',
+      },
+      {
+        id: 19,
+        url: 'https://www.youtube.com/embed/iPnQx-6RYpU',
+      },
+      {
+        id: 20,
+        url: 'https://www.youtube.com/embed/1UYJRNqW5Ao',
       },
     ];
 
