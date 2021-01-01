@@ -6,6 +6,7 @@ h1 a {
 .content-nav {
   display: flex;
   justify-content: space-between;
+  padding-right: 50px;
 }
 
 .nav-container {
