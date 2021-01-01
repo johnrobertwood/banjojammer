@@ -7,14 +7,17 @@
     position="end"
   >
     <mat-toolbar color="warn">
+      <div>
+        <h2>Techniques</h2>
+      </div>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
-          <a mat-menu-item routerLink="/techniques" routerLinkActive="active"
-            >Techniques</a
-          >
+          <a mat-menu-item routerLink="/login">Login</a>
         </button>
         <button mat-menu-item>
-          <a mat-menu-item routerLink="/login">Login</a>
+          <a mat-menu-item routerLink="/techniques" routerLinkActive="active"
+            >Technique List</a
+          >
         </button>
         <button mat-menu-item>
           <a mat-menu-item routerLink="/admin" routerLinkActive="active"
@@ -45,10 +48,15 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar class="content-nav" color="primary">
-      <button mat-button [matMenuTriggerFor]="menu">Login</button>
-      <button mat-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
+      <div>
+        <h1><a routerLink="/technique/11">Jiu Jitsu Memorizer</a></h1>
+      </div>
+      <div>
+        <button mat-button [matMenuTriggerFor]="menu">Login</button>
+        <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
     </mat-toolbar>
     <div class="main-container">
       <div [@routeAnimation]="getAnimationData(routerOutlet)">
