@@ -35,7 +35,6 @@ export class DialogContentFlashcardComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.answered = true;
-      console.log('The dialog was closed');
     });
   }
 }

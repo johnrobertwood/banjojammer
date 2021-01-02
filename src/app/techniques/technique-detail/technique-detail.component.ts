@@ -4,12 +4,13 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap, tap } from 'rxjs/operators';
+import { pluck, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Quiz } from 'src/app/quiz';
 import { QuizService } from 'src/app/quiz.service';
 import { Flashcard } from 'src/app/flashcard';
 import { FlashcardService } from 'src/app/flashcard.service';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-technique-detail',
@@ -20,11 +21,11 @@ export class TechniqueDetailComponent implements OnInit {
   technique$: Observable<Technique>;
   quiz$: Observable<Quiz>;
   flashcard$: Observable<Flashcard>;
-  display = false;
   videoUrl$: Observable<any>;
-  videoUrl = 'https://www.youtube.com/embed/XxV9jHMcQ-w';
+  isSmallScreen: boolean;
 
   constructor(
+    private breakpointObserver: BreakpointObserver,
     private route: ActivatedRoute,
     private router: Router,
     private techniqueService: TechniqueService,
@@ -37,6 +38,11 @@ export class TechniqueDetailComponent implements OnInit {
     this.getQuiz();
     this.getFlashcard();
     this.getVideoUrl();
+
+    this.breakpointObserver
+      .observe(['(max-width: 800px)'])
+      .pipe(pluck('matches'))
+      .subscribe((m: boolean) => (this.isSmallScreen = m));
   }
 
   getVideoUrl(): void {

@@ -51,7 +51,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     this.authService.redirectUrl = url;
 
     // Create a dummy session id
-    const sessionId = 123456789;
+    const sessionId = 9999999999;
 
     // Set our navigation extras object
     // that contains our global query params and fragment
