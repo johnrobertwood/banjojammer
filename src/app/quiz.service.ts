@@ -7,10 +7,12 @@ import { catchError } from 'rxjs/operators';
 import { Quiz } from './quiz';
 import { MessageService } from './message.service';
 import { tap } from 'rxjs/operators';
+import { Flashcard } from './flashcard';
 
 @Injectable({ providedIn: 'root' })
 export class QuizService {
   private quizzesUrl = 'api/quizzes'; // URL to web api
+  private flashcardsUrl = 'api/flashcards';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -30,13 +32,21 @@ export class QuizService {
     );
   }
 
-  // updateQuiz(quiz: Quiz): Observable<Quiz> {
-  //   console.log('update quiz in service now');
-  //   return this.http.put(this.quizzesUrl, quiz, this.httpOptions).pipe(
-  //     tap((_) => this.log(`updated quiz id=${quiz.id}`)),
-  //     catchError(this.handleError<any>('updateQuiz'))
-  //   );
-  // }
+  updateFlashcard(flashcard: Flashcard): Observable<Flashcard> {
+    console.log('update flashcard in service now');
+    return this.http.put(this.flashcardsUrl, flashcard, this.httpOptions).pipe(
+      tap((_) => this.log(`updated quiz id=${flashcard.id}`)),
+      catchError(this.handleError<any>('updateQuiz'))
+    );
+  }
+
+  updateQuiz(quiz: Quiz): Observable<Quiz> {
+    console.log('update quiz in service now', quiz);
+    return this.http.put(this.quizzesUrl, quiz, this.httpOptions).pipe(
+      tap((_) => this.log(`updated quiz id=${quiz.id}`)),
+      catchError(this.handleError<any>('updateQuiz'))
+    );
+  }
 
   /**
    * Handle Http operation that failed.

@@ -6,6 +6,7 @@ import {
 } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Quiz } from 'src/app/quiz';
+import { QuizService } from '../quiz.service';
 
 export interface DialogData {
   answered: boolean;
@@ -27,7 +28,11 @@ export class DialogContentExampleComponent {
   correctAnswer: boolean;
   answered = false;
 
-  constructor(public dialog: MatDialog, private router: Router) {}
+  constructor(
+    public dialog: MatDialog,
+    private router: Router,
+    private quizService: QuizService
+  ) {}
 
   openDialog(): void {
     this.answered = false;
@@ -41,9 +46,10 @@ export class DialogContentExampleComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
       this.answered = result.answered;
       this.correctAnswer = result.correctAnswer;
+      this.quiz.complete = true;
+      this.quizService.updateQuiz(this.quiz).subscribe();
     });
   }
 }

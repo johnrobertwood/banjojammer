@@ -34,6 +34,7 @@ export class InMemoryDataService implements InMemoryDbService {
           { text: 'Shoot hips up', correct: false },
           { text: 'Sweep the leg', correct: false },
         ],
+        complete: false,
       },
 
       {
@@ -46,6 +47,7 @@ export class InMemoryDataService implements InMemoryDbService {
           { text: 'This is answer c', correct: false },
           { text: 'This is answer d', correct: false },
         ],
+        complete: false,
       },
       {
         id: 13,
@@ -55,6 +57,7 @@ export class InMemoryDataService implements InMemoryDbService {
           { text: 'True', correct: true },
           { text: 'False', correct: false },
         ],
+        complete: false,
       },
       {
         id: 14,
@@ -71,6 +74,7 @@ export class InMemoryDataService implements InMemoryDbService {
             correct: false,
           },
         ],
+        complete: false,
       },
       {
         id: 15,
@@ -86,6 +90,7 @@ export class InMemoryDataService implements InMemoryDbService {
             correct: false,
           },
         ],
+        complete: false,
       },
       {
         id: 16,
@@ -101,6 +106,7 @@ export class InMemoryDataService implements InMemoryDbService {
             correct: false,
           },
         ],
+        complete: false,
       },
       {
         id: 17,
@@ -124,6 +130,7 @@ export class InMemoryDataService implements InMemoryDbService {
             correct: false,
           },
         ],
+        complete: false,
       },
       {
         id: 18,
@@ -139,6 +146,7 @@ export class InMemoryDataService implements InMemoryDbService {
             correct: false,
           },
         ],
+        complete: false,
       },
       {
         id: 19,
@@ -154,6 +162,7 @@ export class InMemoryDataService implements InMemoryDbService {
             correct: false,
           },
         ],
+        complete: false,
       },
       {
         id: 20,
@@ -169,6 +178,7 @@ export class InMemoryDataService implements InMemoryDbService {
             correct: false,
           },
         ],
+        complete: false,
       },
     ];
 
@@ -178,12 +188,14 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Armbar',
         question: 'What is the armbar postion?',
         answer: 'Cross grip pull over body',
+        complete: false,
       },
       {
         id: 12,
         name: 'Triangle',
         question: 'What is the triangle key points?',
         answer: 'Stuff one hand and pull the other',
+        complete: false,
       },
       {
         id: 13,
@@ -192,6 +204,7 @@ export class InMemoryDataService implements InMemoryDbService {
           'True or False: Kimura works in a large variety of different positions?',
         answer:
           'True, Kimura is a great control technique in many different guard and attack positions',
+        complete: false,
       },
       {
         id: 14,
@@ -199,42 +212,49 @@ export class InMemoryDataService implements InMemoryDbService {
         question: 'Steps to finish a Rear Naked Choke?',
         answer:
           'Finish RNC with bottom arm choking, ear to ear in tight then arch hips',
+        complete: false,
       },
       {
         id: 15,
         name: 'Omoplata',
         question: 'Direction to point feet on Omoplata finish',
         answer: 'Point feet away from opponent',
+        complete: false,
       },
       {
         id: 16,
         name: 'Guillotine',
         question: 'How to finish a guillotine',
         answer: 'Crunch in with arms and squeeze, don"t pull',
+        complete: false,
       },
       {
         id: 17,
         name: 'Head and Arm Choke',
         question: 'What is the finish for head and arm choke',
         answer: 'Sink with the hips and flatten out low',
+        complete: false,
       },
       {
         id: 18,
         name: 'Americana',
         question: 'How to finish an Americana',
         answer: 'Bring his arm down towards his hip',
+        complete: false,
       },
       {
         id: 19,
         name: 'Straight Arm Lock',
         question: 'Works with which other arm locks?',
         answer: 'Americana or kimura',
+        complete: false,
       },
       {
         id: 20,
         name: 'Straight Knee Bar',
         question: 'The Straight Knee Bar is IBJJF legal?',
         answer: 'True',
+        complete: false,
       },
     ];
 

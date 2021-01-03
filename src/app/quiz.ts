@@ -3,4 +3,5 @@ export interface Quiz {
   name: string;
   question: string;
   responses: [{ text: string; correct: boolean }];
+  complete: boolean;
 }

@@ -3,4 +3,5 @@ export interface Flashcard {
   name: string;
   question: string;
   answer: string;
+  complete: boolean;
 }
