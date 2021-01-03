@@ -12,8 +12,20 @@
   </div>
   <div class="button-row">
     <div>
-      <button mat-raised-button color="warn" (click)="goBack(technique.id)">
+      <button
+        mat-raised-button
+        color="warn"
+        [routerLink]="['/technique', technique.id - 1]"
+        class="nav-button"
+      >
         back
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        [routerLink]="['/technique', technique.id + 1]"
+      >
+        forward
       </button>
     </div>
     <div class="practice-buttons">
@@ -24,7 +36,6 @@
       ></app-dialog-content-example>
       <app-dialog-content-flashcard
         *ngIf="flashcard$ | async as flashcard"
-        class="flashcard-button"
         [flashcard]="flashcard"
       ></app-dialog-content-flashcard>
     </div>

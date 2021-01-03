@@ -76,8 +76,4 @@ export class TechniqueDetailComponent implements OnInit {
       )
     );
   }
-
-  goBack(techniqueId: number): void {
-    this.router.navigate(['/techniques', { id: techniqueId }]);
-  }
 }
