@@ -11,28 +11,25 @@
         <h2>Techniques</h2>
       </div>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <a mat-menu-item routerLink="/login">Login</a>
+        <button mat-menu-item routerLink="/login">Login</button>
+        <button
+          mat-menu-item
+          routerLink="/techniques"
+          routerLinkActive="active"
+        >
+          Technique List
         </button>
-        <button mat-menu-item>
-          <a mat-menu-item routerLink="/techniques" routerLinkActive="active"
-            >Technique List</a
-          >
+        <button mat-menu-item routerLink="/admin" routerLinkActive="active">
+          Admin
         </button>
-        <button mat-menu-item>
-          <a mat-menu-item routerLink="/admin" routerLinkActive="active"
-            >Admin</a
-          >
+        <button mat-menu-item routerLink="/profile" routerLinkActive="active">
+          Profile
         </button>
-        <button mat-menu-item>
-          <a mat-menu-item routerLink="/profile" routerLinkActive="active"
-            >Profile</a
-          >
-        </button>
-        <button mat-menu-item>
-          <a mat-menu-item [routerLink]="[{ outlets: { popup: ['compose'] } }]"
-            >Contact</a
-          >
+        <button
+          mat-menu-item
+          [routerLink]="[{ outlets: { popup: ['compose'] } }]"
+        >
+          Contact
         </button>
       </mat-menu>
     </mat-toolbar>

@@ -17,14 +17,16 @@
       </button>
     </div>
     <div class="practice-buttons">
-      <div *ngIf="quiz$ | async as quiz" class="quiz-button">
-        <app-dialog-content-example [quiz]="quiz"></app-dialog-content-example>
-      </div>
-      <div *ngIf="flashcard$ | async as flashcard" class="flashcard-button">
-        <app-dialog-content-flashcard
-          [flashcard]="flashcard"
-        ></app-dialog-content-flashcard>
-      </div>
+      <app-dialog-content-example
+        *ngIf="quiz$ | async as quiz"
+        class="quiz-button"
+        [quiz]="quiz"
+      ></app-dialog-content-example>
+      <app-dialog-content-flashcard
+        *ngIf="flashcard$ | async as flashcard"
+        class="flashcard-button"
+        [flashcard]="flashcard"
+      ></app-dialog-content-flashcard>
     </div>
   </div>
 </div>
