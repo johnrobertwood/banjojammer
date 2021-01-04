@@ -31,7 +31,7 @@ export class LoginComponent {
         this.authenticationService.isLoggedIn = true;
         // Usually you would use the redirect URL from the auth service.
         // However to keep the example simple, we will always redirect to `/admin`.
-        const redirectUrl = '/admin';
+        const redirectUrl = '/profile';
 
         // Set our navigation extras object
         // that passes on our global query params and fragment
