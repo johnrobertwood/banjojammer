@@ -9,7 +9,7 @@ button {
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
-  width: 400px;
+  width: 100%;
 }
 
 ul {
@@ -27,6 +27,9 @@ li {
   align-items: center;
 }
 
+.questions {
+  width: 100%;
+}
 .questions button {
   align-items: flex-start;
 }

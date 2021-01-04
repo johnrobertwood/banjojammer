@@ -1,24 +1,30 @@
-<div class="card-container">
-  <h2>{{ data.flashcard.name }}</h2>
-  <div
-    class="flippable-card"
-    [ngClass]="{ flipped: flipped }"
-    (click)="flipped = !flipped"
-  >
-    <mat-card>
-      <mat-card-title>{{ data.flashcard.question }}</mat-card-title>
+<div
+  *ngIf="data.flashcard"
+  (click)="revealAnswer()"
+  mat-dialog-content
+  class="dialog-container"
+>
+  <div class="card-container">
+    <mat-card class="top-card">
+      <p class="card-text">
+        {{ data.flashcard.question }}
+      </p>
     </mat-card>
-
-    <mat-card class="back">
-      <mat-card-title>{{ data.flashcard.answer }}</mat-card-title>
+    <mat-card
+      class="hidden-card"
+      [style]="reveal ? 'background-color: #fff;' : 'background-color: #eee;'"
+    >
+      <p class="card-text">
+        {{ reveal ? data.flashcard.answer : "Click to Reveal" }}
+      </p>
     </mat-card>
   </div>
+  <button
+    mat-raised-button
+    color="warn"
+    [mat-dialog-close]="data"
+    cdkFocusInitial
+  >
+    Close
+  </button>
 </div>
-<button
-  mat-raised-button
-  color="warn"
-  [mat-dialog-close]="data"
-  cdkFocusInitial
->
-  Close
-</button>

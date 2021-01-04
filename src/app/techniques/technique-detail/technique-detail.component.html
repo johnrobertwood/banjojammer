@@ -18,14 +18,15 @@
         [routerLink]="['/technique', technique.id - 1]"
         class="nav-button"
       >
-        back
+        prev
       </button>
       <button
         mat-raised-button
         color="warn"
         [routerLink]="['/technique', technique.id + 1]"
+        class="nav-button"
       >
-        forward
+        next
       </button>
     </div>
     <div class="practice-buttons">

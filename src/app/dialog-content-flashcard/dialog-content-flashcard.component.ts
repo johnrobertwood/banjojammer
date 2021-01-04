@@ -48,10 +48,10 @@ export class DialogContentFlashcardComponent {
 @Component({
   selector: 'app-dialog-content-flashcard-dialog',
   templateUrl: 'dialog-content-flashcard-dialog.component.html',
-  styleUrls: ['dialog-content-flashcard.component.css'],
+  styleUrls: ['dialog-content-flashcard-dialog.component.css'],
 })
 export class DialogContentFlashcardDialogComponent {
-  flipped: boolean;
+  reveal: boolean;
 
   constructor(
     public dialogRef: MatDialogRef<DialogContentFlashcardDialogComponent>,
@@ -60,5 +60,9 @@ export class DialogContentFlashcardDialogComponent {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  revealAnswer() {
+    this.reveal = true;
   }
 }
