@@ -33,13 +33,7 @@ button:disabled {
 
 .button-row {
   display: flex;
-  justify-content: space-between;
-}
-
-.practice-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  // justify-content: space-between;
 }
 
 .nav-button {
