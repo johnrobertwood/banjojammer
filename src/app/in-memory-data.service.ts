@@ -24,7 +24,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 11,
         name: 'Armbar Quiz',
-        question: 'First move of armbar',
+        question: 'First move of armbar?',
         responses: [
           {
             text: 'Same side wrist grip, cross arm behind the tricep',

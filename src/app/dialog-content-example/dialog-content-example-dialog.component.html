@@ -1,6 +1,5 @@
-<div *ngIf="data.quiz" mat-dialog-content>
-  <h2>{{ data.quiz.name }}</h2>
-  <p>{{ data.quiz.question }}</p>
+<div *ngIf="data.quiz" mat-dialog-content class="dialog-container">
+  <h2>{{ data.quiz.question }}</h2>
   <ul class="questions">
     <li *ngFor="let response of data.quiz.responses">
       <button
@@ -12,13 +11,12 @@
       </button>
     </li>
   </ul>
+  <button
+    mat-raised-button
+    color="warn"
+    [mat-dialog-close]="data"
+    cdkFocusInitial
+  >
+    Close
+  </button>
 </div>
-
-<button
-  mat-raised-button
-  color="warn"
-  [mat-dialog-close]="data"
-  cdkFocusInitial
->
-  Close
-</button>
