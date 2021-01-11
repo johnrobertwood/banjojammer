@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs';
-
-import { AuthService } from '@auth0/auth0-angular';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -13,14 +9,15 @@ export class AuthenticationService {
   // store the URL so we can redirect after logging in
   redirectUrl: string;
 
-  constructor(public auth: AuthService) {}
+  constructor() {}
 
-  login(): Observable<any> {
-    this.auth.loginWithPopup();
-    return this.auth.isAuthenticated$;
+  login(): boolean {
+    this.isLoggedIn = true;
+    return this.isLoggedIn;
   }
 
-  logout(): void {
-    this.auth.logout();
+  logout(): boolean {
+    this.isLoggedIn = false;
+    return this.isLoggedIn;
   }
 }

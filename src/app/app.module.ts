@@ -11,7 +11,6 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationModule } from './auth/auth.module';
-import { AuthModule } from '@auth0/auth0-angular';
 import { TechniquesModule } from './techniques/techniques.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -27,10 +26,6 @@ import { LayoutModule } from '@angular/cdk/layout';
     FormsModule,
     TechniquesModule,
     AuthenticationModule,
-    AuthModule.forRoot({
-      domain: 'woodjohn.auth0.com',
-      clientId: 'BVZwf9OHssu09UursIXOlHs6iiQntLzR',
-    }),
     AppRoutingModule,
     HttpClientModule,
     LayoutModule,

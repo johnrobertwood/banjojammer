@@ -1,20 +1,6 @@
 <h2>LOGIN</h2>
-<p>{{ message }}</p>
-<p>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="login()"
-    *ngIf="!authenticationService.isLoggedIn"
-  >
-    Login
-  </button>
-  <button
-    mat-raised-button
-    color="warn"
-    (click)="logout()"
-    *ngIf="authenticationService.isLoggedIn"
-  >
-    Logout
-  </button>
-</p>
+<amplify-authenticator>
+  <div>
+    <amplify-sign-out></amplify-sign-out>
+  </div>
+</amplify-authenticator>

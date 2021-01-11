@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "jitsproec8c1868": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
