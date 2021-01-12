@@ -27,7 +27,8 @@ export class InMemoryDataService implements InMemoryDbService {
         question: 'First move of armbar?',
         responses: [
           {
-            text: 'Same side wrist grip, cross arm behind the tricep',
+            text:
+              'Same side wrist grip, cross arm behind the tricep and pull arm across your body',
             correct: true,
           },
           { text: 'Cross grip wrist, same side underhook leg', correct: false },
