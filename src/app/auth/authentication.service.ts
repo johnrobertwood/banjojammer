@@ -7,17 +7,15 @@ export class AuthenticationService {
   isLoggedIn = false;
 
   // store the URL so we can redirect after logging in
-  redirectUrl: string;
+  // redirectUrl: string;
 
   constructor() {}
 
-  login(): boolean {
+  login() {
     this.isLoggedIn = true;
-    return this.isLoggedIn;
   }
 
-  logout(): boolean {
+  logout() {
     this.isLoggedIn = false;
-    return this.isLoggedIn;
   }
 }

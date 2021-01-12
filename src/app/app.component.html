@@ -11,25 +11,33 @@
         <h2>Techniques</h2>
       </div>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/login">Login</button>
         <button
+          *ngIf="loggedIn"
           mat-menu-item
-          routerLink="/techniques"
+          routerLink="/profile"
           routerLinkActive="active"
         >
-          Technique List
-        </button>
-        <button mat-menu-item routerLink="/admin" routerLinkActive="active">
-          Admin
-        </button>
-        <button mat-menu-item routerLink="/profile" routerLinkActive="active">
           Profile
         </button>
         <button
+          *ngIf="loggedIn"
+          mat-menu-item
+          routerLink="/admin"
+          routerLinkActive="active"
+        >
+          Admin
+        </button>
+        <!-- <button
           mat-menu-item
           [routerLink]="[{ outlets: { popup: ['compose'] } }]"
         >
           Contact
+        </button> -->
+        <button *ngIf="!loggedIn" mat-menu-item routerLink="/login">
+          Login
+        </button>
+        <button *ngIf="loggedIn" mat-menu-item routerLink="/login">
+          Logout
         </button>
       </mat-menu>
     </mat-toolbar>
@@ -47,7 +55,9 @@
     <mat-toolbar class="content-nav" color="primary">
       <h1><a routerLink="/technique/11">Jiu Jitsu Memorizer</a></h1>
       <div>
-        <button mat-button [matMenuTriggerFor]="menu">Login</button>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>account_box</mat-icon>
+        </button>
         <button *ngIf="isSmallScreen" mat-button (click)="sidenav.toggle()">
           <mat-icon>menu</mat-icon>
         </button>

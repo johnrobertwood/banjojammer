@@ -5,6 +5,8 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { pluck, switchMap } from 'rxjs/operators';
 import { TechniqueService } from './techniques/technique.service';
 import { Technique } from './techniques/technique';
+import { AuthenticationService } from './auth/authentication.service';
+import { Hub } from 'aws-amplify';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +18,23 @@ export class AppComponent implements OnInit {
   techniques: Technique[];
   isSmallScreen: boolean;
   selectedId: number;
+  loggedIn = false;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private techniqueService: TechniqueService,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private authService: AuthenticationService
+  ) {
+    Hub.listen('auth', (data) => {
+      const { payload } = data;
+      this.onAuthEvent(payload);
+      console.log(
+        'A new auth event has happened: ',
+        data.payload.data.username + ' has ' + data.payload.event
+      );
+    });
+  }
 
   ngOnInit() {
     this.getTechniques();
@@ -35,6 +48,18 @@ export class AppComponent implements OnInit {
     return (
       outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation
     );
+  }
+
+  onAuthEvent(data: any) {
+    if (data.event === 'signIn') {
+      this.loggedIn = true;
+      this.authService.login();
+    }
+
+    if (data.event === 'signOut') {
+      this.loggedIn = false;
+      this.authService.logout();
+    }
   }
 
   getTechniques(): void {

@@ -9,39 +9,17 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  message: string;
-
   constructor(
-    public authenticationService: AuthenticationService,
+    public authService: AuthenticationService,
     public router: Router
   ) {
-    this.setMessage();
-
-    Hub.listen('auth', (data) => {
-      const { payload } = data;
-      this.onAuthEvent(payload);
-      console.log(
-        'A new auth event has happened: ',
-        data.payload.data.username + ' has ' + data.payload.event
-      );
-    });
+    // this.setMessage();
   }
 
-  setMessage() {
-    this.message =
-      'Logged ' + (this.authenticationService.isLoggedIn ? 'in' : 'out');
-  }
-
-  onAuthEvent(data: any) {
-    console.log(data);
-    if (data.event === 'signIn') {
-      this.authenticationService.login();
-    }
-
-    if (data.event === 'signOut') {
-      this.authenticationService.logout();
-    }
-  }
+  // setMessage() {
+  //   this.message =
+  //     'Logged ' + (this.authenticationService.isLoggedIn ? 'in' : 'out');
+  // }
 
   // login() {
   //   if (isAuth) {
