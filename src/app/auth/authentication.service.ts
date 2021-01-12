@@ -8,10 +8,13 @@ export class AuthenticationService {
 
   // store the URL so we can redirect after logging in
   // redirectUrl: string;
+  userData: any;
 
   constructor() {}
 
-  login() {
+  login(payload: any) {
+    console.log(payload);
+    this.userData = payload.data;
     this.isLoggedIn = true;
   }
 

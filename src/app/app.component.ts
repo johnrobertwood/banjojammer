@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
   onAuthEvent(data: any) {
     if (data.event === 'signIn') {
       this.loggedIn = true;
-      this.authService.login();
+      this.authService.login(data);
     }
 
     if (data.event === 'signOut') {
