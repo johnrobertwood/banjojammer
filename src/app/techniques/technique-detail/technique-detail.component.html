@@ -1,6 +1,6 @@
 <div *ngIf="technique$ | async as technique">
   <h2>{{ technique.name | uppercase }} Details</h2>
-  <div *ngIf="videoUrl$ | async as videoUrl">
+  <div *ngIf="videoUrl$ | async as videoUrl" class="video-container">
     <iframe
       [width]="isSmallScreen || '560'"
       [height]="isSmallScreen || '315'"

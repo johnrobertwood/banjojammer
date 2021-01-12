@@ -40,7 +40,7 @@ export class TechniqueDetailComponent implements OnInit {
     this.getVideoUrl();
 
     this.breakpointObserver
-      .observe(['(max-width: 800px)'])
+      .observe(['(max-width: 600px)'])
       .pipe(pluck('matches'))
       .subscribe((m: boolean) => (this.isSmallScreen = m));
   }
