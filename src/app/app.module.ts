@@ -34,7 +34,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
-      passThruUnknownUrl: true,
+      // passThruUnknownUrl: true,
     }),
   ],
   declarations: [
