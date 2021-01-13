@@ -7,6 +7,7 @@ import { TechniqueService } from './techniques/technique.service';
 import { Technique } from './techniques/technique';
 import { AuthenticationService } from './auth/authentication.service';
 import { Hub } from 'aws-amplify';
+import { HubPayload } from './hub-payload';
 
 @Component({
   selector: 'app-root',
@@ -46,7 +47,7 @@ export class AppComponent implements OnInit {
     );
   }
 
-  onAuthEvent(data: any) {
+  onAuthEvent(data: HubPayload) {
     if (data.event === 'signIn') {
       this.loggedIn = true;
       this.authService.login(data);

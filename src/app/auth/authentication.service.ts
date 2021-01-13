@@ -28,7 +28,6 @@ export class AuthenticationService {
   ) {}
 
   login(payload: any) {
-    console.log(payload);
     this.userData = payload.data;
     this.isLoggedIn = true;
   }

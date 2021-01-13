@@ -18,6 +18,7 @@
         [routerLink]="['/technique', technique.id - 1]"
         class="nav-button"
       >
+        <mat-icon aria-hidden="false">keyboard_arrow_left</mat-icon>
         prev
       </button>
       <button
@@ -27,6 +28,7 @@
         class="nav-button"
       >
         next
+        <mat-icon aria-hidden="false">keyboard_arrow_right</mat-icon>
       </button>
     </div>
     <div class="quiz-button-row">
@@ -40,7 +42,7 @@
         class="quiz-button"
         [flashcard]="flashcard"
       ></app-dialog-content-flashcard>
-      <span class="favorite-container">
+      <span class="quiz-button">
         <button
           mat-raised-button
           color="primary"

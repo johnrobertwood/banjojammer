@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
@@ -21,13 +21,12 @@ export class TechniqueDetailComponent implements OnInit {
   technique$: Observable<Technique>;
   quiz$: Observable<Quiz>;
   flashcard$: Observable<Flashcard>;
-  videoUrl$: Observable<any>;
+  videoUrl$: Observable<string>;
   isSmallScreen: boolean;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private route: ActivatedRoute,
-    private router: Router,
     private techniqueService: TechniqueService,
     private quizService: QuizService,
     private flashcardService: FlashcardService
