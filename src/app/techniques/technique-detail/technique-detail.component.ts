@@ -76,4 +76,8 @@ export class TechniqueDetailComponent implements OnInit {
       )
     );
   }
+
+  favoriteTechnique(technique: Technique) {
+    this.techniqueService.favoriteTechnique(technique).subscribe();
+  }
 }

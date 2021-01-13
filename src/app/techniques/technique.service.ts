@@ -97,6 +97,14 @@ export class TechniqueService {
       );
   }
 
+  favoriteTechnique(technique: Technique): Observable<Technique> {
+    technique.favorite = !technique.favorite;
+    return this.http.put(this.techniquesUrl, technique, this.httpOptions).pipe(
+      tap((_) => this.log(`updated favorite for technique id=${technique.id}`)),
+      catchError(this.handleError<any>('favoriteTechnique error'))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

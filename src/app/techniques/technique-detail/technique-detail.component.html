@@ -37,11 +37,16 @@
       ></app-dialog-content-example>
       <app-dialog-content-flashcard
         *ngIf="flashcard$ | async as flashcard"
+        class="quiz-button"
         [flashcard]="flashcard"
       ></app-dialog-content-flashcard>
       <span class="favorite-container">
-        <button mat-raised-button color="primary">
-          <mat-icon aria-hidden="false" [class.goldheart]="true"
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="favoriteTechnique(technique)"
+        >
+          <mat-icon aria-hidden="false" [class.goldheart]="technique.favorite"
             >favorite</mat-icon
           >
           favorite
