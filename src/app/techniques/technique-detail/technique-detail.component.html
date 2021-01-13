@@ -13,6 +13,7 @@
   <div class="button-row">
     <div class="nav-button-row">
       <button
+        *ngIf="technique.id !== 11"
         mat-raised-button
         color="warn"
         [routerLink]="['/technique', technique.id - 1]"
@@ -22,6 +23,7 @@
         prev
       </button>
       <button
+        *ngIf="technique.id !== 20"
         mat-raised-button
         color="warn"
         [routerLink]="['/technique', technique.id + 1]"

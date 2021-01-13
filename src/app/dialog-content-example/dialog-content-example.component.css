@@ -6,9 +6,9 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
-/* button:hover {
+button:hover {
   background-color: #cfd8dc;
-} */
+}
 button:disabled {
   background-color: #eee;
   color: #ccc;
