@@ -41,12 +41,16 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 12,
         name: 'Triangle Quiz',
-        question: 'What is the triangle?',
+        question: 'What are the triangle finishing steps?',
         responses: [
-          { text: 'This is a correct answer (a)', correct: true },
-          { text: 'This is an incorrect answer (b)', correct: false },
-          { text: 'This is answer c', correct: false },
-          { text: 'This is answer d', correct: false },
+          {
+            text:
+              'Underhook the leg, shin is horizontal across back of neck, pull head',
+            correct: true,
+          },
+          { text: 'Stay square and keep leg across back', correct: false },
+          { text: 'Pull them onto their side and squeeze', correct: false },
+          { text: 'Reach for kimura grip', correct: false },
         ],
         complete: false,
       },
@@ -71,7 +75,15 @@ export class InMemoryDataService implements InMemoryDbService {
             correct: true,
           },
           {
-            text: 'Top arm choking',
+            text: 'Top arm choking, crossing feet for control',
+            correct: false,
+          },
+          {
+            text: 'Remove hooks and sit forward',
+            correct: false,
+          },
+          {
+            text: 'Strike their windpipe with a knifehand',
             correct: false,
           },
         ],
@@ -80,14 +92,18 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 15,
         name: 'Omoplata Quiz',
-        question: 'What is first move of Omoplata',
+        question: 'What is first move of Omoplata?',
         responses: [
           {
-            text: 'Put oppponents hand in your pocket',
+            text: 'Put oppponents hand in your pocket and triangle their arm',
             correct: true,
           },
           {
-            text: 'Wrong answer',
+            text: 'Butterfly guard with double underhooks',
+            correct: false,
+          },
+          {
+            text: 'Butt scoot to berimbolo',
             correct: false,
           },
         ],
@@ -96,7 +112,8 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 16,
         name: 'Guillotine Quiz',
-        question: 'T/F To finish a guillotine you crunch and squeeze',
+        question:
+          'True or False: To finish a guillotine you crunch in and squeeze',
         responses: [
           {
             text: 'True',
@@ -218,8 +235,8 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 15,
         name: 'Omoplata',
-        question: 'Direction to point feet on Omoplata finish',
-        answer: 'Point feet away from opponent',
+        question: 'Direction to point knees on Omoplata finish',
+        answer: 'Point knees away from opponent',
         complete: false,
       },
       {
