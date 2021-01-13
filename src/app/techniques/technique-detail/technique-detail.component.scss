@@ -1,3 +1,12 @@
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 button:hover {
   background-color: #cfd8dc;
 }
@@ -26,4 +35,8 @@ button:disabled {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+}
+
+.goldheart {
+  color: yellow;
 }

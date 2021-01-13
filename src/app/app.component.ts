@@ -29,10 +29,6 @@ export class AppComponent implements OnInit {
     Hub.listen('auth', (data) => {
       const { payload } = data;
       this.onAuthEvent(payload);
-      console.log(
-        'A new auth event has happened: ',
-        data.payload.data.username + ' has ' + data.payload.event
-      );
     });
   }
 
@@ -59,6 +55,10 @@ export class AppComponent implements OnInit {
     if (data.event === 'signOut') {
       this.loggedIn = false;
       this.authService.logout();
+    }
+
+    if (data.event === 'signUp') {
+      this.authService.addUser(data).subscribe();
     }
   }
 

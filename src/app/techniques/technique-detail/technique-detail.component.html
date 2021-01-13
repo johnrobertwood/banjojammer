@@ -39,6 +39,14 @@
         *ngIf="flashcard$ | async as flashcard"
         [flashcard]="flashcard"
       ></app-dialog-content-flashcard>
+      <span class="favorite-container">
+        <button mat-raised-button color="primary">
+          <mat-icon aria-hidden="false" [class.goldheart]="true"
+            >favorite</mat-icon
+          >
+          favorite
+        </button>
+      </span>
     </div>
   </div>
 </div>
