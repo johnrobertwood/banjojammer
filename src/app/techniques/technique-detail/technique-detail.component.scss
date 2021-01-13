@@ -20,11 +20,23 @@ button:disabled {
 .button-row {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-button-row {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
 }
 
 .nav-button {
   padding: 5px 8px;
   margin-right: 5px;
+}
+
+.quiz-button-row {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .quiz-button {
