@@ -35,16 +35,33 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getTechniques();
+    this.checkLocalStorage();
 
     this.breakpointObserver
       .observe(['(max-width: 800px)'])
       .pipe(pluck('matches'))
       .subscribe((m: boolean) => (this.isSmallScreen = m));
   }
+
   getAnimationData(outlet: RouterOutlet) {
     return (
       outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation
     );
+  }
+
+  checkLocalStorage() {
+    const localData = localStorage.getItem('currentUser');
+    if (localStorage.getItem('currentUser')) {
+      this.loggedIn = true;
+      this.authService.login({
+        data: {
+          username: JSON.parse(localData).username,
+          attributes: { sub: JSON.parse(localData).userId },
+        },
+      });
+    } else {
+      this.loggedIn = false;
+    }
   }
 
   onAuthEvent(data: HubPayload) {

@@ -60,7 +60,7 @@ export class TechniqueService {
     );
     // console.log(username, techniqueId);
     return this.http.post<any>(url, username, this.httpOptions).pipe(
-      tap((data) => console.log(data)),
+      // tap((data) => console.log(data)),
       map((data) => JSON.parse(data.body)),
       pluck('techniques'),
       map((technique) => {
