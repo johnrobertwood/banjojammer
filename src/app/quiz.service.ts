@@ -25,24 +25,16 @@ export class QuizService {
 
   getQuiz(id: number): Observable<Quiz> {
     const url = `${this.quizzesUrl}/${id}`;
-    this.messageService.add(`QuizService: fetched quiz id=${id}`);
+    // this.messageService.add(`QuizService: fetched quiz id=${id}`);
     return this.http.get<Quiz>(url).pipe(
-      tap((_) => this.log(`fetched technique id=${id}`)),
+      // tap((_) => this.log(`fetched technique id=${id}`)),
       catchError(this.handleError<Quiz>('getTechnique'))
-    );
-  }
-
-  updateFlashcard(flashcard: Flashcard): Observable<Flashcard> {
-    console.log('update flashcard in service now');
-    return this.http.put(this.flashcardsUrl, flashcard, this.httpOptions).pipe(
-      tap((_) => this.log(`updated quiz id=${flashcard.id}`)),
-      catchError(this.handleError<any>('updateQuiz'))
     );
   }
 
   updateQuiz(quiz: Quiz): Observable<Quiz> {
     return this.http.put(this.quizzesUrl, quiz, this.httpOptions).pipe(
-      tap((_) => this.log(`updated quiz id=${quiz.id}`)),
+      // tap((_) => this.log(`updated quiz id=${quiz.id}`)),
       catchError(this.handleError<any>('updateQuiz'))
     );
   }

@@ -11,6 +11,7 @@ import { MessageService } from 'src/app/message.service';
 export class TechniqueService {
   private techniquesUrl = 'api/techniques';
   private videosUrl = 'api/videos';
+  private quizzesUrl = 'api/quizzes'; // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -25,14 +26,14 @@ export class TechniqueService {
 
   getTechniques(): Observable<Technique[]> {
     this.messageService.add(`TechniqueService: fetched techniques`);
-    return this.http.get<Technique[]>(this.techniquesUrl).pipe(
+    return this.http.get<Technique[]>(this.quizzesUrl).pipe(
       tap((_) => this.log('fetched techniques')),
       catchError(this.handleError<Technique[]>('getTechniques', []))
     );
   }
 
   getVideo(id: number): Observable<any> {
-    const url = `${this.videosUrl}/${id}`;
+    const url = `${this.quizzesUrl}/${id}`;
     this.messageService.add(`TechniqueService: fetched video id=${id}`);
     return this.http.get<any>(url).pipe(
       tap((_) => this.log(`fetched technique id=${id}`)),
@@ -40,14 +41,14 @@ export class TechniqueService {
     );
   }
 
-  getTechnique(id: number): Observable<Technique> {
-    const url = `${this.techniquesUrl}/${id}`;
-    this.messageService.add(`TechniqueService: fetched technique id=${id}`);
-    return this.http.get<Technique>(url).pipe(
-      tap((_) => this.log(`fetched technique id=${id}`)),
-      catchError(this.handleError<Technique>('getTechnique'))
-    );
-  }
+  // getTechnique(id: number): Observable<Technique> {
+  //   const url = `${this.quizzesUrl}/${id}`;
+  //   this.messageService.add(`TechniqueService: fetched technique id=${id}`);
+  //   return this.http.get<Technique>(url).pipe(
+  //     tap((_) => this.log(`fetched technique id=${id}`)),
+  //     catchError(this.handleError<Technique>('getTechnique'))
+  //   );
+  // }
 
   getUserTechnique(techniqueId: number): Observable<any> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -57,7 +58,9 @@ export class TechniqueService {
     this.messageService.add(
       `TechniqueService: fetched technique id=${techniqueId}`
     );
+    // console.log(username, techniqueId);
     return this.http.post<any>(url, username, this.httpOptions).pipe(
+      tap((data) => console.log(data)),
       map((data) => JSON.parse(data.body)),
       pluck('techniques'),
       map((technique) => {
@@ -69,7 +72,7 @@ export class TechniqueService {
   }
 
   updateTechnique(technique: Technique): Observable<Technique> {
-    return this.http.put(this.techniquesUrl, technique, this.httpOptions).pipe(
+    return this.http.put(this.quizzesUrl, technique, this.httpOptions).pipe(
       tap((_) => this.log(`updated technique id=${technique.id}`)),
       catchError(this.handleError<any>('updateTechnique'))
     );
@@ -78,7 +81,7 @@ export class TechniqueService {
   /** POST: add a new technique to the server */
   addTechnique(technique: Technique): Observable<Technique> {
     return this.http
-      .post<Technique>(this.techniquesUrl, technique, this.httpOptions)
+      .post<Technique>(this.quizzesUrl, technique, this.httpOptions)
       .pipe(
         tap((newTechnique: Technique) =>
           this.log(`added technique w/ id=${newTechnique.id}`)

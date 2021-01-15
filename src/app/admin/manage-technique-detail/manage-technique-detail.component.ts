@@ -34,7 +34,7 @@ export class ManageTechniqueDetailComponent implements OnInit {
   getTechnique(): void {
     this.technique$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.techniqueService.getTechnique(+params.get('id'))
+        this.techniqueService.getUserTechnique(+params.get('id'))
       )
     );
   }

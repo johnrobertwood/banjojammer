@@ -6,7 +6,7 @@ import {
 } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Flashcard } from 'src/app/flashcard';
-import { QuizService } from '../quiz.service';
+import { FlashcardService } from '../flashcard.service';
 
 export interface DialogData {
   flashcard: Flashcard;
@@ -26,7 +26,7 @@ export class DialogContentFlashcardComponent {
   constructor(
     public dialog: MatDialog,
     private router: Router,
-    private quizService: QuizService
+    private flashcardService: FlashcardService
   ) {}
 
   openDialog(): void {
@@ -40,7 +40,7 @@ export class DialogContentFlashcardComponent {
     dialogRef.afterClosed().subscribe((result) => {
       // set to answered with HTTP for user profile
       this.flashcard.complete = true;
-      this.quizService.updateFlashcard(this.flashcard).subscribe();
+      this.flashcardService.updateFlashcard(this.flashcard).subscribe();
     });
   }
 }
