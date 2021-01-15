@@ -41,14 +41,14 @@ export class TechniqueService {
     );
   }
 
-  // getTechnique(id: number): Observable<Technique> {
-  //   const url = `${this.quizzesUrl}/${id}`;
-  //   this.messageService.add(`TechniqueService: fetched technique id=${id}`);
-  //   return this.http.get<Technique>(url).pipe(
-  //     tap((_) => this.log(`fetched technique id=${id}`)),
-  //     catchError(this.handleError<Technique>('getTechnique'))
-  //   );
-  // }
+  getTechnique(id: number): Observable<Technique> {
+    const url = `${this.quizzesUrl}/${id}`;
+    this.messageService.add(`TechniqueService: fetched technique id=${id}`);
+    return this.http.get<Technique>(url).pipe(
+      tap((_) => this.log(`fetched technique id=${id}`)),
+      catchError(this.handleError<Technique>('getTechnique'))
+    );
+  }
 
   getUserTechnique(techniqueId: number): Observable<any> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));

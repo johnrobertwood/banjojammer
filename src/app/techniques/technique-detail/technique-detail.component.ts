@@ -11,6 +11,7 @@ import { QuizService } from 'src/app/quiz.service';
 import { Flashcard } from 'src/app/flashcard';
 import { FlashcardService } from 'src/app/flashcard.service';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { AuthenticationService } from 'src/app/auth/authentication.service';
 
 @Component({
   selector: 'app-technique-detail',
@@ -23,6 +24,7 @@ export class TechniqueDetailComponent implements OnInit {
   flashcard$: Observable<Flashcard>;
   videoUrl$: Observable<string>;
   isSmallScreen: boolean;
+  isLoggedIn: boolean;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -53,11 +55,21 @@ export class TechniqueDetailComponent implements OnInit {
   }
 
   getTechnique(): void {
-    this.technique$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.techniqueService.getUserTechnique(+params.get('id'))
-      )
-    );
+    if (localStorage.getItem('currentUser')) {
+      this.isLoggedIn = true;
+      this.technique$ = this.route.paramMap.pipe(
+        switchMap((params: ParamMap) =>
+          this.techniqueService.getUserTechnique(+params.get('id'))
+        )
+      );
+    } else {
+      this.isLoggedIn = false;
+      this.technique$ = this.route.paramMap.pipe(
+        switchMap((params: ParamMap) =>
+          this.techniqueService.getTechnique(+params.get('id'))
+        )
+      );
+    }
   }
 
   getQuiz(): void {

@@ -44,7 +44,7 @@
         class="quiz-button"
         [flashcard]="flashcardData.flashcard"
       ></app-dialog-content-flashcard>
-      <span class="quiz-button">
+      <span *ngIf="isLoggedIn" class="quiz-button">
         <button
           mat-raised-button
           color="primary"
