@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, pluck, tap } from 'rxjs/operators';
 
 import { Technique } from './technique';
 import { MessageService } from 'src/app/message.service';
 
 @Injectable({ providedIn: 'root' })
 export class TechniqueService {
-  private techniquesUrl = 'api/techniques'; // URL to web api
+  private techniquesUrl = 'api/techniques';
   private videosUrl = 'api/videos';
 
   httpOptions = {
@@ -45,6 +45,25 @@ export class TechniqueService {
     this.messageService.add(`TechniqueService: fetched technique id=${id}`);
     return this.http.get<Technique>(url).pipe(
       tap((_) => this.log(`fetched technique id=${id}`)),
+      catchError(this.handleError<Technique>('getTechnique'))
+    );
+  }
+
+  getUserTechnique(techniqueId: number): Observable<any> {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const username = { username: currentUser.username };
+    const url =
+      'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/user';
+    this.messageService.add(
+      `TechniqueService: fetched technique id=${techniqueId}`
+    );
+    return this.http.post<any>(url, username, this.httpOptions).pipe(
+      map((data) => JSON.parse(data.body)),
+      pluck('techniques'),
+      map((technique) => {
+        return technique.filter((t) => t.id === techniqueId);
+      }),
+      map((technique) => (technique ? technique[0] : null)),
       catchError(this.handleError<Technique>('getTechnique'))
     );
   }

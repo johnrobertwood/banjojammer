@@ -30,6 +30,13 @@ export class AuthenticationService {
   login(payload: any) {
     this.userData = payload.data;
     this.isLoggedIn = true;
+    localStorage.setItem(
+      'currentUser',
+      JSON.stringify({
+        userId: payload.data.attributes.sub,
+        username: payload.data.username,
+      })
+    );
   }
 
   logout() {
@@ -38,8 +45,80 @@ export class AuthenticationService {
 
   addUser(payload: any): Observable<any> {
     const user = {
-      id: payload.data.user.pool.userPoolId,
+      userId: payload.data.userSub,
       username: payload.data.user.username,
+      techniques: [
+        {
+          id: 11,
+          name: 'Armbar',
+          favorite: false,
+          quizzed: false,
+          flashcarded: false,
+        },
+        {
+          id: 12,
+          name: 'Triangle',
+          favorite: false,
+          quizzed: false,
+          flashcarded: false,
+        },
+        {
+          id: 13,
+          name: 'Kimura',
+          favorite: false,
+          quizzed: false,
+          flashcarded: false,
+        },
+        {
+          id: 14,
+          name: 'Rear Naked Choke',
+          favorite: false,
+          quizzed: false,
+          flashcarded: false,
+        },
+        {
+          id: 15,
+          name: 'Omoplata',
+          favorite: false,
+          quizzed: false,
+          flashcarded: false,
+        },
+        {
+          id: 16,
+          name: 'Guillotine',
+          favorite: false,
+          quizzed: false,
+          flashcarded: false,
+        },
+        {
+          id: 17,
+          name: 'Head and Arm Choke',
+          favorite: false,
+          quizzed: false,
+          flashcarded: false,
+        },
+        {
+          id: 18,
+          name: 'Americana',
+          favorite: false,
+          quizzed: false,
+          flashcarded: false,
+        },
+        {
+          id: 19,
+          name: 'Straight Armlock',
+          favorite: false,
+          quizzed: false,
+          flashcarded: false,
+        },
+        {
+          id: 20,
+          name: 'Straight Kneebar',
+          favorite: false,
+          quizzed: false,
+          flashcarded: false,
+        },
+      ],
     };
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/users';

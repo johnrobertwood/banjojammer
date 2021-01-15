@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { pluck, switchMap } from 'rxjs/operators';
+import { pluck, switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Quiz } from 'src/app/quiz';
 import { QuizService } from 'src/app/quiz.service';
@@ -55,7 +55,7 @@ export class TechniqueDetailComponent implements OnInit {
   getTechnique(): void {
     this.technique$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.techniqueService.getTechnique(+params.get('id'))
+        this.techniqueService.getUserTechnique(+params.get('id'))
       )
     );
   }

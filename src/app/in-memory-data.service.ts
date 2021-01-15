@@ -8,16 +8,76 @@ import { Technique } from './techniques/technique';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const techniques = [
-      { id: 11, name: 'Armbar', favorite: false },
-      { id: 12, name: 'Triangle', favorite: false },
-      { id: 13, name: 'Kimura', favorite: false },
-      { id: 14, name: 'Rear Naked Choke', favorite: false },
-      { id: 15, name: 'Omoplata', favorite: false },
-      { id: 16, name: 'Guillotine', favorite: false },
-      { id: 17, name: 'Head and Arm Choke', favorite: false },
-      { id: 18, name: 'Americana', favorite: false },
-      { id: 19, name: 'Straight Armlock', favorite: false },
-      { id: 20, name: 'Straight Kneebar', favorite: false },
+      {
+        id: 11,
+        name: 'Armbar',
+        favorite: false,
+        quizzed: false,
+        flashcarded: false,
+      },
+      {
+        id: 12,
+        name: 'Triangle',
+        favorite: false,
+        quizzed: false,
+        flashcarded: false,
+      },
+      {
+        id: 13,
+        name: 'Kimura',
+        favorite: false,
+        quizzed: false,
+        flashcarded: false,
+      },
+      {
+        id: 14,
+        name: 'Rear Naked Choke',
+        favorite: false,
+        quizzed: false,
+        flashcarded: false,
+      },
+      {
+        id: 15,
+        name: 'Omoplata',
+        favorite: false,
+        quizzed: false,
+        flashcarded: false,
+      },
+      {
+        id: 16,
+        name: 'Guillotine',
+        favorite: false,
+        quizzed: false,
+        flashcarded: false,
+      },
+      {
+        id: 17,
+        name: 'Head and Arm Choke',
+        favorite: false,
+        quizzed: false,
+        flashcarded: false,
+      },
+      {
+        id: 18,
+        name: 'Americana',
+        favorite: false,
+        quizzed: false,
+        flashcarded: false,
+      },
+      {
+        id: 19,
+        name: 'Straight Armlock',
+        favorite: false,
+        quizzed: false,
+        flashcarded: false,
+      },
+      {
+        id: 20,
+        name: 'Straight Kneebar',
+        favorite: false,
+        quizzed: false,
+        flashcarded: false,
+      },
     ];
 
     const quizzes = [
