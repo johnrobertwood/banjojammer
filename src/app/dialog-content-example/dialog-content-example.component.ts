@@ -25,7 +25,7 @@ export interface DialogData {
 export class DialogContentExampleComponent {
   @Input() quiz: Quiz;
 
-  correctAnswer: boolean;
+  correctAnswer = false;
   answered = false;
 
   constructor(
@@ -46,10 +46,12 @@ export class DialogContentExampleComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      console.log(this.quiz);
       this.answered = result.answered;
       this.correctAnswer = result.correctAnswer;
       this.quiz.complete = true;
-      this.quizService.updateQuiz(this.quiz).subscribe();
+      console.log(this.quiz);
+      // this.quizService.updateQuiz(this.quiz).subscribe();
     });
   }
 }

@@ -179,7 +179,7 @@ export class InMemoryDataService implements InMemoryDbService {
             'Finish RNC with bottom arm choking, ear to ear in tight then arch hips',
         },
         video: {
-          url: 'https://youtube.com/embed/OxSm8RtRS8o',
+          url: 'https://youtube.com/embed/X5OrEPQCrjk',
         },
       },
       {

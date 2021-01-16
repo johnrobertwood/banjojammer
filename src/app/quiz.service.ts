@@ -33,6 +33,7 @@ export class QuizService {
   }
 
   updateQuiz(quiz: Quiz): Observable<Quiz> {
+    // console.log(quiz);
     return this.http.put(this.quizzesUrl, quiz, this.httpOptions).pipe(
       // tap((_) => this.log(`updated quiz id=${quiz.id}`)),
       catchError(this.handleError<any>('updateQuiz'))
