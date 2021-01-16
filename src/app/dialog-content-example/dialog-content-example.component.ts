@@ -4,18 +4,14 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-// import { Quiz } from 'src/app/quiz';
+import { Quiz } from '../quiz';
 import { Technique } from '../techniques/technique';
 import { TechniqueService } from '../techniques/technique.service';
 
 export interface DialogData {
-  quiz: any;
+  quiz: Quiz;
 }
 
-/**
- * @title Dialog with header, scrollable content and actions
- */
 @Component({
   selector: 'app-dialog-content-example',
   templateUrl: 'dialog-content-example.component.html',
@@ -26,7 +22,6 @@ export class DialogContentExampleComponent {
 
   constructor(
     public dialog: MatDialog,
-    private router: Router,
     private techniqueService: TechniqueService
   ) {}
 
@@ -55,7 +50,7 @@ export class DialogContentExampleDialogComponent implements OnDestroy {
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
-  selectAnswer(correct: boolean) {
+  selectAnswer() {
     this.data.quiz.complete = true;
   }
 

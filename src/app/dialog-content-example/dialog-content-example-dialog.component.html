@@ -4,7 +4,7 @@
     <li *ngFor="let response of data.quiz.responses">
       <button
         mat-raised-button
-        (click)="selectAnswer(response.correct)"
+        (click)="selectAnswer()"
         [ngClass]="{ green: data.quiz.complete && response.correct }"
       >
         {{ response.text }}

@@ -35,14 +35,12 @@
     </div>
     <div class="quiz-button-row">
       <app-dialog-content-example
-        *ngIf="technique$ | async as technique"
         class="quiz-button"
         [technique]="technique"
       ></app-dialog-content-example>
       <app-dialog-content-flashcard
-        *ngIf="flashcard$ | async as flashcardData"
         class="quiz-button"
-        [flashcard]="technique.flashcard"
+        [technique]="technique"
       ></app-dialog-content-flashcard>
       <!-- <span *ngIf="isLoggedIn" class="quiz-button">
         <button

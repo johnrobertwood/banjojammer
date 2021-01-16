@@ -4,42 +4,34 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { Flashcard } from 'src/app/flashcard';
-import { FlashcardService } from '../flashcard.service';
+import { Flashcard } from '../flashcard';
+import { Technique } from '../techniques/technique';
 
 export interface DialogData {
   flashcard: Flashcard;
 }
 
-/**
- * @title Dialog with header, scrollable content and actions
- */
 @Component({
   selector: 'app-dialog-content-flashcard',
   templateUrl: 'dialog-content-flashcard.component.html',
   styleUrls: ['dialog-content-flashcard.component.css'],
 })
 export class DialogContentFlashcardComponent {
-  @Input() flashcard: Flashcard;
+  @Input() technique: Technique;
 
-  constructor(
-    public dialog: MatDialog,
-    private router: Router,
-    private flashcardService: FlashcardService
-  ) {}
+  constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogContentFlashcardDialogComponent, {
       width: '500px',
       data: {
-        flashcard: this.flashcard,
+        flashcard: this.technique.flashcard,
       },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       // set to answered with HTTP for user profile
-      this.flashcard.complete = true;
+      this.technique.flashcard.complete = true;
       // this.flashcardService.updateFlashcard(this.flashcard).subscribe();
     });
   }
