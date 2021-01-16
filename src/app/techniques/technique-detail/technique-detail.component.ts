@@ -36,8 +36,8 @@ export class TechniqueDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTechnique();
-    this.getQuiz();
-    this.getFlashcard();
+    // this.getQuiz();
+    // this.getFlashcard();
     this.getVideoUrl();
 
     this.breakpointObserver
@@ -72,21 +72,22 @@ export class TechniqueDetailComponent implements OnInit {
     }
   }
 
-  getQuiz(): void {
-    this.quiz$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.quizService.getQuiz(+params.get('id'))
-      )
-    );
-  }
+  // getQuiz(): void {
+  //   this.quiz$ = this.route.paramMap.pipe(
+  //     switchMap((params: ParamMap) =>
+  //       this.quizService.getQuiz(+params.get('id'))
+  //     ),
+  //     tap((_) => console.log(_))
+  //   );
+  // }
 
-  getFlashcard(): void {
-    this.flashcard$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.flashcardService.getFlashcard(+params.get('id'))
-      )
-    );
-  }
+  // getFlashcard(): void {
+  //   this.flashcard$ = this.route.paramMap.pipe(
+  //     switchMap((params: ParamMap) =>
+  //       this.flashcardService.getFlashcard(+params.get('id'))
+  //     )
+  //   );
+  // }
 
   favoriteTechnique(technique: Technique) {
     this.techniqueService.favoriteTechnique(technique).subscribe();

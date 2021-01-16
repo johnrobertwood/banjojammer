@@ -5,7 +5,7 @@
       <button
         mat-raised-button
         (click)="selectAnswer(response.correct)"
-        [ngClass]="{ green: data.answered && response.correct }"
+        [ngClass]="{ green: data.quiz.complete && response.correct }"
       >
         {{ response.text }}
       </button>
