@@ -5,7 +5,6 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { MessageService } from 'src/app/message.service';
-import { TechniqueService } from '../techniques/technique.service';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +22,6 @@ export class AuthenticationService {
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
-    private techniqueService: TechniqueService
   ) {}
 
   login(payload: any) {
@@ -46,9 +44,6 @@ export class AuthenticationService {
   checkLocalStorage() {
     if (localStorage.getItem('currentUser')) {
       this.isLoggedIn = true;
-      // if (!this.userData) {
-      //   this.userData =
-      // }
     } else {
       this.isLoggedIn = false;
     }

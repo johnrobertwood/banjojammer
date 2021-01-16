@@ -9,9 +9,9 @@ import { MessageService } from 'src/app/message.service';
 
 @Injectable({ providedIn: 'root' })
 export class TechniqueService {
-  private techniquesUrl = 'api/techniques';
-  private videosUrl = 'api/videos';
-  private quizzesUrl = 'api/quizzes'; // URL to web api
+  private quizzesUrl = 'api/quizzes';
+  private lambdaUrl =
+    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/user';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -32,15 +32,6 @@ export class TechniqueService {
     );
   }
 
-  getVideo(id: number): Observable<any> {
-    const url = `${this.quizzesUrl}/${id}`;
-    this.messageService.add(`TechniqueService: fetched video id=${id}`);
-    return this.http.get<any>(url).pipe(
-      tap((_) => this.log(`fetched technique id=${id}`)),
-      catchError(this.handleError<Technique>('getVideo'))
-    );
-  }
-
   getTechnique(id: number): Observable<Technique> {
     const url = `${this.quizzesUrl}/${id}`;
     this.messageService.add(`TechniqueService: fetched technique id=${id}`);
@@ -53,14 +44,12 @@ export class TechniqueService {
   getUserTechnique(techniqueId: number): Observable<any> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const username = { username: currentUser.username };
-    const url =
-      'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/user';
+    const url = this.lambdaUrl;
+
     this.messageService.add(
       `TechniqueService: fetched technique id=${techniqueId}`
     );
-    // console.log(username, techniqueId);
     return this.http.post<any>(url, username, this.httpOptions).pipe(
-      // tap((data) => console.log(data)),
       map((data) => JSON.parse(data.body)),
       pluck('techniques'),
       map((technique) => {
@@ -93,7 +82,7 @@ export class TechniqueService {
   /** DELETE: delete the technique from the server */
   deleteTechnique(technique: Technique | number): Observable<Technique> {
     const id = typeof technique === 'number' ? technique : technique.id;
-    const url = `${this.techniquesUrl}/${id}`;
+    const url = `${this.quizzesUrl}/${id}`;
 
     return this.http.delete<Technique>(url, this.httpOptions).pipe(
       tap((_) => this.log(`deleted technique id=${id}`)),
@@ -107,21 +96,19 @@ export class TechniqueService {
       // if not search term, return empty technique array.
       return of([]);
     }
-    return this.http
-      .get<Technique[]>(`${this.techniquesUrl}/?name=${term}`)
-      .pipe(
-        tap((x) =>
-          x.length
-            ? this.log(`found techniques matching "${term}"`)
-            : this.log(`no techniques matching "${term}"`)
-        ),
-        catchError(this.handleError<Technique[]>('searchTechniques', []))
-      );
+    return this.http.get<Technique[]>(`${this.quizzesUrl}/?name=${term}`).pipe(
+      tap((x) =>
+        x.length
+          ? this.log(`found techniques matching "${term}"`)
+          : this.log(`no techniques matching "${term}"`)
+      ),
+      catchError(this.handleError<Technique[]>('searchTechniques', []))
+    );
   }
 
   favoriteTechnique(technique: Technique): Observable<Technique> {
     technique.favorite = !technique.favorite;
-    return this.http.put(this.techniquesUrl, technique, this.httpOptions).pipe(
+    return this.http.put(this.quizzesUrl, technique, this.httpOptions).pipe(
       tap((_) => this.log(`updated favorite for technique id=${technique.id}`)),
       catchError(this.handleError<any>('favoriteTechnique error'))
     );

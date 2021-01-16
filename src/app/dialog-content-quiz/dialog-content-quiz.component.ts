@@ -13,11 +13,11 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'app-dialog-content-example',
-  templateUrl: 'dialog-content-example.component.html',
-  styleUrls: ['dialog-content-example.component.css'],
+  selector: 'app-dialog-content-quiz',
+  templateUrl: 'dialog-content-quiz.component.html',
+  styleUrls: ['dialog-content-quiz.component.css'],
 })
-export class DialogContentExampleComponent {
+export class DialogContentQuizComponent {
   @Input() technique: Technique;
 
   constructor(
@@ -26,7 +26,7 @@ export class DialogContentExampleComponent {
   ) {}
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogContentExampleDialogComponent, {
+    const dialogRef = this.dialog.open(DialogContentQuizDialogComponent, {
       width: '500px',
       data: {
         quiz: this.technique.quiz,
@@ -40,13 +40,13 @@ export class DialogContentExampleComponent {
 }
 
 @Component({
-  selector: 'app-dialog-content-example-dialog',
-  templateUrl: 'dialog-content-example-dialog.component.html',
-  styleUrls: ['dialog-content-example-dialog.component.css'],
+  selector: 'app-dialog-content-quiz-dialog',
+  templateUrl: 'dialog-content-quiz-dialog.component.html',
+  styleUrls: ['dialog-content-quiz-dialog.component.css'],
 })
-export class DialogContentExampleDialogComponent implements OnDestroy {
+export class DialogContentQuizDialogComponent implements OnDestroy {
   constructor(
-    public dialogRef: MatDialogRef<DialogContentExampleDialogComponent>,
+    public dialogRef: MatDialogRef<DialogContentQuizDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
@@ -55,7 +55,9 @@ export class DialogContentExampleDialogComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
+    // this is to reset the green box after closing
     this.data.quiz.complete = false;
+
     // pass data back with this method
     // this.dialogRef.close();
   }

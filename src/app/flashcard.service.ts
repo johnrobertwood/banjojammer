@@ -10,7 +10,6 @@ import { tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class FlashcardService {
-  private flashcardsUrl = 'api/flashcards'; // URL to web api
   private quizzesUrl = 'api/quizzes'; // URL to web api
 
   httpOptions = {

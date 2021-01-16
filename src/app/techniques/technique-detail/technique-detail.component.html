@@ -1,10 +1,10 @@
 <div *ngIf="technique$ | async as technique">
   <h2>{{ technique.name | uppercase }} Details</h2>
-  <div *ngIf="videoUrl$ | async as videoUrl" class="video-container">
+  <div class="video-container">
     <iframe
       [width]="isSmallScreen || '560'"
       [height]="isSmallScreen || '315'"
-      [src]="videoUrl.video.url | safe"
+      [src]="technique.video.url | safe"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
@@ -34,10 +34,10 @@
       </button>
     </div>
     <div class="quiz-button-row">
-      <app-dialog-content-example
+      <app-dialog-content-quiz
         class="quiz-button"
         [technique]="technique"
-      ></app-dialog-content-example>
+      ></app-dialog-content-quiz>
       <app-dialog-content-flashcard
         class="quiz-button"
         [technique]="technique"

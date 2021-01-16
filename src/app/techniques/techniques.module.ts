@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { TechniqueListComponent } from './technique-list/technique-list.component';
 import { TechniqueDetailComponent } from './technique-detail/technique-detail.component';
 import {
-  DialogContentExampleComponent,
-  DialogContentExampleDialogComponent,
-} from 'src/app/dialog-content-example/dialog-content-example.component';
+  DialogContentQuizComponent,
+  DialogContentQuizDialogComponent,
+} from 'src/app/dialog-content-quiz/dialog-content-quiz.component';
 import {
   DialogContentFlashcardComponent,
   DialogContentFlashcardDialogComponent,
@@ -23,8 +23,8 @@ import { SafePipe } from '../safe.pipe';
   declarations: [
     TechniqueListComponent,
     TechniqueDetailComponent,
-    DialogContentExampleComponent,
-    DialogContentExampleDialogComponent,
+    DialogContentQuizComponent,
+    DialogContentQuizDialogComponent,
     DialogContentFlashcardComponent,
     DialogContentFlashcardDialogComponent,
     SafePipe,

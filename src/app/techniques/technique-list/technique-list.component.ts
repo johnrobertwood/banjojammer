@@ -27,13 +27,12 @@ export class TechniqueListComponent implements OnInit {
     this.getTechniques();
   }
 
-  // onSelect(technique: Technique): void {
-  //   console.log('on select');
-  //   this.selectedTechnique = technique;
-  //   this.messageService.add(
-  //     `TechniquesComponent: Selected technique =${technique.id}!`
-  //   );
-  // }
+  onSelect(technique: Technique): void {
+    this.selectedTechnique = technique;
+    this.messageService.add(
+      `TechniquesComponent: Selected technique =${technique.id}!`
+    );
+  }
 
   getTechniques(): void {
     this.route.paramMap

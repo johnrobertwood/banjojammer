@@ -7,7 +7,6 @@ import { Technique } from 'src/app/techniques/technique';
 import { switchMap, map, mergeMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Quiz } from 'src/app/quiz';
-import { QuizService } from 'src/app/quiz.service';
 
 @Component({
   selector: 'app-manage-technique-detail',
@@ -22,13 +21,11 @@ export class ManageTechniqueDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private techniqueService: TechniqueService,
-    private quizService: QuizService
+    private techniqueService: TechniqueService
   ) {}
 
   ngOnInit(): void {
     this.getTechnique();
-    // this.getQuiz();
   }
 
   getTechnique(): void {
@@ -38,14 +35,6 @@ export class ManageTechniqueDetailComponent implements OnInit {
       )
     );
   }
-
-  // getQuiz(): void {
-  //   this.quiz$ = this.route.paramMap.pipe(
-  //     switchMap((params: ParamMap) =>
-  //       this.quizService.getQuiz(+params.get('id'))
-  //     )
-  //   );
-  // }
 
   goBack(techniqueId: number): void {
     this.router.navigate(['/admin/manage-technique-list', { id: techniqueId }]);
