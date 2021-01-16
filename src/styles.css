@@ -31,3 +31,18 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+:root {
+  --amplify-primary-color: #f44336;
+  --amplify-primary-tint: #ff7359;
+  --amplify-primary-shade: #e0573e;
+}
+
+@media screen and (max-width: 767px) {
+  input,
+  select,
+  textarea,
+  amplify-button {
+    font-size: 16px;
+  }
+}
