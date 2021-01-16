@@ -21,7 +21,7 @@ export class AuthenticationService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService,
+    private messageService: MessageService
   ) {}
 
   login(payload: any) {
@@ -384,7 +384,7 @@ export class AuthenticationService {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/users';
     return this.http.post<any>(url, user, this.httpOptions).pipe(
-      tap((_) => console.log(_)),
+      tap((_) => this.log('added a new user')),
       catchError(this.handleError<any>('addUser HTTP post error'))
     );
   }
