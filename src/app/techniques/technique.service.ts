@@ -43,7 +43,7 @@ export class TechniqueService {
 
   getUserTechnique(techniqueId: number): Observable<any> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    const username = { username: currentUser.username };
+    const username = { username: currentUser.username.toLowerCase() };
     const url = this.lambdaUrl;
 
     this.messageService.add(

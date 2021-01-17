@@ -34,6 +34,7 @@ export class AuthenticationService {
         username: payload.data.username,
       })
     );
+    console.log(localStorage.currentUser);
   }
 
   logout() {
@@ -52,7 +53,7 @@ export class AuthenticationService {
   addUser(payload: any): Observable<any> {
     const user = {
       userId: payload.data.userSub,
-      username: payload.data.user.username,
+      username: payload.data.user.username.toLowerCase(),
       techniques: [
         {
           id: 11,
