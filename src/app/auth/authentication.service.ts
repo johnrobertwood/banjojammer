@@ -34,7 +34,6 @@ export class AuthenticationService {
         username: payload.data.username,
       })
     );
-    console.log(localStorage.currentUser);
   }
 
   logout() {

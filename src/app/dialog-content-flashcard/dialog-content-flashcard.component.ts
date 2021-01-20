@@ -4,7 +4,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { Flashcard } from '../flashcard';
+import { Flashcard } from './flashcard';
 import { Technique } from '../techniques/technique';
 
 export interface DialogData {

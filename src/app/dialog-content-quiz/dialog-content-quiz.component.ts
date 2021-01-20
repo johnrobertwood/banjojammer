@@ -4,7 +4,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { Quiz } from '../quiz';
+import { Quiz } from './quiz';
 import { Technique } from '../techniques/technique';
 import { TechniqueService } from '../techniques/technique.service';
 

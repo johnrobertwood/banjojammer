@@ -6,8 +6,8 @@ import { Technique } from 'src/app/techniques/technique';
 
 import { pluck, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Quiz } from 'src/app/quiz';
-import { Flashcard } from 'src/app/flashcard';
+import { Quiz } from 'src/app/dialog-content-quiz/quiz';
+import { Flashcard } from 'src/app/dialog-content-flashcard/flashcard';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
