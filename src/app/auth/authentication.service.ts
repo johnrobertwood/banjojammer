@@ -383,27 +383,35 @@ export class AuthenticationService {
           id: 21,
           name: 'John and Mike Rolling',
           quiz: {
-            id: 20,
-            name: 'Straight Kneebar Quiz',
+            id: 21,
+            name: 'John and Mike Rolling Quiz',
             complete: false,
-            question: 'T/F Straight knee bar is IBJJF legal',
+            question: 'How many triangles did John attempt',
             responses: [
               {
-                text: 'True',
+                text: '3',
+                correct: false,
+              },
+              {
+                text: '2',
                 correct: true,
               },
               {
-                text: 'False',
+                text: '1',
+                correct: false,
+              },
+              {
+                text: '0',
                 correct: false,
               },
             ],
           },
           flashcard: {
             id: 20,
-            name: 'Straight Knee Bar',
+            name: 'John and Mike Rolling',
             complete: false,
-            question: 'The Straight Knee Bar is IBJJF legal?',
-            answer: 'True',
+            question: 'Did John hit a perfect deep half sweep?',
+            answer: 'Yes',
           },
           video: {
             url: 'https://www.youtube.com/embed/_0c66vMmR2Q',
