@@ -17,7 +17,7 @@ import { TechniquesRoutingModule } from './techniques-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { AppMaterialModule } from 'src/app/app-material.module';
-import { SafePipe } from '../safe.pipe';
+import { SafePipeModule } from '../app-safe-pipe.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,6 @@ import { SafePipe } from '../safe.pipe';
     DialogContentQuizDialogComponent,
     DialogContentFlashcardComponent,
     DialogContentFlashcardDialogComponent,
-    SafePipe,
   ],
   imports: [
     CommonModule,
@@ -36,6 +35,7 @@ import { SafePipe } from '../safe.pipe';
     MatInputModule,
     AppMaterialModule,
     TechniquesRoutingModule,
+    SafePipeModule,
   ],
 })
 export class TechniquesModule {}
