@@ -379,6 +379,36 @@ export class AuthenticationService {
             url: 'https://www.youtube.com/embed/1UYJRNqW5Ao',
           },
         },
+        {
+          id: 21,
+          name: 'John and Mike Rolling',
+          quiz: {
+            id: 20,
+            name: 'Straight Kneebar Quiz',
+            complete: false,
+            question: 'T/F Straight knee bar is IBJJF legal',
+            responses: [
+              {
+                text: 'True',
+                correct: true,
+              },
+              {
+                text: 'False',
+                correct: false,
+              },
+            ],
+          },
+          flashcard: {
+            id: 20,
+            name: 'Straight Knee Bar',
+            complete: false,
+            question: 'The Straight Knee Bar is IBJJF legal?',
+            answer: 'True',
+          },
+          video: {
+            url: 'https://www.youtube.com/embed/_0c66vMmR2Q',
+          },
+        },
       ],
     };
     const url =

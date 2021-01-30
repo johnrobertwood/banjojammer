@@ -32,10 +32,10 @@ import { SafePipe } from '../safe.pipe';
   imports: [
     CommonModule,
     FormsModule,
-    TechniquesRoutingModule,
     MatDialogModule,
     MatInputModule,
     AppMaterialModule,
+    TechniquesRoutingModule,
   ],
 })
 export class TechniquesModule {}

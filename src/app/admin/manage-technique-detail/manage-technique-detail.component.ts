@@ -7,6 +7,7 @@ import { Technique } from 'src/app/techniques/technique';
 import { switchMap, map, mergeMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Quiz } from 'src/app/dialog-content-quiz/quiz';
+import { Flashcard } from 'src/app/dialog-content-flashcard/flashcard';
 
 @Component({
   selector: 'app-manage-technique-detail',
@@ -16,7 +17,10 @@ import { Quiz } from 'src/app/dialog-content-quiz/quiz';
 export class ManageTechniqueDetailComponent implements OnInit {
   technique$: Observable<Technique>;
   quiz$: Observable<Quiz>;
+  flashcard$: Observable<Flashcard>;
   display = false;
+  videoUrl$: Observable<string>;
+  isSmallScreen: boolean;
 
   constructor(
     private route: ActivatedRoute,
