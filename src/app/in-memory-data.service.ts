@@ -62,27 +62,34 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 11,
           name: 'Armbar Quiz',
           complete: false,
-          question: 'First move of armbar?',
+          question:
+            'What are the important body part elements for entering to the armbar position?',
           responses: [
             {
               text:
-                'Same side wrist grip, cross arm behind the tricep and pull arm across your body',
+                'Controlling his head and pulling his elbow inside your hip',
               correct: true,
             },
             {
-              text: 'Cross grip wrist, same side underhook leg',
+              text: 'Controlling his feet, turning our chest and shoulders',
               correct: false,
             },
-            { text: 'Shoot hips up', correct: false },
-            { text: 'Sweep the leg', correct: false },
+            {
+              text: 'Inverting, leg outside of his hips',
+              correct: false,
+            },
+            {
+              text: 'Keeping the hips low, pushing with the feet and inverting',
+              correct: false,
+            },
           ],
         },
         flashcard: {
           id: 11,
           name: 'Armbar',
           complete: false,
-          question: 'What is the armbar postion?',
-          answer: 'Cross grip pull over body',
+          question: 'What is the body position for entering an armbar?',
+          answer: 'Controlling his head, pulling his elbow inside our hips',
         },
         video: {
           url: 'https://www.youtube.com/embed/pQ43Oy5k9yQ',
@@ -95,7 +102,7 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 12,
           name: 'Triangle Quiz',
           complete: false,
-          question: 'What are the triangle finishing steps?',
+          question: 'How do you lock up a triangle?',
           responses: [
             {
               text:
@@ -126,20 +133,36 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 13,
           name: 'Kimura Quiz',
           complete: false,
-          question: 'Kimura works from many different positions',
+          question: 'What are the key body positions for a kimura from guard?',
           responses: [
-            { text: 'True', correct: true },
-            { text: 'False', correct: false },
+            {
+              text:
+                'Get their hands on mat, grip the wrist low, lock your elbow out straight, shrimp out a little, elbows tight to finish with monkey grip',
+              correct: true,
+            },
+            {
+              text:
+                'Hold tight with seatbelt, gable grip to lift up chin, gable grip the other side then slide arm across neck',
+              correct: false,
+            },
+            {
+              text:
+                'Push his thumb to peel one hand, then pull his other hand and finish',
+              correct: false,
+            },
+            {
+              text:
+                'Put your head on the map with his arm trapped then reach your crossface arm deep for the gable grip',
+              correct: false,
+            },
           ],
         },
         flashcard: {
           id: 13,
           name: 'Kimura',
           complete: false,
-          question:
-            'True or False: Kimura works in a large variety of different positions?',
-          answer:
-            'True, Kimura is a great control technique in many different guard and attack positions',
+          question: 'What is the first step of Kimura from closed guard?',
+          answer: 'Get his hands on the mat',
         },
         video: {
           url: 'https://www.youtube.com/embed/mVkKOPNGvjA',
@@ -151,19 +174,20 @@ export class InMemoryDataService implements InMemoryDbService {
         quiz: {
           id: 14,
           name: 'Rear Naked Choke Quiz',
-          question: 'How do you finish a RNC',
+          question:
+            'How do you break his grip to finish choke when opponent is holding your hands?',
           responses: [
             {
               text:
-                'Bottom arm chokes, ear to ear, staying tight while arching and extending with hips',
+                'Push his thumb to peel one hand, then pull his other hand and finish',
               correct: true,
             },
             {
-              text: 'Top arm choking, crossing feet for control',
+              text: 'Squeeze as hard as possible',
               correct: false,
             },
             {
-              text: 'Remove hooks and sit forward',
+              text: 'Cover his mouth to restrict breathing',
               correct: false,
             },
             {
@@ -179,10 +203,10 @@ export class InMemoryDataService implements InMemoryDbService {
           complete: false,
           question: 'Steps to finish a Rear Naked Choke?',
           answer:
-            'Finish RNC with bottom arm choking, ear to ear in tight then arch hips',
+            'Hold tight with seatbelt, gable grip to lift up chin, gable grip the other side then slide arm across neck',
         },
         video: {
-          url: 'https://youtube.com/embed/X5OrEPQCrjk',
+          url: 'https://www.youtube.com/embed/lZnST9hNkNU',
         },
       },
       {
@@ -192,18 +216,24 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 15,
           name: 'Omoplata Quiz',
           complete: false,
-          question: 'What is first move of Omoplata?',
+          question:
+            'What are the two variations of Omoplata from closed guard?',
           responses: [
             {
-              text: 'Put oppponents hand in your pocket and triangle their arm',
+              text:
+                'Traditional (clamping with bent knees) and Marceloplata (kicking with straight leg)',
               correct: true,
             },
             {
-              text: 'Butterfly guard with double underhooks',
+              text: 'American and Brazilian',
               correct: false,
             },
             {
-              text: 'Butt scoot to berimbolo',
+              text: 'Original or Extra Crispy',
+              correct: false,
+            },
+            {
+              text: 'Mounted or Half Guard',
               correct: false,
             },
           ],
@@ -212,11 +242,13 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 15,
           name: 'Omoplata',
           complete: false,
-          question: 'Direction to point knees on Omoplata finish',
-          answer: 'Point knees away from opponent',
+          question:
+            'What are the two variations of Omoplata from closed guard?',
+          answer:
+            'Traditional (clamping with bent knees) and Marceloplata (kicking with straight leg)',
         },
         video: {
-          url: 'https://www.youtube.com/embed/tfvEGtSCIRI',
+          url: 'https://www.youtube.com/embed/LVy4tGv5Fk4',
         },
       },
       {
@@ -227,15 +259,15 @@ export class InMemoryDataService implements InMemoryDbService {
           name: 'Guillotine Quiz',
           complete: false,
           question:
-            'True or False: To finish a guillotine you crunch in and squeeze',
+            'True or False: To finish a guillotine you lean back while pulling on the head',
           responses: [
             {
               text: 'True',
-              correct: true,
+              correct: false,
             },
             {
               text: 'False',
-              correct: false,
+              correct: true,
             },
           ],
         },
@@ -243,11 +275,13 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 16,
           name: 'Guillotine',
           complete: false,
-          question: 'How to finish a guillotine',
-          answer: 'Crunch in with arms and squeeze, don"t pull',
+          question:
+            'How can you stop the pass when sitting back on guillotine?',
+          answer:
+            'Use a high leg to block his hips and a high elbow choke to block his upper body',
         },
         video: {
-          url: 'https://www.youtube.com/embed/UbcqJETDUY8',
+          url: 'https://www.youtube.com/embed/DPKhbTth0So',
         },
       },
       {
@@ -257,22 +291,25 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 17,
           name: 'Head and Arm Choke Quiz',
           complete: false,
-          question: 'What is the final step to finish arm triangle choke?',
+          question: 'What is the setup for Head and Arm from side control',
           responses: [
             {
-              text: 'Sink the hips low and flatten out',
+              text:
+                'Put your head on the mat with his arm trapped then reach your crossface arm deep for the gable grip',
               correct: true,
             },
             {
-              text: 'Crank their face',
+              text:
+                'Switch your hips for reverse kesa gatame side control and step over to mount',
               correct: false,
             },
             {
-              text: 'Lift up on your toes',
+              text: 'Lift up on your toes then move to north south position',
               correct: false,
             },
             {
-              text: 'Explode up with your hips',
+              text:
+                'Hop up to knee on belly then windshield wiper leg to get mount',
               correct: false,
             },
           ],
@@ -282,20 +319,22 @@ export class InMemoryDataService implements InMemoryDbService {
           name: 'Head and Arm Choke',
           complete: false,
           question: 'What is the finish for head and arm choke',
-          answer: 'Sink with the hips and flatten out low',
+          answer:
+            'Sink the hips, flatten out low and apply squeeze while being patient',
         },
         video: {
-          url: 'https://www.youtube.com/embed/xWR68zc-3GE',
+          url: 'https://www.youtube.com/embed/Hw8-59qdvnU',
         },
       },
       {
         id: 18,
-        name: 'Americana',
+        name: 'Defending Americana',
         quiz: {
           id: 18,
-          name: 'Americana Quiz',
+          name: 'Defending Americana Quiz',
           complete: false,
-          question: 'T/F Americana works best when his elbow is near his hip',
+          question:
+            'To defend the Americana you turn towards the arm and suck it in towards your body',
           responses: [
             {
               text: 'True',
@@ -311,8 +350,8 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 18,
           name: 'Americana',
           complete: false,
-          question: 'How to finish an Americana',
-          answer: 'Bring his arm down towards his hip',
+          question: 'How do you defend an Americana when it is already deep?',
+          answer: 'Bridge and then suck in the arm while pusing his elbow',
         },
         video: {
           url: 'https://www.youtube.com/embed/FNyL93v5fGs',
@@ -325,7 +364,8 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 19,
           name: 'Straight Armlock Quiz',
           complete: false,
-          question: 'T/F Straight arm lock goes well with Americana',
+          question:
+            'To finish the straight arm lock, put one hand on mat and use the other to turn his wrist',
           responses: [
             {
               text: 'True',
@@ -341,11 +381,13 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 19,
           name: 'Straight Arm Lock',
           complete: false,
-          question: 'Works with which other arm locks?',
-          answer: 'Americana or kimura',
+          question:
+            'What are common mistake in finishing the straight arm lock?',
+          answer:
+            'Having your arms too far away from chest and using the double wrist lock',
         },
         video: {
-          url: 'https://www.youtube.com/embed/iPnQx-6RYpU',
+          url: 'https://www.youtube.com/embed/rZNFFH2hpbo',
         },
       },
       {
@@ -355,14 +397,23 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 20,
           name: 'Straight Kneebar Quiz',
           complete: false,
-          question: 'T/F Straight knee bar is IBJJF legal',
+          question:
+            'What move should you fake to provoke a reaction for the knee bar entry?',
           responses: [
             {
-              text: 'True',
+              text: 'Kimura',
               correct: true,
             },
             {
-              text: 'False',
+              text: 'Americana',
+              correct: false,
+            },
+            {
+              text: 'Heel hook',
+              correct: false,
+            },
+            {
+              text: 'Triangle',
               correct: false,
             },
           ],
@@ -371,7 +422,8 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 20,
           name: 'Straight Knee Bar',
           complete: false,
-          question: 'The Straight Knee Bar is IBJJF legal?',
+          question:
+            'The Straight Knee Bar works well from half guard when opponent is up on his side',
           answer: 'True',
         },
         video: {
@@ -389,11 +441,11 @@ export class InMemoryDataService implements InMemoryDbService {
           responses: [
             {
               text: '3',
-              correct: false,
+              correct: true,
             },
             {
               text: '2',
-              correct: true,
+              correct: false,
             },
             {
               text: '1',
@@ -409,8 +461,8 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 20,
           name: 'John and Mike Rolling',
           complete: false,
-          question: 'Did John hit a perfect deep half sweep?',
-          answer: 'Yes',
+          question: 'What sweep did John use?',
+          answer: 'Deep half-guard sweep',
         },
         video: {
           url: 'https://www.youtube.com/embed/_0c66vMmR2Q',
