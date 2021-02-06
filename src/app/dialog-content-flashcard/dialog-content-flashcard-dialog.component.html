@@ -1,5 +1,5 @@
 <div
-  *ngIf="data.flashcard"
+  *ngIf="data.technique.flashcard"
   (click)="revealAnswer()"
   mat-dialog-content
   class="dialog-container"
@@ -7,12 +7,12 @@
   <div class="card-container">
     <mat-card class="top-card">
       <p class="card-text">
-        {{ data.flashcard.question }}
+        {{ data.technique.flashcard.question }}
       </p>
     </mat-card>
     <mat-card class="hidden-card" [style.color]="reveal ? 'accent' : 'primary'">
       <p class="card-text">
-        {{ reveal ? data.flashcard.answer : "Click to Reveal" }}
+        {{ reveal ? data.technique.flashcard.answer : "Click to Reveal" }}
       </p>
     </mat-card>
   </div>

@@ -4,11 +4,11 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { Flashcard } from './flashcard';
 import { Technique } from '../techniques/technique';
+import { TechniqueService } from '../techniques/technique.service';
 
 export interface DialogData {
-  flashcard: Flashcard;
+  technique: Technique;
 }
 
 @Component({
@@ -19,20 +19,23 @@ export interface DialogData {
 export class DialogContentFlashcardComponent {
   @Input() technique: Technique;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private techniqueService: TechniqueService
+  ) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogContentFlashcardDialogComponent, {
       width: '500px',
       data: {
-        flashcard: this.technique.flashcard,
+        technique: this.technique,
       },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       // set to answered with HTTP for user profile
       this.technique.flashcard.complete = true;
-      // this.flashcardService.updateFlashcard(this.flashcard).subscribe();
+      this.techniqueService.updateTechnique(this.technique).subscribe();
     });
   }
 }

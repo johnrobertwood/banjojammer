@@ -62,7 +62,7 @@ export class TechniqueService {
 
   updateTechnique(technique: Technique): Observable<Technique> {
     return this.http.put(this.techniquesUrl, technique, this.httpOptions).pipe(
-      tap((_) => console.log(`updated technique id=${technique.id}`)),
+      // tap((_) => console.log(`updated technique id=${technique.id}`)),
       catchError(this.handleError<any>('updateTechnique'))
     );
   }
