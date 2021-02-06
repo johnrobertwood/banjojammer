@@ -36,7 +36,7 @@ export class DialogContentQuizComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.answered = result.answered;
+      this.technique.quiz.complete = true;
       this.techniqueService.updateTechnique(this.technique).subscribe();
     });
   }
@@ -62,8 +62,7 @@ export class DialogContentQuizDialogComponent implements OnDestroy {
   ngOnDestroy() {
     // this is to reset the green box after closing
     this.answered = false;
-    this.data.technique.quiz.complete = true;
     // pass data back with this method
-    this.dialogRef.close(this.data);
+    // this.dialogRef.close(this.data);
   }
 }

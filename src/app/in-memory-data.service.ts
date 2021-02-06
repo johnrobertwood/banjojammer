@@ -411,7 +411,7 @@ export class InMemoryDataService implements InMemoryDbService {
           ],
         },
         flashcard: {
-          id: 20,
+          id: 21,
           name: 'John and Mike Rolling',
           complete: false,
           question: 'What sweep did John use?',
@@ -419,6 +419,48 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         video: {
           url: 'https://www.youtube.com/embed/_0c66vMmR2Q',
+        },
+      },
+      {
+        id: 22,
+        name: 'Scissor Sweep',
+        quiz: {
+          id: 22,
+          name: 'Scissor Sweep Quiz',
+          complete: false,
+          question:
+            'What is the position for scissor sweep when opponent lifts leg and postures',
+          responses: [
+            {
+              text: 'Stay flat and butterfly the outside leg',
+              correct: false,
+            },
+            {
+              text:
+                'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
+              correct: true,
+            },
+            {
+              text:
+                'Kick straight out with top leg and drop bottom leg like a prostitute',
+              correct: false,
+            },
+            {
+              text: 'Swim under then grab around the waist',
+              correct: false,
+            },
+          ],
+        },
+        flashcard: {
+          id: 22,
+          name: 'Scissor Sweep Flashcard',
+          complete: false,
+          question: 'What is the correct leg position for scissor sweep',
+          answer:
+            'Bottom leg with calf against his knee, top leg is strong with shin across his waist',
+        },
+        video: {
+          url: 'https://www.youtube.com/embed/X-PA21_0xTg',
         },
       },
     ];
