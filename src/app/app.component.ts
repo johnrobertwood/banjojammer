@@ -84,7 +84,7 @@ export class AppComponent implements OnInit {
     this.route.paramMap
       .pipe(
         switchMap((params) => {
-          this.selectedId = +params.get('id');
+          // this.selectedId = +params.get('id');
           return this.techniqueService.getTechniques();
         })
       )

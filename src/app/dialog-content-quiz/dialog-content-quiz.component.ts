@@ -4,12 +4,12 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { Quiz } from './quiz';
 import { Technique } from '../techniques/technique';
 import { TechniqueService } from '../techniques/technique.service';
 
 export interface DialogData {
-  quiz: Quiz;
+  technique: Technique;
+  answered: boolean;
 }
 
 @Component({
@@ -19,6 +19,7 @@ export interface DialogData {
 })
 export class DialogContentQuizComponent {
   @Input() technique: Technique;
+  answered: boolean;
 
   constructor(
     public dialog: MatDialog,
@@ -29,11 +30,13 @@ export class DialogContentQuizComponent {
     const dialogRef = this.dialog.open(DialogContentQuizDialogComponent, {
       width: '500px',
       data: {
-        quiz: this.technique.quiz,
+        technique: this.technique,
+        answered: false,
       },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      this.answered = result.answered;
       this.techniqueService.updateTechnique(this.technique).subscribe();
     });
   }
@@ -45,20 +48,22 @@ export class DialogContentQuizComponent {
   styleUrls: ['dialog-content-quiz-dialog.component.css'],
 })
 export class DialogContentQuizDialogComponent implements OnDestroy {
+  answered: boolean;
+
   constructor(
     public dialogRef: MatDialogRef<DialogContentQuizDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
   selectAnswer() {
-    this.data.quiz.complete = true;
+    this.data.answered = true;
   }
 
   ngOnDestroy() {
     // this is to reset the green box after closing
-    this.data.quiz.complete = false;
-
+    this.answered = false;
+    this.data.technique.quiz.complete = true;
     // pass data back with this method
-    // this.dialogRef.close();
+    this.dialogRef.close(this.data);
   }
 }

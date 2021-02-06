@@ -10,53 +10,6 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 11,
         name: 'Armbar',
-      },
-      {
-        id: 12,
-        name: 'Triangle',
-      },
-      {
-        id: 13,
-        name: 'Kimura',
-      },
-      {
-        id: 14,
-        name: 'Rear Naked Choke',
-      },
-      {
-        id: 15,
-        name: 'Omoplata',
-      },
-      {
-        id: 16,
-        name: 'Guillotine',
-      },
-      {
-        id: 17,
-        name: 'Head and Arm Choke',
-      },
-      {
-        id: 18,
-        name: 'Americana',
-      },
-      {
-        id: 19,
-        name: 'Straight Armlock',
-      },
-      {
-        id: 20,
-        name: 'Straight Kneebar',
-      },
-      {
-        id: 21,
-        name: 'Rolling',
-      },
-    ];
-
-    const quizzes = [
-      {
-        id: 11,
-        name: 'Armbar',
         favorite: false,
         quiz: {
           id: 11,
@@ -470,7 +423,7 @@ export class InMemoryDataService implements InMemoryDbService {
       },
     ];
 
-    return { techniques, quizzes };
+    return { techniques };
   }
 
   // Overrides the genId method to ensure that a technique always has an id.
