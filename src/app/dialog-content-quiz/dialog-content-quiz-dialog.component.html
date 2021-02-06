@@ -6,6 +6,7 @@
         mat-raised-button
         (click)="selectAnswer()"
         [ngClass]="{ green: data.quiz.complete && response.correct }"
+        color="accent"
       >
         {{ response.text }}
       </button>

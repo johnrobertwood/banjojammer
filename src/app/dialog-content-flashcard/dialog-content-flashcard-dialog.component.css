@@ -1,6 +1,5 @@
 button {
   font-family: Arial;
-  background-color: #eee;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
@@ -14,12 +13,19 @@ button {
   align-items: center;
 }
 
+.card-container {
+  border: 1px solid black;
+}
+
 mat-card {
   height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+}
+
+.hidden-card {
+  border-top: 1px solid black;
 }
 
 .card-text {

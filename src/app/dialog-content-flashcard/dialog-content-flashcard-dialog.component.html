@@ -10,10 +10,7 @@
         {{ data.flashcard.question }}
       </p>
     </mat-card>
-    <mat-card
-      class="hidden-card"
-      [style]="reveal ? 'background-color: #fff;' : 'background-color: #eee;'"
-    >
+    <mat-card class="hidden-card" [style.color]="reveal ? 'accent' : 'primary'">
       <p class="card-text">
         {{ reveal ? data.flashcard.answer : "Click to Reveal" }}
       </p>
