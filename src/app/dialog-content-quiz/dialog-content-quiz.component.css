@@ -1,21 +1,13 @@
 button {
-  font-family: Arial;
   border: none;
   padding: 5px 8px;
   border-radius: 4px;
-  cursor: pointer;
 }
-button:hover {
-  background-color: #cfd8dc;
-}
-button:disabled {
-  background-color: #eee;
-  color: #ccc;
-  cursor: auto;
-}
+
 .goldstar {
   color: yellow;
 }
+
 ul {
   list-style-type: none;
   padding-left: 0;
