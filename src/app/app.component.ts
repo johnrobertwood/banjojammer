@@ -16,10 +16,10 @@ import { HubPayload } from './hub-payload';
   animations: [slideInAnimation],
 })
 export class AppComponent implements OnInit {
-  techniques: Technique[];
   isSmallScreen: boolean;
   selectedId: number;
   loggedIn = false;
+  techniques: { [key: string]: object };
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -89,7 +89,7 @@ export class AppComponent implements OnInit {
         })
       )
       .subscribe((techniques) => {
-        this.techniques = techniques;
+        this.techniques = JSON.parse(techniques.body).techniques;
       });
   }
 

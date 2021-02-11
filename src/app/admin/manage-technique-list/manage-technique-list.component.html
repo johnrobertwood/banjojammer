@@ -21,12 +21,11 @@
 
 <ul class="techniques">
   <li
-    *ngFor="let technique of techniques"
-    [class.selected]="technique.id === selectedId"
+    *ngFor="let technique of techniques | keyvalue"
+    [class.selected]="technique.value.id === selectedId"
   >
-    <a [routerLink]="['/admin/manage-technique-detail', technique.id]">
-      <span class="badge">{{ technique.id }}</span
-      ><span>{{ technique.name }}</span>
+    <a [routerLink]="['/admin/manage-technique-detail', technique.value.id]">
+      <span>{{ technique.value.name }}</span>
     </a>
     <button class="delete" title="delete technique" (click)="delete(technique)">
       x

@@ -12,8 +12,6 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationModule } from './auth/auth.module';
 import { TechniquesModule } from './techniques/techniques.module';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 import { ProfileComponent } from './profile/profile.component';
 import { AppMaterialModule } from './app-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -29,10 +27,6 @@ import { LayoutModule } from '@angular/cdk/layout';
     AppRoutingModule,
     HttpClientModule,
     LayoutModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false,
-      passThruUnknownUrl: true,
-    }),
   ],
   declarations: [
     AppComponent,

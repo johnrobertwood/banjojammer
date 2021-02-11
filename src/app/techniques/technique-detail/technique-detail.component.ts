@@ -50,7 +50,7 @@ export class TechniqueDetailComponent implements OnInit {
       this.isLoggedIn = false;
       this.technique$ = this.route.paramMap.pipe(
         switchMap((params: ParamMap) =>
-          this.techniqueService.getTechnique(+params.get('id'))
+          this.techniqueService.getUserTechnique(+params.get('id'))
         )
       );
     }
