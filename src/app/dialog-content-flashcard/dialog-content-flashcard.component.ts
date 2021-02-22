@@ -35,7 +35,9 @@ export class DialogContentFlashcardComponent {
     dialogRef.afterClosed().subscribe((result) => {
       // set to answered with HTTP for user profile
       this.technique.flashcard.complete = true;
-      this.techniqueService.updateTechnique(this.technique).subscribe();
+      this.techniqueService
+        .updateTechnique(this.technique, 'flashcard')
+        .subscribe();
     });
   }
 }

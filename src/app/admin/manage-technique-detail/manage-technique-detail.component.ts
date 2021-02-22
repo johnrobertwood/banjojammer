@@ -44,15 +44,15 @@ export class ManageTechniqueDetailComponent implements OnInit {
     this.router.navigate(['/admin/manage-technique-list', { id: techniqueId }]);
   }
 
-  save(inputValue: string): void {
-    this.technique$
-      .pipe(
-        map((technique: Technique) => ({ ...technique, name: inputValue })),
-        mergeMap((technique: Technique) =>
-          this.techniqueService.updateTechnique(technique)
-        )
-        // In memory API is returning NULL for PUT so hardcoding the id here
-      )
-      .subscribe(() => this.goBack(11));
-  }
+  // save(inputValue: string): void {
+  //   this.technique$
+  //     .pipe(
+  //       map((technique: Technique) => ({ ...technique, name: inputValue })),
+  //       mergeMap((technique: Technique) =>
+  //         this.techniqueService.updateTechnique(technique, null)
+  //       )
+  //       // In memory API is returning NULL for PUT so hardcoding the id here
+  //     )
+  //     .subscribe(() => this.goBack(11));
+  // }
 }

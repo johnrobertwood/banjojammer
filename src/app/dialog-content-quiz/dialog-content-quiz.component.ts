@@ -37,7 +37,7 @@ export class DialogContentQuizComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.technique.quiz.complete = true;
-      this.techniqueService.updateTechnique(this.technique).subscribe();
+      this.techniqueService.updateTechnique(this.technique, 'quiz').subscribe();
     });
   }
 }

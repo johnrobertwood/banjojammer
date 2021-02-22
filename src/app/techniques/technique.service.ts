@@ -61,10 +61,24 @@ export class TechniqueService {
     );
   }
 
-  updateTechnique(technique: Technique): Observable<Technique> {
-    return this.http
-      .put(this.lambdaUrl, technique, this.httpOptions)
-      .pipe(catchError(this.handleError<any>('updateTechnique')));
+  updateTechnique(
+    technique: Technique,
+    quizType: string
+  ): Observable<Technique> {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser !== null) {
+      const data = {
+        currentUser,
+        technique,
+        quizType,
+      };
+      return this.http.patch(this.lambdaUrl, data, this.httpOptions).pipe(
+        // tap((x) => console.log(x)),
+        catchError(this.handleError<any>('updateTechnique'))
+      );
+    } else {
+      return of(null);
+    }
   }
 
   /** POST: add a new technique to the server */
