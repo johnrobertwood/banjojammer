@@ -47,13 +47,13 @@
         [class.selected]="technique.value.id === selectedId"
         [routerLink]="['technique', technique.value.id]"
         (click)="isSmallScreen ? sidenav.toggle() : null"
-        >{{ technique.value.name }}</a
+        >{{ technique.value.displayName }}</a
       ></mat-nav-list
     >
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar class="content-nav" color="warn">
-      <h1><a routerLink="/technique/11">Jiu Jitsu Memorizer</a></h1>
+      <h1><a routerLink="/technique/0">Jiu Jitsu Memorizer</a></h1>
       <div>
         <button mat-button [matMenuTriggerFor]="menu">
           <mat-icon>account_circle</mat-icon>

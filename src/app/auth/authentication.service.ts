@@ -17,6 +17,7 @@ export class AuthenticationService {
     armbar: {
       id: 0,
       name: 'armbar',
+      displayName: 'Armbar',
       favorite: false,
       quiz: {
         name: 'Armbar Quiz',
@@ -55,6 +56,7 @@ export class AuthenticationService {
     triangle: {
       id: 1,
       name: 'triangle',
+      displayName: 'Triangle',
       quiz: {
         name: 'Triangle Quiz',
         complete: false,
@@ -84,6 +86,7 @@ export class AuthenticationService {
     kimura: {
       id: 2,
       name: 'kimura',
+      displayName: 'Kimura',
       quiz: {
         name: 'Kimura Quiz',
         complete: false,
@@ -124,6 +127,7 @@ export class AuthenticationService {
     rearNakedChoke: {
       id: 3,
       name: 'rearNakedChoke',
+      displayName: 'Rear Naked Choke',
       quiz: {
         name: 'Rear Naked Choke Quiz',
         question:
@@ -163,6 +167,7 @@ export class AuthenticationService {
     omoplata: {
       id: 4,
       name: 'omoplata',
+      displayName: 'Omoplata',
       quiz: {
         name: 'Omoplata Quiz',
         complete: false,
@@ -201,6 +206,7 @@ export class AuthenticationService {
     guillotine: {
       id: 5,
       name: 'guillotine',
+      displayName: 'Guillotine',
       quiz: {
         name: 'Guillotine Quiz',
         complete: false,
@@ -231,6 +237,7 @@ export class AuthenticationService {
     headAndArmChoke: {
       id: 6,
       name: 'headAndArmChoke',
+      displayName: 'Head and Arm Choke',
       quiz: {
         name: 'Head and Arm Choke Quiz',
         complete: false,
@@ -271,6 +278,7 @@ export class AuthenticationService {
     defendingAmericana: {
       id: 7,
       name: 'defendingAmericana',
+      displayName: 'Defending Americana',
       quiz: {
         name: 'Defending Americana Quiz',
         complete: false,
@@ -300,6 +308,7 @@ export class AuthenticationService {
     straightArmlock: {
       id: 8,
       name: 'straightArmlock',
+      displayName: 'Straight Armlock',
       quiz: {
         name: 'Straight Armlock Quiz',
         complete: false,
@@ -330,6 +339,7 @@ export class AuthenticationService {
     straightKneebar: {
       id: 9,
       name: 'straightKneebar',
+      displayName: 'Straight Kneebar',
       quiz: {
         name: 'Straight Kneebar Quiz',
         complete: false,
@@ -368,6 +378,7 @@ export class AuthenticationService {
     johnAndMikeRolling: {
       id: 10,
       name: 'johnAndMikeRolling',
+      displayName: 'John and Mike Rolling',
       quiz: {
         name: 'John and Mike Rolling Quiz',
         complete: false,
@@ -404,6 +415,7 @@ export class AuthenticationService {
     scissorSweep: {
       id: 11,
       name: 'scissorSweep',
+      displayName: 'Scissor Sweep',
       quiz: {
         name: 'Scissor Sweep Quiz',
         complete: false,
@@ -487,6 +499,7 @@ export class AuthenticationService {
         armbar: {
           id: 0,
           name: 'armbar',
+          displayName: 'Armbar',
           favorite: false,
           quiz: {
             name: 'Armbar Quiz',
@@ -527,6 +540,7 @@ export class AuthenticationService {
         triangle: {
           id: 1,
           name: 'triangle',
+          displayName: 'Triangle',
           quiz: {
             name: 'Triangle Quiz',
             complete: false,
@@ -556,6 +570,7 @@ export class AuthenticationService {
         kimura: {
           id: 2,
           name: 'kimura',
+          displayName: 'Kimura',
           quiz: {
             name: 'Kimura Quiz',
             complete: false,
@@ -597,6 +612,7 @@ export class AuthenticationService {
         rearNakedChoke: {
           id: 3,
           name: 'rearNakedChoke',
+          displayName: 'Rear Naked Choke',
           quiz: {
             name: 'Rear Naked Choke Quiz',
             question:
@@ -636,6 +652,7 @@ export class AuthenticationService {
         omoplata: {
           id: 4,
           name: 'omoplata',
+          displayName: 'Omoplata',
           quiz: {
             name: 'Omoplata Quiz',
             complete: false,
@@ -676,6 +693,7 @@ export class AuthenticationService {
         guillotine: {
           id: 5,
           name: 'guillotine',
+          displayName: 'Guillotine',
           quiz: {
             name: 'Guillotine Quiz',
             complete: false,
@@ -707,6 +725,7 @@ export class AuthenticationService {
         headAndArmChoke: {
           id: 6,
           name: 'headAndArmChoke',
+          displayName: 'Head and Arm Choke',
           quiz: {
             name: 'Head and Arm Choke Quiz',
             complete: false,
@@ -747,6 +766,7 @@ export class AuthenticationService {
         defendingAmericana: {
           id: 7,
           name: 'defendingAmericana',
+          displayName: 'Defending Americana',
           quiz: {
             name: 'Defending Americana Quiz',
             complete: false,
@@ -776,6 +796,7 @@ export class AuthenticationService {
         straightArmlock: {
           id: 8,
           name: 'straightArmlock',
+          displayName: 'Straight Armlock',
           quiz: {
             name: 'Straight Armlock Quiz',
             complete: false,
@@ -807,6 +828,7 @@ export class AuthenticationService {
         straightKneebar: {
           id: 9,
           name: 'straightKneebar',
+          displayName: 'Straight Kneebar',
           quiz: {
             name: 'Straight Kneebar Quiz',
             complete: false,
@@ -845,6 +867,7 @@ export class AuthenticationService {
         johnAndMikeRolling: {
           id: 10,
           name: 'johnAndMikeRolling',
+          displayName: 'John and Mike Rolling',
           quiz: {
             name: 'John and Mike Rolling Quiz',
             complete: false,
@@ -881,6 +904,7 @@ export class AuthenticationService {
         scissorSweep: {
           id: 11,
           name: 'scissorSweep',
+          displayName: 'Scissor Sweep',
           quiz: {
             name: 'Scissor Sweep Quiz',
             complete: false,

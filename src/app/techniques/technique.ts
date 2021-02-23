@@ -1,6 +1,7 @@
 export interface Technique {
   id: number;
   name: string;
+  displayName: string;
   favorite: boolean;
   quiz: {
     id: number;
