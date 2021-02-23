@@ -92,12 +92,11 @@ export class TechniqueService {
         currentUser,
         technique,
       };
-      console.log(data);
 
       return this.http.patch(this.favoriteUrl, data, this.httpOptions).pipe(
-        tap((_) =>
-          console.log(`updated favorite for technique id=${technique.id}`)
-        ),
+        // tap((_) =>
+        //   console.log(`updated favorite for technique id=${technique.id}`)
+        // ),
         catchError(this.handleError<any>('favoriteTechnique error'))
       );
     } else {

@@ -1,12 +1,11 @@
-<h2>Techniques</h2>
-
-<div>
+<h2>Favorite Techniques</h2>
+<div class="container">
+  <!-- <div>
   <form>
-    <!-- <mat-form-field> -->
-    <!-- <mat-label>Technique name: </mat-label> -->
-    <input matInput #techniqueName />
-    <!-- </mat-form-field> -->
-    <!-- <mat-form-field> -->
+    <mat-form-field>
+      <mat-label>Technique name: </mat-label>
+      <input matInput #techniqueName />
+    </mat-form-field>
     <button
       mat-button
       [disabled]="isDisabled"
@@ -15,20 +14,22 @@
     >
       {{ isDisabled ? "adding" : "add" }}
     </button>
-    <!-- </mat-form-field> -->
   </form>
+</div> -->
+  <div *ngFor="let technique of techniques | keyvalue">
+    <div *ngIf="technique.value.favorite" class="techniques">
+      <div [class.selected]="technique.value.id === selectedId" class="badge">
+        <a [routerLink]="['/technique', technique.value.id]">
+          <span>{{ technique.value.displayName }}</span>
+        </a>
+        <!-- <button
+            class="delete"
+            title="delete technique"
+            (click)="delete(technique)"
+          >
+            x
+          </button> -->
+      </div>
+    </div>
+  </div>
 </div>
-
-<ul class="techniques">
-  <li
-    *ngFor="let technique of techniques | keyvalue"
-    [class.selected]="technique.value.id === selectedId"
-  >
-    <a [routerLink]="['/admin/manage-technique-detail', technique.value.id]">
-      <span>{{ technique.value.name }}</span>
-    </a>
-    <button class="delete" title="delete technique" (click)="delete(technique)">
-      x
-    </button>
-  </li>
-</ul>
