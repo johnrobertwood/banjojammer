@@ -4,6 +4,8 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Technique } from '../techniques/technique';
 import { TechniqueService } from '../techniques/technique.service';
 
@@ -18,6 +20,7 @@ export interface DialogData {
   styleUrls: ['dialog-content-quiz.component.css'],
 })
 export class DialogContentQuizComponent {
+  private ngUnsubscribe = new Subject();
   @Input() technique: Technique;
   answered: boolean;
 
@@ -37,8 +40,16 @@ export class DialogContentQuizComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.technique.quiz.complete = true;
-      this.techniqueService.updateTechnique(this.technique, 'quiz').subscribe();
+      this.techniqueService
+        .updateTechnique(this.technique, 'quiz')
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe();
     });
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }
 

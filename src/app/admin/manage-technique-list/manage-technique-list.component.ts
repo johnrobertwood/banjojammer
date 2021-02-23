@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Technique } from 'src/app/techniques/technique';
 import { TechniqueService } from 'src/app/techniques/technique.service';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-manage-technique-list',
@@ -11,6 +12,7 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./manage-technique-list.component.scss'],
 })
 export class ManageTechniqueListComponent implements OnInit {
+  private ngUnsubscribe = new Subject();
   techniques: Technique[];
   selectedId: number;
   isDisabled = false;
@@ -38,7 +40,8 @@ export class ManageTechniqueListComponent implements OnInit {
         switchMap((params) => {
           // this.selectedId = +params.get('id');
           return this.techniqueService.getTechniques();
-        })
+        }),
+        takeUntil(this.ngUnsubscribe)
       )
       .subscribe((techniques) => {
         let obj = JSON.parse(techniques.body).techniques;
@@ -75,5 +78,10 @@ export class ManageTechniqueListComponent implements OnInit {
     console.log('delete button pressed');
     // this.techniques = this.techniques.filter((t) => t !== technique);
     // this.techniqueService.deleteTechnique(technique).subscribe();
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }

@@ -4,6 +4,8 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Technique } from '../techniques/technique';
 import { TechniqueService } from '../techniques/technique.service';
 
@@ -17,6 +19,7 @@ export interface DialogData {
   styleUrls: ['dialog-content-flashcard.component.css'],
 })
 export class DialogContentFlashcardComponent {
+  private ngUnsubscribe = new Subject();
   @Input() technique: Technique;
 
   constructor(
@@ -37,8 +40,14 @@ export class DialogContentFlashcardComponent {
       this.technique.flashcard.complete = true;
       this.techniqueService
         .updateTechnique(this.technique, 'flashcard')
+        .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe();
     });
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }
 

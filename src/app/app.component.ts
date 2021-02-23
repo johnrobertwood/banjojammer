@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { pluck, switchMap } from 'rxjs/operators';
+import { pluck, switchMap, takeUntil } from 'rxjs/operators';
 import { TechniqueService } from './techniques/technique.service';
 import { Technique } from './techniques/technique';
 import { AuthenticationService } from './auth/authentication.service';
 import { Hub } from 'aws-amplify';
 import { HubPayload } from './hub-payload';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { HubPayload } from './hub-payload';
   animations: [slideInAnimation],
 })
 export class AppComponent implements OnInit {
+  private ngUnsubscribe = new Subject();
   isSmallScreen: boolean;
   selectedId: number;
   loggedIn = false;
@@ -76,7 +78,10 @@ export class AppComponent implements OnInit {
     }
 
     if (data.event === 'signUp') {
-      this.authService.addUser(data).subscribe();
+      this.authService
+        .addUser(data)
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe();
     }
   }
 
@@ -86,7 +91,8 @@ export class AppComponent implements OnInit {
         switchMap((params) => {
           // this.selectedId = +params.get('id');
           return this.techniqueService.getTechniques();
-        })
+        }),
+        takeUntil(this.ngUnsubscribe)
       )
       .subscribe((techniques) => {
         let obj = JSON.parse(techniques.body).techniques;
@@ -102,6 +108,11 @@ export class AppComponent implements OnInit {
 
         this.techniques = arr;
       });
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 
   get sidenavMode() {
