@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   isSmallScreen: boolean;
   selectedId: number;
   loggedIn = false;
-  techniques: { [key: string]: object };
+  techniques: Technique[];
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -89,7 +89,18 @@ export class AppComponent implements OnInit {
         })
       )
       .subscribe((techniques) => {
-        this.techniques = JSON.parse(techniques.body).techniques;
+        let obj = JSON.parse(techniques.body).techniques;
+        let arr = [];
+
+        for (let key in obj) {
+          arr.push(obj[key]);
+        }
+
+        arr.sort((a, b) => {
+          return a.id - b.id;
+        });
+
+        this.techniques = arr;
       });
   }
 

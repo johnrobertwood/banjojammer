@@ -35,7 +35,7 @@ export class TechniqueService {
     };
     this.messageService.add(`TechniqueService: fetched techniques`);
     return this.http
-      .post<any>(this.lambdaUrl, username, this.httpOptions)
+      .post(this.lambdaUrl, username, this.httpOptions)
       .pipe(catchError(this.handleError<Technique[]>('getTechniques', [])));
   }
 

@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Technique } from 'src/app/techniques/technique';
 import { TechniqueService } from 'src/app/techniques/technique.service';
-// import { MessageService } from 'src/app/message.service';
 import { switchMap } from 'rxjs/operators';
 
 @Component({
@@ -12,14 +11,14 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./manage-technique-list.component.scss'],
 })
 export class ManageTechniqueListComponent implements OnInit {
-  techniques: { [key: string]: object };
+  techniques: Technique[];
   selectedId: number;
   isDisabled = false;
   selectedTechnique: Technique;
 
   constructor(
     private techniqueService: TechniqueService,
-    private route: ActivatedRoute // private messageService: MessageService
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -42,7 +41,18 @@ export class ManageTechniqueListComponent implements OnInit {
         })
       )
       .subscribe((techniques) => {
-        this.techniques = JSON.parse(techniques.body).techniques;
+        let obj = JSON.parse(techniques.body).techniques;
+        let arr = [];
+
+        for (let key in obj) {
+          arr.push(obj[key]);
+        }
+
+        arr.sort((a, b) => {
+          return a.id - b.id;
+        });
+
+        this.techniques = arr;
       });
   }
 

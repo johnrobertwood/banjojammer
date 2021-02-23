@@ -49,15 +49,15 @@
         </button>
       </mat-menu>
     </mat-toolbar>
-    <mat-nav-list *ngFor="let technique of techniques | keyvalue">
+    <mat-nav-list *ngFor="let technique of techniques">
       <a
         mat-list-item
-        [class.selected]="technique.value.id === selectedId"
-        [routerLink]="['technique', technique.value.id]"
+        [class.selected]="technique.id === selectedId"
+        [routerLink]="['technique', technique.id]"
         (click)="isSmallScreen ? sidenav.toggle() : null"
-        >{{ technique.value.displayName }}</a
-      ></mat-nav-list
-    >
+        >{{ technique.displayName }}</a
+      >
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar class="content-nav" color="warn">
