@@ -12,6 +12,9 @@ export class TechniqueService {
   private lambdaUrl =
     'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/user';
 
+  private favoriteUrl =
+    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -81,6 +84,27 @@ export class TechniqueService {
     }
   }
 
+  favoriteTechnique(technique: Technique): Observable<Technique> {
+    technique.favorite = !technique.favorite;
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser !== null) {
+      const data = {
+        currentUser,
+        technique,
+      };
+      console.log(data);
+
+      return this.http.patch(this.favoriteUrl, data, this.httpOptions).pipe(
+        tap((_) =>
+          console.log(`updated favorite for technique id=${technique.id}`)
+        ),
+        catchError(this.handleError<any>('favoriteTechnique error'))
+      );
+    } else {
+      return of(null);
+    }
+  }
+
   /** POST: add a new technique to the server */
   addTechnique(technique: Technique): Observable<Technique> {
     return this.http
@@ -117,14 +141,6 @@ export class TechniqueService {
           : this.log(`no techniques matching "${term}"`)
       ),
       catchError(this.handleError<Technique[]>('searchTechniques', []))
-    );
-  }
-
-  favoriteTechnique(technique: Technique): Observable<Technique> {
-    technique.favorite = !technique.favorite;
-    return this.http.put(this.lambdaUrl, technique, this.httpOptions).pipe(
-      tap((_) => this.log(`updated favorite for technique id=${technique.id}`)),
-      catchError(this.handleError<any>('favoriteTechnique error'))
     );
   }
 
