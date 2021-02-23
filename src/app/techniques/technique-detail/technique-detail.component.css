@@ -9,6 +9,8 @@ button {
 .title-container {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .button-row {
@@ -47,4 +49,18 @@ button {
 
 .goldheart {
   color: yellow;
+}
+
+.description-container {
+  display: flex;
+  justify-content: center;
+}
+
+.details-container {
+  display: flex;
+  justify-content: center;
+}
+
+.description-details {
+  font-size: large;
 }

@@ -19,6 +19,12 @@ h1 a {
 
 .main-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 20px;
+}
+
+.popupContainer {
+  margin-top: 50px;
 }

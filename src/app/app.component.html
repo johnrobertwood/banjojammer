@@ -27,20 +27,20 @@
         >
           Profile
         </button>
-        <button
+        <!-- <button
           *ngIf="loggedIn"
           mat-menu-item
           routerLink="/admin"
           routerLinkActive="active"
         >
           Admin
-        </button>
-        <!-- <button
+        </button> -->
+        <button
           mat-menu-item
           [routerLink]="[{ outlets: { popup: ['compose'] } }]"
         >
           Contact
-        </button> -->
+        </button>
         <button *ngIf="!loggedIn" mat-menu-item routerLink="/login">
           Login
         </button>
@@ -61,7 +61,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar class="content-nav" color="warn">
-      <h1><a routerLink="/technique/0">Jiu Jitsu Memorizer</a></h1>
+      <h1><a routerLink="/technique/0">Jiu Jitsu Memory</a></h1>
       <div>
         <button mat-button [matMenuTriggerFor]="menu">
           <mat-icon>account_circle</mat-icon>
@@ -75,7 +75,7 @@
       <div [@routeAnimation]="getAnimationData(routerOutlet)">
         <router-outlet #routerOutlet="outlet"></router-outlet>
       </div>
-      <router-outlet name="popup"></router-outlet>
+      <router-outlet name="popup" class="popupContainer"></router-outlet>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

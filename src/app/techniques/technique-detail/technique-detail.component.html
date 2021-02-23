@@ -1,7 +1,4 @@
 <div *ngIf="technique$ | async as technique">
-  <div class="title-container">
-    <h2>{{ technique.displayName }} Details</h2>
-  </div>
   <div class="video-container">
     <iframe
       [width]="isSmallScreen || '560'"
@@ -22,7 +19,7 @@
         class="nav-button"
       >
         <mat-icon aria-hidden="false">keyboard_arrow_left</mat-icon>
-        prev
+        Prev
       </button>
       <button
         [disabled]="technique.id === 11"
@@ -31,7 +28,7 @@
         [routerLink]="['/technique', technique.id + 1]"
         class="nav-button"
       >
-        next
+        Next
         <mat-icon aria-hidden="false">keyboard_arrow_right</mat-icon>
       </button>
     </div>
@@ -57,5 +54,13 @@
         </button>
       </span>
     </div>
+  </div>
+  <div class="title-container">
+    <h2>{{ technique.displayName }} Details</h2>
+  </div>
+  <div class="description-container">
+    <span class="details-container">
+      <p class="description-details">{{ technique.flashcard.answer }}</p>
+    </span>
   </div>
 </div>

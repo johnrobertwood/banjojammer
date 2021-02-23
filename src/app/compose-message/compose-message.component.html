@@ -1,21 +1,23 @@
-<h3>Contact Jiu Jitsu Memorizer</h3>
-<div *ngIf="details">
-  {{ details }}
-</div>
 <div>
-  <div>
-    <label>Message: </label>
+  <h3>Contact Jiu Jitsu Memorizer</h3>
+  <div *ngIf="details">
+    {{ details }}
   </div>
   <div>
-    <textarea
-      [(ngModel)]="message"
-      rows="10"
-      cols="35"
-      [disabled]="sending"
-    ></textarea>
+    <div>
+      <label>Message: </label>
+    </div>
+    <div>
+      <textarea
+        [(ngModel)]="message"
+        rows="10"
+        cols="35"
+        [disabled]="sending"
+      ></textarea>
+    </div>
   </div>
+  <p *ngIf="!sending">
+    <button mat-button color="primary" (click)="send()">Send</button>
+    <button mat-button color="warn" (click)="cancel()">Cancel</button>
+  </p>
 </div>
-<p *ngIf="!sending">
-  <button mat-button color="primary" (click)="send()">Send</button>
-  <button mat-button color="warn" (click)="cancel()">Cancel</button>
-</p>
