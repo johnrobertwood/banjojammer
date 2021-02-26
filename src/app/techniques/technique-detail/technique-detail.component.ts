@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { TechniqueService } from 'src/app/techniques/technique.service';
@@ -15,7 +15,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
   templateUrl: './technique-detail.component.html',
   styleUrls: ['./technique-detail.component.scss'],
 })
-export class TechniqueDetailComponent implements OnInit {
+export class TechniqueDetailComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject();
   technique$: Observable<Technique>;
   quiz$: Observable<Quiz>;

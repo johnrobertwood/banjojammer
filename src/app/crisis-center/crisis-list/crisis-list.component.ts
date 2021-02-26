@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subject } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
@@ -11,14 +11,15 @@ import { TechniqueService } from 'src/app/techniques/technique.service';
   templateUrl: './crisis-list.component.html',
   styleUrls: ['./crisis-list.component.css'],
 })
-export class CrisisListComponent implements OnInit {
+export class CrisisListComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject();
   techniques: Technique[];
   selectedId: number;
 
   constructor(
     private route: ActivatedRoute,
-    private techniqueService: TechniqueService
+    private techniqueService: TechniqueService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -44,6 +45,10 @@ export class CrisisListComponent implements OnInit {
 
         this.techniques = arr;
       });
+  }
+
+  gotoFlashcard(techniqueId: string) {
+    this.router.navigate(['/crisis-center', techniqueId]);
   }
 
   ngOnDestroy() {

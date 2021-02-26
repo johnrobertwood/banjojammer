@@ -19,7 +19,7 @@ export interface DialogData {
   templateUrl: 'dialog-content-quiz.component.html',
   styleUrls: ['dialog-content-quiz.component.css'],
 })
-export class DialogContentQuizComponent {
+export class DialogContentQuizComponent implements OnDestroy {
   private ngUnsubscribe = new Subject();
   @Input() technique: Technique;
   answered: boolean;

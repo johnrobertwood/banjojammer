@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Technique } from 'src/app/techniques/technique';
@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
   templateUrl: './technique-list.component.html',
   styleUrls: ['./technique-list.component.scss'],
 })
-export class TechniqueListComponent implements OnInit {
+export class TechniqueListComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject();
   techniques: Technique[];
   selectedId: number;

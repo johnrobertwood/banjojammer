@@ -1,4 +1,4 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject, Input, OnDestroy } from '@angular/core';
 import {
   MatDialog,
   MatDialogRef,
@@ -18,7 +18,7 @@ export interface DialogData {
   templateUrl: 'dialog-content-flashcard.component.html',
   styleUrls: ['dialog-content-flashcard.component.css'],
 })
-export class DialogContentFlashcardComponent {
+export class DialogContentFlashcardComponent implements OnDestroy {
   private ngUnsubscribe = new Subject();
   @Input() technique: Technique;
 
