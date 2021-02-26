@@ -25,6 +25,7 @@ mat-card {
 .card-text {
   font-size: 1.5em;
   text-align: center;
+  max-width: 300px;
 }
 
 .card-container {
@@ -39,6 +40,7 @@ mat-card {
 
 .nav-button {
   margin-right: 5px;
+  margin-bottom: 5px;
   padding: 5px 10px;
   height: 46px;
 }
