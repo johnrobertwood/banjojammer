@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { CrisisService } from '../crisis.service';
-import { Crisis } from '../crisis';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { switchMap, takeUntil } from 'rxjs/operators';
+import { Technique } from 'src/app/techniques/technique';
+import { TechniqueService } from 'src/app/techniques/technique.service';
 
 @Component({
   selector: 'app-crisis-list',
@@ -12,17 +12,42 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./crisis-list.component.css'],
 })
 export class CrisisListComponent implements OnInit {
-  crises$: Observable<Crisis[]>;
+  private ngUnsubscribe = new Subject();
+  techniques: Technique[];
   selectedId: number;
 
-  constructor(private service: CrisisService, private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private techniqueService: TechniqueService
+  ) {}
 
   ngOnInit() {
-    this.crises$ = this.route.paramMap.pipe(
-      switchMap((params) => {
-        this.selectedId = +params.get('id');
-        return this.service.getCrises();
-      })
-    );
+    this.route.paramMap
+      .pipe(
+        switchMap((params) => {
+          this.selectedId = +params.get('id');
+          return this.techniqueService.getTechniques();
+        }),
+        takeUntil(this.ngUnsubscribe)
+      )
+      .subscribe((techniques) => {
+        let obj = JSON.parse(techniques.body).techniques;
+        let arr = [];
+
+        for (let key in obj) {
+          arr.push(obj[key]);
+        }
+
+        arr.sort((a, b) => {
+          return a.id - b.id;
+        });
+
+        this.techniques = arr;
+      });
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }

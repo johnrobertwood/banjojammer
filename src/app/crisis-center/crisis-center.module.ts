@@ -10,6 +10,7 @@ import { CrisisCenterComponent } from './crisis-center/crisis-center.component';
 import { CrisisDetailComponent } from './crisis-detail/crisis-detail.component';
 
 import { CrisisCenterRoutingModule } from './crisis-center-routing.module';
+import { AppMaterialModule } from '../app-material.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { CrisisCenterRoutingModule } from './crisis-center-routing.module';
     CrisisCenterRoutingModule,
     MatButtonModule,
     MatInputModule,
+    AppMaterialModule,
   ],
   declarations: [
     CrisisCenterComponent,

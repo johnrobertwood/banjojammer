@@ -8,26 +8,26 @@ import {
 import { Observable, of, EMPTY } from 'rxjs';
 import { mergeMap, take } from 'rxjs/operators';
 
-import { CrisisService } from './crisis.service';
-import { Crisis } from './crisis';
+import { TechniqueService } from '../techniques/technique.service';
+import { Technique } from '../techniques/technique';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CrisisDetailResolverService implements Resolve<Crisis> {
-  constructor(private cs: CrisisService, private router: Router) {}
+export class CrisisDetailResolverService implements Resolve<Technique> {
+  constructor(private ts: TechniqueService, private router: Router) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<Crisis> | Observable<never> {
+  ): Observable<Technique> | Observable<never> {
     const id = route.paramMap.get('id');
 
-    return this.cs.getCrisis(id).pipe(
+    return this.ts.getUserTechnique(+id).pipe(
       take(1),
-      mergeMap((crisis) => {
-        if (crisis) {
-          return of(crisis);
+      mergeMap((technique) => {
+        if (technique) {
+          return of(technique);
         } else {
           // id not found
           this.router.navigate(['/crisis-center']);
