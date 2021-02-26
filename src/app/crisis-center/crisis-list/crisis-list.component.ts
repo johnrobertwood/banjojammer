@@ -31,10 +31,10 @@ export class CrisisListComponent implements OnInit {
         takeUntil(this.ngUnsubscribe)
       )
       .subscribe((techniques) => {
-        let obj = JSON.parse(techniques.body).techniques;
-        let arr = [];
+        const obj = JSON.parse(techniques.body).techniques;
+        const arr = [];
 
-        for (let key in obj) {
+        for (const key in obj) {
           arr.push(obj[key]);
         }
 

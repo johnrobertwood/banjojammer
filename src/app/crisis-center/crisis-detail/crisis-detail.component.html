@@ -1,10 +1,5 @@
-<div
-  *ngIf="technique"
-  (click)="revealAnswer()"
-  mat-dialog-content
-  class="dialog-container"
->
-  <div class="card-container">
+<div *ngIf="technique" mat-dialog-content class="dialog-container">
+  <div class="card-container" (click)="revealAnswer()">
     <mat-card class="top-card">
       <p class="card-text">
         {{ technique.displayName }}
@@ -17,7 +12,21 @@
     </mat-card>
   </div>
   <div class="button-container">
-    <button mat-button color="warn" (click)="gotoPrevFlashcard()">Prev</button>
-    <button mat-button color="warn" (click)="gotoNextFlashcard()">Next</button>
+    <button
+      mat-raised-button
+      color="warn"
+      class="nav-button"
+      (click)="gotoPrevFlashcard()"
+    >
+      Prev
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      class="nav-button"
+      (click)="gotoNextFlashcard()"
+    >
+      Next
+    </button>
   </div>
 </div>

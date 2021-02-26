@@ -44,10 +44,10 @@ export class TechniqueListComponent implements OnInit {
         takeUntil(this.ngUnsubscribe)
       )
       .subscribe((techniques) => {
-        let obj = JSON.parse(techniques.body).techniques;
-        let arr = [];
+        const obj = JSON.parse(techniques.body).techniques;
+        const arr = [];
 
-        for (let key in obj) {
+        for (const key in obj) {
           arr.push(obj[key]);
         }
 
@@ -74,7 +74,6 @@ export class TechniqueListComponent implements OnInit {
   // }
 
   delete(technique: Technique): void {
-    console.log('delete button pressed');
     // this.techniques = this.techniques.filter((t) => t !== technique);
     // this.techniqueService.deleteTechnique(technique).subscribe();
   }
