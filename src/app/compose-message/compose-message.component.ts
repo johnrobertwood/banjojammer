@@ -25,7 +25,6 @@ export class ComposeMessageComponent implements OnDestroy {
       .sendFeedback(this.message)
       .pipe(
         tap((x) => {
-          console.log(x, this.message);
           this.sending = false;
           this.closePopup();
         })

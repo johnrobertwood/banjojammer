@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Technique } from 'src/app/techniques/technique';
@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
   templateUrl: './manage-technique-list.component.html',
   styleUrls: ['./manage-technique-list.component.scss'],
 })
-export class ManageTechniqueListComponent implements OnInit {
+export class ManageTechniqueListComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject();
   techniques: Technique[];
   selectedId: number;
@@ -48,7 +48,9 @@ export class ManageTechniqueListComponent implements OnInit {
         const arr = [];
 
         for (const key in obj) {
-          arr.push(obj[key]);
+          if (obj[key]) {
+            arr.push(obj[key]);
+          }
         }
 
         arr.sort((a, b) => {

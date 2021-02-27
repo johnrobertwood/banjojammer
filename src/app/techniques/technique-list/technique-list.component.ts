@@ -48,7 +48,9 @@ export class TechniqueListComponent implements OnInit, OnDestroy {
         const arr = [];
 
         for (const key in obj) {
-          arr.push(obj[key]);
+          if (obj[key]) {
+            arr.push(obj[key]);
+          }
         }
 
         arr.sort((a, b) => {

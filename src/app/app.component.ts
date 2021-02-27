@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
 import { BreakpointObserver } from '@angular/cdk/layout';
@@ -16,7 +16,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['app.component.css'],
   animations: [slideInAnimation],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject();
   isSmallScreen: boolean;
   selectedId: number;
@@ -99,7 +99,9 @@ export class AppComponent implements OnInit {
         const arr = [];
 
         for (const key in obj) {
-          arr.push(obj[key]);
+          if (obj[key]) {
+            arr.push(obj[key]);
+          }
         }
 
         arr.sort((a, b) => {
