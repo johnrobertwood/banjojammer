@@ -5,7 +5,6 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Technique } from './technique';
-import { MessageService } from 'src/app/message.service';
 
 @Injectable({ providedIn: 'root' })
 export class TechniqueService {
@@ -21,10 +20,7 @@ export class TechniqueService {
     }),
   };
 
-  constructor(
-    private http: HttpClient,
-    private messageService: MessageService
-  ) {}
+  constructor(private http: HttpClient) {}
 
   getTechniques(): Observable<any> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -33,7 +29,6 @@ export class TechniqueService {
         ? currentUser.username.toLowerCase()
         : 'testuser420',
     };
-    this.messageService.add(`TechniqueService: fetched techniques`);
     return this.http
       .post(this.lambdaUrl, username, this.httpOptions)
       .pipe(catchError(this.handleError<Technique[]>('getTechniques', [])));
@@ -48,9 +43,6 @@ export class TechniqueService {
     };
     const url = this.lambdaUrl;
 
-    this.messageService.add(
-      `TechniqueService: fetched technique id=${techniqueId}`
-    );
     return this.http.post<any>(url, username, this.httpOptions).pipe(
       map((data) => JSON.parse(data.body).techniques),
       map((technique) => {
@@ -75,10 +67,9 @@ export class TechniqueService {
         technique,
         quizType,
       };
-      return this.http.patch(this.lambdaUrl, data, this.httpOptions).pipe(
-        // tap((x) => console.log(x)),
-        catchError(this.handleError<any>('updateTechnique'))
-      );
+      return this.http
+        .patch(this.lambdaUrl, data, this.httpOptions)
+        .pipe(catchError(this.handleError<any>('updateTechnique')));
     } else {
       return of(null);
     }
@@ -93,12 +84,9 @@ export class TechniqueService {
         technique,
       };
 
-      return this.http.patch(this.favoriteUrl, data, this.httpOptions).pipe(
-        // tap((_) =>
-        //   console.log(`updated favorite for technique id=${technique.id}`)
-        // ),
-        catchError(this.handleError<any>('favoriteTechnique error'))
-      );
+      return this.http
+        .patch(this.favoriteUrl, data, this.httpOptions)
+        .pipe(catchError(this.handleError<any>('favoriteTechnique error')));
     } else {
       return of(null);
     }
@@ -108,12 +96,7 @@ export class TechniqueService {
   addTechnique(technique: Technique): Observable<Technique> {
     return this.http
       .post<Technique>(this.lambdaUrl, technique, this.httpOptions)
-      .pipe(
-        tap((newTechnique: Technique) =>
-          this.log(`added technique w/ id=${newTechnique.id}`)
-        ),
-        catchError(this.handleError<Technique>('addTechnique'))
-      );
+      .pipe(catchError(this.handleError<Technique>('addTechnique')));
   }
 
   /** DELETE: delete the technique from the server */
@@ -121,10 +104,9 @@ export class TechniqueService {
     const id = typeof technique === 'number' ? technique : technique.id;
     const url = `${this.lambdaUrl}/${id}`;
 
-    return this.http.delete<Technique>(url, this.httpOptions).pipe(
-      tap((_) => this.log(`deleted technique id=${id}`)),
-      catchError(this.handleError<Technique>('deleteTechnique'))
-    );
+    return this.http
+      .delete<Technique>(url, this.httpOptions)
+      .pipe(catchError(this.handleError<Technique>('deleteTechnique')));
   }
 
   /* GET techniques that contains search term */
@@ -134,11 +116,11 @@ export class TechniqueService {
       return of([]);
     }
     return this.http.get<Technique[]>(`${this.lambdaUrl}/?name=${term}`).pipe(
-      tap((x) =>
-        x.length
-          ? this.log(`found techniques matching "${term}"`)
-          : this.log(`no techniques matching "${term}"`)
-      ),
+      // tap((x) =>
+      //   x.length
+      //     ? this.log(`found techniques matching "${term}"`)
+      //     : this.log(`no techniques matching "${term}"`)
+      // ),
       catchError(this.handleError<Technique[]>('searchTechniques', []))
     );
   }
@@ -155,15 +137,10 @@ export class TechniqueService {
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
+      console.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
-  }
-
-  /** Log a TechniqueService message with the TechniqueMessage */
-  private log(message: string) {
-    this.messageService.add(`TechniqueService: ${message}`);
   }
 }
