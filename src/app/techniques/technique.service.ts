@@ -14,6 +14,9 @@ export class TechniqueService {
   private favoriteUrl =
     'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
 
+  private editUrl =
+    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/users';
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -73,6 +76,18 @@ export class TechniqueService {
     } else {
       return of(null);
     }
+  }
+
+  editTechnique(technique: Technique): Observable<Technique> {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const data = {
+      currentUser,
+      technique,
+    };
+
+    return this.http
+      .patch(this.editUrl, data, this.httpOptions)
+      .pipe(catchError(this.handleError<any>('editTechnique')));
   }
 
   favoriteTechnique(technique: Technique): Observable<Technique> {

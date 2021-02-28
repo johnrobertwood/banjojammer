@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap, map, mergeMap } from 'rxjs/operators';
+import { switchMap, map, mergeMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Quiz } from 'src/app/dialog-content-quiz/quiz';
 import { Flashcard } from 'src/app/dialog-content-flashcard/flashcard';
@@ -44,15 +44,18 @@ export class ManageTechniqueDetailComponent implements OnInit {
     this.router.navigate(['/admin/manage-technique-list', { id: techniqueId }]);
   }
 
-  // save(inputValue: string): void {
-  //   this.technique$
-  //     .pipe(
-  //       map((technique: Technique) => ({ ...technique, name: inputValue })),
-  //       mergeMap((technique: Technique) =>
-  //         this.techniqueService.updateTechnique(technique, null)
-  //       )
-  //       // In memory API is returning NULL for PUT so hardcoding the id here
-  //     )
-  //     .subscribe(() => this.goBack(11));
-  // }
+  save(inputValue: string): void {
+    this.technique$
+      .pipe(
+        map((technique: Technique) => ({
+          ...technique,
+          displayName: inputValue,
+        })),
+        mergeMap((technique: Technique) =>
+          this.techniqueService.editTechnique(technique)
+        )
+        // In memory API is returning NULL for PUT so hardcoding the id here
+      )
+      .subscribe(() => this.goBack(11));
+  }
 }
