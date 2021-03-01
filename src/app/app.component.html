@@ -14,8 +14,8 @@
         <button
           *ngIf="loggedIn"
           mat-menu-item
-          routerLink="/admin/manage-technique-list"
-          routerLinkActive="active"
+          routerLink="/favorites"
+          routerLinkActive="activebutton"
         >
           Favorites
         </button>
@@ -23,7 +23,7 @@
           *ngIf="loggedIn"
           mat-menu-item
           routerLink="/profile"
-          routerLinkActive="active"
+          routerLinkActive="activebutton"
         >
           Profile
         </button>
@@ -31,7 +31,7 @@
           *ngIf="loggedIn"
           mat-menu-item
           routerLink="/crisis-center"
-          routerLinkActive="active"
+          routerLinkActive="activebutton"
         >
           Flashcards
         </button>
@@ -39,7 +39,7 @@
           *ngIf="loggedIn"
           mat-menu-item
           routerLink="/admin"
-          routerLinkActive="active"
+          routerLinkActive="activebutton"
         >
           Admin
         </button>
@@ -59,10 +59,10 @@
     </mat-toolbar>
     <mat-nav-list *ngFor="let technique of techniques">
       <a
-        mat-list-item
-        [class.selected]="technique.id === selectedId"
+        mat-menu-item
         [routerLink]="['technique', technique.id]"
         (click)="isSmallScreen ? sidenav.toggle() : null"
+        routerLinkActive="activebutton"
         >{{ technique.displayName }}</a
       >
     </mat-nav-list>

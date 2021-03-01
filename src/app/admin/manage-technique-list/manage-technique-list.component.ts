@@ -27,18 +27,11 @@ export class ManageTechniqueListComponent implements OnInit, OnDestroy {
     this.getTechniques();
   }
 
-  // onSelect(technique: Technique): void {
-  //   this.selectedTechnique = technique;
-  //   this.messageService.add(
-  //     `TechniquesComponent: Selected technique =${technique.id}!`
-  //   );
-  // }
-
   getTechniques(): void {
     this.route.paramMap
       .pipe(
         switchMap((params) => {
-          // this.selectedId = +params.get('id');
+          this.selectedId = +params.get('id');
           return this.techniqueService.getTechniques();
         }),
         takeUntil(this.ngUnsubscribe)

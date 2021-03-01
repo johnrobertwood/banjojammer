@@ -20,11 +20,11 @@
 </div> -->
 
 <ul class="techniques">
-  <li
-    *ngFor="let technique of techniques"
-    [class.selected]="technique.id === selectedId"
-  >
-    <a [routerLink]="['/admin/manage-technique-detail', technique.id]">
+  <li *ngFor="let technique of techniques">
+    <a
+      [routerLink]="['/admin/manage-technique-detail', technique.id]"
+      routerLinkActive="activebutton"
+    >
       <span>{{ technique.displayName }} </span>
     </a>
     <button class="delete" title="delete technique" (click)="delete(technique)">

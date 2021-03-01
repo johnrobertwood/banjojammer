@@ -38,7 +38,7 @@ export class FavoritesListComponent implements OnInit, OnDestroy {
     this.route.paramMap
       .pipe(
         switchMap((params) => {
-          // this.selectedId = +params.get('id');
+          this.selectedId = +params.get('id');
           return this.techniqueService.getTechniques();
         }),
         takeUntil(this.ngUnsubscribe)
