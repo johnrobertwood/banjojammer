@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
   templateUrl: './favorites-list.component.html',
   styleUrls: ['./favorites-list.component.css'],
 })
-export class FavoritesListComponent implements OnInit {
+export class FavoritesListComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject();
   techniques: Technique[];
   selectedId: number;
