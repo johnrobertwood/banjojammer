@@ -15,6 +15,7 @@ import { TechniquesModule } from './techniques/techniques.module';
 import { ProfileComponent } from './profile/profile.component';
 import { AppMaterialModule } from './app-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
+import { FavoritesListComponent } from './favorites-list/favorites-list.component';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     ComposeMessageComponent,
     PageNotFoundComponent,
     ProfileComponent,
+    FavoritesListComponent,
   ],
   bootstrap: [AppComponent],
 })

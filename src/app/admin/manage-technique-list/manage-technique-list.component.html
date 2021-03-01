@@ -1,35 +1,34 @@
-<h2>Favorite Techniques</h2>
-<div class="container">
-  <!-- <div>
+<h2>Manage Techniques List</h2>
+
+<!-- <div>
   <form>
     <mat-form-field>
       <mat-label>Technique name: </mat-label>
       <input matInput #techniqueName />
     </mat-form-field>
-    <button
-      mat-button
-      [disabled]="isDisabled"
-      [style.color]="isDisabled ? 'red' : 'green'"
-      (click)="add(techniqueName.value); techniqueName.value = ''"
-    >
-      {{ isDisabled ? "adding" : "add" }}
-    </button>
+    <mat-form-field>
+      <button
+        mat-button
+        [disabled]="isDisabled"
+        [style.color]="isDisabled ? 'red' : 'green'"
+        (click)="add(techniqueName.value); techniqueName.value = ''"
+      >
+        {{ isDisabled ? "adding" : "add" }}
+      </button>
+    </mat-form-field>
   </form>
 </div> -->
-  <div *ngFor="let technique of techniques | keyvalue">
-    <div *ngIf="technique.value.favorite" class="techniques">
-      <a [routerLink]="['/technique', technique.value.id]">
-        <div [class.selected]="technique.value.id === selectedId" class="badge">
-          <span>{{ technique.value.displayName }}</span>
-          <!-- <button
-            class="delete"
-            title="delete technique"
-            (click)="delete(technique)"
-            >
-            x
-          </button> -->
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
+
+<ul class="techniques">
+  <li
+    *ngFor="let technique of techniques"
+    [class.selected]="technique.id === selectedId"
+  >
+    <a [routerLink]="['/admin/manage-technique-detail', technique.id]">
+      <span>{{ technique.displayName }} </span>
+    </a>
+    <button class="delete" title="delete technique" (click)="delete(technique)">
+      x
+    </button>
+  </li>
+</ul>
