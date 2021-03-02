@@ -15,6 +15,7 @@
   border-radius: 4px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .crises li:hover {
@@ -77,4 +78,8 @@ button.delete {
 }
 .crises li.selected:hover {
   background-color: #bbd8dc;
+}
+
+.activebutton {
+  background-color: #b0bec5;
 }

@@ -1,9 +1,12 @@
 <router-outlet></router-outlet>
-<ul class="crises" *ngFor="let technique of techniques">
-  <li
-    [class.selected]="technique.id === selectedId"
-    (click)="gotoFlashcard(technique.id)"
+<ul class="crises">
+  <a
+    *ngFor="let technique of techniques"
+    [routerLink]="['/crisis-center', technique.id]"
+    routerLinkActive="activebutton"
   >
-    <a> {{ technique.displayName }} Flashcard </a>
-  </li>
+    <li [class.selected]="technique.id === selectedId">
+      {{ technique.displayName }} Flashcard
+    </li>
+  </a>
 </ul>

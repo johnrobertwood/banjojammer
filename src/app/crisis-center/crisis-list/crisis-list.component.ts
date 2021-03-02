@@ -26,7 +26,6 @@ export class CrisisListComponent implements OnInit, OnDestroy {
     this.route.paramMap
       .pipe(
         switchMap((params) => {
-          this.selectedId = +params.get('id');
           return this.techniqueService.getTechniques();
         }),
         takeUntil(this.ngUnsubscribe)
@@ -47,10 +46,6 @@ export class CrisisListComponent implements OnInit, OnDestroy {
 
         this.techniques = arr;
       });
-  }
-
-  gotoFlashcard(techniqueId: string) {
-    this.router.navigate(['/crisis-center', techniqueId]);
   }
 
   ngOnDestroy() {
