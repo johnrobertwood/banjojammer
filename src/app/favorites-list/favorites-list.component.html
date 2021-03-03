@@ -16,11 +16,11 @@
     </button>
   </form>
 </div> -->
-  <div *ngFor="let technique of techniques | keyvalue">
-    <div *ngIf="technique.value.favorite" class="techniques">
-      <a [routerLink]="['/technique', technique.value.id]">
-        <div [class.selected]="technique.value.id === selectedId" class="badge">
-          <span>{{ technique.value.displayName }}</span>
+  <div *ngFor="let technique of techniques$ | async">
+    <div *ngIf="technique.favorite" class="techniques">
+      <a [routerLink]="['/technique', technique.id]">
+        <div [class.selected]="technique.id === selectedId" class="badge">
+          <span>{{ technique.displayName }}</span>
           <!-- <button
             class="delete"
             title="delete technique"

@@ -1,12 +1,10 @@
 <router-outlet></router-outlet>
 <ul class="crises">
   <a
-    *ngFor="let technique of techniques"
+    *ngFor="let technique of techniques$ | async"
     [routerLink]="['/crisis-center', technique.id]"
     routerLinkActive="activebutton"
   >
-    <li [class.selected]="technique.id === selectedId">
-      {{ technique.displayName }} Flashcard
-    </li>
+    <li>{{ technique.displayName }} Flashcard</li>
   </a>
 </ul>

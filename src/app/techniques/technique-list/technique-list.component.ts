@@ -1,19 +1,18 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Technique } from 'src/app/techniques/technique';
 import { TechniqueService } from 'src/app/techniques/technique.service';
-import { switchMap, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-technique-list',
   templateUrl: './technique-list.component.html',
   styleUrls: ['./technique-list.component.scss'],
 })
-export class TechniqueListComponent implements OnInit, OnDestroy {
-  private ngUnsubscribe = new Subject();
-  techniques: Technique[];
+export class TechniqueListComponent implements OnInit {
+  techniques$: Observable<Technique[]>;
   selectedId: number;
   isDisabled = false;
   selectedTechnique: Technique;
@@ -35,30 +34,12 @@ export class TechniqueListComponent implements OnInit, OnDestroy {
   // }
 
   getTechniques(): void {
-    this.route.paramMap
-      .pipe(
-        switchMap((params) => {
-          // this.selectedId = +params.get('id');
-          return this.techniqueService.getTechniques();
-        }),
-        takeUntil(this.ngUnsubscribe)
-      )
-      .subscribe((techniques) => {
-        const obj = JSON.parse(techniques.body).techniques;
-        const arr = [];
-
-        for (const key in obj) {
-          if (obj[key]) {
-            arr.push(obj[key]);
-          }
-        }
-
-        arr.sort((a, b) => {
-          return a.id - b.id;
-        });
-
-        this.techniques = arr;
-      });
+    this.techniques$ = this.route.paramMap.pipe(
+      switchMap((params) => {
+        this.selectedId = +params.get('id');
+        return this.techniqueService.getTechniques();
+      })
+    );
   }
 
   // add(name: string): void {
@@ -78,10 +59,5 @@ export class TechniqueListComponent implements OnInit, OnDestroy {
   delete(technique: Technique): void {
     // this.techniques = this.techniques.filter((t) => t !== technique);
     // this.techniqueService.deleteTechnique(technique).subscribe();
-  }
-
-  ngOnDestroy() {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
   }
 }

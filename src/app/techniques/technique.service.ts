@@ -32,9 +32,22 @@ export class TechniqueService {
         ? currentUser.username.toLowerCase()
         : 'testuser420',
     };
-    return this.http
-      .post(this.lambdaUrl, username, this.httpOptions)
-      .pipe(catchError(this.handleError<Technique[]>('getTechniques', [])));
+    return this.http.post<any>(this.lambdaUrl, username, this.httpOptions).pipe(
+      map((data) => {
+        const obj = JSON.parse(data.body).techniques;
+        const arr = [];
+        for (const key in obj) {
+          if (obj[key]) {
+            arr.push(obj[key]);
+          }
+        }
+        arr.sort((a, b) => {
+          return a.id - b.id;
+        });
+        return arr;
+      }),
+      catchError(this.handleError<Technique[]>('getTechniques', []))
+    );
   }
 
   getUserTechnique(techniqueId: number): Observable<any> {

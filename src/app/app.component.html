@@ -57,7 +57,7 @@
         </button>
       </mat-menu>
     </mat-toolbar>
-    <mat-nav-list *ngFor="let technique of techniques">
+    <mat-nav-list *ngFor="let technique of techniques$ | async">
       <a
         mat-menu-item
         [routerLink]="['technique', technique.id]"

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
 import { BreakpointObserver } from '@angular/cdk/layout';
@@ -8,7 +8,7 @@ import { Technique } from './techniques/technique';
 import { AuthenticationService } from './auth/authentication.service';
 import { Hub } from 'aws-amplify';
 import { HubPayload } from './hub-payload';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +16,12 @@ import { Subject } from 'rxjs';
   styleUrls: ['app.component.css'],
   animations: [slideInAnimation],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   private ngUnsubscribe = new Subject();
   isSmallScreen: boolean;
   selectedId: number;
   loggedIn = false;
-  techniques: Technique[];
+  techniques$: Observable<Technique[]>;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -86,35 +86,12 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   getTechniques(): void {
-    this.route.paramMap
-      .pipe(
-        switchMap((params) => {
-          // this.selectedId = +params.get('id');
-          return this.techniqueService.getTechniques();
-        }),
-        takeUntil(this.ngUnsubscribe)
-      )
-      .subscribe((techniques) => {
-        const obj = JSON.parse(techniques.body).techniques;
-        const arr = [];
-
-        for (const key in obj) {
-          if (obj[key]) {
-            arr.push(obj[key]);
-          }
-        }
-
-        arr.sort((a, b) => {
-          return a.id - b.id;
-        });
-
-        this.techniques = arr;
-      });
-  }
-
-  ngOnDestroy() {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
+    this.techniques$ = this.route.paramMap.pipe(
+      switchMap((params) => {
+        this.selectedId = +params.get('id');
+        return this.techniqueService.getTechniques();
+      })
+    );
   }
 
   get sidenavMode() {

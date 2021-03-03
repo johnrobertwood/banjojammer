@@ -21,7 +21,7 @@
 
 <ul class="techniques">
   <li
-    *ngFor="let technique of techniques"
+    *ngFor="let technique of techniques$ | async"
     [class.selected]="technique.id === selectedId"
   >
     <a [routerLink]="['/technique', technique.id]">
