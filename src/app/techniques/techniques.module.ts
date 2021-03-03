@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { TechniqueListComponent } from './technique-list/technique-list.component';
 import { TechniqueDetailComponent } from './technique-detail/technique-detail.component';
 import {
   DialogContentQuizComponent,
@@ -21,7 +20,6 @@ import { SafePipeModule } from '../app-safe-pipe.module';
 
 @NgModule({
   declarations: [
-    TechniqueListComponent,
     TechniqueDetailComponent,
     DialogContentQuizComponent,
     DialogContentQuizDialogComponent,

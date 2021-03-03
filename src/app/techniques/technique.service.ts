@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 import { Technique } from './technique';
 
@@ -25,7 +25,7 @@ export class TechniqueService {
 
   constructor(private http: HttpClient) {}
 
-  getTechniques(): Observable<any> {
+  getTechniques(): Observable<Technique[]> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const username = {
       username: currentUser
@@ -50,7 +50,7 @@ export class TechniqueService {
     );
   }
 
-  getUserTechnique(techniqueId: number): Observable<any> {
+  getUserTechnique(techniqueId: number): Observable<Technique> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const username = {
       username: currentUser

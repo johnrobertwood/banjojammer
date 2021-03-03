@@ -6,7 +6,7 @@ import { AuthenticationService } from '../auth/authentication.service';
   templateUrl: './profile.component.html',
 })
 export class ProfileComponent implements OnInit {
-  userData: any;
+  userData: { attributes: { sub: string }; username: string };
 
   constructor(private authService: AuthenticationService) {}
 

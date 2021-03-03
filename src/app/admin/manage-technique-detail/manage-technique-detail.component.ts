@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap, map, mergeMap, tap, pluck } from 'rxjs/operators';
+import { switchMap, map, mergeMap, pluck } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Quiz } from 'src/app/dialog-content-quiz/quiz';
 import { Flashcard } from 'src/app/dialog-content-flashcard/flashcard';

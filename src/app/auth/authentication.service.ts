@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 import { MessageService } from 'src/app/message.service';
 
@@ -510,10 +510,9 @@ export class AuthenticationService {
     };
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/users';
-    return this.http.post<any>(url, user, this.httpOptions).pipe(
-      // tap((_) => console.log('added a new user!')),
-      catchError(this.handleError<any>('addUser HTTP post error'))
-    );
+    return this.http
+      .post<any>(url, user, this.httpOptions)
+      .pipe(catchError(this.handleError<any>('addUser HTTP post error')));
   }
 
   /**

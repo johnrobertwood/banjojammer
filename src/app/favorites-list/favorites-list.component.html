@@ -1,21 +1,5 @@
 <h2>Favorite Techniques</h2>
 <div class="container">
-  <!-- <div>
-  <form>
-    <mat-form-field>
-      <mat-label>Technique name: </mat-label>
-      <input matInput #techniqueName />
-    </mat-form-field>
-    <button
-      mat-button
-      [disabled]="isDisabled"
-      [style.color]="isDisabled ? 'red' : 'green'"
-      (click)="add(techniqueName.value); techniqueName.value = ''"
-    >
-      {{ isDisabled ? "adding" : "add" }}
-    </button>
-  </form>
-</div> -->
   <div *ngFor="let technique of techniques$ | async">
     <div *ngIf="technique.favorite" class="techniques">
       <a [routerLink]="['/technique', technique.id]">
