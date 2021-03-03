@@ -1,13 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
 import { switchMap, map, mergeMap, pluck } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { Quiz } from 'src/app/dialog-content-quiz/quiz';
-import { Flashcard } from 'src/app/dialog-content-flashcard/flashcard';
+import { Observable, Subject } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
@@ -15,12 +13,10 @@ import { BreakpointObserver } from '@angular/cdk/layout';
   templateUrl: './manage-technique-detail.component.html',
   styleUrls: ['./manage-technique-detail.component.scss'],
 })
-export class ManageTechniqueDetailComponent implements OnInit {
+export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
+  private ngUnsubscribe = new Subject();
   technique$: Observable<Technique>;
-  quiz$: Observable<Quiz>;
-  flashcard$: Observable<Flashcard>;
   display = false;
-  videoUrl$: Observable<string>;
   isSmallScreen: boolean;
 
   constructor(
@@ -64,5 +60,10 @@ export class ManageTechniqueDetailComponent implements OnInit {
         // In memory API is returning NULL for PUT so hardcoding the id here
       )
       .subscribe(() => this.goBack(11));
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }

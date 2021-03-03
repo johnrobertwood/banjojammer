@@ -9,14 +9,8 @@ import { ErrorHandlingService } from '../error-handling.service';
 
 @Injectable({ providedIn: 'root' })
 export class TechniqueService {
-  private lambdaUrl =
-    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/user';
-
-  private favoriteUrl =
-    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
-
-  private editUrl =
-    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/users';
+  private apiGatewayUrl =
+    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -33,22 +27,24 @@ export class TechniqueService {
         ? currentUser.username.toLowerCase()
         : 'testuser420',
     };
-    return this.http.post<any>(this.lambdaUrl, username, this.httpOptions).pipe(
-      map((data) => {
-        const obj = JSON.parse(data.body).techniques;
-        const arr = [];
-        for (const key in obj) {
-          if (obj[key]) {
-            arr.push(obj[key]);
+    return this.http
+      .post<any>(`${this.apiGatewayUrl}/user`, username, this.httpOptions)
+      .pipe(
+        map((data) => {
+          const obj = JSON.parse(data.body).techniques;
+          const arr = [];
+          for (const key in obj) {
+            if (obj[key]) {
+              arr.push(obj[key]);
+            }
           }
-        }
-        arr.sort((a, b) => {
-          return a.id - b.id;
-        });
-        return arr;
-      }),
-      catchError(this.ehs.handleError<Technique[]>('getTechniques', []))
-    );
+          arr.sort((a, b) => {
+            return a.id - b.id;
+          });
+          return arr;
+        }),
+        catchError(this.ehs.handleError<Technique[]>('getTechniques', []))
+      );
   }
 
   getUserTechnique(techniqueId: number): Observable<Technique> {
@@ -58,7 +54,7 @@ export class TechniqueService {
         ? currentUser.username.toLowerCase()
         : 'testuser420',
     };
-    const url = this.lambdaUrl;
+    const url = `${this.apiGatewayUrl}/user`;
 
     return this.http.post<any>(url, username, this.httpOptions).pipe(
       map((data) => {
@@ -85,7 +81,7 @@ export class TechniqueService {
         quizType,
       };
       return this.http
-        .patch(this.lambdaUrl, data, this.httpOptions)
+        .patch(`${this.apiGatewayUrl}/user`, data, this.httpOptions)
         .pipe(catchError(this.ehs.handleError<any>('updateTechnique')));
     } else {
       return of(null);
@@ -98,15 +94,18 @@ export class TechniqueService {
       currentUser,
       technique,
     };
+    const url = `${this.apiGatewayUrl}/users`;
 
     return this.http
-      .patch(this.editUrl, data, this.httpOptions)
+      .patch(url, data, this.httpOptions)
       .pipe(catchError(this.ehs.handleError<any>('editTechnique')));
   }
 
   favoriteTechnique(technique: Technique): Observable<Technique> {
     technique.favorite = !technique.favorite;
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const url = `${this.apiGatewayUrl}/favorite`;
+
     if (currentUser !== null) {
       const data = {
         currentUser,
@@ -114,7 +113,7 @@ export class TechniqueService {
       };
 
       return this.http
-        .patch(this.favoriteUrl, data, this.httpOptions)
+        .patch(url, data, this.httpOptions)
         .pipe(catchError(this.ehs.handleError<any>('favoriteTechnique error')));
     } else {
       return of(null);
@@ -124,15 +123,18 @@ export class TechniqueService {
   /** POST: add a new technique to the server */
   addTechnique(technique: Technique): Observable<Technique> {
     return this.http
-      .post<Technique>(this.lambdaUrl, technique, this.httpOptions)
+      .post<Technique>(
+        `${this.apiGatewayUrl}/user`,
+        technique,
+        this.httpOptions
+      )
       .pipe(catchError(this.ehs.handleError<Technique>('addTechnique')));
   }
 
   /** DELETE: delete the technique from the server */
   deleteTechnique(technique: Technique | number): Observable<Technique> {
     const id = typeof technique === 'number' ? technique : technique.id;
-    const url = `${this.lambdaUrl}/${id}`;
-
+    const url = `${this.apiGatewayUrl}/user/${id}`;
     return this.http
       .delete<Technique>(url, this.httpOptions)
       .pipe(catchError(this.ehs.handleError<Technique>('deleteTechnique')));
@@ -140,11 +142,12 @@ export class TechniqueService {
 
   /* GET techniques that contains search term */
   searchTechniques(term: string): Observable<Technique[]> {
+    const url = `${this.apiGatewayUrl}/user/?name=${term}`;
     if (!term.trim()) {
       // if not search term, return empty technique array.
       return of([]);
     }
-    return this.http.get<Technique[]>(`${this.lambdaUrl}/?name=${term}`).pipe(
+    return this.http.get<Technique[]>(url).pipe(
       // tap((x) =>
       //   x.length
       //     ? this.log(`found techniques matching "${term}"`)

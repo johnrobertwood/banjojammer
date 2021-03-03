@@ -6,8 +6,6 @@ import { Technique } from 'src/app/techniques/technique';
 
 import { pluck, switchMap, takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
-import { Quiz } from 'src/app/dialog-content-quiz/quiz';
-import { Flashcard } from 'src/app/dialog-content-flashcard/flashcard';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
@@ -18,9 +16,6 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 export class TechniqueDetailComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject();
   technique$: Observable<Technique>;
-  quiz$: Observable<Quiz>;
-  flashcard$: Observable<Flashcard>;
-  videoUrl$: Observable<string>;
   isSmallScreen: boolean;
   isLoggedIn: boolean;
 

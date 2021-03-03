@@ -18,7 +18,7 @@
         [routerLink]="['/technique', technique.id - 1]"
         class="nav-button"
       >
-        <mat-icon aria-hidden="false">keyboard_arrow_left</mat-icon>
+        <mat-icon>keyboard_arrow_left</mat-icon>
         Prev
       </button>
       <button
@@ -29,7 +29,7 @@
         class="nav-button"
       >
         Next
-        <mat-icon aria-hidden="false">keyboard_arrow_right</mat-icon>
+        <mat-icon>keyboard_arrow_right</mat-icon>
       </button>
     </div>
     <div class="quiz-button-row">
@@ -47,7 +47,7 @@
           color="primary"
           (click)="favoriteTechnique(technique)"
         >
-          <mat-icon aria-hidden="false" [class.goldheart]="technique.favorite"
+          <mat-icon [class.goldheart]="technique.favorite"
             >favorite</mat-icon
           >
           Favorite
