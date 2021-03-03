@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 import { Technique } from './technique';
+import { ErrorHandlingService } from '../error-handling.service';
 
 @Injectable({ providedIn: 'root' })
 export class TechniqueService {
@@ -23,7 +24,7 @@ export class TechniqueService {
     }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
 
   getTechniques(): Observable<Technique[]> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -46,7 +47,7 @@ export class TechniqueService {
         });
         return arr;
       }),
-      catchError(this.handleError<Technique[]>('getTechniques', []))
+      catchError(this.ehs.handleError<Technique[]>('getTechniques', []))
     );
   }
 
@@ -68,7 +69,7 @@ export class TechniqueService {
           )[0]
         ];
       }),
-      catchError(this.handleError<Technique>('getUserTechnique'))
+      catchError(this.ehs.handleError<Technique>('getUserTechnique'))
     );
   }
 
@@ -85,7 +86,7 @@ export class TechniqueService {
       };
       return this.http
         .patch(this.lambdaUrl, data, this.httpOptions)
-        .pipe(catchError(this.handleError<any>('updateTechnique')));
+        .pipe(catchError(this.ehs.handleError<any>('updateTechnique')));
     } else {
       return of(null);
     }
@@ -100,7 +101,7 @@ export class TechniqueService {
 
     return this.http
       .patch(this.editUrl, data, this.httpOptions)
-      .pipe(catchError(this.handleError<any>('editTechnique')));
+      .pipe(catchError(this.ehs.handleError<any>('editTechnique')));
   }
 
   favoriteTechnique(technique: Technique): Observable<Technique> {
@@ -114,7 +115,7 @@ export class TechniqueService {
 
       return this.http
         .patch(this.favoriteUrl, data, this.httpOptions)
-        .pipe(catchError(this.handleError<any>('favoriteTechnique error')));
+        .pipe(catchError(this.ehs.handleError<any>('favoriteTechnique error')));
     } else {
       return of(null);
     }
@@ -124,7 +125,7 @@ export class TechniqueService {
   addTechnique(technique: Technique): Observable<Technique> {
     return this.http
       .post<Technique>(this.lambdaUrl, technique, this.httpOptions)
-      .pipe(catchError(this.handleError<Technique>('addTechnique')));
+      .pipe(catchError(this.ehs.handleError<Technique>('addTechnique')));
   }
 
   /** DELETE: delete the technique from the server */
@@ -134,7 +135,7 @@ export class TechniqueService {
 
     return this.http
       .delete<Technique>(url, this.httpOptions)
-      .pipe(catchError(this.handleError<Technique>('deleteTechnique')));
+      .pipe(catchError(this.ehs.handleError<Technique>('deleteTechnique')));
   }
 
   /* GET techniques that contains search term */
@@ -149,26 +150,7 @@ export class TechniqueService {
       //     ? this.log(`found techniques matching "${term}"`)
       //     : this.log(`no techniques matching "${term}"`)
       // ),
-      catchError(this.handleError<Technique[]>('searchTechniques', []))
+      catchError(this.ehs.handleError<Technique[]>('searchTechniques', []))
     );
-  }
-
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
-      console.error(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
   }
 }
