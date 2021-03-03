@@ -60,8 +60,8 @@ export class TechniqueService {
     const url = this.lambdaUrl;
 
     return this.http.post<any>(url, username, this.httpOptions).pipe(
-      map((data) => JSON.parse(data.body).techniques),
-      map((technique) => {
+      map((data) => {
+        const technique = JSON.parse(data.body).techniques;
         return technique[
           Object.keys(technique).filter(
             (t) => technique[t].id === techniqueId

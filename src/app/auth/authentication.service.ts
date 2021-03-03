@@ -4,8 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { MessageService } from 'src/app/message.service';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -472,10 +470,7 @@ export class AuthenticationService {
     }),
   };
 
-  constructor(
-    private http: HttpClient,
-    private messageService: MessageService
-  ) {}
+  constructor(private http: HttpClient) {}
 
   login(payload: any) {
     this.userData = payload.data;
@@ -532,10 +527,5 @@ export class AuthenticationService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
-  }
-
-  /** Log a TechniqueService message with the TechniqueMessage */
-  private log(message: string) {
-    this.messageService.add(`TechniqueService: ${message}`);
   }
 }
