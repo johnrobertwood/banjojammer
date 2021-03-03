@@ -4,10 +4,11 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap, map, mergeMap, tap } from 'rxjs/operators';
+import { switchMap, map, mergeMap, tap, pluck } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Quiz } from 'src/app/dialog-content-quiz/quiz';
 import { Flashcard } from 'src/app/dialog-content-flashcard/flashcard';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-manage-technique-detail',
@@ -23,6 +24,7 @@ export class ManageTechniqueDetailComponent implements OnInit {
   isSmallScreen: boolean;
 
   constructor(
+    private breakpointObserver: BreakpointObserver,
     private route: ActivatedRoute,
     private router: Router,
     private techniqueService: TechniqueService
@@ -30,6 +32,11 @@ export class ManageTechniqueDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTechnique();
+
+    this.breakpointObserver
+      .observe(['(max-width: 800px)'])
+      .pipe(pluck('matches'))
+      .subscribe((m: boolean) => (this.isSmallScreen = m));
   }
 
   getTechnique(): void {
