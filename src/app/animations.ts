@@ -10,7 +10,7 @@ import {
 
 // Routable animations
 export const slideInAnimation = trigger('routeAnimation', [
-  transition('techniques <=> technique', [
+  transition('technique <=> favorites', [
     style({ position: 'relative' }),
     query(':enter, :leave', [
       style({

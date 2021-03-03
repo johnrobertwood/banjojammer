@@ -6,7 +6,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { AuthGuard } from './auth/auth.guard';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
-import { TechniqueListComponent } from './techniques/technique-list/technique-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FavoritesListComponent } from './favorites-list/favorites-list.component';
 
@@ -31,10 +30,6 @@ const appRoutes: Routes = [
     data: { preload: true },
   },
   {
-    path: 'techniques',
-    component: TechniqueListComponent,
-  },
-  {
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard],
@@ -42,6 +37,7 @@ const appRoutes: Routes = [
   {
     path: 'favorites',
     component: FavoritesListComponent,
+    data: { animation: 'favorites' },
   },
   { path: '', redirectTo: '/technique/0', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
