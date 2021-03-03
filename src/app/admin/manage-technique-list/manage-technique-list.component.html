@@ -20,7 +20,7 @@
 </div> -->
 
 <ul class="techniques">
-  <li *ngFor="let technique of techniques">
+  <li *ngFor="let technique of techniques$ | async">
     <a
       [routerLink]="['/admin/manage-technique-detail', technique.id]"
       routerLinkActive="activebutton"
