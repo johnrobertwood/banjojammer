@@ -2,7 +2,7 @@
 <ul class="crises">
   <a
     *ngFor="let technique of techniques$ | async"
-    [routerLink]="['/crisis-center', technique.id]"
+    [routerLink]="['/flashcard-deck', technique.id]"
     routerLinkActive="activebutton"
   >
     <li>{{ technique.displayName }} Flashcard</li>

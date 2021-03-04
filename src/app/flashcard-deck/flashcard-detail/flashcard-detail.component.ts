@@ -5,11 +5,11 @@ import { DialogService } from '../../dialog.service';
 import { Technique } from 'src/app/techniques/technique';
 
 @Component({
-  selector: 'app-crisis-detail',
-  templateUrl: './crisis-detail.component.html',
-  styleUrls: ['./crisis-detail.component.css'],
+  selector: 'app-flashcard-detail',
+  templateUrl: './flashcard-detail.component.html',
+  styleUrls: ['./flashcard-detail.component.css'],
 })
-export class CrisisDetailComponent implements OnInit {
+export class FlashcardDetailComponent implements OnInit {
   editName: string;
   reveal: boolean;
   technique: Technique;
@@ -21,20 +21,20 @@ export class CrisisDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.data.subscribe((data: { crisis: Technique }) => {
+    this.route.data.subscribe((data: { flashcard: Technique }) => {
       this.reveal = false;
-      this.technique = data.crisis;
+      this.technique = data.flashcard;
     });
   }
 
   gotoNextFlashcard() {
     const techniqueId = this.technique ? this.technique.id : null;
-    this.router.navigate(['/crisis-center', techniqueId + 1]);
+    this.router.navigate(['/flashcard-deck', techniqueId + 1]);
   }
 
   gotoPrevFlashcard() {
     const techniqueId = this.technique ? this.technique.id : null;
-    this.router.navigate(['/crisis-center', techniqueId - 1]);
+    this.router.navigate(['/flashcard-deck', techniqueId - 1]);
   }
 
   revealAnswer() {

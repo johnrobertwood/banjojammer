@@ -9,7 +9,7 @@ import { Technique } from '../techniques/technique';
 @Injectable({
   providedIn: 'root',
 })
-export class CrisisDetailResolverService implements Resolve<Technique> {
+export class FlashcardDetailResolverService implements Resolve<Technique> {
   constructor(private ts: TechniqueService, private router: Router) {}
 
   resolve(
@@ -24,7 +24,7 @@ export class CrisisDetailResolverService implements Resolve<Technique> {
           return of(technique);
         } else {
           // id not found
-          this.router.navigate(['/crisis-center']);
+          this.router.navigate(['/flashcard-deck']);
           return EMPTY;
         }
       })

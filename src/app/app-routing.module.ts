@@ -22,10 +22,10 @@ const appRoutes: Routes = [
     canLoad: [AuthGuard],
   },
   {
-    path: 'crisis-center',
+    path: 'flashcard-deck',
     loadChildren: () =>
-      import('./crisis-center/crisis-center.module').then(
-        (m) => m.CrisisCenterModule
+      import('./flashcard-deck/flashcard-deck.module').then(
+        (m) => m.FlashcardDeckModule
       ),
     data: { preload: true },
   },
