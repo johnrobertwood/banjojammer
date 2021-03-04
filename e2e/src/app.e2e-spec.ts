@@ -2,7 +2,7 @@ import { browser, element, by, ExpectedConditions as EC } from 'protractor';
 
 const numDashboardTabs = 5;
 const numCrises = 4;
-const numHeroes = 10;
+const numTechniques = 10;
 
 describe('Router', () => {
   beforeAll(() => browser.get(''));
@@ -16,7 +16,9 @@ describe('Router', () => {
         )
       )
       .first();
-    const heroDetail = element(by.css('app-root > div > app-hero-detail'));
+    const techniqueDetail = element(
+      by.css('app-root > div > app-technique-detail')
+    );
 
     return {
       hrefs: hrefEles,
@@ -29,10 +31,12 @@ describe('Router', () => {
       flashcardDetail,
       flashcardDetailTitle: flashcardDetail.element(by.xpath('*[1]')),
 
-      heroesHref: hrefEles.get(1),
-      heroesList: element.all(by.css('app-root > div > app-hero-list li')),
-      heroDetail,
-      heroDetailTitle: heroDetail.element(by.xpath('*[2]')),
+      techniquesHref: hrefEles.get(1),
+      techniquesList: element.all(
+        by.css('app-root > div > app-technique-list li')
+      ),
+      techniqueDetail,
+      techniqueDetailTitle: techniqueDetail.element(by.xpath('*[2]')),
 
       adminHref: hrefEles.get(2),
       adminPage: element(by.css('app-root > div > app-admin')),
@@ -48,7 +52,7 @@ describe('Router', () => {
       contactHref: hrefEles.get(4),
       contactCancelButton: element.all(by.buttonText('Cancel')),
 
-      primaryOutlet: element.all(by.css('app-root > div > app-hero-list')),
+      primaryOutlet: element.all(by.css('app-root > div > app-technique-list')),
       secondaryOutlet: element.all(by.css('app-root > app-compose-message')),
     };
   }
@@ -60,15 +64,15 @@ describe('Router', () => {
       'dashboard tab count'
     );
     expect(await page.flashcardHref.getText()).toEqual('Flashcard Deck');
-    expect(await page.heroesHref.getText()).toEqual('Heroes');
+    expect(await page.techniquesHref.getText()).toEqual('Techniques');
     expect(await page.adminHref.getText()).toEqual('Admin');
     expect(await page.loginHref.getText()).toEqual('Login');
     expect(await page.contactHref.getText()).toEqual('Contact');
   });
 
-  it('has heroes selected as opening tab', async () => {
+  it('has techniques selected as opening tab', async () => {
     const page = getPageStruct();
-    expect(await page.activeHref.getText()).toEqual('Heroes');
+    expect(await page.activeHref.getText()).toEqual('Techniques');
   });
 
   it('has crises center items', async () => {
@@ -81,11 +85,14 @@ describe('Router', () => {
     );
   });
 
-  it('has hero items', async () => {
+  it('has technique items', async () => {
     const page = getPageStruct();
-    await page.heroesHref.click();
-    expect(await page.activeHref.getText()).toEqual('Heroes');
-    expect(await page.heroesList.count()).toBe(numHeroes, 'hero list count');
+    await page.techniquesHref.click();
+    expect(await page.activeHref.getText()).toEqual('Techniques');
+    expect(await page.techniquesList.count()).toBe(
+      numTechniques,
+      'technique list count'
+    );
   });
 
   it('toggles views', async () => {
@@ -96,9 +103,12 @@ describe('Router', () => {
       numCrises,
       'flashcard list count'
     );
-    await page.heroesHref.click();
-    expect(await page.activeHref.getText()).toEqual('Heroes');
-    expect(await page.heroesList.count()).toBe(numHeroes, 'hero list count');
+    await page.techniquesHref.click();
+    expect(await page.activeHref.getText()).toEqual('Techniques');
+    expect(await page.techniquesList.count()).toBe(
+      numTechniques,
+      'technique list count'
+    );
   });
 
   it('saves changed flashcard details', async () => {
@@ -114,29 +124,34 @@ describe('Router', () => {
     await flashcardDeckEdit(3, false);
   });
 
-  it('saves changed hero details', async () => {
+  it('saves changed technique details', async () => {
     const page = getPageStruct();
-    await page.heroesHref.click();
+    await page.techniquesHref.click();
     await browser.sleep(600);
-    const heroEle = page.heroesList.get(4);
-    const text = await heroEle.getText();
-    expect(text.length).toBeGreaterThan(0, 'hero item text length');
+    const techniqueEle = page.techniquesList.get(4);
+    const text = await techniqueEle.getText();
+    expect(text.length).toBeGreaterThan(0, 'technique item text length');
     // remove leading id from text
-    const heroText = text.substr(text.indexOf(' ')).trim();
+    const techniqueText = text.substr(text.indexOf(' ')).trim();
 
-    await heroEle.click();
+    await techniqueEle.click();
     await browser.sleep(600);
-    expect(await page.heroesList.count()).toBe(0, 'hero list count');
-    expect(await page.heroDetail.isPresent()).toBe(true, 'hero detail');
-    expect(await page.heroDetailTitle.getText()).toContain(heroText);
-    const inputEle = page.heroDetail.element(by.css('input'));
+    expect(await page.techniquesList.count()).toBe(0, 'technique list count');
+    expect(await page.techniqueDetail.isPresent()).toBe(
+      true,
+      'technique detail'
+    );
+    expect(await page.techniqueDetailTitle.getText()).toContain(techniqueText);
+    const inputEle = page.techniqueDetail.element(by.css('input'));
     await inputEle.sendKeys('-foo');
-    expect(await page.heroDetailTitle.getText()).toContain(heroText + '-foo');
+    expect(await page.techniqueDetailTitle.getText()).toContain(
+      techniqueText + '-foo'
+    );
 
-    const buttonEle = page.heroDetail.element(by.css('button'));
+    const buttonEle = page.techniqueDetail.element(by.css('button'));
     await buttonEle.click();
     await browser.sleep(600);
-    expect(await heroEle.getText()).toContain(heroText + '-foo');
+    expect(await techniqueEle.getText()).toContain(techniqueText + '-foo');
   });
 
   it('sees preloaded modules', async () => {
@@ -153,7 +168,7 @@ describe('Router', () => {
 
   it('sees the secondary route', async () => {
     const page = getPageStruct();
-    await page.heroesHref.click();
+    await page.techniquesHref.click();
     await page.contactHref.click();
     expect(await page.primaryOutlet.count()).toBe(1, 'primary outlet');
     expect(await page.secondaryOutlet.count()).toBe(1, 'secondary outlet');
