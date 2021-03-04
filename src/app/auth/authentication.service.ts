@@ -337,7 +337,7 @@ export class AuthenticationService {
         complete: false,
         question: 'What are common mistake in finishing the straight arm lock?',
         answer:
-          'Having your arms too far away from chest and using the double wrist lock',
+          'Mistakes are your arms too far away from chest and using the double wrist lock',
       },
       video: {
         url: 'https://www.youtube.com/embed/rZNFFH2hpbo',
@@ -375,9 +375,8 @@ export class AuthenticationService {
       flashcard: {
         name: 'Straight Knee Bar',
         complete: false,
-        question:
-          'The Straight Knee Bar works well from half guard when opponent is up on his side',
-        answer: 'True',
+        question: 'What position is a good start for the Straight Knee Bar?',
+        answer: 'Works well from top half when opponent is up on his side',
       },
       video: {
         url: 'https://www.youtube.com/embed/1UYJRNqW5Ao',
@@ -461,6 +460,123 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/X-PA21_0xTg',
+      },
+    },
+    heelHookDefense: {
+      id: 12,
+      name: 'heelHookDefense',
+      displayName: 'Heel Hook Defense',
+      favorite: false,
+      quiz: {
+        name: 'Heel Hook Defense Quiz',
+        complete: false,
+        question: 'How do you defend the inside heel hook?',
+        responses: [
+          {
+            text: 'Straighten your leg',
+            correct: false,
+          },
+          {
+            text: 'Hide your heel',
+            correct: false,
+          },
+          {
+            text: 'Post up and elevate your hips',
+            correct: false,
+          },
+          {
+            text: 'All of the above',
+            correct: true,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Heel Hook Defense Flashcard',
+        complete: false,
+        question: 'How do you defend the inside heel hook',
+        answer:
+          'Get your leg straight, hide your heel, hips up and push them back on their shoulder',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/w-W0ug7Edag',
+      },
+    },
+    triangleEscape: {
+      id: 13,
+      name: 'triangleEscape',
+      displayName: 'Triangle Escape',
+      favorite: false,
+      quiz: {
+        name: 'Triangle Escape Quiz',
+        complete: false,
+        question: 'How do you escape the late front triangle?',
+        responses: [
+          {
+            text: 'Lock hands to create space and posture',
+            correct: false,
+          },
+          {
+            text: 'Extend arms and stand up',
+            correct: false,
+          },
+          {
+            text: 'Step both legs over and sit back with feet up on his chest',
+            correct: false,
+          },
+          {
+            text: 'All of the above',
+            correct: true,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Triangle Escape',
+        complete: false,
+        question: 'Triangle Escape Flashcard',
+        answer:
+          'Lock hands, posture up to standing then step both legs on their chest',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/od-lcD_34f8',
+      },
+    },
+    armbarDefense: {
+      id: 14,
+      name: 'armbarDefense',
+      displayName: 'Armbar Defense',
+      favorite: false,
+      quiz: {
+        name: 'Armbar Defense Quiz',
+        complete: false,
+        question: 'How do you escape the armbar?',
+        responses: [
+          {
+            text: 'Keep arms crossed then bridge up on knees to come on top',
+            correct: true,
+          },
+          {
+            text: 'Stay flat on back while shrimping',
+            correct: true,
+          },
+          {
+            text: 'Stand up and pull arm out in one motion',
+            correct: false,
+          },
+          {
+            text: 'Roll away with shoulder and arm extended',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Armbar Defense Flashcard',
+        complete: false,
+        question: 'What are the armbar defense steps?',
+        answer:
+          'Keep arms crossed then bridge up to knees. Stack and pull elbow out in little spurts',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/zwNOXB8GQ3w',
       },
     },
   };
