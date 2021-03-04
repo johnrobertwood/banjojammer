@@ -1,19 +1,14 @@
 <h2>Favorite Techniques</h2>
-<div class="container">
-  <div *ngFor="let technique of techniques$ | async">
-    <div *ngIf="technique.favorite" class="techniques">
-      <a [routerLink]="['/technique', technique.id]">
-        <div [class.selected]="technique.id === selectedId" class="badge">
-          <span>{{ technique.displayName }}</span>
-          <!-- <button
-            class="delete"
-            title="delete technique"
-            (click)="delete(technique)"
-            >
-            x
-          </button> -->
-        </div>
-      </a>
+<ul class="favorites">
+  <a
+    *ngFor="let technique of techniques$ | async"
+    [routerLink]="['/technique', technique.id]"
+    routerLinkActive="activebutton"
+  >
+    <div *ngIf="technique.favorite">
+      <li class="badge">
+        {{ technique.displayName }}
+      </li>
     </div>
-  </div>
-</div>
+  </a>
+</ul>

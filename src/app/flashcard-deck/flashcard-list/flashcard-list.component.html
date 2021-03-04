@@ -1,5 +1,5 @@
 <router-outlet></router-outlet>
-<ul class="crises">
+<ul class="flashcard">
   <a
     *ngFor="let technique of techniques$ | async"
     [routerLink]="['/flashcard-deck', technique.id]"
