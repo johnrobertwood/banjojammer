@@ -35,9 +35,9 @@ body {
 }
 
 :root {
-  --amplify-primary-color: #f44336;
-  --amplify-primary-tint: #ff7359;
-  --amplify-primary-shade: #e0573e;
+  --amplify-primary-color: #7b1fa1;
+  --amplify-primary-tint: #804ff1;
+  --amplify-primary-shade: #452c7e;
 }
 
 @media screen and (max-width: 767px) {
