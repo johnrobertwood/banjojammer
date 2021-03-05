@@ -14,7 +14,7 @@
       <button
         [disabled]="technique.id === 0"
         mat-raised-button
-        color="warn"
+        color="accent"
         [routerLink]="['/technique', technique.id - 1]"
         class="nav-button"
       >
@@ -24,7 +24,7 @@
       <button
         [disabled]="technique.id === 11"
         mat-raised-button
-        color="warn"
+        color="accent"
         [routerLink]="['/technique', technique.id + 1]"
         class="nav-button"
       >
@@ -67,7 +67,7 @@
         <button
           [disabled]="false"
           mat-raised-button
-          color="warn"
+          color="accent"
           routerLink="/favorites"
           class="nav-button"
         >
@@ -80,7 +80,7 @@
         <button
           [disabled]="false"
           mat-raised-button
-          color="warn"
+          color="accent"
           routerLink="/flashcard-deck"
           class="nav-button"
         >
