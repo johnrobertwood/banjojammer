@@ -37,7 +37,7 @@ const appRoutes: Routes = [
   {
     path: 'favorites',
     component: FavoritesListComponent,
-    data: { animation: 'favorites' },
+    // data: { animation: 'favorites' },
   },
   { path: '', redirectTo: '/technique/0', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },

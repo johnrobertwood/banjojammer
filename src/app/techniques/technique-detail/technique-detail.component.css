@@ -54,6 +54,7 @@ button {
 .description-container {
   display: flex;
   justify-content: center;
+  padding-bottom: 30px;
 }
 
 .details-container {
@@ -63,4 +64,9 @@ button {
 
 .description-details {
   font-size: large;
+}
+
+.fav-button-container {
+  display: flex;
+  justify-content: center;
 }

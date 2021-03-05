@@ -7,7 +7,7 @@ const techniquesRoutes: Routes = [
   {
     path: 'technique/:id',
     component: TechniqueDetailComponent,
-    data: { animation: 'technique' },
+    // data: { animation: 'technique' },
   },
 ];
 

@@ -47,9 +47,7 @@
           color="primary"
           (click)="favoriteTechnique(technique)"
         >
-          <mat-icon [class.goldheart]="technique.favorite"
-            >favorite</mat-icon
-          >
+          <mat-icon [class.goldheart]="technique.favorite">favorite</mat-icon>
           Favorite
         </button>
       </span>
@@ -61,6 +59,19 @@
   <div class="description-container">
     <span class="details-container">
       <p class="description-details">{{ technique.flashcard.answer }}</p>
+    </span>
+  </div>
+  <div *ngIf="isLoggedIn" class="fav-button-container">
+    <span>
+      <button
+        [disabled]="false"
+        mat-raised-button
+        color="warn"
+        routerLink="/favorites"
+        class="nav-button"
+      >
+        My Favorite Techniques
+      </button>
     </span>
   </div>
 </div>
