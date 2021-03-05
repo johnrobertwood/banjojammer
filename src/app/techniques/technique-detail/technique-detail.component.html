@@ -54,24 +54,39 @@
     </div>
   </div>
   <div class="title-container">
-    <h2>{{ technique.displayName }} Details</h2>
+    <h1>{{ technique.displayName }} Details</h1>
   </div>
   <div class="description-container">
     <span class="details-container">
       <p class="description-details">{{ technique.flashcard.answer }}</p>
     </span>
   </div>
-  <div *ngIf="isLoggedIn" class="fav-button-container">
-    <span>
-      <button
-        [disabled]="false"
-        mat-raised-button
-        color="warn"
-        routerLink="/favorites"
-        class="nav-button"
-      >
-        My Favorite Techniques
-      </button>
-    </span>
+  <div *ngIf="isLoggedIn" class="review-container">
+    <div class="review-button-container">
+      <span>
+        <button
+          [disabled]="false"
+          mat-raised-button
+          color="warn"
+          routerLink="/favorites"
+          class="nav-button"
+        >
+          Favorite Techniques
+        </button>
+      </span>
+    </div>
+    <div class="review-button-container">
+      <span>
+        <button
+          [disabled]="false"
+          mat-raised-button
+          color="warn"
+          routerLink="/flashcard-deck"
+          class="nav-button"
+        >
+          Flashcard Deck
+        </button>
+      </span>
+    </div>
   </div>
 </div>

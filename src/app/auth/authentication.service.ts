@@ -219,11 +219,11 @@ export class AuthenticationService {
         responses: [
           {
             text: 'True',
-            correct: true,
+            correct: false,
           },
           {
             text: 'False',
-            correct: false,
+            correct: true,
           },
         ],
       },
@@ -380,44 +380,6 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/1UYJRNqW5Ao',
-      },
-    },
-    johnAndMikeRolling: {
-      id: 10,
-      name: 'johnAndMikeRolling',
-      displayName: 'John and Mike Rolling',
-      favorite: false,
-      quiz: {
-        name: 'John and Mike Rolling Quiz',
-        complete: false,
-        question: 'How many triangles did John attempt',
-        responses: [
-          {
-            text: '3',
-            correct: true,
-          },
-          {
-            text: '2',
-            correct: false,
-          },
-          {
-            text: '1',
-            correct: false,
-          },
-          {
-            text: '0',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'John and Mike Rolling',
-        complete: false,
-        question: 'What sweep did John use?',
-        answer: 'Deep half-guard sweep',
-      },
-      video: {
-        url: 'https://www.youtube.com/embed/_0c66vMmR2Q',
       },
     },
     scissorSweep: {

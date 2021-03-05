@@ -64,9 +64,20 @@ button {
 
 .description-details {
   font-size: large;
+  text-align: center;
 }
 
-.fav-button-container {
+.review-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.review-button-container {
   display: flex;
   justify-content: center;
+}
+
+.title-container h1 {
+  margin: 0;
 }
