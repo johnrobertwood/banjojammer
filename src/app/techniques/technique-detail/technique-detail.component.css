@@ -15,7 +15,7 @@ button {
 
 .button-row {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap-reverse;
 }
 
@@ -34,11 +34,14 @@ button {
   display: flex;
   flex-wrap: nowrap;
   margin-bottom: 20px;
-  margin-right: 5px;
 }
 
 .quiz-button {
   margin-right: 5px;
+}
+
+.detail-container {
+  max-width: 560px;
 }
 
 .video-container {

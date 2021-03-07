@@ -1,12 +1,12 @@
 <div *ngIf="data.technique.quiz" mat-dialog-content class="dialog-container">
-  <h2>{{ data.technique.quiz.question }}</h2>
+  <h4>{{ data.technique.quiz.question }}</h4>
   <ul class="questions">
     <li *ngFor="let response of data.technique.quiz.responses">
       <button
         mat-raised-button
         (click)="selectAnswer()"
         [ngClass]="{ green: data.answered && response.correct }"
-        color="accent"
+        color="basic"
       >
         {{ response.text }}
       </button>

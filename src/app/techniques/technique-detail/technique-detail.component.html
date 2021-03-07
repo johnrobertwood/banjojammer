@@ -1,4 +1,4 @@
-<div *ngIf="technique$ | async as technique">
+<div *ngIf="technique$ | async as technique" class="detail-container">
   <div class="video-container">
     <iframe
       [width]="isSmallScreen || '560'"
@@ -14,7 +14,7 @@
       <button
         [disabled]="technique.id === 0"
         mat-raised-button
-        color="accent"
+        color="primary"
         [routerLink]="['/technique', technique.id - 1]"
         class="nav-button"
       >
@@ -22,9 +22,9 @@
         Prev
       </button>
       <button
-        [disabled]="technique.id === 11"
+        [disabled]="technique.id === 14"
         mat-raised-button
-        color="accent"
+        color="primary"
         [routerLink]="['/technique', technique.id + 1]"
         class="nav-button"
       >
@@ -67,7 +67,7 @@
         <button
           [disabled]="false"
           mat-raised-button
-          color="accent"
+          color="primary"
           routerLink="/favorites"
           class="nav-button"
         >
@@ -80,7 +80,7 @@
         <button
           [disabled]="false"
           mat-raised-button
-          color="accent"
+          color="primary"
           routerLink="/flashcard-deck"
           class="nav-button"
         >

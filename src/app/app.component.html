@@ -1,62 +1,64 @@
-<mat-sidenav-container class="nav-container">
-  <mat-sidenav
+<mat-toolbar class="content-nav" color="primary">
+  <h1><a routerLink="/technique/0">Grappling Review</a></h1>
+  <div>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <button mat-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-drawer-container class="nav-container">
+  <mat-drawer
     #sidenav
     [mode]="sidenavMode"
     [opened]="!isSmallScreen"
-    [fixedInViewport]="true"
     position="end"
   >
-    <mat-toolbar color="accent">
-      <div>
-        <h2>Techniques</h2>
-      </div>
-      <mat-menu #menu="matMenu">
-        <button
-          *ngIf="loggedIn"
-          mat-menu-item
-          routerLink="/favorites"
-          routerLinkActive="activebutton"
-        >
-          Favorites
-        </button>
-        <button
-          *ngIf="loggedIn"
-          mat-menu-item
-          routerLink="/profile"
-          routerLinkActive="activebutton"
-        >
-          Profile
-        </button>
-        <button
-          *ngIf="loggedIn"
-          mat-menu-item
-          routerLink="/flashcard-deck"
-          routerLinkActive="activebutton"
-        >
-          Flashcards
-        </button>
-        <button
-          *ngIf="loggedIn"
-          mat-menu-item
-          routerLink="/admin"
-          routerLinkActive="activebutton"
-        >
-          Admin
-        </button>
-        <button
-          mat-menu-item
-          [routerLink]="[{ outlets: { popup: ['compose'] } }]"
-        >
-          Contact
-        </button>
-        <button *ngIf="!loggedIn" mat-menu-item routerLink="/login">
-          Login
-        </button>
-        <button *ngIf="loggedIn" mat-menu-item routerLink="/login">
-          Logout
-        </button>
-      </mat-menu>
-    </mat-toolbar>
+    <mat-menu #menu="matMenu">
+      <button
+        *ngIf="loggedIn"
+        mat-menu-item
+        routerLink="/favorites"
+        routerLinkActive="activebutton"
+      >
+        Favorites
+      </button>
+      <button
+        *ngIf="loggedIn"
+        mat-menu-item
+        routerLink="/profile"
+        routerLinkActive="activebutton"
+      >
+        Profile
+      </button>
+      <button
+        *ngIf="loggedIn"
+        mat-menu-item
+        routerLink="/flashcard-deck"
+        routerLinkActive="activebutton"
+      >
+        Flashcards
+      </button>
+      <button
+        *ngIf="loggedIn"
+        mat-menu-item
+        routerLink="/admin"
+        routerLinkActive="activebutton"
+      >
+        Admin
+      </button>
+      <button
+        mat-menu-item
+        [routerLink]="[{ outlets: { popup: ['compose'] } }]"
+      >
+        Contact
+      </button>
+      <button *ngIf="!loggedIn" mat-menu-item routerLink="/login">Login</button>
+      <button *ngIf="loggedIn" mat-menu-item routerLink="/login">Logout</button>
+    </mat-menu>
     <mat-nav-list *ngFor="let technique of techniques$ | async">
       <a
         mat-menu-item
@@ -66,24 +68,13 @@
         >{{ technique.displayName }}</a
       >
     </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar class="content-nav" color="primary">
-      <h1><a routerLink="/technique/0">Jiu Jitsu Memory</a></h1>
-      <div>
-        <button mat-button [matMenuTriggerFor]="menu">
-          <mat-icon>account_circle</mat-icon>
-        </button>
-        <button *ngIf="isSmallScreen" mat-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-      </div>
-    </mat-toolbar>
+  </mat-drawer>
+  <mat-drawer-content>
     <div class="main-container">
       <div [@routeAnimation]="getAnimationData(routerOutlet)">
         <router-outlet #routerOutlet="outlet"></router-outlet>
       </div>
       <router-outlet name="popup" class="popupContainer"></router-outlet>
     </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </mat-drawer-content>
+</mat-drawer-container>
