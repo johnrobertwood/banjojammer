@@ -1,5 +1,5 @@
 <div *ngIf="data.technique.quiz" mat-dialog-content class="dialog-container">
-  <h4>{{ data.technique.quiz.question }}</h4>
+  <h3>{{ data.technique.quiz.question }}</h3>
   <ul class="questions">
     <li *ngFor="let response of data.technique.quiz.responses">
       <button
