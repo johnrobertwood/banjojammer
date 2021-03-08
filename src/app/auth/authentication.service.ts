@@ -373,13 +373,53 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Straight Knee Bar',
+        name: 'Straight Knee Bar Flashcard',
         complete: false,
         question: 'What position is a good start for the Straight Knee Bar?',
         answer: 'Works well from top half when opponent is up on his side',
       },
       video: {
         url: 'https://www.youtube.com/embed/1UYJRNqW5Ao',
+      },
+    },
+    avoidDeepHalfGuard: {
+      id: 10,
+      name: 'avoidDeepHalfGuard',
+      displayName: 'Avoid Deep Half Guard',
+      favorite: false,
+      quiz: {
+        name: 'Avoid Deep Half Guard Quiz',
+        complete: false,
+        question:
+          'What should you do to avoid getting stuck in deep half guard?',
+        responses: [
+          {
+            text:
+              'Sprawl, use a crossface and pummel your foot inside his calf',
+            correct: true,
+          },
+          {
+            text: 'Keep hips in tight and keep head down',
+            correct: false,
+          },
+          {
+            text: 'Posture up and limp arm out',
+            correct: false,
+          },
+          {
+            text: 'Put hands on the mat and shrimp away',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Half Guard Sweep Flashcard',
+        complete: false,
+        question: 'What should you do to avoid getting stuck deep half guard?',
+        answer: 'Sprawl, use a crossface and pummel your foot inside his calf',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/FNaMku7pjDU',
       },
     },
     scissorSweep: {

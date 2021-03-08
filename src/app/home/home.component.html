@@ -1,11 +1,11 @@
 <main>
-  <section class="py-5 text-center container">
+  <section *ngIf="!isLoggedIn" class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Grappling Review</h1>
         <p class="lead text-muted">
-          A way to memorize jiu jitsu moves using memory hacks. Sign up for a
-          free account and use the power of quizzes and flashcards for spaced
+          Remember jiu jitsu moves using memory hacks. Sign up for a free
+          account to use the power of quizzes and flashcards for spaced
           repetition memorization.
         </p>
         <p>
@@ -33,7 +33,7 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col" *ngFor="let technique of techniques$ | async">
+        <div class="col my-2" *ngFor="let technique of techniques$ | async">
           <div class="card shadow-sm">
             <iframe
               width="100%"
@@ -46,6 +46,7 @@
             </iframe>
 
             <div class="card-body">
+              <h3 class="card-text">{{ technique.displayName }}</h3>
               <p class="card-text">
                 {{ technique.flashcard.question }}
               </p>
@@ -54,7 +55,7 @@
                   <button
                     mat-raised-button
                     color="primary"
-                    class="btn btn-sm btn-outline-secondary mr-2"
+                    class="p-2 mr-2"
                     [routerLink]="['/technique', technique.id]"
                   >
                     View

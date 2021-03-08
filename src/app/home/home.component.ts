@@ -15,6 +15,7 @@ import { switchMap } from 'rxjs/operators';
 export class HomeComponent implements OnInit {
   selectedId: number;
   techniques$: Observable<Technique[]>;
+  isLoggedIn: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,5 +33,10 @@ export class HomeComponent implements OnInit {
         return this.techniqueService.getTechniques();
       })
     );
+    if (localStorage.getItem('currentUser')) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
   }
 }
