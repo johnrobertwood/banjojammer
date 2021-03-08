@@ -16,6 +16,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AppMaterialModule } from './app-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FavoritesListComponent } from './favorites-list/favorites-list.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { FavoritesListComponent } from './favorites-list/favorites-list.componen
     PageNotFoundComponent,
     ProfileComponent,
     FavoritesListComponent,
+    HomeComponent,
   ],
   bootstrap: [AppComponent],
 })
