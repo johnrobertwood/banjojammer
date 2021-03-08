@@ -1,8 +1,6 @@
 button {
   font-family: Arial;
   border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -13,26 +11,16 @@ button {
   margin-bottom: 20px;
 }
 
-.button-row {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap-reverse;
-}
-
 .nav-button-row {
   display: flex;
   flex-wrap: nowrap;
-}
-
-.nav-button {
-  margin-right: 5px;
-  padding: 5px 10px;
-  height: 46px;
+  justify-content: space-between;
 }
 
 .quiz-button-row {
   display: flex;
   flex-wrap: nowrap;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 

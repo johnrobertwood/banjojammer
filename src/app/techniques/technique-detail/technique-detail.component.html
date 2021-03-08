@@ -9,28 +9,32 @@
       allowfullscreen
     ></iframe>
   </div>
-  <div class="button-row">
-    <div class="nav-button-row">
-      <button
-        [disabled]="technique.id === 0"
-        mat-raised-button
-        color="primary"
-        [routerLink]="['/technique', technique.id - 1]"
-        class="nav-button"
-      >
-        <mat-icon>keyboard_arrow_left</mat-icon>
-        Prev
-      </button>
-      <button
-        [disabled]="technique.id === 14"
-        mat-raised-button
-        color="primary"
-        [routerLink]="['/technique', technique.id + 1]"
-        class="nav-button"
-      >
-        Next
-        <mat-icon>keyboard_arrow_right</mat-icon>
-      </button>
+  <div>
+    <div class="nav-button-row mb-4">
+      <span>
+        <button
+          [disabled]="technique.id === 0"
+          mat-raised-button
+          color="primary"
+          class="p-3"
+          [routerLink]="['/technique', technique.id - 1]"
+        >
+          <mat-icon>keyboard_arrow_left</mat-icon>
+          Prev
+        </button>
+      </span>
+      <span>
+        <button
+          [disabled]="technique.id === 14"
+          mat-raised-button
+          color="primary"
+          class="p-3"
+          [routerLink]="['/technique', technique.id + 1]"
+        >
+          Next
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </span>
     </div>
     <div class="quiz-button-row">
       <app-dialog-content-quiz
@@ -46,6 +50,7 @@
           mat-raised-button
           color="primary"
           (click)="favoriteTechnique(technique)"
+          class="p-3"
         >
           <mat-icon [class.goldheart]="technique.favorite">favorite</mat-icon>
           Favorite
@@ -61,15 +66,18 @@
       <p class="description-details">{{ technique.flashcard.answer }}</p>
     </span>
   </div>
-  <div *ngIf="isLoggedIn" class="review-container">
+  <div
+    *ngIf="isLoggedIn"
+    class="d-flex justify-content-between review-container"
+  >
     <div class="review-button-container">
       <span>
         <button
           [disabled]="false"
           mat-raised-button
           color="primary"
+          class="p-3"
           routerLink="/favorites"
-          class="nav-button"
         >
           Favorite Techniques
         </button>
@@ -81,8 +89,8 @@
           [disabled]="false"
           mat-raised-button
           color="primary"
+          class="p-3"
           routerLink="/flashcard-deck"
-          class="nav-button"
         >
           Flashcard Deck
         </button>

@@ -17,6 +17,8 @@ import { AppMaterialModule } from './app-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FavoritesListComponent } from './favorites-list/favorites-list.component';
 import { HomeComponent } from './home/home.component';
+import { SafePipeModule } from './app-safe-pipe.module';
+import { AppQuizModule } from './app-quiz.module';
 
 @NgModule({
   imports: [
@@ -29,6 +31,8 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     HttpClientModule,
     LayoutModule,
+    SafePipeModule,
+    AppQuizModule,
   ],
   declarations: [
     AppComponent,
