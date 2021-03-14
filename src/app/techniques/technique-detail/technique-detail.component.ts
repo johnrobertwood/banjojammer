@@ -11,7 +11,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 @Component({
   selector: 'app-technique-detail',
   templateUrl: './technique-detail.component.html',
-  styleUrls: ['./technique-detail.component.scss'],
+  styleUrls: ['./technique-detail.component.css'],
 })
 export class TechniqueDetailComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject();
