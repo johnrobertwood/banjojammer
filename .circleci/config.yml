@@ -17,6 +17,6 @@ jobs:
       - persist_to_workspace:
           root: ~/
           paths:
-            - "jitspro/docs"
+            - "docs"
       - attach_workspace:
           at: ~/
