@@ -97,4 +97,8 @@ export class AppComponent implements OnInit {
   get sidenavMode() {
     return this.isSmallScreen ? 'over' : 'side';
   }
+
+  get isHomePage() {
+    return window.location.pathname === '/home';
+  }
 }

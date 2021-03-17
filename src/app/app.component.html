@@ -14,7 +14,7 @@
   <mat-drawer
     #sidenav
     [mode]="sidenavMode"
-    [opened]="!isSmallScreen"
+    [opened]="!isSmallScreen && !isHomePage"
     position="end"
   >
     <mat-menu #menu="matMenu">
