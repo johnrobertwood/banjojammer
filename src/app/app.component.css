@@ -3,12 +3,6 @@ h1 a {
   color: white;
 }
 
-.content-nav {
-  display: flex;
-  justify-content: space-between;
-  padding-right: 50px;
-}
-
 .nav-container {
   position: absolute;
   top: 60px;
