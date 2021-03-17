@@ -1,8 +1,12 @@
-/* button {
+button {
+  font-family: Arial;
   border: none;
-  padding: 5px 8px;
-  border-radius: 4px;
-} */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
 
 .goldstar {
   color: yellow;

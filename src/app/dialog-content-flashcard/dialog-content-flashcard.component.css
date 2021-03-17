@@ -8,20 +8,6 @@ button:hover {
   background-color: #cfd8dc;
 }
 
-button:disabled {
-  background-color: #eee;
-  color: #ccc;
-  cursor: auto;
-}
-
-.green {
-  background-color: green;
-}
-
-.red {
-  background-color: red;
-}
-
 .goldstar {
   color: yellow;
 }

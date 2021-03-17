@@ -1,3 +1,11 @@
+button:hover {
+  background-color: #cfd8dc;
+}
+
+.tech-button {
+  width: 100%;
+}
+
 .nav-button {
   margin-right: 5px;
   padding: 5px 10px;
@@ -6,4 +14,12 @@
 
 .card {
   height: 100%;
+}
+
+.card-container {
+  cursor: pointer;
+}
+
+.card-text {
+  height: 40px;
 }
