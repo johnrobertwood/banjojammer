@@ -14,7 +14,6 @@ deploy:
   access_key_id: "AKIAVDWKD5PMNY2A6FQ7"
   secret_access_key: "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"
   bucket: "grapplingreview.com"
-  skip_cleanup: true
   local_dir: dist
   on:
     all_branches: true
