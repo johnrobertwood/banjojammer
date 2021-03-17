@@ -1,7 +1,6 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -54,7 +53,7 @@ amplify/backend/amplify-meta.json
 amplify/backend/awscloudformation
 amplify/backend/.temp
 build/
-dist/
+# dist/
 node_modules/
 aws-exports.js
 awsconfiguration.json
