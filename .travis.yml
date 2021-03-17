@@ -16,3 +16,5 @@ deploy:
   bucket: "grapplingreview.com"
   skip_cleanup: true
   local_dir: docs
+  on:
+    branch: main
