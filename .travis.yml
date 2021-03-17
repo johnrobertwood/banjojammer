@@ -9,7 +9,6 @@ before_script:
 script:
   - npm install
   - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-  - npm run-script build
 deploy:
   provider: s3
   access_key_id: "AKIAVDWKD5PMNY2A6FQ7"
