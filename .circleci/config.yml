@@ -14,3 +14,9 @@ jobs:
           paths:
             - "node_modules"
       - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - "jitspro/docs"
+      - attach_workspace:
+          at: ~/
