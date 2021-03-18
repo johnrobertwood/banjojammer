@@ -1,6 +1,6 @@
 <main>
-  <section *ngIf="!isLoggedIn" class="py-5 text-center container">
-    <div class="row py-lg-5">
+  <section *ngIf="!isLoggedIn" class="py-3 text-center container">
+    <div class="row py-3">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Grappling Review</h1>
         <p class="lead text-muted">
@@ -30,7 +30,7 @@
     </div>
   </section>
 
-  <div class="album py-5 bg-light">
+  <div class="album py-3 bg-light">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col my-2" *ngFor="let technique of techniques$ | async">

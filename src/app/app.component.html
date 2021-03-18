@@ -54,12 +54,6 @@
       >
         Admin
       </button>
-      <button
-        mat-menu-item
-        [routerLink]="[{ outlets: { popup: ['compose'] } }]"
-      >
-        Contact
-      </button>
       <button *ngIf="!loggedIn" mat-menu-item routerLink="/login">Login</button>
       <button *ngIf="loggedIn" mat-menu-item routerLink="/login">Logout</button>
     </mat-menu>
@@ -74,38 +68,42 @@
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>
-    <div class="main-container">
-      <router-outlet name="popup" class="popupContainer"></router-outlet>
-      <div [@routeAnimation]="getAnimationData(routerOutlet)">
-        <router-outlet #routerOutlet="outlet"></router-outlet>
+    <div class="d-flex flex-column flex-wrap">
+      <div class="main-container">
+        <div [@routeAnimation]="getAnimationData(routerOutlet)">
+          <router-outlet #routerOutlet="outlet"></router-outlet>
+        </div>
+        <router-outlet name="popup" class="popupContainer"></router-outlet>
+      </div>
+      <div class="footer w-100">
+        <footer *ngIf="isHomePage" class="text-muted bd-footer d-flex">
+          <div class="d-flex justify-content-between w-100 p-2 flex-wrap">
+            <div>
+              <ul>
+                <li><a mat-button> © 2021 Wood Web Development, LLC </a></li>
+              </ul>
+            </div>
+            <div>
+              <ul>
+                <li>
+                  <a
+                    mat-button
+                    [routerLink]="[{ outlets: { popup: ['compose'] } }]"
+                  >
+                    Contact
+                  </a>
+                </li>
+                <li>
+                  <a mat-button> Terms of Service </a>
+                </li>
+                <li>
+                  <a mat-button> Privacy Policy </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
-    <footer *ngIf="isHomePage" class="text-muted py-1 bd-footer">
-      <div class="d-flex justify-content-between w-100 p-2">
-        <div calls="d-flex align-items-center">
-          <ul>
-            <li><a mat-button> © 2020 Wood Web Development LLC </a></li>
-          </ul>
-        </div>
-        <div>
-          <ul>
-            <li>
-              <a
-                mat-button
-                [routerLink]="[{ outlets: { popup: ['compose'] } }]"
-              >
-                Contact
-              </a>
-            </li>
-            <li>
-              <a mat-button> Terms of Service </a>
-            </li>
-            <li>
-              <a mat-button> Privacy Policy </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </footer>
   </mat-drawer-content>
 </mat-drawer-container>
