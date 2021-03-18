@@ -10,6 +10,11 @@
       "StackName": "amplify-grapplejits-dev-04429",
       "StackId": "arn:aws:cloudformation:us-east-1:351537458136:stack/amplify-grapplejits-dev-04429/6521b3f0-87b5-11eb-b8d9-0a803f1342f3",
       "AmplifyAppId": "d3l9a1jf1tf14k"
+    },
+    "categories": {
+      "auth": {
+        "grapplejits009df1ec": {}
+      }
     }
   }
 }

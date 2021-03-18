@@ -1,1 +1,10 @@
-{}
+{
+  "auth": {
+    "grapplejits009df1ec": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
