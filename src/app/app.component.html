@@ -1,12 +1,16 @@
-<mat-toolbar class="d-flex justify-content-between px-5" color="primary">
-  <h1><a routerLink="/home">Grappling Review</a></h1>
-  <div>
-    <button mat-button [matMenuTriggerFor]="menu">
-      <mat-icon>account_circle</mat-icon>
-    </button>
-    <button mat-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
+<mat-toolbar color="primary">
+  <div class="d-flex justify-content-between w-100 p-4">
+    <div>
+      <h1><a routerLink="/home">Grappling Review</a></h1>
+    </div>
+    <div>
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <button mat-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
   </div>
 </mat-toolbar>
 
@@ -71,10 +75,37 @@
   </mat-drawer>
   <mat-drawer-content>
     <div class="main-container">
+      <router-outlet name="popup" class="popupContainer"></router-outlet>
       <div [@routeAnimation]="getAnimationData(routerOutlet)">
         <router-outlet #routerOutlet="outlet"></router-outlet>
       </div>
-      <router-outlet name="popup" class="popupContainer"></router-outlet>
     </div>
+    <footer *ngIf="isHomePage" class="text-muted py-1 bd-footer">
+      <div class="d-flex justify-content-between w-100 p-2">
+        <div calls="d-flex align-items-center">
+          <ul>
+            <li><a mat-button> © 2020 Wood Web Development LLC </a></li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>
+              <a
+                mat-button
+                [routerLink]="[{ outlets: { popup: ['compose'] } }]"
+              >
+                Contact
+              </a>
+            </li>
+            <li>
+              <a mat-button> Terms of Service </a>
+            </li>
+            <li>
+              <a mat-button> Privacy Policy </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   </mat-drawer-content>
 </mat-drawer-container>
