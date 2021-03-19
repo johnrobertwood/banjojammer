@@ -13,7 +13,6 @@ import { Observable } from 'rxjs';
 })
 export class FavoritesListComponent implements OnInit {
   selectedId: number;
-  isDisabled = false;
   techniques$: Observable<Technique[]>;
 
   constructor(

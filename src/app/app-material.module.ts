@@ -7,6 +7,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   exports: [
@@ -18,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCardModule,
     MatMenuModule,
     MatDialogModule,
+    MatChipsModule,
   ],
 })
 export class AppMaterialModule {}
