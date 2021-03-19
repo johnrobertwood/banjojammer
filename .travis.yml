@@ -9,11 +9,3 @@ before_script:
 script:
   - npm install
   - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-deploy:
-  provider: s3
-  access_key_id: "AKIAVDWKD5PMNY2A6FQ7"
-  secret_access_key: "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"
-  bucket: "grapplingreview.com"
-  local_dir: ./docs
-  on:
-    all_branches: true
