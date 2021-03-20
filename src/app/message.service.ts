@@ -9,7 +9,6 @@ import { ErrorHandlingService } from './error-handling.service';
 export class MessageService {
   private feedbackUrl =
     'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/feedback';
-  messages: string[] = [];
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -18,14 +17,6 @@ export class MessageService {
   };
 
   constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
-
-  add(message: string) {
-    this.messages.push(message);
-  }
-
-  clear() {
-    this.messages = [];
-  }
 
   sendFeedback(message: string) {
     const feedback = { message };

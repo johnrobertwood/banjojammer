@@ -35,18 +35,17 @@
                     <button
                       mat-raised-button
                       color="primary"
-                      class="tech-button p-2 mr-2"
+                      class="p-2 mr-2"
                       [routerLink]="['/technique', technique.id]"
                     >
                       Technique Details
                     </button>
                   </div>
                   <app-dialog-content-quiz
-                    class="quiz-button mr-2"
+                    class="mr-2"
                     [technique]="technique"
                   ></app-dialog-content-quiz>
                   <app-dialog-content-flashcard
-                    class="quiz-button"
                     [technique]="technique"
                   ></app-dialog-content-flashcard>
                 </div>

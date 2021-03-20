@@ -4,58 +4,8 @@ button {
   cursor: pointer;
 }
 
-.title-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.nav-button-row {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-}
-
-.quiz-button-row {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.quiz-button {
-  margin-right: 5px;
-}
-
-.detail-container {
-  max-width: 560px;
-}
-
-.video-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
 .goldheart {
   color: yellow;
-}
-
-.description-container {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 30px;
-}
-
-.details-container {
-  display: flex;
-  justify-content: center;
-}
-
-.description-details {
-  font-size: large;
-  text-align: center;
 }
 
 .review-container {

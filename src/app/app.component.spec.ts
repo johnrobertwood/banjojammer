@@ -11,7 +11,7 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let h1: HTMLElement;
   let getTechniquesSpy: jasmine.Spy;
-  let techniques = {
+  const techniques = {
     armbar: {
       id: 0,
       name: 'armbar',
