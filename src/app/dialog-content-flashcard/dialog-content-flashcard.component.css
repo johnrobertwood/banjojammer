@@ -11,16 +11,3 @@ button:hover {
 .goldstar {
   color: yellow;
 }
-
-ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.card-container {
-  width: 300px;
-  height: 270px;
-  position: relative;
-  -webkit-perspective: 500px;
-  perspective: 500px;
-}

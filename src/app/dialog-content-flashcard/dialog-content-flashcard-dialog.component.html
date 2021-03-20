@@ -2,16 +2,21 @@
   *ngIf="data.technique.flashcard"
   (click)="revealAnswer()"
   mat-dialog-content
-  class="dialog-container"
+  class="dialog-container d-flex flex-column align-items-center"
 >
-  <div class="card-container">
-    <mat-card class="top-card">
-      <p class="card-text">
+  <div class="card-container w-100 mb-3">
+    <mat-card
+      class="d-flex justify-content-center align-items-center mt-3 mb-3"
+    >
+      <p class="card-text text-center">
         {{ data.technique.flashcard.question }}
       </p>
     </mat-card>
-    <mat-card class="hidden-card" [style.color]="reveal ? 'accent' : 'primary'">
-      <p class="card-text">
+    <mat-card
+      class="d-flex justify-content-center align-items-center mt-3 mb-3"
+      [style.color]="reveal ? 'accent' : 'primary'"
+    >
+      <p class="card-text text-center">
         {{ reveal ? data.technique.flashcard.answer : "Click to Reveal" }}
       </p>
     </mat-card>
