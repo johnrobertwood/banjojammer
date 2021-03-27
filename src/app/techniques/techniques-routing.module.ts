@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { TechniqueDetailComponent } from './technique-detail/technique-detail.component';
+import { FavoritesListComponent } from './favorites-list/favorites-list.component';
 
 const techniquesRoutes: Routes = [
   {
     path: 'technique/:id',
     component: TechniqueDetailComponent,
     // data: { animation: 'technique' },
+  },
+  {
+    path: 'favorites',
+    component: FavoritesListComponent,
+    // data: { animation: 'favorites' },
   },
 ];
 

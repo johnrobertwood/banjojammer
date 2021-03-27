@@ -5,13 +5,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 
 import { TechniqueDetailComponent } from './technique-detail/technique-detail.component';
+import { FavoritesListComponent } from './favorites-list/favorites-list.component';
 import { TechniquesRoutingModule } from './techniques-routing.module';
 import { AppMaterialModule } from 'src/app/app-material.module';
 import { SafePipeModule } from '../app-safe-pipe.module';
-import { AppQuizModule } from '../app-quiz.module';
+import { AppQuizModule } from '../review-dialogs/app-quiz.module';
 
 @NgModule({
-  declarations: [TechniqueDetailComponent],
+  declarations: [TechniqueDetailComponent, FavoritesListComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -6,8 +6,8 @@ import {
 } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Technique } from '../techniques/technique';
-import { TechniqueService } from '../techniques/technique.service';
+import { Technique } from '../../techniques/technique';
+import { TechniqueService } from '../../techniques/technique.service';
 
 export interface DialogData {
   technique: Technique;

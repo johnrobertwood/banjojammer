@@ -7,7 +7,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuard } from './auth/auth.guard';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 import { ProfileComponent } from './profile/profile.component';
-import { FavoritesListComponent } from './favorites-list/favorites-list.component';
 import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
@@ -34,11 +33,6 @@ const appRoutes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard],
-  },
-  {
-    path: 'favorites',
-    component: FavoritesListComponent,
-    // data: { animation: 'favorites' },
   },
   {
     path: 'home',

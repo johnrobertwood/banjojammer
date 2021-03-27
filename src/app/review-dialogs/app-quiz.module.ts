@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import {
   DialogContentQuizComponent,
   DialogContentQuizDialogComponent,
-} from 'src/app/dialog-content-quiz/dialog-content-quiz.component';
+} from 'src/app/review-dialogs/dialog-content-quiz/dialog-content-quiz.component';
 import {
   DialogContentFlashcardComponent,
   DialogContentFlashcardDialogComponent,
-} from 'src/app/dialog-content-flashcard/dialog-content-flashcard.component';
+} from 'src/app/review-dialogs/dialog-content-flashcard/dialog-content-flashcard.component';
 
-import { AppMaterialModule } from './app-material.module';
+import { AppMaterialModule } from '../app-material.module';
+import { SafePipeModule } from '../app-safe-pipe.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { AppMaterialModule } from './app-material.module';
     DialogContentFlashcardComponent,
     DialogContentFlashcardDialogComponent,
   ],
-  imports: [CommonModule, AppMaterialModule],
+  imports: [CommonModule, AppMaterialModule, SafePipeModule],
   exports: [
     DialogContentQuizComponent,
     DialogContentQuizDialogComponent,
