@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap, map, mergeMap, pluck } from 'rxjs/operators';
+import { switchMap, map, mergeMap, pluck, tap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
@@ -47,19 +47,20 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
     this.router.navigate(['/admin/manage-technique-list', { id: techniqueId }]);
   }
 
-  save(inputValue: string): void {
+  save(displayName: string, flashcard: any): void {
     this.technique$
       .pipe(
         map((technique: Technique) => ({
           ...technique,
-          displayName: inputValue,
+          displayName,
+          flashcard,
         })),
         mergeMap((technique: Technique) =>
           this.techniqueService.editTechnique(technique)
         )
         // In memory API is returning NULL for PUT so hardcoding the id here
       )
-      .subscribe(() => this.goBack(11));
+      .subscribe((technique) => this.goBack(technique.id));
   }
 
   ngOnDestroy() {

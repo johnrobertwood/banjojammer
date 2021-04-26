@@ -1,31 +1,35 @@
 <div *ngIf="technique$ | async as technique">
-  <div class="video-container">
-    <iframe
-      [width]="isSmallScreen || '560'"
-      [height]="isSmallScreen || '315'"
-      [src]="technique.video.url | safe"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
-  </div>
-  <div>
-    <mat-label>name: </mat-label>
-    <input
-      matInput
-      #editTechnique
-      [(ngModel)]="technique.displayName"
-      placeholder="name"
-    />
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Edit Technique</mat-label>
+      <input
+        matInput
+        [(ngModel)]="technique.displayName"
+        #editTechnique
+        name="editTechniqueName"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Edit Flashcard Answer</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="technique.flashcard.answer"
+        name="editTechniqueFlashcard"
+      ></textarea>
+    </mat-form-field>
+  </form>
+  <p>
     <button
       mat-raised-button
       color="primary"
-      (click)="save(editTechnique.value)"
+      (click)="save(technique.displayName, technique.flashcard)"
+      class="mr-2"
     >
-      save
+      Save
     </button>
-  </div>
-  <button mat-raised-button color="accent" (click)="goBack(technique.id)">
-    go back
-  </button>
+    <button mat-raised-button color="accent" (click)="goBack(technique.id)">
+      Back
+    </button>
+  </p>
 </div>
