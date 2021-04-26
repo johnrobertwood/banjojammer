@@ -1,5 +1,23 @@
 <h2>Manage Techniques List</h2>
 
+<router-outlet></router-outlet>
+<ul class="techniques">
+  <li
+    *ngFor="let technique of techniques$ | async"
+    [class.selected]="technique.id === selectedId"
+  >
+    <a
+      [routerLink]="['/admin/manage-technique-detail', technique.id]"
+      routerLinkActive="activebutton"
+    >
+      <span>{{ technique.displayName }} </span>
+    </a>
+    <button class="delete" title="delete technique" (click)="delete(technique)">
+      x
+    </button>
+  </li>
+</ul>
+
 <!-- <div>
   <form>
     <mat-form-field>
@@ -18,17 +36,3 @@
     </mat-form-field>
   </form>
 </div> -->
-
-<ul class="techniques">
-  <li *ngFor="let technique of techniques$ | async">
-    <a
-      [routerLink]="['/admin/manage-technique-detail', technique.id]"
-      routerLinkActive="activebutton"
-    >
-      <span>{{ technique.displayName }} </span>
-    </a>
-    <button class="delete" title="delete technique" (click)="delete(technique)">
-      x
-    </button>
-  </li>
-</ul>
