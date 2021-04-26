@@ -4,8 +4,6 @@ export interface Technique {
   displayName: string;
   favorite: boolean;
   quiz: {
-    id: number;
-    name: string;
     complete: boolean;
     question: string;
     responses: [
@@ -16,8 +14,6 @@ export interface Technique {
     ];
   };
   flashcard: {
-    id: number;
-    name: string;
     complete: boolean;
     question: string;
     answer: string;

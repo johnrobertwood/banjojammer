@@ -1,7 +1,7 @@
 <div *ngIf="technique$ | async as technique">
-  <form class="example-form">
+  <form class="example-form d-flex flex-column">
     <mat-form-field class="example-full-width">
-      <mat-label>Edit Technique</mat-label>
+      <mat-label>Edit Technique Name</mat-label>
       <input
         matInput
         name="editTechniqueName"
@@ -16,6 +16,7 @@
         matInput
         [(ngModel)]="editAnswer"
         name="editTechniqueFlashcard"
+        class="py-3"
         #answerInput
       ></textarea>
     </mat-form-field>

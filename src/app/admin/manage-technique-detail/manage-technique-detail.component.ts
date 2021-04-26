@@ -65,8 +65,6 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
           ...technique,
           displayName,
           flashcard: {
-            id: this.technique.flashcard.id,
-            name: this.technique.flashcard.name,
             complete: this.technique.flashcard.complete,
             question: this.technique.flashcard.question,
             answer: flashcardAnswer,
@@ -79,7 +77,6 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
       .subscribe((technique) => {
         this.technique.displayName = this.editName;
         this.technique.flashcard.answer = this.editAnswer;
-        console.log(this.technique);
         this.goBack(technique.id);
       });
   }
