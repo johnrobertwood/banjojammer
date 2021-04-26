@@ -20,6 +20,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatMenuModule,
     MatDialogModule,
     MatChipsModule,
+    MatListModule,
   ],
 })
 export class AppMaterialModule {}

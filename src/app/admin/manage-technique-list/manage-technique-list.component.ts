@@ -33,23 +33,4 @@ export class ManageTechniqueListComponent implements OnInit {
       })
     );
   }
-
-  add(name: string): void {
-    // this.isDisabled = true;
-    // name = name.trim();
-    // if (!name) {
-    //   return;
-    // }
-    // this.techniqueService
-    //   .addTechnique({ name } as Technique)
-    //   .subscribe((technique) => {
-    //     this.techniques.push(technique);
-    //     this.isDisabled = false;
-    //   });
-  }
-
-  delete(technique: Technique): void {
-    // this.techniques = this.techniques.filter((t) => t !== technique);
-    // this.techniqueService.deleteTechnique(technique).subscribe();
-  }
 }

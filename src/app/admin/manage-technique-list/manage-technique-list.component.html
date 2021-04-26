@@ -1,8 +1,8 @@
 <h2>Manage Techniques List</h2>
 
 <router-outlet></router-outlet>
-<ul class="techniques">
-  <li
+<mat-selection-list [multiple]="false" class="techniques">
+  <mat-list-option
     *ngFor="let technique of techniques$ | async"
     [class.selected]="technique.id === selectedId"
   >
@@ -12,27 +12,5 @@
     >
       <span>{{ technique.displayName }} </span>
     </a>
-    <button class="delete" title="delete technique" (click)="delete(technique)">
-      x
-    </button>
-  </li>
-</ul>
-
-<!-- <div>
-  <form>
-    <mat-form-field>
-      <mat-label>Technique name: </mat-label>
-      <input matInput #techniqueName />
-    </mat-form-field>
-    <mat-form-field>
-      <button
-        mat-button
-        [disabled]="isDisabled"
-        [style.color]="isDisabled ? 'red' : 'green'"
-        (click)="add(techniqueName.value); techniqueName.value = ''"
-      >
-        {{ isDisabled ? "adding" : "add" }}
-      </button>
-    </mat-form-field>
-  </form>
-</div> -->
+  </mat-list-option>
+</mat-selection-list>
