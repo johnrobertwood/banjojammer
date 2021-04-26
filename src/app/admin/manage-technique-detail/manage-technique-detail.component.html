@@ -5,7 +5,8 @@
       <input
         matInput
         name="editTechniqueName"
-        [(ngModel)]="technique.displayName"
+        [(ngModel)]="editName"
+        #nameInput
       />
     </mat-form-field>
 
@@ -13,8 +14,9 @@
       <mat-label>Edit Flashcard Answer</mat-label>
       <textarea
         matInput
-        [(ngModel)]="technique.flashcard.answer"
+        [(ngModel)]="editAnswer"
         name="editTechniqueFlashcard"
+        #answerInput
       ></textarea>
     </mat-form-field>
   </form>
@@ -22,7 +24,7 @@
     <button
       mat-raised-button
       color="primary"
-      (click)="save(technique.displayName, technique.flashcard)"
+      (click)="save(nameInput.value, answerInput.value)"
       class="mr-2"
     >
       Save

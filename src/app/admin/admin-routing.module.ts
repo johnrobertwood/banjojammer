@@ -8,6 +8,7 @@ import { AuthGuard } from '../auth/auth.guard';
 import { ManageTechniqueListComponent } from './manage-technique-list/manage-technique-list.component';
 import { ManageTechniqueDetailComponent } from './manage-technique-detail/manage-technique-detail.component';
 import { CanDeactivateGuard } from '../can-deactivate.guard';
+import { ManageTechniqueDetailResolverService } from './manage-technique-detail-resolver.service';
 
 const adminRoutes: Routes = [
   {
@@ -27,6 +28,9 @@ const adminRoutes: Routes = [
             path: 'manage-technique-detail/:id',
             component: ManageTechniqueDetailComponent,
             canDeactivate: [CanDeactivateGuard],
+            resolve: {
+              technique: ManageTechniqueDetailResolverService,
+            },
           },
           { path: '', component: AdminDashboardComponent },
         ],

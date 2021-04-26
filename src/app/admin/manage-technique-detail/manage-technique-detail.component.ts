@@ -7,6 +7,7 @@ import { Technique } from 'src/app/techniques/technique';
 import { switchMap, map, mergeMap, pluck } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { DialogService } from 'src/app/dialog.service';
 
 @Component({
   selector: 'app-manage-technique-detail',
@@ -16,18 +17,28 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject();
   technique$: Observable<Technique>;
+  technique: Technique;
   display = false;
   isSmallScreen: boolean;
+  editName: string;
+  editAnswer: string;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private route: ActivatedRoute,
     private router: Router,
-    private techniqueService: TechniqueService
+    private techniqueService: TechniqueService,
+    private dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
     this.getTechnique();
+
+    this.route.data.subscribe((data: { technique: Technique }) => {
+      this.editName = data.technique.displayName;
+      this.editAnswer = data.technique.flashcard.answer;
+      this.technique = data.technique;
+    });
 
     this.breakpointObserver
       .observe(['(max-width: 800px)'])
@@ -47,24 +58,42 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
     this.router.navigate(['/admin/manage-technique-list', { id: techniqueId }]);
   }
 
-  save(displayName: string, flashcard: any): void {
+  save(displayName: string, flashcardAnswer: string): void {
     this.technique$
       .pipe(
         map((technique: Technique) => ({
           ...technique,
           displayName,
-          flashcard,
+          flashcard: {
+            id: this.technique.flashcard.id,
+            name: this.technique.flashcard.name,
+            complete: this.technique.flashcard.complete,
+            question: this.technique.flashcard.question,
+            answer: flashcardAnswer,
+          },
         })),
         mergeMap((technique: Technique) =>
           this.techniqueService.editTechnique(technique)
         )
-        // In memory API is returning NULL for PUT so hardcoding the id here
       )
-      .subscribe((technique) => this.goBack(technique.id));
+      .subscribe((technique) => {
+        this.technique.displayName = this.editName;
+        this.technique.flashcard.answer = this.editAnswer;
+        console.log(this.technique);
+        this.goBack(technique.id);
+      });
   }
 
   canDeactivate() {
-    return true;
+    if (
+      !this.technique ||
+      (this.technique.displayName === this.editName &&
+        this.technique.flashcard.answer === this.editAnswer)
+    ) {
+      return true;
+    }
+
+    return this.dialogService.confirm('Discard changes?');
   }
 
   ngOnDestroy() {
