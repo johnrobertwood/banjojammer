@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap, map, mergeMap, pluck, tap } from 'rxjs/operators';
+import { switchMap, map, mergeMap, pluck } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
@@ -61,6 +61,10 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
         // In memory API is returning NULL for PUT so hardcoding the id here
       )
       .subscribe((technique) => this.goBack(technique.id));
+  }
+
+  canDeactivate() {
+    return true;
   }
 
   ngOnDestroy() {

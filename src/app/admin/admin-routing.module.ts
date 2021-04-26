@@ -7,6 +7,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AuthGuard } from '../auth/auth.guard';
 import { ManageTechniqueListComponent } from './manage-technique-list/manage-technique-list.component';
 import { ManageTechniqueDetailComponent } from './manage-technique-detail/manage-technique-detail.component';
+import { CanDeactivateGuard } from '../can-deactivate.guard';
 
 const adminRoutes: Routes = [
   {
@@ -25,6 +26,7 @@ const adminRoutes: Routes = [
           {
             path: 'manage-technique-detail/:id',
             component: ManageTechniqueDetailComponent,
+            canDeactivate: [CanDeactivateGuard],
           },
           { path: '', component: AdminDashboardComponent },
         ],
