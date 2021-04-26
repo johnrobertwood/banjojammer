@@ -32,9 +32,5 @@
 
 .flashcard a.activebutton li {
   color: #fff;
-  background-color: #ffd740;
-}
-
-.flashcard a.activebutton:hover {
-  background-color: #bbd8dc;
+  background-color: #bbb;
 }
