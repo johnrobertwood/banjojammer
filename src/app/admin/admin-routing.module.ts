@@ -23,6 +23,7 @@ const adminRoutes: Routes = [
           {
             path: 'manage-technique-list',
             component: ManageTechniqueListComponent,
+            data: { animation: 'list' },
           },
           {
             path: 'manage-technique-detail/:id',
@@ -31,6 +32,7 @@ const adminRoutes: Routes = [
             resolve: {
               technique: ManageTechniqueDetailResolverService,
             },
+            data: { animation: 'detail' },
           },
           { path: '', component: AdminDashboardComponent },
         ],
