@@ -69,7 +69,9 @@
   </mat-drawer>
   <mat-drawer-content>
     <div class="d-flex flex-column flex-wrap">
-      <div class="main-container">
+      <div
+        class="main-container container d-flex justify-content-center align-items-center p-3"
+      >
         <div [@routeAnimation]="getAnimationData(routerOutlet)">
           <router-outlet #routerOutlet="outlet"></router-outlet>
         </div>

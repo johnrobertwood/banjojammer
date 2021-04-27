@@ -1,10 +1,12 @@
-<p>Dashboard</p>
+<div class="container">
+  <h2>Dashboard</h2>
 
-<p>Session ID: {{ sessionId }}</p>
-<a id="anchor"></a>
-<p>Token: {{ token | async }}</p>
+  <p>Session ID: {{ sessionId }}</p>
+  <a id="anchor"></a>
+  <p>Token: {{ token | async }}</p>
 
-Preloaded Modules
-<ul>
-  <li *ngFor="let module of modules">{{ module }}</li>
-</ul>
+  Preloaded Modules
+  <ul>
+    <li *ngFor="let module of modules">{{ module }}</li>
+  </ul>
+</div>

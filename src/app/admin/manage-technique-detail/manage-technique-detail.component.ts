@@ -74,10 +74,10 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
           this.techniqueService.editTechnique(technique)
         )
       )
-      .subscribe((technique) => {
+      .subscribe(() => {
         this.technique.displayName = this.editName;
         this.technique.flashcard.answer = this.editAnswer;
-        this.goBack(technique.id);
+        this.goBack(this.technique.id);
       });
   }
 
