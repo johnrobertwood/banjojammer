@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { Technique } from 'src/app/techniques/technique';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 
@@ -11,10 +13,23 @@ import { TechniqueService } from 'src/app/techniques/technique.service';
 })
 export class FlashcardListComponent implements OnInit {
   techniques$: Observable<Technique[]>;
+  selectedId: number;
 
-  constructor(private techniqueService: TechniqueService) {}
+  constructor(
+    private techniqueService: TechniqueService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.techniques$ = this.techniqueService.getTechniques();
+    this.getTechniques();
+  }
+
+  getTechniques(): void {
+    this.techniques$ = this.route.paramMap.pipe(
+      switchMap((params) => {
+        this.selectedId = +params.get('id');
+        return this.techniqueService.getTechniques();
+      })
+    );
   }
 }

@@ -34,7 +34,11 @@ const adminRoutes: Routes = [
             },
             data: { animation: 'detail' },
           },
-          { path: '', component: AdminDashboardComponent },
+          {
+            path: '',
+            component: AdminDashboardComponent,
+            data: { animation: 'detail' },
+          },
         ],
       },
     ],

@@ -1,32 +1,37 @@
-<div *ngIf="technique" mat-dialog-content class="dialog-container">
-  <div class="card-container" (click)="revealAnswer()">
-    <mat-card class="top-card">
-      <p class="card-text">
-        {{ technique.displayName }}
-      </p>
-    </mat-card>
-    <mat-card class="hidden-card" [style.color]="reveal ? 'accent' : 'primary'">
-      <p class="card-text">
-        {{ reveal ? technique.flashcard.answer : "Click to Reveal" }}
-      </p>
-    </mat-card>
-  </div>
-  <div class="button-container">
-    <button
-      mat-raised-button
-      color="primary"
-      class="nav-button"
-      (click)="gotoPrevFlashcard()"
-    >
-      Prev
-    </button>
-    <button
-      mat-raised-button
-      color="primary"
-      class="nav-button"
-      (click)="gotoNextFlashcard()"
-    >
-      Next
-    </button>
+<div class="d-flex justify-content-center w-100">
+  <div *ngIf="technique" mat-dialog-content class="dialog-container w-100">
+    <div class="card-container mb-0" (click)="revealAnswer()">
+      <mat-card>
+        <p class="card-text">
+          {{ technique.displayName }}
+        </p>
+      </mat-card>
+      <mat-card
+        class="hidden-card"
+        [style.color]="reveal ? 'accent' : 'primary'"
+      >
+        <p class="card-text">
+          {{ reveal ? technique.flashcard.answer : "Click to Reveal" }}
+        </p>
+      </mat-card>
+    </div>
+    <div class="button-container">
+      <button
+        mat-raised-button
+        color="primary"
+        class="nav-button"
+        (click)="gotoPrevFlashcard()"
+      >
+        Prev
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="nav-button"
+        (click)="gotoNextFlashcard()"
+      >
+        Next
+      </button>
+    </div>
   </div>
 </div>

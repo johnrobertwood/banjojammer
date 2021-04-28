@@ -14,7 +14,6 @@ import { Observable } from 'rxjs';
 export class ManageTechniqueListComponent implements OnInit {
   techniques$: Observable<Technique[]>;
   selectedId: number;
-  isDisabled = false;
 
   constructor(
     private techniqueService: TechniqueService,

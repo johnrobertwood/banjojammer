@@ -6,6 +6,7 @@
       [routerLink]="['/admin/manage-technique-detail', technique.id]"
       [class.selected]="technique.id === selectedId"
       routerLinkActive="activebutton"
+      class="d-flex justify-content-center"
     >
       {{ technique.displayName }}
     </mat-list-option>
