@@ -159,8 +159,8 @@ describe('AppComponent', () => {
       expect(component).toBeDefined();
     });
 
-    it('should contain "Grappling Review"', () => {
-      expect(h1.textContent).toContain('Grappling Review');
+    it('should contain "Gunsite Homework"', () => {
+      expect(h1.textContent).toContain('Gunsite Homework');
     });
 
     it('selectedId is undefined before OnInit', () => {
