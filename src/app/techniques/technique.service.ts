@@ -23,7 +23,7 @@ export class TechniqueService {
   getTechniques(): Observable<Technique[]> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const username = {
-      username: currentUser ? currentUser.username.toLowerCase() : 'testuser1',
+      username: currentUser ? currentUser.username.toLowerCase() : 'gunsite1',
     };
     return this.http
       .post<any>(`${this.apiGatewayUrl}/user`, username, this.httpOptions)
@@ -48,7 +48,7 @@ export class TechniqueService {
   getUserTechnique(techniqueId: number): Observable<Technique> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const username = {
-      username: currentUser ? currentUser.username.toLowerCase() : 'testuser1',
+      username: currentUser ? currentUser.username.toLowerCase() : 'gunsite1',
     };
     const url = `${this.apiGatewayUrl}/user`;
 
