@@ -21,11 +21,10 @@ export class AuthenticationService {
       quiz: {
         name: 'Safety With Firearms Quiz',
         complete: false,
-        question: 'What are the 4 rules for safe handling of firearms?',
+        question: 'What is the 1st rule for safe handling of firearms?',
         responses: [
           {
-            text:
-              'All Guns are Always Loaded, Never let the muzzle cover anything you are not willing to destroy, Keep your finger off the trigger until your sights are on the target, Be sure of your target',
+            text: 'All Guns are Always Loaded',
             correct: true,
           },
           {
@@ -64,8 +63,7 @@ export class AuthenticationService {
         question: 'What are the elements of the Modern Technique?',
         responses: [
           {
-            text:
-              'Efficient Presentation to a Two Handed Weaver Grip, Flash Sight Picture and Compressed Surprise Break on a Heavy Duty Pistol',
+            text: 'Efficient Presentation to a Two Handed Weaver Grip, Flash Sight Picture and Compressed Surprise Break on a Heavy Duty Pistol',
             correct: true,
           },
           {
@@ -182,8 +180,7 @@ export class AuthenticationService {
         question: 'What is the Ready Position?',
         responses: [
           {
-            text:
-              'The Ready Position is Weaver Stance but with arms lowerd 45 degrees',
+            text: 'The Ready Position is Weaver Stance but with arms lowerd 45 degrees',
             correct: true,
           },
           {
@@ -338,8 +335,7 @@ export class AuthenticationService {
         question: 'What is the proper method to unload a pistol?',
         responses: [
           {
-            text:
-              'Remove the magazine, grasp the slide with an overhand grip and lock it back. Visually and physically inspect chamber then control the slide forward',
+            text: 'Remove the magazine, grasp the slide with an overhand grip and lock it back. Visually and physically inspect chamber then control the slide forward',
             correct: true,
           },
           {
@@ -439,7 +435,7 @@ export class AuthenticationService {
         complete: false,
         question:
           'What should you do when a Tap Roll and Rack fails to clear the malfunction?',
-        answer: 'Initiate a double feed clearance',
+        answer: 'Initiate a double feed clearance if TRR fails',
       },
       video: {
         url: 'https://www.youtube.com/embed/BxTcQV-4R9w',
@@ -496,8 +492,7 @@ export class AuthenticationService {
         question: 'What are the steps for a tactical reload?',
         responses: [
           {
-            text:
-              'Remove spare magazine, release used magazine into palm, insert new magazine and place old magazine in pouch',
+            text: 'Remove spare magazine, release used magazine into palm, insert new magazine and place old magazine in pouch',
             correct: true,
           },
           {
@@ -536,8 +531,7 @@ export class AuthenticationService {
         question: 'How do you execute a speed reload?',
         responses: [
           {
-            text:
-              'Shift pistol in hand, put thumb on mag release, withdraw new mag, release used mag, flat on flat, insert new mag',
+            text: 'Shift pistol in hand, put thumb on mag release, withdraw new mag, release used mag, flat on flat, insert new mag',
             correct: true,
           },
           {
@@ -575,8 +569,7 @@ export class AuthenticationService {
         question: 'What is the Natural Point of Aim?',
         responses: [
           {
-            text:
-              'Natural Point of Aim occurs when your body position is helping you align the sights with the threat.',
+            text: 'Natural Point of Aim occurs when your body position is helping you align the sights with the threat.',
             correct: true,
           },
           {
@@ -616,8 +609,7 @@ export class AuthenticationService {
           'What are the 2 steps to enter the Supported or Braced Kneeling position',
         responses: [
           {
-            text:
-              'On COUNT 1 of the Presentation ("GRIP") the support-side foot steps forward and across the midline of the body.  As the pistol leaves the holster the torso drops down and the buttocks is rested on the firing side heel',
+            text: 'On COUNT 1 of the Presentation ("GRIP") the support-side foot steps forward and across the midline of the body.  As the pistol leaves the holster the torso drops down and the buttocks is rested on the firing side heel',
             correct: true,
           },
           {
@@ -698,8 +690,7 @@ export class AuthenticationService {
         question: 'How do you enter the Double Kneeling position?',
         responses: [
           {
-            text:
-              'With the pistol at the ready position, lower your body in a controlled manner until both knees are on the ground',
+            text: 'With the pistol at the ready position, lower your body in a controlled manner until both knees are on the ground',
             correct: true,
           },
           {
@@ -739,8 +730,7 @@ export class AuthenticationService {
           'What are the tactical pointers for shooting around obstacles?',
         responses: [
           {
-            text:
-              'Distance is your friend, pie the corners, expose only what is necessary and do not rely on quick peeks',
+            text: 'Distance is your friend, pie the corners, expose only what is necessary and do not rely on quick peeks',
             correct: true,
           },
           {
