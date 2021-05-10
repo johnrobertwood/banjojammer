@@ -1,4 +1,7 @@
-<div *ngIf="technique$ | async as technique">
+<div
+  *ngIf="technique$ | async as technique"
+  style="max-width: 600px; margin: 0 auto"
+>
   <div class="d-flex justify-content-center mb-2">
     <iframe
       [width]="isSmallScreen || '560'"

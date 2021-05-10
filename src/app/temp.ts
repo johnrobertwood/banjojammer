@@ -14,7 +14,7 @@
   </div>
 </mat-toolbar>
 
-<mat-drawer-container class="nav-container">
+<mat-drawer-container class="nav-container d-flex justify-content-center">
   <mat-drawer
     #sidenav
     [mode]="sidenavMode"
@@ -67,13 +67,11 @@
       >
     </mat-nav-list>
   </mat-drawer>
-  <mat-drawer-content>
-    <div class="p-3">
-      <div [@routeAnimation]="getAnimationData(routerOutlet)">
-        <router-outlet #routerOutlet="outlet"></router-outlet>
-      </div>
-      <router-outlet name="popup" class="popupContainer"></router-outlet>
+  <mat-drawer-content style="max-width: 600px">
+    <div [@routeAnimation]="getAnimationData(routerOutlet)" class="my-2">
+      <router-outlet #routerOutlet="outlet"></router-outlet>
     </div>
+    <router-outlet name="popup" class="popupContainer"></router-outlet>
     <div class="footer w-100">
       <footer *ngIf="isHomePage" class="text-muted bd-footer d-flex">
         <div class="d-flex justify-content-between w-100 p-2 flex-wrap">

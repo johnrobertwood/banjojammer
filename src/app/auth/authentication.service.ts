@@ -140,7 +140,7 @@ export class AuthenticationService {
         name: 'Weaver Stance Quiz',
         complete: false,
         question:
-          'The Weaver Stane is a balanced fighting stance akin to a _____',
+          'The Weaver Stane is a balanced fighting stance simiar to a _____',
         responses: [
           {
             text: 'Boxer',
@@ -163,8 +163,9 @@ export class AuthenticationService {
       flashcard: {
         name: 'Weaver Stance Flashcard',
         complete: false,
-        question: 'What kind of stance is the Weaver Stance?',
-        answer: 'A balance fighting stance, similar to a boxer',
+        question: 'What kind of stance is the Weaver Stance similar to?',
+        answer:
+          'The weaver stance is a balance fighting stance, similar to a boxer',
       },
       video: {
         url: 'https://www.youtube.com/embed/i0ZfNsm0_ks',
@@ -282,7 +283,7 @@ export class AuthenticationService {
         complete: false,
         question:
           'What is the correct condition to carry the single-action pistol?',
-        answer: 'Condition ONE',
+        answer: 'A single action should be carried in Condition ONE',
       },
       video: {
         url: 'https://www.youtube.com/embed/nBDIHwybtew',
