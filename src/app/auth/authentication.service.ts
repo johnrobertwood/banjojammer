@@ -14,12 +14,12 @@ export class AuthenticationService {
 
   techniques: { [key: string]: object } = {
     safety: {
-      id: 66,
-      name: 'safety',
-      displayName: 'Safety',
+      id: 0,
+      name: 'safetyWithFirearms',
+      displayName: 'Safety With Firearms',
       favorite: false,
       quiz: {
-        name: 'Safety Quiz',
+        name: 'Safety With Firearms Quiz',
         complete: false,
         question: 'What are the 4 rules for safe handling of firearms?',
         responses: [
@@ -43,7 +43,7 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Safety Flashcard',
+        name: 'Safety With Firearms Flashcard',
         complete: false,
         question: 'What are the 4 rules for safe gun handling?',
         answer:
@@ -53,84 +53,8 @@ export class AuthenticationService {
         url: 'https://www.youtube.com/embed/yT_X1cCGD3g',
       },
     },
-    combatTriad: {
-      id: 76,
-      name: 'combatTriad',
-      displayName: 'The Combat Triad',
-      favorite: false,
-      quiz: {
-        name: 'Combat Triad Quiz',
-        complete: false,
-        question: 'What are the three elements of the combat triad?',
-        responses: [
-          {
-            text: 'Mindset, Gun Handling and Practical Marksmanship',
-            correct: true,
-          },
-          {
-            text: 'Funny joke wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Common mistake wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Funny joke wrong answer #2',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Combat Triad Flashcard',
-        complete: false,
-        question: 'What are the three elements of the combat triad?',
-        answer: 'Mindset, Gun Handling and Practical Marksmanship',
-      },
-      video: {
-        url: 'https://www.youtube.com/embed/nRLjbG-9zvU',
-      },
-    },
-    presentation: {
-      id: 96,
-      name: 'presentation',
-      displayName: 'Presentation',
-      favorite: false,
-      quiz: {
-        name: 'Presentation Quiz',
-        complete: false,
-        question: 'What are the 5 counts or steps of the presentation?',
-        responses: [
-          {
-            text: 'Grip, Clear, Click, Smack, Look',
-            correct: true,
-          },
-          {
-            text: 'Funny joke wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Common mistake wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Funny joke wrong answer #2',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Presentation Flashcard',
-        complete: false,
-        question: 'What are the 5 counts of the presentation?',
-        answer: 'Grip, Clear, Click, Smack, Look',
-      },
-      video: {
-        url: 'https://www.youtube.com/embed/fBcdQhTOPY8',
-      },
-    },
     modernTechnique: {
-      id: 106,
+      id: 1,
       name: 'modernTechnique',
       displayName: 'Modern Technique',
       favorite: false,
@@ -169,8 +93,203 @@ export class AuthenticationService {
         url: 'https://www.youtube.com/embed/i0ZfNsm0_ks',
       },
     },
+    combatTriad: {
+      id: 2,
+      name: 'combatTriad',
+      displayName: 'The Combat Triad',
+      favorite: false,
+      quiz: {
+        name: 'Combat Triad Quiz',
+        complete: false,
+        question: 'What are the three elements of the combat triad?',
+        responses: [
+          {
+            text: 'Mindset, Gun Handling and Practical Marksmanship',
+            correct: true,
+          },
+          {
+            text: 'Funny joke wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Common mistake wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Funny joke wrong answer #2',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Combat Triad Flashcard',
+        complete: false,
+        question: 'What are the three elements of the combat triad?',
+        answer: 'Mindset, Gun Handling and Practical Marksmanship',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/nRLjbG-9zvU',
+      },
+    },
+    weaverStance: {
+      id: 3,
+      name: 'weaverStance',
+      displayName: 'Weaver Stance',
+      favorite: false,
+      quiz: {
+        name: 'Weaver Stance Quiz',
+        complete: false,
+        question:
+          'The Weaver Stane is a balanced fighting stance akin to a _____',
+        responses: [
+          {
+            text: 'Boxer',
+            correct: true,
+          },
+          {
+            text: 'Funny joke wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Common mistake wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Funny joke wrong answer #2',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Weaver Stance Flashcard',
+        complete: false,
+        question: 'What kind of stance is the Weaver Stance?',
+        answer: 'A balance fighting stance, similar to a boxer',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/i0ZfNsm0_ks',
+      },
+    },
+    readyPosition: {
+      id: 4,
+      name: 'readyPosition',
+      displayName: 'The Ready Position',
+      favorite: false,
+      quiz: {
+        name: 'Ready Position Quiz',
+        complete: false,
+        question: 'What is the Ready Position?',
+        responses: [
+          {
+            text:
+              'The Ready Position is Weaver Stance but with arms lowerd 45 degrees',
+            correct: true,
+          },
+          {
+            text: 'Funny joke wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Common mistake wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Funny joke wrong answer #2',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Ready Position Flashcard',
+        complete: false,
+        question: 'What is the Ready Position?',
+        answer:
+          'The Ready Position is Weaver Stance but with arms lowerd 45 degrees',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/oATKlh_UKR4',
+      },
+    },
+    presentation: {
+      id: 5,
+      name: 'presentation',
+      displayName: 'Presentation',
+      favorite: false,
+      quiz: {
+        name: 'Presentation Quiz',
+        complete: false,
+        question: 'What are the 5 counts or steps of the presentation?',
+        responses: [
+          {
+            text: 'Grip, Clear, Click, Smack, Look',
+            correct: true,
+          },
+          {
+            text: 'Funny joke wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Common mistake wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Funny joke wrong answer #2',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Presentation Flashcard',
+        complete: false,
+        question: 'What are the 5 counts of the presentation?',
+        answer: 'Grip, Clear, Click, Smack, Look',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/fBcdQhTOPY8',
+      },
+    },
+    conditionsOfReadiness: {
+      id: 6,
+      name: 'conditionsOfReadiness',
+      displayName: 'Conditions of Readiness',
+      favorite: false,
+      quiz: {
+        name: 'Conditions of Readiness Quiz',
+        complete: false,
+        question:
+          'What is the correct condition to carry the single-action pistol?',
+        responses: [
+          {
+            text: 'Condition ONE',
+            correct: true,
+          },
+          {
+            text: 'Funny joke wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Common mistake wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Funny joke wrong answer #2',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Conditions of Readiness',
+        complete: false,
+        question:
+          'What is the correct condition to carry the single-action pistol?',
+        answer: 'Condition ONE',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/nBDIHwybtew',
+      },
+    },
     conditionCheck: {
-      id: 116,
+      id: 7,
       name: 'conditionCheck',
       displayName: 'Condition Check',
       favorite: false,
@@ -207,9 +326,166 @@ export class AuthenticationService {
         url: 'https://www.youtube.com/embed/3g51qvhy6fc',
       },
     },
-
+    pistolUnloading: {
+      id: 8,
+      name: 'pistolUnloading',
+      displayName: 'Pistol Unloading',
+      favorite: false,
+      quiz: {
+        name: 'Pistol Unloading Quiz',
+        complete: false,
+        question: 'What is the proper method to unload a pistol?',
+        responses: [
+          {
+            text:
+              'Remove the magazine, grasp the slide with an overhand grip and lock it back. Visually and physically inspect chamber then control the slide forward',
+            correct: true,
+          },
+          {
+            text: 'Funny joke wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Common mistake wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Funny joke wrong answer #2',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Pistol Unloading Flashcard',
+        complete: false,
+        question: 'What is the proper method to unload a pistol?',
+        answer:
+          'Remove the magazine, grasp the slide with an overhand grip and lock it back. Visually and physically inspect chamber then control the slide forward',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/m9UDlyT4lHM',
+      },
+    },
+    failureToFire: {
+      id: 9,
+      name: 'failureToFire',
+      displayName: 'Failure To Fire',
+      favorite: false,
+      quiz: {
+        name: 'Failure to Fire Quiz',
+        complete: false,
+        question: 'What are the two main causes of Failure to Fire?',
+        responses: [
+          {
+            text: 'Magazine not seated fully or faulty ammo',
+            correct: true,
+          },
+          {
+            text: 'Funny joke wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Common mistake wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Funny joke wrong answer #2',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Failure to Fire Flashcard',
+        complete: false,
+        question: 'What are the two main causes of Failure to Fire?',
+        answer: 'Magazine not seated fully or faulty ammo',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/C_uAP9AMa08',
+      },
+    },
+    doubleFeed: {
+      id: 10,
+      name: 'doubleFeed',
+      displayName: 'The Double Feed',
+      favorite: false,
+      quiz: {
+        name: 'Double Feed Quiz',
+        complete: false,
+        question:
+          'What should you do when a Tap Roll and Rack fails to clear the malfunction?',
+        responses: [
+          {
+            text: 'Initiate a double feed clearance',
+            correct: true,
+          },
+          {
+            text: 'Funny joke wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Common mistake wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Funny joke wrong answer #2',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Double Feed Flashcard',
+        complete: false,
+        question:
+          'What should you do when a Tap Roll and Rack fails to clear the malfunction?',
+        answer: 'Initiate a double feed clearance',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/BxTcQV-4R9w',
+      },
+    },
+    failureToEject: {
+      id: 11,
+      name: 'failureToEject',
+      displayName: 'Failure To Eject (Stove Pipe)',
+      favorite: false,
+      quiz: {
+        name: 'Failure to Eject Quiz',
+        complete: false,
+        question:
+          'What is the immediate action for a Failure to Eject (Stove Pipe)',
+        responses: [
+          {
+            text: 'Tap Roll and Rack',
+            correct: true,
+          },
+          {
+            text: 'Funny joke wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Common mistake wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Funny joke wrong answer #2',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Failure to Eject Flashcard',
+        complete: false,
+        question:
+          'What is the immediate action for a Failure to Eject (Stove Pipe)',
+        answer: 'Tap Roll and Rack',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/xsEeTm8SvWY',
+      },
+    },
     tacticalReload: {
-      id: 146,
+      id: 12,
       name: 'tacticalReload',
       displayName: 'Tactical Reload',
       favorite: false,
@@ -249,7 +525,7 @@ export class AuthenticationService {
       },
     },
     speedReload: {
-      id: 156,
+      id: 13,
       name: 'speedReload',
       displayName: 'Speed Reload',
       favorite: false,
@@ -289,7 +565,7 @@ export class AuthenticationService {
       },
     },
     naturalPointOfAim: {
-      id: 166,
+      id: 14,
       name: 'naturalPointOfAim',
       displayName: 'Natural Point of Aim',
       favorite: false,
@@ -329,7 +605,7 @@ export class AuthenticationService {
       },
     },
     supportedKneeling: {
-      id: 176,
+      id: 15,
       name: 'supportedKneeling',
       displayName: 'Supported Kneeling',
       favorite: false,
@@ -371,7 +647,7 @@ export class AuthenticationService {
       },
     },
     speedKneeling: {
-      id: 186,
+      id: 16,
       name: 'speedKneeling',
       displayName: 'Speed Kneeling',
       favorite: false,
@@ -412,7 +688,7 @@ export class AuthenticationService {
       },
     },
     doubleKneeling: {
-      id: 196,
+      id: 17,
       name: 'doubleKneeling',
       displayName: 'Double Kneeling',
       favorite: false,
@@ -452,7 +728,7 @@ export class AuthenticationService {
       },
     },
     shootingAroundObstacles: {
-      id: 206,
+      id: 18,
       name: 'shootingAroundObstacles',
       displayName: 'Shooting Around Obstacles',
       favorite: false,
@@ -491,243 +767,6 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/k874fSPmPy0',
-      },
-    },
-    conditionsOfReadiness: {
-      id: 116,
-      name: 'conditionsOfReadiness',
-      displayName: 'Conditions of Readiness',
-      favorite: false,
-      quiz: {
-        name: 'Conditions of Readiness Quiz',
-        complete: false,
-        question:
-          'What is the correct condition to carry the single-action pistol?',
-        responses: [
-          {
-            text: 'Condition ONE',
-            correct: true,
-          },
-          {
-            text: 'Funny joke wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Common mistake wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Funny joke wrong answer #2',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Conditions of Readiness',
-        complete: false,
-        question:
-          'What is the correct condition to carry the single-action pistol?',
-        answer: 'Condition ONE',
-      },
-      video: {
-        url: 'https://www.youtube.com/embed/nBDIHwybtew',
-      },
-    },
-    weaverStance: {
-      id: 86,
-      name: 'weaverStance',
-      displayName: 'Weaver Stance',
-      favorite: false,
-      quiz: {
-        name: 'Weaver Stance Quiz',
-        complete: false,
-        question:
-          'The Weaver Stane is a balanced fighting stance akin to a _____',
-        responses: [
-          {
-            text: 'Boxer',
-            correct: true,
-          },
-          {
-            text: 'Funny joke wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Common mistake wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Funny joke wrong answer #2',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Weaver Stance Flashcard',
-        complete: false,
-        question: 'What kind of stance is the Weaver Stance?',
-        answer: 'A balance fighting stance, similar to a boxer',
-      },
-      video: {
-        url: 'https://www.youtube.com/embed/i0ZfNsm0_ks',
-      },
-    },
-    readyPosition: {
-      id: 6,
-      name: 'readyPosition',
-      displayName: 'The Ready Position',
-      favorite: false,
-      quiz: {
-        name: 'Ready Position Quiz',
-        complete: false,
-        question: 'What is the Ready Position?',
-        responses: [
-          {
-            text:
-              'The Ready Position is Weaver Stance but with arms lowerd 45 degrees',
-            correct: true,
-          },
-          {
-            text: 'Funny joke wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Common mistake wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Funny joke wrong answer #2',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Ready Position Flashcard',
-        complete: false,
-        question: 'What is the Ready Position?',
-        answer:
-          'The Ready Position is Weaver Stance but with arms lowerd 45 degrees',
-      },
-      video: {
-        url: 'https://www.youtube.com/embed/oATKlh_UKR4',
-      },
-    },
-    failureToEject: {
-      id: 136,
-      name: 'failureToEject',
-      displayName: 'Failure To Eject (Stove Pipe)',
-      favorite: false,
-      quiz: {
-        name: 'Failure to Eject Quiz',
-        complete: false,
-        question:
-          'What is the immediate action for a Failure to Eject (Stove Pipe)',
-        responses: [
-          {
-            text: 'Tap Roll and Rack',
-            correct: true,
-          },
-          {
-            text: 'Funny joke wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Common mistake wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Funny joke wrong answer #2',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Failure to Eject Flashcard',
-        complete: false,
-        question:
-          'What is the immediate action for a Failure to Eject (Stove Pipe)',
-        answer: 'Tap Roll and Rack',
-      },
-      video: {
-        url: 'https://www.youtube.com/embed/xsEeTm8SvWY',
-      },
-    },
-    failureToFire: {
-      id: 126,
-      name: 'failureToFire',
-      displayName: 'Failure To Fire',
-      favorite: false,
-      quiz: {
-        name: 'Failure to Fire Quiz',
-        complete: false,
-        question: 'What are the two main causes of Failure to Fire?',
-        responses: [
-          {
-            text: 'Magazine not seated fully or faulty ammo',
-            correct: true,
-          },
-          {
-            text: 'Funny joke wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Common mistake wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Funny joke wrong answer #2',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Failure to Fire Flashcard',
-        complete: false,
-        question: 'What are the two main causes of Failure to Fire?',
-        answer: 'Magazine not seated fully or faulty ammo',
-      },
-      video: {
-        url: 'https://www.youtube.com/embed/C_uAP9AMa08',
-      },
-    },
-    doubleFeed: {
-      id: 146,
-      name: 'doubleFeed',
-      displayName: 'The Double Feed',
-      favorite: false,
-      quiz: {
-        name: 'Double Feed Quiz',
-        complete: false,
-        question:
-          'What should you do when a Tap Roll and Rack fails to clear the malfunction?',
-        responses: [
-          {
-            text: 'Initiate a double feed clearance',
-            correct: true,
-          },
-          {
-            text: 'Funny joke wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Common mistake wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Funny joke wrong answer #2',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Double Feed Flashcard',
-        complete: false,
-        question:
-          'What should you do when a Tap Roll and Rack fails to clear the malfunction?',
-        answer: 'Initiate a double feed clearance',
-      },
-      video: {
-        url: 'https://www.youtube.com/embed/BxTcQV-4R9w',
       },
     },
   };
