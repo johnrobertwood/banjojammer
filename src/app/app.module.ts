@@ -16,7 +16,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AppMaterialModule } from './app-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HomeComponent } from './home/home.component';
-import { SafePipeModule } from './app-safe-pipe.module';
+import { PipeModule } from './app-pipe.module';
 import { AppQuizModule } from './review-dialogs/app-quiz.module';
 
 @NgModule({
@@ -30,7 +30,7 @@ import { AppQuizModule } from './review-dialogs/app-quiz.module';
     AppRoutingModule,
     HttpClientModule,
     LayoutModule,
-    SafePipeModule,
+    PipeModule,
     AppQuizModule,
   ],
   declarations: [

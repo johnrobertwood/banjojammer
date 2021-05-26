@@ -8,7 +8,7 @@ import { TechniqueDetailComponent } from './technique-detail/technique-detail.co
 import { FavoritesListComponent } from './favorites-list/favorites-list.component';
 import { TechniquesRoutingModule } from './techniques-routing.module';
 import { AppMaterialModule } from 'src/app/app-material.module';
-import { SafePipeModule } from '../app-safe-pipe.module';
+import { PipeModule } from '../app-pipe.module';
 import { AppQuizModule } from '../review-dialogs/app-quiz.module';
 
 @NgModule({
@@ -20,7 +20,7 @@ import { AppQuizModule } from '../review-dialogs/app-quiz.module';
     MatInputModule,
     AppMaterialModule,
     TechniquesRoutingModule,
-    SafePipeModule,
+    PipeModule,
     AppQuizModule,
   ],
 })

@@ -11,7 +11,7 @@ import {
 } from 'src/app/review-dialogs/dialog-content-flashcard/dialog-content-flashcard.component';
 
 import { AppMaterialModule } from '../app-material.module';
-import { SafePipeModule } from '../app-safe-pipe.module';
+import { PipeModule } from '../app-pipe.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { SafePipeModule } from '../app-safe-pipe.module';
     DialogContentFlashcardComponent,
     DialogContentFlashcardDialogComponent,
   ],
-  imports: [CommonModule, AppMaterialModule, SafePipeModule],
+  imports: [CommonModule, AppMaterialModule, PipeModule],
   exports: [
     DialogContentQuizComponent,
     DialogContentQuizDialogComponent,
