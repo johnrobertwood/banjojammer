@@ -6,6 +6,7 @@
   <h3>{{ data.technique.quiz.question }}</h3>
   <ul class="w-100">
     <li *ngFor="let response of data.technique.quiz.responses | random">
+      <button cdkFocusInitial style="display: none"></button>
       <button
         mat-raised-button
         (click)="selectAnswer()"
