@@ -50,6 +50,8 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/pQ43Oy5k9yQ',
+        thumbnail: 'https://img.youtube.com/vi/pQ43Oy5k9yQ/0.jpg',
+        videoId: 'pQ43Oy5k9yQ',
       },
     },
     triangle: {
@@ -63,8 +65,7 @@ export class AuthenticationService {
         question: 'How do you lock up a triangle?',
         responses: [
           {
-            text:
-              'Underhook the leg, shin is horizontal across back of neck, pull head',
+            text: 'Underhook the leg, shin is horizontal across back of neck, pull head',
             correct: true,
           },
           { text: 'Stay square and keep leg across back', correct: false },
@@ -81,6 +82,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/oVvEQeasAxQ',
+        thumbnail: 'https://img.youtube.com/vi/oVvEQeasAxQ/0.jpg',
       },
     },
     kimura: {
@@ -94,23 +96,19 @@ export class AuthenticationService {
         question: 'What are the key body positions for a kimura from guard?',
         responses: [
           {
-            text:
-              'Get their hands on mat, grip the wrist low, lock your elbow out straight, shrimp out a little, elbows tight to finish with monkey grip',
+            text: 'Get their hands on mat, grip the wrist low, lock your elbow out straight, shrimp out a little, elbows tight to finish with monkey grip',
             correct: true,
           },
           {
-            text:
-              'Hold tight with seatbelt, gable grip to lift up chin, gable grip the other side then slide arm across neck',
+            text: 'Hold tight with seatbelt, gable grip to lift up chin, gable grip the other side then slide arm across neck',
             correct: false,
           },
           {
-            text:
-              'Push his thumb to peel one hand, then pull his other hand and finish',
+            text: 'Push his thumb to peel one hand, then pull his other hand and finish',
             correct: false,
           },
           {
-            text:
-              'Put your head on the map with his arm trapped then reach your crossface arm deep for the gable grip',
+            text: 'Put your head on the map with his arm trapped then reach your crossface arm deep for the gable grip',
             correct: false,
           },
         ],
@@ -123,6 +121,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/mVkKOPNGvjA',
+        thumbnail: 'https://img.youtube.com/vi/mVkKOPNGvjA/0.jpg',
       },
     },
     rearNakedChoke: {
@@ -136,8 +135,7 @@ export class AuthenticationService {
           'How do you break his grip to finish choke when opponent is holding your hands?',
         responses: [
           {
-            text:
-              'Push his thumb to peel one hand, then pull his other hand and finish',
+            text: 'Push his thumb to peel one hand, then pull his other hand and finish',
             correct: true,
           },
           {
@@ -164,6 +162,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/lZnST9hNkNU',
+        thumbnail: 'https://img.youtube.com/vi/lZnST9hNkNU/0.jpg',
       },
     },
     omoplata: {
@@ -177,8 +176,7 @@ export class AuthenticationService {
         question: 'What are the two variations of Omoplata from closed guard?',
         responses: [
           {
-            text:
-              'Traditional (clamping with bent knees) and Marceloplata (kicking with straight leg)',
+            text: 'Traditional (clamping with bent knees) and Marceloplata (kicking with straight leg)',
             correct: true,
           },
           {
@@ -204,6 +202,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/LVy4tGv5Fk4',
+        thumbnail: 'https://img.youtube.com/vi/LVy4tGv5Fk4/0.jpg',
       },
     },
     guillotine: {
@@ -236,6 +235,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/DPKhbTth0So',
+        thumbnail: 'https://img.youtube.com/vi/DPKhbTth0So/0.jpg',
       },
     },
     headAndArmChoke: {
@@ -249,13 +249,11 @@ export class AuthenticationService {
         question: 'What is the setup for Head and Arm from side control',
         responses: [
           {
-            text:
-              'Put your head on the mat with his arm trapped then reach your crossface arm deep for the gable grip',
+            text: 'Put your head on the mat with his arm trapped then reach your crossface arm deep for the gable grip',
             correct: true,
           },
           {
-            text:
-              'Switch your hips for reverse kesa gatame side control and step over to mount',
+            text: 'Switch your hips for reverse kesa gatame side control and step over to mount',
             correct: false,
           },
           {
@@ -263,8 +261,7 @@ export class AuthenticationService {
             correct: false,
           },
           {
-            text:
-              'Hop up to knee on belly then windshield wiper leg to get mount',
+            text: 'Hop up to knee on belly then windshield wiper leg to get mount',
             correct: false,
           },
         ],
@@ -278,6 +275,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/Hw8-59qdvnU',
+        thumbnail: 'https://img.youtube.com/vi/Hw8-59qdvnU/0.jpg',
       },
     },
     defendingAmericana: {
@@ -309,6 +307,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/FNyL93v5fGs',
+        thumbnail: 'https://img.youtube.com/vi/FNyL93v5fGs/0.jpg',
       },
     },
     straightArmlock: {
@@ -341,6 +340,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/rZNFFH2hpbo',
+        thumbnail: 'https://img.youtube.com/vi/rZNFFH2hpbo/0.jpg',
       },
     },
     straightKneebar: {
@@ -380,6 +380,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/1UYJRNqW5Ao',
+        thumbnail: 'https://img.youtube.com/vi/1UYJRNqW5Ao/0.jpg',
       },
     },
     avoidDeepHalfGuard: {
@@ -394,8 +395,7 @@ export class AuthenticationService {
           'What should you do to avoid getting stuck in deep half guard?',
         responses: [
           {
-            text:
-              'Sprawl, use a crossface and pummel your foot inside his calf',
+            text: 'Sprawl, use a crossface and pummel your foot inside his calf',
             correct: true,
           },
           {
@@ -420,6 +420,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/FNaMku7pjDU',
+        thumbnail: 'https://img.youtube.com/vi/FNaMku7pjDU/0.jpg',
       },
     },
     scissorSweep: {
@@ -438,13 +439,11 @@ export class AuthenticationService {
             correct: false,
           },
           {
-            text:
-              'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
+            text: 'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
             correct: true,
           },
           {
-            text:
-              'Kick straight out with top leg and drop bottom leg like a prostitute',
+            text: 'Kick straight out with top leg and drop bottom leg like a prostitute',
             correct: false,
           },
           {
@@ -462,6 +461,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/X-PA21_0xTg',
+        thumbnail: 'https://img.youtube.com/vi/X-PA21_0xTg/0.jpg',
       },
     },
     heelHookDefense: {
@@ -501,6 +501,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/w-W0ug7Edag',
+        thumbnail: 'https://img.youtube.com/vi/w-W0ug7Edag/0.jpg',
       },
     },
     triangleEscape: {
@@ -540,6 +541,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/od-lcD_34f8',
+        thumbnail: 'https://img.youtube.com/vi/od-lcD_34f8/0.jpg',
       },
     },
     armbarDefense: {
@@ -579,6 +581,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/zwNOXB8GQ3w',
+        thumbnail: 'https://img.youtube.com/vi/zwNOXB8GQ3w/0.jpg',
       },
     },
   };

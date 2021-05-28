@@ -34,22 +34,29 @@
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col my-2" *ngFor="let technique of techniques$ | async">
-          <div class="card shadow-sm h-100">
-            <iframe
-              width="100%"
-              height="225"
-              [src]="technique.video.url | safe"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            >
-            </iframe>
-
+          <div
+            class="
+              card
+              shadow-sm
+              h-100
+              d-flex
+              flex-column
+              justify-content-between
+            "
+          >
+            <img
+              [src]="technique.video.thumbnail | safe"
+              [routerLink]="['/technique', technique.id]"
+              class="img-responsive card-container"
+              alt="Video Thumbnail"
+            />
             <div class="card-container p-3">
               <h3 class="h4">{{ technique.displayName }}</h3>
-              <p class="text-muted">
+              <p class="text-muted m-0">
                 {{ technique.flashcard.question }}
               </p>
+            </div>
+            <div class="p-2">
               <div class="d-flex justify-content-center align-items-center">
                 <div>
                   <div class="mb-2">
