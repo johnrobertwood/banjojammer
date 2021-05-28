@@ -491,6 +491,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/xsEeTm8SvWY',
+        thumbnail: 'https://img.youtube.com/vi/xsEeTm8SvWY/0.jpg',
       },
     },
     tacticalReload: {
@@ -734,6 +735,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/wpiAwbfc8Xw',
+        thumbnail: 'https://img.youtube.com/vi/wpiAwbfc8Xw/0.jpg',
       },
     },
     shootingAroundObstacles: {
