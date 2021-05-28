@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AppMaterialModule } from 'src/app/app-material.module';
-import { SafePipeModule } from 'src/app/app-safe-pipe.module';
+import { PipeModule } from 'src/app/app-pipe.module';
 
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
@@ -27,7 +27,7 @@ import { ManageTechniqueListComponent } from './manage-technique-list/manage-tec
     MatFormFieldModule,
     AppMaterialModule,
     AdminRoutingModule,
-    SafePipeModule,
+    PipeModule,
   ],
 })
 export class AdminModule {}

@@ -44,7 +44,7 @@
       <button
         *ngIf="loggedIn"
         mat-menu-item
-        routerLink="/flashcard-deck"
+        routerLink="/flashcard-deck/0"
         routerLinkActive="activebutton"
       >
         Flashcards
@@ -71,9 +71,22 @@
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>
-    <div class="d-flex justify-content-center p-3">
-      <div [@routeAnimation]="getAnimationData(routerOutlet)">
-        <router-outlet #routerOutlet="outlet"></router-outlet>
+    <div class="d-flex flex-column flex-wrap">
+      <div
+        class="
+          main-container
+          container
+          w-100
+          d-flex
+          justify-content-center
+          align-items-center
+          p-3
+        "
+      >
+        <div [@routeAnimation]="getAnimationData(routerOutlet)" class="w-100">
+          <router-outlet #routerOutlet="outlet"></router-outlet>
+        </div>
+        <router-outlet name="popup" class="popupContainer"></router-outlet>
       </div>
       <router-outlet name="popup" class="popupContainer"></router-outlet>
     </div>
