@@ -570,7 +570,8 @@ export class AuthenticationService {
           'Shift pistol in hand, put thumb on mag release, withdraw new mag, release used mag, flat on flat, insert new mag',
       },
       video: {
-        url: 'https://www.youtube.com/embed/RxJMGPZrlq8',
+        url: 'https://player.vimeo.com/video/556939734',
+        url2: 'https://player.vimeo.com/video/556958374',
         thumbnail: 'https://img.youtube.com/vi/RxJMGPZrlq8/0.jpg',
       },
     },

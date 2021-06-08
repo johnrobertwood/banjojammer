@@ -1,14 +1,28 @@
 <div
   *ngIf="technique$ | async as technique"
-  style="max-width: 600px; margin: 0 auto"
+  style="max-width: 760px; margin: 0 auto"
 >
-  <div class="d-flex justify-content-center mb-2">
-    <iframe
+  <div class="d-flex flex-column justify-content-center mb-2">
+    <!-- <iframe
       [width]="isSmallScreen || '560'"
       [height]="isSmallScreen || '315'"
       [src]="technique.video.url | safe"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe> -->
+    <iframe
+      [src]="technique.video.url | safe"
+      frameborder="0"
+      height="564"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+    ></iframe>
+    <iframe
+      [src]="technique.video.url2 | safe"
+      height="564"
+      frameborder="0"
+      allow="autoplay; fullscreen"
       allowfullscreen
     ></iframe>
   </div>
