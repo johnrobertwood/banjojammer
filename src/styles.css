@@ -1,4 +1,4 @@
-@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 nav a {
@@ -22,12 +22,6 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-:root {
-  --amplify-primary-color: #673ab7;
-  --amplify-primary-tint: #683ab7b9;
-  --amplify-primary-shade: #683ab798;
 }
 
 @media screen and (max-width: 767px) {

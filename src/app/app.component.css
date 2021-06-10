@@ -31,7 +31,7 @@ li {
 }
 
 .footer {
-  background-color: #673ab7;
+  background-color: #3f51b5;
   margin: 0;
 }
 
@@ -40,5 +40,10 @@ li {
 }
 
 .activebutton {
-  background-color: #ffd740;
+  color: #fff;
+  background-color: #3f51b5;
+}
+
+.activebutton:hover {
+  background-color: #cfd8dc;
 }
