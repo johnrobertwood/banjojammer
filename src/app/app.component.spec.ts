@@ -62,8 +62,7 @@ describe('AppComponent', () => {
         question: 'How do you lock up a triangle?',
         responses: [
           {
-            text:
-              'Underhook the leg, shin is horizontal across back of neck, pull head',
+            text: 'Underhook the leg, shin is horizontal across back of neck, pull head',
             correct: true,
           },
           { text: 'Stay square and keep leg across back', correct: false },
@@ -93,23 +92,19 @@ describe('AppComponent', () => {
         question: 'What are the key body positions for a kimura from guard?',
         responses: [
           {
-            text:
-              'Get their hands on mat, grip the wrist low, lock your elbow out straight, shrimp out a little, elbows tight to finish with monkey grip',
+            text: 'Get their hands on mat, grip the wrist low, lock your elbow out straight, shrimp out a little, elbows tight to finish with monkey grip',
             correct: true,
           },
           {
-            text:
-              'Hold tight with seatbelt, gable grip to lift up chin, gable grip the other side then slide arm across neck',
+            text: 'Hold tight with seatbelt, gable grip to lift up chin, gable grip the other side then slide arm across neck',
             correct: false,
           },
           {
-            text:
-              'Push his thumb to peel one hand, then pull his other hand and finish',
+            text: 'Push his thumb to peel one hand, then pull his other hand and finish',
             correct: false,
           },
           {
-            text:
-              'Put your head on the map with his arm trapped then reach your crossface arm deep for the gable grip',
+            text: 'Put your head on the map with his arm trapped then reach your crossface arm deep for the gable grip',
             correct: false,
           },
         ],
@@ -159,8 +154,8 @@ describe('AppComponent', () => {
       expect(component).toBeDefined();
     });
 
-    it('should contain "Gunsite Homework"', () => {
-      expect(h1.textContent).toContain('Gunsite Homework');
+    it('should contain "Dry Fire Academy"', () => {
+      expect(h1.textContent).toContain('Dry Fire Academy');
     });
 
     it('selectedId is undefined before OnInit', () => {

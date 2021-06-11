@@ -133,6 +133,46 @@ export class AuthenticationService {
         thumbnail: 'https://img.youtube.com/vi/nRLjbG-9zvU/0.jpg',
       },
     },
+    combatTriad2: {
+      id: 3,
+      name: 'combatTriad2',
+      displayName: 'The Combat Triad 2',
+      favorite: false,
+      quiz: {
+        name: 'Combat Triad 2 Quiz',
+        complete: false,
+        question: 'What are the three elements of the combat triad?',
+        responses: [
+          {
+            text: 'Mindset, Gun Handling and Practical Marksmanship',
+            correct: true,
+          },
+          {
+            text: 'Fixed blade knife, first aid kit and extra magazine',
+            correct: false,
+          },
+          {
+            text: 'Heavy duty pistol, jiu jitsu, steel toe boots',
+            correct: false,
+          },
+          {
+            text: '1000 yard stare, leather hoster and operator beard',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Combat Triad 2 Flashcard',
+        complete: false,
+        question: 'What are the three elements of the combat triad?',
+        answer: 'Mindset, Gun Handling and Practical Marksmanship',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/nRLjbG-9zvU',
+        thumbnail: 'https://img.youtube.com/vi/nRLjbG-9zvU/0.jpg',
+      },
+    },
+
     readyPosition: {
       id: 4,
       name: 'readyPosition',
