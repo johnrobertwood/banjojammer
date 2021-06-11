@@ -28,15 +28,15 @@ export class AuthenticationService {
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Always be sure of your target',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Never let the muzzle cover anything you are not willing to destroy',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Keep your booger hook off the bang switch till your sights are on target',
             correct: false,
           },
         ],
@@ -65,19 +65,19 @@ export class AuthenticationService {
         question: 'What are the elements of the Modern Technique?',
         responses: [
           {
-            text: 'Efficient Presentation to a Two Handed Weaver Grip, Flash Sight Picture and Compressed Surprise Break on a Heavy Duty Pistol',
+            text: 'Efficient presentation with a two handed grip, flash sight picture and compressed surprise break on a heavy duty pistol',
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Isosceles triangle stance, red dot sight, polymer pistol',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Small caliber micro compact, ankle holster and pepper spray',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Situational awareness, combat mindset and cargo shorts',
             correct: false,
           },
         ],
@@ -87,7 +87,7 @@ export class AuthenticationService {
         complete: false,
         question: 'What are the elements of the Modern Technique?',
         answer:
-          'Efficient Presentation to a Two Handed Weaver Grip, Flash Sight Picture and Compressed Surprise Break with a Heavy Duty Pistol',
+          'Efficient presentation with a two handed grip, flash sight picture and compressed surprise break on a heavy duty pistol',
       },
       video: {
         url: 'https://www.youtube.com/embed/i0ZfNsm0_ks',
@@ -109,15 +109,15 @@ export class AuthenticationService {
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Fixed blade knife, first aid kit and extra magazine',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Heavy duty pistol, jiu jitsu, steel toe boots',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: '1000 yard stare, leather hoster and operator beard',
             correct: false,
           },
         ],
@@ -133,47 +133,6 @@ export class AuthenticationService {
         thumbnail: 'https://img.youtube.com/vi/nRLjbG-9zvU/0.jpg',
       },
     },
-    weaverStance: {
-      id: 3,
-      name: 'weaverStance',
-      displayName: 'Weaver Stance',
-      favorite: false,
-      quiz: {
-        name: 'Weaver Stance Quiz',
-        complete: false,
-        question:
-          'The Weaver Stane is a balanced fighting stance simiar to a _____',
-        responses: [
-          {
-            text: 'Boxer',
-            correct: true,
-          },
-          {
-            text: 'Funny joke wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Common mistake wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Funny joke wrong answer #2',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Weaver Stance Flashcard',
-        complete: false,
-        question: 'What kind of stance is the Weaver Stance similar to?',
-        answer:
-          'The weaver stance is a balance fighting stance, similar to a boxer',
-      },
-      video: {
-        url: 'https://www.youtube.com/embed/i0ZfNsm0_ks',
-        thumbnail: 'https://img.youtube.com/vi/i0ZfNsm0_ks/0.jpg',
-      },
-    },
     readyPosition: {
       id: 4,
       name: 'readyPosition',
@@ -185,19 +144,19 @@ export class AuthenticationService {
         question: 'What is the Ready Position?',
         responses: [
           {
-            text: 'The Ready Position is Weaver Stance but with arms lowerd 45 degrees',
+            text: 'Gun drawn, arms lowered 45 degrees, finger off trigger',
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Gun up, sights on target and finger on trigger',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Gun holstered, hands up and weight forward',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Leaning back slightly with a one handed grip',
             correct: false,
           },
         ],
@@ -206,8 +165,7 @@ export class AuthenticationService {
         name: 'Ready Position Flashcard',
         complete: false,
         question: 'What is the Ready Position?',
-        answer:
-          'The Ready Position is Weaver Stance but with arms lowerd 45 degrees',
+        answer: 'Gun drawn, arms lowered at 45 degrees, finger off trigger',
       },
       video: {
         url: 'https://www.youtube.com/embed/oATKlh_UKR4',
@@ -225,19 +183,19 @@ export class AuthenticationService {
         question: 'What are the 5 counts or steps of the presentation?',
         responses: [
           {
-            text: 'Grip, Clear, Click, Smack, Look',
+            text: 'Grip, clear, click, smack, look',
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Look, step, reach, draw, kneel',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Spin, duck, draw, point, click',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Hop, skip, jump, sit, shoot',
             correct: false,
           },
         ],
@@ -246,52 +204,11 @@ export class AuthenticationService {
         name: 'Presentation Flashcard',
         complete: false,
         question: 'What are the 5 counts of the presentation?',
-        answer: 'Grip, Clear, Click, Smack, Look',
+        answer: 'Grip, clear, click, smack, look',
       },
       video: {
         url: 'https://www.youtube.com/embed/fBcdQhTOPY8',
         thumbnail: 'https://img.youtube.com/vi/fBcdQhTOPY8/0.jpg',
-      },
-    },
-    conditionsOfReadiness: {
-      id: 6,
-      name: 'conditionsOfReadiness',
-      displayName: 'Conditions of Readiness',
-      favorite: false,
-      quiz: {
-        name: 'Conditions of Readiness Quiz',
-        complete: false,
-        question:
-          'What is the correct condition to carry the single-action pistol?',
-        responses: [
-          {
-            text: 'Condition ONE',
-            correct: true,
-          },
-          {
-            text: 'Funny joke wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Common mistake wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Funny joke wrong answer #2',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Conditions of Readiness',
-        complete: false,
-        question:
-          'What is the correct condition to carry the single-action pistol?',
-        answer: 'A single action should be carried in Condition ONE',
-      },
-      video: {
-        url: 'https://www.youtube.com/embed/nBDIHwybtew',
-        thumbnail: 'https://img.youtube.com/vi/nBDIHwybtew/0.jpg',
       },
     },
     conditionCheck: {
@@ -305,19 +222,19 @@ export class AuthenticationService {
         question: 'What are the elements of the Condition Check?',
         responses: [
           {
-            text: 'Chamber check and magazine check by touch',
+            text: 'Chamber check and magazine check by sight and touch',
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Visual only chamber and magazine check',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Inspecting the pistol for damage',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Removing the magazine and racking the slide 5-6 times',
             correct: false,
           },
         ],
@@ -326,7 +243,7 @@ export class AuthenticationService {
         name: 'Chamber Check Flashcard',
         complete: false,
         question: 'What are the elements of the Condition Check?',
-        answer: 'Chamber check and magazine check by touch',
+        answer: 'Chamber check and magazine check by sight and touch',
       },
       video: {
         url: 'https://www.youtube.com/embed/3g51qvhy6fc',
@@ -344,19 +261,19 @@ export class AuthenticationService {
         question: 'What is the proper method to unload a pistol?',
         responses: [
           {
-            text: 'Remove the magazine, grasp the slide with an overhand grip and lock it back. Visually and physically inspect chamber then control the slide forward',
+            text: 'Remove the magazine and lock the slide back. Visually and physically inspect chamber then control the slide forward',
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Rack the slide, remove the magazine and press the trigger',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Rack the slide until the pistol is empty',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Remove the magazine and look into the muzzle with a flashlight',
             correct: false,
           },
         ],
@@ -366,7 +283,7 @@ export class AuthenticationService {
         complete: false,
         question: 'What is the proper method to unload a pistol?',
         answer:
-          'Remove the magazine, grasp the slide with an overhand grip and lock it back. Visually and physically inspect chamber then control the slide forward',
+          'Remove the magazine and lock the slide back. Visually and physically inspect chamber then control the slide forward',
       },
       video: {
         url: 'https://www.youtube.com/embed/m9UDlyT4lHM',
@@ -388,15 +305,15 @@ export class AuthenticationService {
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Bent firing pin and no trigger discipline',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Limp wristing',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Ejection port jam',
             correct: false,
           },
         ],
@@ -424,19 +341,19 @@ export class AuthenticationService {
           'What should you do when a Tap Roll and Rack fails to clear the malfunction?',
         responses: [
           {
-            text: 'Initiate a double feed clearance',
+            text: 'Lock the slide back, stip out the magazine and do 3 Tap Roll Racks',
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Keep doing Tap Roll and Racks until it is clear',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Pry the rounds out with your fingers',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Perform a speed reload',
             correct: false,
           },
         ],
@@ -446,10 +363,11 @@ export class AuthenticationService {
         complete: false,
         question:
           'What should you do when a Tap Roll and Rack fails to clear the malfunction?',
-        answer: 'Initiate a double feed clearance if TRR fails',
+        answer:
+          'Lock the slide back, stip out the magazine and do 3 tap, roll, racks',
       },
       video: {
-        url: 'https://www.youtube.com/embed/BxTcQV-4R9w',
+        url: 'https://player.vimeo.com/video/556981700',
         thumbnail: 'https://img.youtube.com/vi/BxTcQV-4R9w/0.jpg',
       },
     },
@@ -469,15 +387,15 @@ export class AuthenticationService {
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Tactical reload',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Strip out the magazine and lock the slide back',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Quickly rack the slide 3 times',
             correct: false,
           },
         ],
@@ -487,7 +405,7 @@ export class AuthenticationService {
         complete: false,
         question:
           'What is the immediate action for a Failure to Eject (Stove Pipe)',
-        answer: 'Tap Roll and Rack',
+        answer: 'Tap roll and rack',
       },
       video: {
         url: 'https://www.youtube.com/embed/xsEeTm8SvWY',
@@ -505,19 +423,19 @@ export class AuthenticationService {
         question: 'What are the steps for a tactical reload?',
         responses: [
           {
-            text: 'Remove spare magazine, release used magazine into palm, insert new magazine and place old magazine in pouch',
+            text: 'Grab a spare magazine, release used magazine into palm, insert new magazine and save old magazine',
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Remove used magazine, replace in mag holster then grab new magazine and speed load it',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Lock the slide back, drop the old magazine and speed load the new magazine',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Remove used magazine, put pistol under your arm and top off the mag',
             correct: false,
           },
         ],
@@ -530,7 +448,7 @@ export class AuthenticationService {
           'Remove spare magazine, release used magazine into palm and remove, insert new magazine and place old magazine in pouch',
       },
       video: {
-        url: 'https://www.youtube.com/embed/Rx6qo5cydM4',
+        url: 'https://player.vimeo.com/video/556958374',
         thumbnail: 'https://img.youtube.com/vi/Rx6qo5cydM4/0.jpg',
       },
     },
@@ -585,19 +503,19 @@ export class AuthenticationService {
         question: 'What is the Natural Point of Aim?',
         responses: [
           {
-            text: 'Natural Point of Aim occurs when your body position is helping you align the sights with the threat.',
+            text: 'It occurs when your body position is helping you align the sights with the threat.',
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'It is always 6 inches below your sight picture',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'It is the same in every position',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Natural point of aim only works with a red dot sight',
             correct: false,
           },
         ],
@@ -626,7 +544,7 @@ export class AuthenticationService {
           'What are the 2 steps to enter the Supported or Braced Kneeling position',
         responses: [
           {
-            text: 'On COUNT 1 of the Presentation ("GRIP") the support-side foot steps forward and across the midline of the body.  As the pistol leaves the holster the torso drops down and the buttocks is rested on the firing side heel',
+            text: 'Support-side foot steps forward and across the midline of the body.  Squat down and rest your butt on your heel and elbow on knee',
             correct: true,
           },
           {
@@ -650,7 +568,7 @@ export class AuthenticationService {
         question:
           'What are the 2 steps to enter the Supported Kneeling position',
         answer:
-          'On COUNT 1 of the Presentation ("GRIP") the support-side foot steps forward and across the midline of the body.  As the pistol leaves the holster the torso drops down and the buttocks is rested on the firing side heel',
+          'Support-side foot steps forward and across the midline of the body.  Squat down and rest your butt on your heel and elbow on knee',
       },
       video: {
         url: 'https://www.youtube.com/embed/5g1v7y07dFg',
@@ -672,15 +590,15 @@ export class AuthenticationService {
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Double knee kneeling',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Combat base',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Cross leg seated',
             correct: false,
           },
         ],
@@ -709,19 +627,19 @@ export class AuthenticationService {
         question: 'How do you enter the Double Kneeling position?',
         responses: [
           {
-            text: 'With the pistol at the ready position, lower your body in a controlled manner until both knees are on the ground',
+            text: 'With the pistol at the ready position, lower your body until both knees are on the ground',
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Enter the speed kneeling position, draw to ready and then put other knee down',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Enter the prone position, then pop up to kneeling',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Spread legs apart, pivot on heels and bend your knees',
             correct: false,
           },
         ],
@@ -732,7 +650,7 @@ export class AuthenticationService {
         complete: false,
         question: 'How do you enter the Double Kneeling position?',
         answer:
-          'With the pistol at the ready position, lower your body in a controlled manner until both knees are on the ground',
+          'With the pistol at the ready position, lower your body until both knees are on the ground',
       },
       video: {
         url: 'https://www.youtube.com/embed/wpiAwbfc8Xw',
@@ -754,15 +672,15 @@ export class AuthenticationService {
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Shoot and scoot',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Slang and bang',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Run and gun',
             correct: false,
           },
         ],
