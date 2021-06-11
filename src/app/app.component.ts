@@ -19,7 +19,7 @@ import { Observable, Subject } from 'rxjs';
 export class AppComponent implements OnInit {
   private ngUnsubscribe = new Subject();
   isSmallScreen: boolean;
-  selectedId: number;
+  selectedName: string;
   loggedIn = false;
   techniques$: Observable<Technique[]>;
 
@@ -88,7 +88,7 @@ export class AppComponent implements OnInit {
   getTechniques(): void {
     this.techniques$ = this.route.paramMap.pipe(
       switchMap((params) => {
-        this.selectedId = +params.get('id');
+        this.selectedName = params.get('name');
         return this.techniqueService.getTechniques();
       })
     );

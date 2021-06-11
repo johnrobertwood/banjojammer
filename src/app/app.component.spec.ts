@@ -158,8 +158,8 @@ describe('AppComponent', () => {
       expect(h1.textContent).toContain('Dry Fire Academy');
     });
 
-    it('selectedId is undefined before OnInit', () => {
-      expect(component.selectedId).toBeUndefined();
+    it('selectedName is undefined before OnInit', () => {
+      expect(component.selectedName).toBeUndefined();
     });
 
     it('should not show techniques before OnInit', () => {
@@ -169,9 +169,9 @@ describe('AppComponent', () => {
       );
     });
 
-    it('selectedId is 0 after OnInit', () => {
+    it('selectedName is null after OnInit', () => {
       fixture.detectChanges();
-      expect(component.selectedId).toEqual(0);
+      expect(component.selectedName).toEqual(null);
     });
   });
 });

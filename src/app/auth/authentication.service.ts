@@ -152,7 +152,7 @@ export class AuthenticationService {
         question: 'What is the Ready Position?',
         responses: [
           {
-            text: 'Gun drawn, arms lowered 45 degrees, finger off trigger',
+            text: 'Gun drawn, arms extended and lowered 45 degrees, finger off trigger',
             correct: true,
           },
           {
@@ -173,7 +173,8 @@ export class AuthenticationService {
         name: 'Ready Position Flashcard',
         complete: false,
         question: 'What is the Ready Position?',
-        answer: 'Gun drawn, arms lowered at 45 degrees, finger off trigger',
+        answer:
+          'Gun drawn, arms extended and lowered at 45 degrees, finger off trigger',
       },
       video: {
         url: 'https://www.youtube.com/embed/oATKlh_UKR4',
