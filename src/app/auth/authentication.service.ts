@@ -17,6 +17,8 @@ export class AuthenticationService {
       id: 0,
       name: 'safetyWithFirearms',
       displayName: 'Safety With Firearms',
+      nextTechnique: 'modernTechnique',
+      prevTechnique: null,
       favorite: false,
       quiz: {
         name: 'Safety With Firearms Quiz',
@@ -58,6 +60,8 @@ export class AuthenticationService {
       id: 1,
       name: 'modernTechnique',
       displayName: 'Modern Technique',
+      nextTechnique: 'combatTriad',
+      prevTechnique: 'safetyWithFirearms',
       favorite: false,
       quiz: {
         name: 'Modern Technique Quiz',
@@ -133,48 +137,8 @@ export class AuthenticationService {
         thumbnail: 'https://img.youtube.com/vi/nRLjbG-9zvU/0.jpg',
       },
     },
-    combatTriad2: {
-      id: 3,
-      name: 'combatTriad2',
-      displayName: 'The Combat Triad 2',
-      favorite: false,
-      quiz: {
-        name: 'Combat Triad 2 Quiz',
-        complete: false,
-        question: 'What are the three elements of the combat triad?',
-        responses: [
-          {
-            text: 'Mindset, Gun Handling and Practical Marksmanship',
-            correct: true,
-          },
-          {
-            text: 'Fixed blade knife, first aid kit and extra magazine',
-            correct: false,
-          },
-          {
-            text: 'Heavy duty pistol, jiu jitsu, steel toe boots',
-            correct: false,
-          },
-          {
-            text: '1000 yard stare, leather hoster and operator beard',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Combat Triad 2 Flashcard',
-        complete: false,
-        question: 'What are the three elements of the combat triad?',
-        answer: 'Mindset, Gun Handling and Practical Marksmanship',
-      },
-      video: {
-        url: 'https://www.youtube.com/embed/nRLjbG-9zvU',
-        thumbnail: 'https://img.youtube.com/vi/nRLjbG-9zvU/0.jpg',
-      },
-    },
-
     readyPosition: {
-      id: 4,
+      id: 3,
       name: 'readyPosition',
       displayName: 'The Ready Position',
       favorite: false,
@@ -213,7 +177,7 @@ export class AuthenticationService {
       },
     },
     presentation: {
-      id: 5,
+      id: 4,
       name: 'presentation',
       displayName: 'Presentation',
       favorite: false,
@@ -252,7 +216,7 @@ export class AuthenticationService {
       },
     },
     conditionCheck: {
-      id: 7,
+      id: 5,
       name: 'conditionCheck',
       displayName: 'Condition Check',
       favorite: false,
@@ -291,7 +255,7 @@ export class AuthenticationService {
       },
     },
     pistolUnloading: {
-      id: 8,
+      id: 6,
       name: 'pistolUnloading',
       displayName: 'Pistol Unloading',
       favorite: false,
@@ -331,7 +295,7 @@ export class AuthenticationService {
       },
     },
     failureToFire: {
-      id: 9,
+      id: 7,
       name: 'failureToFire',
       displayName: 'Failure To Fire',
       favorite: false,
@@ -370,7 +334,7 @@ export class AuthenticationService {
       },
     },
     doubleFeed: {
-      id: 10,
+      id: 8,
       name: 'doubleFeed',
       displayName: 'The Double Feed',
       favorite: false,
@@ -412,7 +376,7 @@ export class AuthenticationService {
       },
     },
     failureToEject: {
-      id: 11,
+      id: 9,
       name: 'failureToEject',
       displayName: 'Failure To Eject (Stove Pipe)',
       favorite: false,
@@ -453,7 +417,7 @@ export class AuthenticationService {
       },
     },
     tacticalReload: {
-      id: 12,
+      id: 10,
       name: 'tacticalReload',
       displayName: 'Tactical Reload',
       favorite: false,
@@ -493,7 +457,7 @@ export class AuthenticationService {
       },
     },
     speedReload: {
-      id: 13,
+      id: 11,
       name: 'speedReload',
       displayName: 'Speed Reload',
       favorite: false,
@@ -534,7 +498,7 @@ export class AuthenticationService {
       },
     },
     naturalPointOfAim: {
-      id: 14,
+      id: 12,
       name: 'naturalPointOfAim',
       displayName: 'Natural Point of Aim',
       favorite: false,
@@ -574,7 +538,7 @@ export class AuthenticationService {
       },
     },
     supportedKneeling: {
-      id: 15,
+      id: 13,
       name: 'supportedKneeling',
       displayName: 'Supported Kneeling',
       favorite: false,
@@ -616,7 +580,7 @@ export class AuthenticationService {
       },
     },
     speedKneeling: {
-      id: 16,
+      id: 14,
       name: 'speedKneeling',
       displayName: 'Speed Kneeling',
       favorite: false,
@@ -658,7 +622,7 @@ export class AuthenticationService {
       },
     },
     doubleKneeling: {
-      id: 17,
+      id: 15,
       name: 'doubleKneeling',
       displayName: 'Double Kneeling',
       favorite: false,
@@ -698,7 +662,7 @@ export class AuthenticationService {
       },
     },
     shootingAroundObstacles: {
-      id: 18,
+      id: 16,
       name: 'shootingAroundObstacles',
       displayName: 'Shooting Around Obstacles',
       favorite: false,

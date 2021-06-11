@@ -37,7 +37,7 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
   getTechnique(): void {
     this.technique$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.techniqueService.getUserTechnique(+params.get('id'))
+        this.techniqueService.getUserTechnique(params.get('name'))
       )
     );
     if (localStorage.getItem('currentUser')) {

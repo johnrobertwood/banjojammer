@@ -11,7 +11,7 @@
         <p>
           <a
             mat-raised-button
-            href="/technique/0"
+            href="/technique/safetyWithFiredarms"
             color="primary"
             class="btn btn-secondary m-2 px-4 py-1 br-2"
           >
@@ -46,7 +46,7 @@
           >
             <img
               [src]="technique.video.thumbnail | safe"
-              [routerLink]="['/technique', technique.id]"
+              [routerLink]="['/technique', technique.name]"
               class="img-responsive card-container"
               alt="Video Thumbnail"
             />
@@ -64,7 +64,7 @@
                       mat-raised-button
                       color="primary"
                       class="w-100 p-2 mr-2"
-                      [routerLink]="['/technique', technique.id]"
+                      [routerLink]="['/technique', technique.name]"
                     >
                       Technique Details
                     </button>

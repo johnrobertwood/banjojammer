@@ -45,7 +45,7 @@ export class TechniqueService {
       );
   }
 
-  getUserTechnique(techniqueId: number): Observable<Technique> {
+  getUserTechnique(techniqueName: string): Observable<Technique> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const username = {
       username: currentUser ? currentUser.username.toLowerCase() : 'gunsite1',
@@ -57,7 +57,7 @@ export class TechniqueService {
         const technique = JSON.parse(data.body).techniques;
         return technique[
           Object.keys(technique).filter(
-            (t) => technique[t].id === techniqueId
+            (t) => technique[t].name === techniqueName
           )[0]
         ];
       }),

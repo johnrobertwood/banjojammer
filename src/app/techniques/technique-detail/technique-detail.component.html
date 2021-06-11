@@ -3,14 +3,6 @@
   style="max-width: 760px; margin: 0 auto"
 >
   <div class="d-flex flex-column justify-content-center mb-2">
-    <!-- <iframe
-      [width]="isSmallScreen || '560'"
-      [height]="isSmallScreen || '315'"
-      [src]="technique.video.url | safe"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe> -->
     <iframe
       [src]="technique.video.url | safe"
       frameborder="0"
@@ -55,11 +47,11 @@
   <div class="d-flex justify-content-center flex-nowrap mb-4">
     <span>
       <button
-        [disabled]="technique.id === 0"
+        [disabled]="technique.prevTechnique === null"
         mat-raised-button
         color="primary"
         class="p-2 mx-1"
-        [routerLink]="['/technique', technique.id - 1]"
+        [routerLink]="['/technique', technique.prevTechnique]"
       >
         <mat-icon>keyboard_arrow_left</mat-icon>
         Prev Technique
@@ -67,11 +59,11 @@
     </span>
     <span>
       <button
-        [disabled]="technique.id === 18"
+        [disabled]="technique.nextTechnique === null"
         mat-raised-button
         color="primary"
         class="p-2 mx-1"
-        [routerLink]="['/technique', technique.id + 1]"
+        [routerLink]="['/technique', technique.nextTechnique]"
       >
         Next Technique
         <mat-icon>keyboard_arrow_right</mat-icon>
