@@ -129,7 +129,7 @@ export class TechniqueService {
 
   /** DELETE: delete the technique from the server */
   deleteTechnique(technique: Technique | number): Observable<Technique> {
-    const id = typeof technique === 'number' ? technique : technique.id;
+    const id = typeof technique === 'number' ? technique : technique.name;
     const url = `${this.apiGatewayUrl}/user/${id}`;
     return this.http
       .delete<Technique>(url, this.httpOptions)

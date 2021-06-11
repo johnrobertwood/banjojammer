@@ -28,12 +28,12 @@ export class FlashcardDetailComponent implements OnInit {
   }
 
   gotoNextFlashcard() {
-    const techniqueId = this.technique ? this.technique.id : null;
+    const techniqueId = this.technique ? this.technique.name : null;
     this.router.navigate(['/flashcard-deck', techniqueId + 1]);
   }
 
   gotoPrevFlashcard() {
-    const techniqueId = this.technique ? this.technique.id : null;
+    const techniqueId = this.technique ? this.technique.name : null;
     this.router.navigate(['/flashcard-deck', techniqueId - 1]);
   }
 

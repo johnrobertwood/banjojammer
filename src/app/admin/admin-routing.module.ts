@@ -26,7 +26,7 @@ const adminRoutes: Routes = [
             data: { animation: 'list' },
           },
           {
-            path: 'manage-technique-detail/:id',
+            path: 'manage-technique-detail/:name',
             component: ManageTechniqueDetailComponent,
             canDeactivate: [CanDeactivateGuard],
             resolve: {

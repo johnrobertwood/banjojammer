@@ -17,8 +17,8 @@ export class AuthenticationService {
       id: 0,
       name: 'safetyWithFirearms',
       displayName: 'Safety With Firearms',
-      nextTechnique: 'modernTechnique',
       prevTechnique: null,
+      nextTechnique: 'modernTechnique',
       favorite: false,
       quiz: {
         name: 'Safety With Firearms Quiz',
@@ -60,8 +60,8 @@ export class AuthenticationService {
       id: 1,
       name: 'modernTechnique',
       displayName: 'Modern Technique',
-      nextTechnique: 'combatTriad',
       prevTechnique: 'safetyWithFirearms',
+      nextTechnique: 'combatTriad',
       favorite: false,
       quiz: {
         name: 'Modern Technique Quiz',
@@ -102,6 +102,8 @@ export class AuthenticationService {
       id: 2,
       name: 'combatTriad',
       displayName: 'The Combat Triad',
+      prevTechnique: 'modernTechnique',
+      nextTechnique: 'readyPosition',
       favorite: false,
       quiz: {
         name: 'Combat Triad Quiz',
@@ -141,6 +143,8 @@ export class AuthenticationService {
       id: 3,
       name: 'readyPosition',
       displayName: 'The Ready Position',
+      prevTechnique: 'combatTriad',
+      nextTechnique: 'presentation',
       favorite: false,
       quiz: {
         name: 'Ready Position Quiz',
@@ -180,6 +184,8 @@ export class AuthenticationService {
       id: 4,
       name: 'presentation',
       displayName: 'Presentation',
+      prevTechnique: 'readyPosition',
+      nextTechnique: 'conditionCheck',
       favorite: false,
       quiz: {
         name: 'Presentation Quiz',
@@ -219,6 +225,8 @@ export class AuthenticationService {
       id: 5,
       name: 'conditionCheck',
       displayName: 'Condition Check',
+      prevTechnique: 'presentation',
+      nextTechnique: 'pistolUnloading',
       favorite: false,
       quiz: {
         name: 'Condition Check Quiz',
@@ -244,7 +252,7 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Chamber Check Flashcard',
+        name: 'Condition Check Flashcard',
         complete: false,
         question: 'What are the elements of the Condition Check?',
         answer: 'Chamber check and magazine check by sight and touch',
@@ -258,6 +266,8 @@ export class AuthenticationService {
       id: 6,
       name: 'pistolUnloading',
       displayName: 'Pistol Unloading',
+      prevTechnique: 'chamberCheck',
+      nextTechnique: 'failureToFire',
       favorite: false,
       quiz: {
         name: 'Pistol Unloading Quiz',
@@ -298,6 +308,8 @@ export class AuthenticationService {
       id: 7,
       name: 'failureToFire',
       displayName: 'Failure To Fire',
+      prevTechnique: 'pistolUnloading',
+      nextTechnique: 'doubleFeed',
       favorite: false,
       quiz: {
         name: 'Failure to Fire Quiz',
@@ -337,6 +349,8 @@ export class AuthenticationService {
       id: 8,
       name: 'doubleFeed',
       displayName: 'The Double Feed',
+      prevTechnique: 'failureToFire',
+      nextTechnique: 'failureToEject',
       favorite: false,
       quiz: {
         name: 'Double Feed Quiz',
@@ -379,6 +393,8 @@ export class AuthenticationService {
       id: 9,
       name: 'failureToEject',
       displayName: 'Failure To Eject (Stove Pipe)',
+      prevTechnique: 'doubleFeed',
+      nextTechnique: 'tacticalReload',
       favorite: false,
       quiz: {
         name: 'Failure to Eject Quiz',
@@ -420,6 +436,8 @@ export class AuthenticationService {
       id: 10,
       name: 'tacticalReload',
       displayName: 'Tactical Reload',
+      prevTechnique: 'failureToEject',
+      nextTechnique: 'speedReload',
       favorite: false,
       quiz: {
         name: 'Tactical Reload Quiz',
@@ -460,6 +478,8 @@ export class AuthenticationService {
       id: 11,
       name: 'speedReload',
       displayName: 'Speed Reload',
+      prevTechnique: 'tacticalReload',
+      nextTechnique: 'naturalPointOfAim',
       favorite: false,
       quiz: {
         name: 'Speed Reload Quiz',
@@ -501,6 +521,8 @@ export class AuthenticationService {
       id: 12,
       name: 'naturalPointOfAim',
       displayName: 'Natural Point of Aim',
+      prevTechnique: 'speedReload',
+      nextTechnique: 'supportedKneeling',
       favorite: false,
       quiz: {
         name: 'Natural Point of Aim Quiz',
@@ -541,6 +563,8 @@ export class AuthenticationService {
       id: 13,
       name: 'supportedKneeling',
       displayName: 'Supported Kneeling',
+      prevTechnique: 'naturalPointOfAim',
+      nextTechnique: 'speedKneeling',
       favorite: false,
       quiz: {
         name: 'Supported Kneeling Quiz',
@@ -583,6 +607,8 @@ export class AuthenticationService {
       id: 14,
       name: 'speedKneeling',
       displayName: 'Speed Kneeling',
+      prevTechnique: 'supportedKneeling',
+      nextTechnique: 'doubleKneeling',
       favorite: false,
       quiz: {
         name: 'Speed Kneeling Quiz',
@@ -625,6 +651,8 @@ export class AuthenticationService {
       id: 15,
       name: 'doubleKneeling',
       displayName: 'Double Kneeling',
+      prevTechnique: 'speedKneeling',
+      nextTechnique: 'shootingAroundObstacles',
       favorite: false,
       quiz: {
         name: 'Double Kneeling Quiz',
@@ -665,6 +693,8 @@ export class AuthenticationService {
       id: 16,
       name: 'shootingAroundObstacles',
       displayName: 'Shooting Around Obstacles',
+      prevTechnique: 'doubleKneeling',
+      nextTechnique: null,
       favorite: false,
       quiz: {
         name: 'Shooting Around Obstacles Quiz',

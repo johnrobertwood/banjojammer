@@ -44,7 +44,7 @@
       <button
         *ngIf="loggedIn"
         mat-menu-item
-        routerLink="/flashcard-deck/0"
+        routerLink="/flashcard-deck"
         routerLinkActive="activebutton"
       >
         Flashcards
@@ -63,7 +63,7 @@
     <mat-nav-list *ngFor="let technique of techniques$ | async">
       <a
         mat-menu-item
-        [routerLink]="['technique', technique.id]"
+        [routerLink]="['technique', technique.name]"
         (click)="isSmallScreen ? sidenav.toggle() : null"
         routerLinkActive="activebutton"
         >{{ technique.displayName }}</a
