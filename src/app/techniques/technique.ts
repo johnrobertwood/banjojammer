@@ -21,6 +21,6 @@ export interface Technique {
     answer: string;
   };
   video: {
-    url: string;
+    code: string;
   };
 }

@@ -51,7 +51,7 @@ export class AuthenticationService {
           'All Guns are Always Loaded, Never let the muzzle cover anything you are not willing to destroy, Keep your finger off the trigger until your sights are on the target, Be sure of your target',
       },
       video: {
-        url: 'https://www.youtube.com/embed/yT_X1cCGD3g',
+        code: 'yT_X1cCGD3g',
         thumbnail: 'https://img.youtube.com/vi/yT_X1cCGD3g/0.jpg',
         videoId: 'pQ43Oy5k9yQ',
       },
@@ -94,7 +94,7 @@ export class AuthenticationService {
           'Efficient presentation with a two handed grip, flash sight picture and compressed surprise break on a heavy duty pistol',
       },
       video: {
-        url: 'https://www.youtube.com/embed/i0ZfNsm0_ks',
+        code: 'i0ZfNsm0_ks',
         thumbnail: 'https://img.youtube.com/vi/i0ZfNsm0_ks/0.jpg',
       },
     },
@@ -135,7 +135,7 @@ export class AuthenticationService {
         answer: 'Mindset, Gun Handling and Practical Marksmanship',
       },
       video: {
-        url: 'https://www.youtube.com/embed/nRLjbG-9zvU',
+        code: 'nRLjbG-9zvU',
         thumbnail: 'https://img.youtube.com/vi/nRLjbG-9zvU/0.jpg',
       },
     },
@@ -177,7 +177,7 @@ export class AuthenticationService {
           'Gun drawn, arms extended and lowered at 45 degrees, finger off trigger',
       },
       video: {
-        url: 'https://www.youtube.com/embed/oATKlh_UKR4',
+        code: 'oATKlh_UKR4',
         thumbnail: 'https://img.youtube.com/vi/oATKlh_UKR4/0.jpg',
       },
     },
@@ -218,7 +218,7 @@ export class AuthenticationService {
         answer: 'Grip, clear, click, smack, look',
       },
       video: {
-        url: 'https://www.youtube.com/embed/fBcdQhTOPY8',
+        code: 'fBcdQhTOPY8',
         thumbnail: 'https://img.youtube.com/vi/fBcdQhTOPY8/0.jpg',
       },
     },
@@ -259,7 +259,7 @@ export class AuthenticationService {
         answer: 'Chamber check and magazine check by sight and touch',
       },
       video: {
-        url: 'https://www.youtube.com/embed/3g51qvhy6fc',
+        code: '3g51qvhy6fc',
         thumbnail: 'https://img.youtube.com/vi/3g51qvhy6fc/0.jpg',
       },
     },
@@ -301,7 +301,7 @@ export class AuthenticationService {
           'Remove the magazine and lock the slide back. Visually and physically inspect chamber then control the slide forward',
       },
       video: {
-        url: 'https://www.youtube.com/embed/m9UDlyT4lHM',
+        code: 'm9UDlyT4lHM',
         thumbnail: 'https://img.youtube.com/vi/m9UDlyT4lHM/0.jpg',
       },
     },
@@ -342,7 +342,7 @@ export class AuthenticationService {
         answer: 'Magazine not seated fully or faulty ammo',
       },
       video: {
-        url: 'https://www.youtube.com/embed/C_uAP9AMa08',
+        code: 'C_uAP9AMa08',
         thumbnail: 'https://img.youtube.com/vi/C_uAP9AMa08/0.jpg',
       },
     },
@@ -386,7 +386,7 @@ export class AuthenticationService {
           'Lock the slide back, stip out the magazine and do 3 tap, roll, racks',
       },
       video: {
-        url: 'https://player.vimeo.com/video/556981700',
+        code: 'https://player.vimeo.com/video/556981700',
         thumbnail: 'https://img.youtube.com/vi/BxTcQV-4R9w/0.jpg',
       },
     },
@@ -429,7 +429,7 @@ export class AuthenticationService {
         answer: 'Tap roll and rack',
       },
       video: {
-        url: 'https://www.youtube.com/embed/xsEeTm8SvWY',
+        code: 'xsEeTm8SvWY',
         thumbnail: 'https://img.youtube.com/vi/xsEeTm8SvWY/0.jpg',
       },
     },
@@ -471,7 +471,7 @@ export class AuthenticationService {
           'Remove spare magazine, release used magazine into palm and remove, insert new magazine and place old magazine in pouch',
       },
       video: {
-        url: 'https://player.vimeo.com/video/556958374',
+        code: 'https://player.vimeo.com/video/556958374',
         thumbnail: 'https://img.youtube.com/vi/Rx6qo5cydM4/0.jpg',
       },
     },
@@ -513,7 +513,7 @@ export class AuthenticationService {
           'Shift pistol in hand, put thumb on mag release, withdraw new mag, release used mag, flat on flat, insert new mag',
       },
       video: {
-        url: 'https://player.vimeo.com/video/556939734',
+        code: 'https://player.vimeo.com/video/556939734',
         url2: 'https://player.vimeo.com/video/556958374',
         thumbnail: 'https://img.youtube.com/vi/RxJMGPZrlq8/0.jpg',
       },
@@ -556,7 +556,7 @@ export class AuthenticationService {
           'Natural Point of Aim occurs when your body position is helping you align the sights with the threat.',
       },
       video: {
-        url: 'https://www.youtube.com/embed/9d6Uq7z14ss',
+        code: '9d6Uq7z14ss',
         thumbnail: 'https://img.youtube.com/vi/9d6Uq7z14ss/0.jpg',
       },
     },
@@ -600,7 +600,7 @@ export class AuthenticationService {
           'Support-side foot steps forward and across the midline of the body.  Squat down and rest your butt on your heel and elbow on knee',
       },
       video: {
-        url: 'https://www.youtube.com/embed/5g1v7y07dFg',
+        code: '5g1v7y07dFg',
         thumbnail: 'https://img.youtube.com/vi/5g1v7y07dFg/0.jpg',
       },
     },
@@ -644,7 +644,7 @@ export class AuthenticationService {
           'Speed Kneeling is an unsupported version of Supported Kneeling',
       },
       video: {
-        url: 'https://www.youtube.com/embed/0ecn11AUP2w',
+        code: '0ecn11AUP2w',
         thumbnail: 'https://img.youtube.com/vi/0ecn11AUP2w/0.jpg',
       },
     },
@@ -686,7 +686,7 @@ export class AuthenticationService {
           'With the pistol at the ready position, lower your body until both knees are on the ground',
       },
       video: {
-        url: 'https://www.youtube.com/embed/wpiAwbfc8Xw',
+        code: 'wpiAwbfc8Xw',
         thumbnail: 'https://img.youtube.com/vi/wpiAwbfc8Xw/0.jpg',
       },
     },
@@ -730,7 +730,7 @@ export class AuthenticationService {
           'Distance is your friend, pie the corners, expose only what is necessary and do not rely on quick peeks',
       },
       video: {
-        url: 'https://www.youtube.com/embed/k874fSPmPy0',
+        code: 'k874fSPmPy0',
         thumbnail: 'https://img.youtube.com/vi/k874fSPmPy0/0.jpg',
       },
     },

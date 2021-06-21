@@ -48,7 +48,7 @@ describe('AppComponent', () => {
         answer: 'Controlling his head, pulling his elbow inside our hips',
       },
       video: {
-        url: 'https://www.youtube.com/embed/pQ43Oy5k9yQ',
+        code: 'pQ43Oy5k9yQ',
       },
     },
     triangle: {
@@ -78,7 +78,7 @@ describe('AppComponent', () => {
           'Push one hand and pull the other, shoot hips up, grab shin, underhook leg',
       },
       video: {
-        url: 'https://www.youtube.com/embed/oVvEQeasAxQ',
+        code: 'oVvEQeasAxQ',
       },
     },
     kimura: {
@@ -116,7 +116,7 @@ describe('AppComponent', () => {
         answer: 'Get his hands on the mat',
       },
       video: {
-        url: 'https://www.youtube.com/embed/mVkKOPNGvjA',
+        code: 'mVkKOPNGvjA',
       },
     },
   };
