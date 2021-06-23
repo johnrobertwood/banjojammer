@@ -45,7 +45,10 @@
             "
           >
             <img
-              [src]="technique.video.thumbnail | safe"
+              [src]="
+                'https://img.youtube.com/vi/' + technique.video.code + '/0.jpg'
+                  | safe
+              "
               [routerLink]="['/technique', technique.name]"
               class="img-responsive card-container"
               alt="Video Thumbnail"

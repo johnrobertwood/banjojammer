@@ -5,7 +5,7 @@ import { Technique } from '../techniques/technique';
 import { TechniqueService } from '../techniques/technique.service';
 
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   selectedName: string;
   techniques$: Observable<Technique[]>;
   isLoggedIn: boolean;
+  thumbnailUrl: string;
 
   constructor(
     private route: ActivatedRoute,

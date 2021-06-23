@@ -52,8 +52,6 @@ export class AuthenticationService {
       },
       video: {
         code: 'yT_X1cCGD3g',
-        thumbnail: 'https://img.youtube.com/vi/yT_X1cCGD3g/0.jpg',
-        videoId: 'pQ43Oy5k9yQ',
       },
     },
     modernTechnique: {
@@ -95,7 +93,6 @@ export class AuthenticationService {
       },
       video: {
         code: 'i0ZfNsm0_ks',
-        thumbnail: 'https://img.youtube.com/vi/i0ZfNsm0_ks/0.jpg',
       },
     },
     combatTriad: {
@@ -136,7 +133,6 @@ export class AuthenticationService {
       },
       video: {
         code: 'nRLjbG-9zvU',
-        thumbnail: 'https://img.youtube.com/vi/nRLjbG-9zvU/0.jpg',
       },
     },
     readyPosition: {
@@ -178,7 +174,6 @@ export class AuthenticationService {
       },
       video: {
         code: 'oATKlh_UKR4',
-        thumbnail: 'https://img.youtube.com/vi/oATKlh_UKR4/0.jpg',
       },
     },
     presentation: {
@@ -219,7 +214,6 @@ export class AuthenticationService {
       },
       video: {
         code: 'fBcdQhTOPY8',
-        thumbnail: 'https://img.youtube.com/vi/fBcdQhTOPY8/0.jpg',
       },
     },
     conditionCheck: {
@@ -260,7 +254,6 @@ export class AuthenticationService {
       },
       video: {
         code: '3g51qvhy6fc',
-        thumbnail: 'https://img.youtube.com/vi/3g51qvhy6fc/0.jpg',
       },
     },
     pistolUnloading: {
@@ -302,7 +295,6 @@ export class AuthenticationService {
       },
       video: {
         code: 'm9UDlyT4lHM',
-        thumbnail: 'https://img.youtube.com/vi/m9UDlyT4lHM/0.jpg',
       },
     },
     failureToFire: {
@@ -343,7 +335,6 @@ export class AuthenticationService {
       },
       video: {
         code: 'C_uAP9AMa08',
-        thumbnail: 'https://img.youtube.com/vi/C_uAP9AMa08/0.jpg',
       },
     },
     doubleFeed: {
@@ -387,7 +378,6 @@ export class AuthenticationService {
       },
       video: {
         code: 'https://player.vimeo.com/video/556981700',
-        thumbnail: 'https://img.youtube.com/vi/BxTcQV-4R9w/0.jpg',
       },
     },
     failureToEject: {
@@ -430,7 +420,6 @@ export class AuthenticationService {
       },
       video: {
         code: 'xsEeTm8SvWY',
-        thumbnail: 'https://img.youtube.com/vi/xsEeTm8SvWY/0.jpg',
       },
     },
     tacticalReload: {
@@ -472,7 +461,6 @@ export class AuthenticationService {
       },
       video: {
         code: 'https://player.vimeo.com/video/556958374',
-        thumbnail: 'https://img.youtube.com/vi/Rx6qo5cydM4/0.jpg',
       },
     },
     speedReload: {
@@ -515,7 +503,6 @@ export class AuthenticationService {
       video: {
         code: 'https://player.vimeo.com/video/556939734',
         url2: 'https://player.vimeo.com/video/556958374',
-        thumbnail: 'https://img.youtube.com/vi/RxJMGPZrlq8/0.jpg',
       },
     },
     naturalPointOfAim: {
@@ -557,7 +544,6 @@ export class AuthenticationService {
       },
       video: {
         code: '9d6Uq7z14ss',
-        thumbnail: 'https://img.youtube.com/vi/9d6Uq7z14ss/0.jpg',
       },
     },
     supportedKneeling: {
@@ -601,7 +587,6 @@ export class AuthenticationService {
       },
       video: {
         code: '5g1v7y07dFg',
-        thumbnail: 'https://img.youtube.com/vi/5g1v7y07dFg/0.jpg',
       },
     },
     speedKneeling: {
@@ -645,7 +630,6 @@ export class AuthenticationService {
       },
       video: {
         code: '0ecn11AUP2w',
-        thumbnail: 'https://img.youtube.com/vi/0ecn11AUP2w/0.jpg',
       },
     },
     doubleKneeling: {
@@ -687,7 +671,6 @@ export class AuthenticationService {
       },
       video: {
         code: 'wpiAwbfc8Xw',
-        thumbnail: 'https://img.youtube.com/vi/wpiAwbfc8Xw/0.jpg',
       },
     },
     shootingAroundObstacles: {
@@ -731,7 +714,6 @@ export class AuthenticationService {
       },
       video: {
         code: 'k874fSPmPy0',
-        thumbnail: 'https://img.youtube.com/vi/k874fSPmPy0/0.jpg',
       },
     },
   };
