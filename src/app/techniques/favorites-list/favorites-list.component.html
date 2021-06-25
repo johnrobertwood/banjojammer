@@ -14,18 +14,15 @@
         </mat-chip-list>
         <div *ngFor="let technique of techniques$ | async" class="col my-2">
           <div *ngIf="technique.favorite" class="card shadow-sm">
-            <iframe
-              width="100%"
-              height="225"
+            <img
               [src]="
-                'https://www.youtube.com/embed/' + technique.video.code | safe
+                'https://img.youtube.com/vi/' + technique.video.code + '/0.jpg'
+                  | safe
               "
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            >
-            </iframe>
-
+              [routerLink]="['/technique', technique.name]"
+              class="img-responsive card-container"
+              alt="Video Thumbnail"
+            />
             <div class="card-container p-2">
               <h3 class="card-title">{{ technique.displayName }}</h3>
               <p class="card-text">
