@@ -213,7 +213,7 @@ export class AuthenticationService {
         answer: 'Grip, clear, click, smack, look',
       },
       video: {
-        code: 'fBcdQhTOPY8',
+        code: '567776116',
       },
     },
     conditionCheck: {
@@ -377,7 +377,7 @@ export class AuthenticationService {
           'Lock the slide back, stip out the magazine and do 3 tap, roll, racks',
       },
       video: {
-        code: 'https://player.vimeo.com/video/556981700',
+        code: '556981700',
       },
     },
     failureToEject: {
@@ -460,7 +460,7 @@ export class AuthenticationService {
           'Remove spare magazine, release used magazine into palm and remove, insert new magazine and place old magazine in pouch',
       },
       video: {
-        code: 'https://player.vimeo.com/video/556958374',
+        code: '568553306',
       },
     },
     speedReload: {
@@ -501,8 +501,7 @@ export class AuthenticationService {
           'Shift pistol in hand, put thumb on mag release, withdraw new mag, release used mag, flat on flat, insert new mag',
       },
       video: {
-        code: 'https://player.vimeo.com/video/556939734',
-        url2: 'https://player.vimeo.com/video/556958374',
+        code: '556939734',
       },
     },
     naturalPointOfAim: {
@@ -713,7 +712,7 @@ export class AuthenticationService {
           'Distance is your friend, pie the corners, expose only what is necessary and do not rely on quick peeks',
       },
       video: {
-        code: 'k874fSPmPy0',
+        code: '568554791',
       },
     },
   };
