@@ -22,5 +22,6 @@ export interface Technique {
   };
   video: {
     code: string;
+    thumbnail: string;
   };
 }

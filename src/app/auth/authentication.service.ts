@@ -214,6 +214,8 @@ export class AuthenticationService {
       },
       video: {
         code: '567776116',
+        thumbnail:
+          '6f3cc017-950d-4eab-a821-b2398a9fd03c.gif?ClientID=vimeo-core-prod&Date=1624907667&Signature=f820153e0ca94ec56181897c5bb6f23770e04a77',
       },
     },
     conditionCheck: {
@@ -378,6 +380,8 @@ export class AuthenticationService {
       },
       video: {
         code: '556981700',
+        thumbnail:
+          '71fae51d-3dec-4c33-8110-c690811913a7.gif?ClientID=vimeo-core-prod&Date=1624908989&Signature=6098c567a40470f4302e54e7d947cc1ab3f868c3',
       },
     },
     failureToEject: {
@@ -461,6 +465,8 @@ export class AuthenticationService {
       },
       video: {
         code: '568553306',
+        thumbnail:
+          'b713601b-6a46-4615-b7b5-0d9310202f23.gif?ClientID=vimeo-core-prod&Date=1624908457&Signature=aef56cea9c4cbdfd4985830e889fa46a6b384179',
       },
     },
     speedReload: {
@@ -480,15 +486,15 @@ export class AuthenticationService {
             correct: true,
           },
           {
-            text: 'Funny joke wrong answer #1',
+            text: 'Release old mag, withdraw new mag, flat on flat, insert new mag',
             correct: false,
           },
           {
-            text: 'Common mistake wrong answer #1',
+            text: 'Grab new mag, release old mag into thumb forefinger, insert new mag and save old mag',
             correct: false,
           },
           {
-            text: 'Funny joke wrong answer #2',
+            text: 'Lock slide open, release slide, do three tap roll racks and then insert new mag',
             correct: false,
           },
         ],
@@ -502,6 +508,8 @@ export class AuthenticationService {
       },
       video: {
         code: '556939734',
+        thumbnail:
+          'f74a26c7-fb1a-46df-becb-1986bee2de51.gif?ClientID=vimeo-core-prod&Date=1624908704&Signature=37075fe6e20660876804df268e6629ab52c25673',
       },
     },
     naturalPointOfAim: {
@@ -713,6 +721,8 @@ export class AuthenticationService {
       },
       video: {
         code: '568554791',
+        thumbnail:
+          'b7df8567-b0b8-498c-a6ff-670c56661a5e.gif?ClientID=vimeo-core-prod&Date=1624908103&Signature=70586cc389bb9353705c03a2413683e9927a81dc',
       },
     },
   };
