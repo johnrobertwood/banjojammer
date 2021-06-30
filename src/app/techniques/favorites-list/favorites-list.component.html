@@ -16,8 +16,8 @@
           <div *ngIf="technique.favorite" class="card shadow-sm">
             <img
               [src]="
-                'https://img.youtube.com/vi/' + technique.video.code + '/0.jpg'
-                  | safe
+                'https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/' +
+                  technique.video.thumbnail | safe
               "
               [routerLink]="['/technique', technique.name]"
               class="img-responsive card-container"
