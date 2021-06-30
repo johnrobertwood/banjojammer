@@ -20,7 +20,7 @@
         mat-raised-button
         color="primary"
         class="nav-button"
-        (click)="gotoPrevFlashcard()"
+        [routerLink]="['/flashcard-deck', technique.prevTechnique]"
       >
         Prev
       </button>
@@ -28,7 +28,7 @@
         mat-raised-button
         color="primary"
         class="nav-button"
-        (click)="gotoNextFlashcard()"
+        [routerLink]="['/flashcard-deck', technique.nextTechnique]"
       >
         Next
       </button>

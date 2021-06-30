@@ -23,7 +23,9 @@ export class TechniqueService {
   getTechniques(): Observable<Technique[]> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const username = {
-      username: currentUser ? currentUser.username.toLowerCase() : 'testuser1',
+      username: currentUser
+        ? currentUser.username.toLowerCase()
+        : 'smartdefense1',
     };
     return this.http
       .post<any>(`${this.apiGatewayUrl}/user`, username, this.httpOptions)
@@ -45,10 +47,12 @@ export class TechniqueService {
       );
   }
 
-  getUserTechnique(techniqueId: number): Observable<Technique> {
+  getUserTechnique(techniqueName: string): Observable<Technique> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const username = {
-      username: currentUser ? currentUser.username.toLowerCase() : 'testuser1',
+      username: currentUser
+        ? currentUser.username.toLowerCase()
+        : 'smartdefense1',
     };
     const url = `${this.apiGatewayUrl}/user`;
 
@@ -57,7 +61,7 @@ export class TechniqueService {
         const technique = JSON.parse(data.body).techniques;
         return technique[
           Object.keys(technique).filter(
-            (t) => technique[t].id === techniqueId
+            (t) => technique[t].name === techniqueName
           )[0]
         ];
       }),
@@ -129,7 +133,7 @@ export class TechniqueService {
 
   /** DELETE: delete the technique from the server */
   deleteTechnique(technique: Technique | number): Observable<Technique> {
-    const id = typeof technique === 'number' ? technique : technique.id;
+    const id = typeof technique === 'number' ? technique : technique.name;
     const url = `${this.apiGatewayUrl}/user/${id}`;
     return this.http
       .delete<Technique>(url, this.httpOptions)

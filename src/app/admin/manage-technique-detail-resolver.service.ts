@@ -10,15 +10,16 @@ import { Technique } from '../techniques/technique';
   providedIn: 'root',
 })
 export class ManageTechniqueDetailResolverService
-  implements Resolve<Technique> {
+  implements Resolve<Technique>
+{
   constructor(private ts: TechniqueService, private router: Router) {}
 
   resolve(
     route: ActivatedRouteSnapshot
   ): Observable<Technique> | Observable<never> {
-    const id = route.paramMap.get('id');
+    const name = route.paramMap.get('name');
 
-    return this.ts.getUserTechnique(+id).pipe(
+    return this.ts.getUserTechnique(name).pipe(
       take(1),
       mergeMap((technique) => {
         if (technique) {

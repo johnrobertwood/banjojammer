@@ -15,9 +15,9 @@ export class FlashcardDetailResolverService implements Resolve<Technique> {
   resolve(
     route: ActivatedRouteSnapshot
   ): Observable<Technique> | Observable<never> {
-    const id = route.paramMap.get('id');
+    const name = route.paramMap.get('name');
 
-    return this.ts.getUserTechnique(+id).pipe(
+    return this.ts.getUserTechnique(name).pipe(
       take(1),
       mergeMap((technique) => {
         if (technique) {

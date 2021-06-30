@@ -49,13 +49,16 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   getTechnique(): void {
     this.technique$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.techniqueService.getUserTechnique(+params.get('id'))
+        this.techniqueService.getUserTechnique(params.get('name'))
       )
     );
   }
 
-  goBack(techniqueId: number): void {
-    this.router.navigate(['/admin/manage-technique-list', { id: techniqueId }]);
+  goBack(techniqueName: string): void {
+    this.router.navigate([
+      '/admin/manage-technique-list',
+      { name: techniqueName },
+    ]);
   }
 
   save(displayName: string, flashcardAnswer: string): void {
@@ -77,7 +80,7 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.technique.displayName = this.editName;
         this.technique.flashcard.answer = this.editAnswer;
-        this.goBack(this.technique.id);
+        this.goBack(this.technique.name);
       });
   }
 

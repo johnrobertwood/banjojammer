@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 })
 export class ManageTechniqueListComponent implements OnInit {
   techniques$: Observable<Technique[]>;
-  selectedId: number;
+  selectedName: string;
 
   constructor(
     private techniqueService: TechniqueService,
@@ -27,7 +27,7 @@ export class ManageTechniqueListComponent implements OnInit {
   getTechniques(): void {
     this.techniques$ = this.route.paramMap.pipe(
       switchMap((params) => {
-        this.selectedId = +params.get('id');
+        this.selectedName = params.get('name');
         return this.techniqueService.getTechniques();
       })
     );

@@ -4,8 +4,8 @@
   <mat-selection-list [multiple]="false">
     <mat-list-option
       *ngFor="let technique of techniques$ | async"
-      [routerLink]="['/flashcard-deck', technique.id]"
-      [class.selected]="technique.id === selectedId"
+      [routerLink]="['/flashcard-deck', technique.name]"
+      [class.selected]="technique.name === selectedName"
       routerLinkActive="activebutton"
       class="d-flex justify-content-center"
     >

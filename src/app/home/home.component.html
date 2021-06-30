@@ -2,16 +2,16 @@
   <section *ngIf="!isLoggedIn" class="py-3 text-center container">
     <div class="row py-3">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Grappling Review</h1>
+        <h1 class="fw-light">Smart Defense Skills</h1>
         <p class="lead text-muted">
-          Quickly memorize jiu jitsu moves with short video clips, quizzes and
-          flashcards. Sign up for a free account to harness the power of spaced
-          repetition memorization.
+          Quickly memorize smart self defense techniques with short video clips,
+          quizzes and flashcards. Sign up for a free account to harness the
+          power of spaced repetition memorization.
         </p>
         <p>
           <a
             mat-raised-button
-            href="/technique/0"
+            href="/technique/bodyLockEscape"
             color="primary"
             class="btn btn-secondary m-2 px-4 py-1 br-2"
           >
@@ -30,7 +30,7 @@
     </div>
   </section>
 
-  <div class="album py-3 bg-light">
+  <div class="album py-3">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col my-2" *ngFor="let technique of techniques$ | async">
@@ -45,38 +45,41 @@
             "
           >
             <img
-              [src]="technique.video.thumbnail | safe"
-              [routerLink]="['/technique', technique.id]"
+              [src]="
+                'https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/' +
+                  technique.video.thumbnail | safe
+              "
+              [routerLink]="['/technique', technique.name]"
               class="img-responsive card-container"
               alt="Video Thumbnail"
             />
-            <div class="card-container p-3">
-              <h3 class="h4">{{ technique.displayName }}</h3>
-              <p class="text-muted m-0">
-                {{ technique.flashcard.question }}
-              </p>
-            </div>
-            <div class="p-2">
-              <div class="d-flex justify-content-center align-items-center">
-                <div>
+            <div>
+              <div class="card-container px-4">
+                <h3 class="h4">{{ technique.displayName }}</h3>
+                <p class="text-muted m-0">
+                  {{ technique.flashcard.question }}
+                </p>
+              </div>
+              <div class="p-2">
+                <div class="d-flex justify-content-center align-items-center">
                   <div class="mb-2">
                     <button
                       mat-raised-button
                       color="primary"
-                      class="w-100 p-2 mr-2"
-                      [routerLink]="['/technique', technique.id]"
+                      class="w-100 p-2 mb-1"
+                      [routerLink]="['/technique', technique.name]"
                     >
                       Technique Details
                     </button>
+                    <app-dialog-content-flashcard
+                      class="quiz-button"
+                      [technique]="technique"
+                    ></app-dialog-content-flashcard>
                   </div>
-                  <app-dialog-content-quiz
-                    class="quiz-button mr-2"
-                    [technique]="technique"
-                  ></app-dialog-content-quiz>
-                  <app-dialog-content-flashcard
-                    class="quiz-button"
-                    [technique]="technique"
-                  ></app-dialog-content-flashcard>
+                  <!-- <app-dialog-content-quiz
+                      class="quiz-button mr-2"
+                      [technique]="technique"
+                    ></app-dialog-content-quiz> -->
                 </div>
               </div>
             </div>

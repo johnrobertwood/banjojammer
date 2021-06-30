@@ -48,7 +48,7 @@ describe('AppComponent', () => {
         answer: 'Controlling his head, pulling his elbow inside our hips',
       },
       video: {
-        url: 'https://www.youtube.com/embed/pQ43Oy5k9yQ',
+        code: 'pQ43Oy5k9yQ',
       },
     },
     triangle: {
@@ -62,8 +62,7 @@ describe('AppComponent', () => {
         question: 'How do you lock up a triangle?',
         responses: [
           {
-            text:
-              'Underhook the leg, shin is horizontal across back of neck, pull head',
+            text: 'Underhook the leg, shin is horizontal across back of neck, pull head',
             correct: true,
           },
           { text: 'Stay square and keep leg across back', correct: false },
@@ -79,7 +78,7 @@ describe('AppComponent', () => {
           'Push one hand and pull the other, shoot hips up, grab shin, underhook leg',
       },
       video: {
-        url: 'https://www.youtube.com/embed/oVvEQeasAxQ',
+        code: 'oVvEQeasAxQ',
       },
     },
     kimura: {
@@ -93,23 +92,19 @@ describe('AppComponent', () => {
         question: 'What are the key body positions for a kimura from guard?',
         responses: [
           {
-            text:
-              'Get their hands on mat, grip the wrist low, lock your elbow out straight, shrimp out a little, elbows tight to finish with monkey grip',
+            text: 'Get their hands on mat, grip the wrist low, lock your elbow out straight, shrimp out a little, elbows tight to finish with monkey grip',
             correct: true,
           },
           {
-            text:
-              'Hold tight with seatbelt, gable grip to lift up chin, gable grip the other side then slide arm across neck',
+            text: 'Hold tight with seatbelt, gable grip to lift up chin, gable grip the other side then slide arm across neck',
             correct: false,
           },
           {
-            text:
-              'Push his thumb to peel one hand, then pull his other hand and finish',
+            text: 'Push his thumb to peel one hand, then pull his other hand and finish',
             correct: false,
           },
           {
-            text:
-              'Put your head on the map with his arm trapped then reach your crossface arm deep for the gable grip',
+            text: 'Put your head on the map with his arm trapped then reach your crossface arm deep for the gable grip',
             correct: false,
           },
         ],
@@ -121,7 +116,7 @@ describe('AppComponent', () => {
         answer: 'Get his hands on the mat',
       },
       video: {
-        url: 'https://www.youtube.com/embed/mVkKOPNGvjA',
+        code: 'mVkKOPNGvjA',
       },
     },
   };
@@ -159,12 +154,12 @@ describe('AppComponent', () => {
       expect(component).toBeDefined();
     });
 
-    it('should contain "Grappling Review"', () => {
-      expect(h1.textContent).toContain('Grappling Review');
+    it('should contain "Smart Defense Skills"', () => {
+      expect(h1.textContent).toContain('Smart Defense Skills');
     });
 
-    it('selectedId is undefined before OnInit', () => {
-      expect(component.selectedId).toBeUndefined();
+    it('selectedName is undefined before OnInit', () => {
+      expect(component.selectedName).toBeUndefined();
     });
 
     it('should not show techniques before OnInit', () => {
@@ -174,9 +169,9 @@ describe('AppComponent', () => {
       );
     });
 
-    it('selectedId is 0 after OnInit', () => {
+    it('selectedName is null after OnInit', () => {
       fixture.detectChanges();
-      expect(component.selectedId).toEqual(0);
+      expect(component.selectedName).toEqual(null);
     });
   });
 });

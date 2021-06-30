@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
   <div class="d-flex justify-content-between w-100 p-4">
     <div>
-      <h1><a routerLink="/home">Grappling Review</a></h1>
+      <h1><a routerLink="/home">Smart Defense Skills</a></h1>
     </div>
     <div>
       <button mat-button [matMenuTriggerFor]="menu">
@@ -22,6 +22,9 @@
     position="end"
   >
     <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/home" routerLinkActive="activebutton">
+        Home
+      </button>
       <button
         *ngIf="loggedIn"
         mat-menu-item
@@ -41,7 +44,7 @@
       <button
         *ngIf="loggedIn"
         mat-menu-item
-        routerLink="/flashcard-deck/0"
+        routerLink="/flashcard-deck"
         routerLinkActive="activebutton"
       >
         Flashcards
@@ -60,7 +63,7 @@
     <mat-nav-list *ngFor="let technique of techniques$ | async">
       <a
         mat-menu-item
-        [routerLink]="['technique', technique.id]"
+        [routerLink]="['technique', technique.name]"
         (click)="isSmallScreen ? sidenav.toggle() : null"
         routerLinkActive="activebutton"
         >{{ technique.displayName }}</a
@@ -68,52 +71,42 @@
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>
-    <div class="d-flex flex-column flex-wrap">
-      <div
-        class="
-          main-container
-          container
-          w-100
-          d-flex
-          justify-content-center
-          align-items-center
-          p-3
-        "
-      >
+    <div class="d-flex flex-column flex-wrap drawer-content">
+      <div class="w-100 d-flex justify-content-center align-items-center px-3">
         <div [@routeAnimation]="getAnimationData(routerOutlet)" class="w-100">
           <router-outlet #routerOutlet="outlet"></router-outlet>
         </div>
         <router-outlet name="popup" class="popupContainer"></router-outlet>
       </div>
-      <div class="footer w-100">
-        <footer *ngIf="isHomePage" class="text-muted bd-footer d-flex">
-          <div class="d-flex justify-content-between w-100 p-2 flex-wrap">
-            <div>
-              <ul>
-                <li><a mat-button> © 2021 Wood Web Development, LLC </a></li>
-              </ul>
-            </div>
-            <div>
-              <ul>
-                <li>
-                  <a
-                    mat-button
-                    [routerLink]="[{ outlets: { popup: ['compose'] } }]"
-                  >
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a mat-button> Terms of Service </a>
-                </li>
-                <li>
-                  <a mat-button> Privacy Policy </a>
-                </li>
-              </ul>
-            </div>
+    </div>
+    <div class="footer w-100" color="accent">
+      <footer class="text-muted bd-footer d-flex">
+        <div class="d-flex justify-content-between w-100 p-2 flex-wrap">
+          <div>
+            <ul>
+              <li><a mat-button> © 2021 Wood Web Development, LLC </a></li>
+            </ul>
           </div>
-        </footer>
-      </div>
+          <div>
+            <ul>
+              <li>
+                <a
+                  mat-button
+                  [routerLink]="[{ outlets: { popup: ['compose'] } }]"
+                >
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a mat-button> Terms of Service </a>
+              </li>
+              <li>
+                <a mat-button> Privacy Policy </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
     </div>
   </mat-drawer-content>
 </mat-drawer-container>

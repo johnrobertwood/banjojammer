@@ -19,7 +19,7 @@ const flashcardDeckRoutes: Routes = [
         component: FlashcardListComponent,
         children: [
           {
-            path: ':id',
+            path: ':name',
             component: FlashcardDetailComponent,
             canDeactivate: [CanDeactivateGuard],
             resolve: {

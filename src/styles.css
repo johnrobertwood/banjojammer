@@ -24,12 +24,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-:root {
-  --amplify-primary-color: #673ab7;
-  --amplify-primary-tint: #683ab7b9;
-  --amplify-primary-shade: #683ab798;
-}
-
 @media screen and (max-width: 767px) {
   input,
   select,

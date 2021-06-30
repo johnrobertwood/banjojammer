@@ -2,6 +2,8 @@ export interface Technique {
   id: number;
   name: string;
   displayName: string;
+  prevTechnique: string;
+  nextTechnique: string;
   favorite: boolean;
   quiz: {
     complete: boolean;
@@ -19,6 +21,7 @@ export interface Technique {
     answer: string;
   };
   video: {
-    url: string;
+    code: string;
+    thumbnail: string;
   };
 }

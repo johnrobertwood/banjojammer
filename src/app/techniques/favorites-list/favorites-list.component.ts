@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./favorites-list.component.css'],
 })
 export class FavoritesListComponent implements OnInit {
-  selectedId: number;
+  selectedName: string;
   techniques$: Observable<Technique[]>;
 
   constructor(
@@ -27,7 +27,7 @@ export class FavoritesListComponent implements OnInit {
   getTechniques(): void {
     this.techniques$ = this.route.paramMap.pipe(
       switchMap((params) => {
-        this.selectedId = +params.get('id');
+        this.selectedName = params.get('name');
         return this.techniqueService.getTechniques();
       })
     );
