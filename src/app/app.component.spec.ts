@@ -154,8 +154,8 @@ describe('AppComponent', () => {
       expect(component).toBeDefined();
     });
 
-    it('should contain "Smart Defense Skills"', () => {
-      expect(h1.textContent).toContain('Smart Defense Skills');
+    it('should contain "Dry Fire Academy"', () => {
+      expect(h1.textContent).toContain('Dry Fire Academy');
     });
 
     it('selectedName is undefined before OnInit', () => {

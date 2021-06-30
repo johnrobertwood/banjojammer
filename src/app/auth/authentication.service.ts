@@ -43,7 +43,7 @@ export class AuthenticationService {
       flashcard: {
         name: 'Smart Striking Flashcard',
         complete: false,
-        question: 'What are the elements of the Smart Striking?',
+        question: 'What are the elements of smart striking?',
         answer: 'Front kicks, face strikes, elbows and knees',
       },
       video: {
@@ -62,9 +62,9 @@ export class AuthenticationService {
       flashcard: {
         name: 'Front Choke Escape Flashcard',
         complete: false,
-        question: 'What are the three elements of the Front Choke Escape?',
+        question: 'What are the elements of the Front Choke Escape?',
         answer:
-          'Bring your arms up high then bring your elbows down and break their grip',
+          'Bring your arms up high, then bring your elbows down and break their grip',
       },
       video: {
         code: '569115499',
@@ -84,7 +84,7 @@ export class AuthenticationService {
         complete: false,
         question: 'What is the Side Hug Escape?',
         answer:
-          'Trap the arm hugging around your hip then step backwards to wrist lock',
+          'Trap the arm hugging around your hip then step backwards and bring their arm behind their back for a wrist lock',
       },
       video: {
         code: '569118142',
