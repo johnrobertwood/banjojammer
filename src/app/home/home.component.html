@@ -53,33 +53,33 @@
               class="img-responsive card-container"
               alt="Video Thumbnail"
             />
-            <div class="card-container p-3">
-              <h3 class="h4">{{ technique.displayName }}</h3>
-              <p class="text-muted m-0">
-                {{ technique.flashcard.question }}
-              </p>
-            </div>
-            <div class="p-2">
-              <div class="d-flex justify-content-center align-items-center">
-                <div>
+            <div>
+              <div class="card-container px-4">
+                <h3 class="h4">{{ technique.displayName }}</h3>
+                <p class="text-muted m-0">
+                  {{ technique.flashcard.question }}
+                </p>
+              </div>
+              <div class="p-2">
+                <div class="d-flex justify-content-center align-items-center">
                   <div class="mb-2">
                     <button
                       mat-raised-button
                       color="primary"
-                      class="w-100 p-2 mr-2"
+                      class="w-100 p-2 mb-1"
                       [routerLink]="['/technique', technique.name]"
                     >
                       Technique Details
                     </button>
+                    <app-dialog-content-flashcard
+                      class="quiz-button"
+                      [technique]="technique"
+                    ></app-dialog-content-flashcard>
                   </div>
-                  <app-dialog-content-quiz
-                    class="quiz-button mr-2"
-                    [technique]="technique"
-                  ></app-dialog-content-quiz>
-                  <app-dialog-content-flashcard
-                    class="quiz-button"
-                    [technique]="technique"
-                  ></app-dialog-content-flashcard>
+                  <!-- <app-dialog-content-quiz
+                      class="quiz-button mr-2"
+                      [technique]="technique"
+                    ></app-dialog-content-quiz> -->
                 </div>
               </div>
             </div>
