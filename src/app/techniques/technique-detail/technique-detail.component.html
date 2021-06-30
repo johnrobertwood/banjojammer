@@ -7,25 +7,51 @@
   >
     <app-video-frame [code]="technique.video.code"></app-video-frame>
     <div class="d-flex justify-content-center flex-nowrap mb-4">
-      <app-dialog-content-quiz
+      <!-- <app-dialog-content-quiz
         class="mr-1"
         [technique]="technique"
-      ></app-dialog-content-quiz>
-      <app-dialog-content-flashcard
-        class="mr-1"
-        [technique]="technique"
-      ></app-dialog-content-flashcard>
-      <span *ngIf="isLoggedIn">
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="favoriteTechnique(technique)"
-          class="p-2"
-        >
-          <mat-icon [class.goldheart]="technique.favorite">favorite</mat-icon>
-          Favorite
-        </button>
-      </span>
+      ></app-dialog-content-quiz> -->
+      <div class="d-flex justify-content-center flex-nowrap mb-4">
+        <span>
+          <button
+            [disabled]="technique.prevTechnique === null"
+            mat-raised-button
+            color="primary"
+            class="p-2 mx-1"
+            [routerLink]="['/technique', technique.prevTechnique]"
+          >
+            <mat-icon>keyboard_arrow_left</mat-icon>
+            Prev
+          </button>
+        </span>
+        <app-dialog-content-flashcard
+          class="mr-1"
+          [technique]="technique"
+        ></app-dialog-content-flashcard>
+        <span *ngIf="isLoggedIn">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="favoriteTechnique(technique)"
+            class="p-2"
+          >
+            <mat-icon [class.goldheart]="technique.favorite">favorite</mat-icon>
+            Favorite
+          </button>
+        </span>
+        <span>
+          <button
+            [disabled]="technique.nextTechnique === null"
+            mat-raised-button
+            color="primary"
+            class="p-2 mx-1"
+            [routerLink]="['/technique', technique.nextTechnique]"
+          >
+            Next
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </span>
+      </div>
     </div>
   </div>
   <div class="d-flex justify-content-center my-2">
@@ -36,32 +62,6 @@
       <p class="text-center h6">
         {{ technique.flashcard.answer }}
       </p>
-    </span>
-  </div>
-  <div class="d-flex justify-content-center flex-nowrap mb-4">
-    <span>
-      <button
-        [disabled]="technique.prevTechnique === null"
-        mat-raised-button
-        color="primary"
-        class="p-2 mx-1"
-        [routerLink]="['/technique', technique.prevTechnique]"
-      >
-        <mat-icon>keyboard_arrow_left</mat-icon>
-        Prev Technique
-      </button>
-    </span>
-    <span>
-      <button
-        [disabled]="technique.nextTechnique === null"
-        mat-raised-button
-        color="primary"
-        class="p-2 mx-1"
-        [routerLink]="['/technique', technique.nextTechnique]"
-      >
-        Next Technique
-        <mat-icon>keyboard_arrow_right</mat-icon>
-      </button>
     </span>
   </div>
 </div>
