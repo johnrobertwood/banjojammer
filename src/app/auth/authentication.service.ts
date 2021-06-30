@@ -13,90 +13,11 @@ export class AuthenticationService {
   userData: any;
 
   techniques: { [key: string]: object } = {
-    safety: {
-      id: 0,
-      name: 'bodyLockEscape',
-      displayName: 'Body Lock Escape',
-      prevTechnique: null,
-      nextTechnique: 'smartStriking',
-      favorite: false,
-      flashcard: {
-        name: 'Body Lock Escape Flashcard',
-        complete: false,
-        question: 'What is the body lock escape?',
-        answer:
-          'Sink down, step inside foot around and behind then lean back and stand tall',
-      },
-      video: {
-        code: '569130514',
-        thumbnail:
-          '539a8740-44ad-4254-b5cb-01c8d35d31e6.gif?ClientID=vimeo-core-prod&Date=1625008784&Signature=70cd0de9faba7b089c0578fb49b11e941169bee9',
-      },
-    },
-    smartStriking: {
-      id: 10,
-      name: 'smartStriking',
-      displayName: 'Smart Striking',
-      prevTechnique: 'bodyLockEscape',
-      nextTechnique: 'frontChokeEscape',
-      favorite: false,
-      flashcard: {
-        name: 'Smart Striking Flashcard',
-        complete: false,
-        question: 'What are the elements of smart striking?',
-        answer: 'Front kicks, face strikes, elbows and knees',
-      },
-      video: {
-        code: '569106005',
-        thumbnail:
-          '02be6648-901e-442e-acd8-827ca7bf5346.gif?ClientID=vimeo-core-prod&Date=1625005134&Signature=ce4d407b08748d9337daf3c5e45b0a6d3d7dfe8d',
-      },
-    },
-    frontChokeEscape: {
-      id: 20,
-      name: 'frontChokeEscape',
-      displayName: 'The Front Choke Escape',
-      prevTechnique: 'smartStriking',
-      nextTechnique: 'sideHugEscape',
-      favorite: false,
-      flashcard: {
-        name: 'Front Choke Escape Flashcard',
-        complete: false,
-        question: 'What are the elements of the Front Choke Escape?',
-        answer:
-          'Bring your arms up high, then bring your elbows down and break their grip',
-      },
-      video: {
-        code: '569115499',
-        thumbnail:
-          '4586c7f4-9c3a-48a1-95b3-3e39b3a79691.gif?ClientID=vimeo-core-prod&Date=1625005705&Signature=4d2768520d2f4ccd0f679643e5eb0c1f9e711140',
-      },
-    },
-    sideHugEscape: {
-      id: 30,
-      name: 'sideHugEscape',
-      displayName: 'The Side Hug Escape',
-      prevTechnique: 'frontChokeEscape',
-      nextTechnique: 'presentation',
-      favorite: false,
-      flashcard: {
-        name: 'Side Hug Escape Flashcard',
-        complete: false,
-        question: 'What is the Side Hug Escape?',
-        answer:
-          'Trap the arm hugging around your hip then step backwards and bring their arm behind their back for a wrist lock',
-      },
-      video: {
-        code: '569118142',
-        thumbnail:
-          '9c106bc8-ece5-4c92-99fb-6b28bb2eca93.gif?ClientID=vimeo-core-prod&Date=1625006162&Signature=ff9a3dbfe97a83f7f5c79f2877a625c2f2f4543d',
-      },
-    },
     presentation: {
       id: 40,
       name: 'presentation',
       displayName: 'Presentation',
-      prevTechnique: 'sideHugEscape',
+      prevTechnique: null,
       nextTechnique: 'doubleFeed',
       favorite: false,
       flashcard: {
