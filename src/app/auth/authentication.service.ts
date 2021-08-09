@@ -98,7 +98,7 @@ export class AuthenticationService {
       name: 'shootingAroundObstacles',
       displayName: 'Shooting Around Obstacles',
       prevTechnique: 'speedReload',
-      nextTechnique: null,
+      nextTechnique: 'loadAndMakeReady',
       favorite: false,
       flashcard: {
         name: 'Shooting Around Obstacles Flashcard',
@@ -112,6 +112,46 @@ export class AuthenticationService {
         code: '568554791',
         thumbnail:
           'b7df8567-b0b8-498c-a6ff-670c56661a5e.gif?ClientID=vimeo-core-prod&Date=1624908103&Signature=70586cc389bb9353705c03a2413683e9927a81dc',
+      },
+    },
+    loadAndMakeReady: {
+      id: 90,
+      name: 'loadAndMakeReady',
+      displayName: 'Load and Make Ready',
+      prevTechnique: 'shootingAroundObstacles',
+      nextTechnique: 'unloadAndMakeSafe',
+      favorite: false,
+      flashcard: {
+        name: 'Load and Make Ready Flashcard',
+        complete: false,
+        question: 'What are the steps to load and make ready?',
+        answer:
+          'Bring into your workstation, get a mag, insert and drive the pistol forward to rack the slide',
+      },
+      video: {
+        code: '578978794',
+        thumbnail:
+          '2bbe1a0e-1658-4fce-b61a-2259caa60435.gif?ClientID=vimeo-core-prod&Date=1628487036&Signature=a97f7b1ae7cdc0c054e8565332a2fb179ea0def3',
+      },
+    },
+    unloadAndMakeSafe: {
+      id: 100,
+      name: 'unloadAndMakeSafe',
+      displayName: 'Unload and Make Safe',
+      prevTechnique: 'unloadAndMakeSafe',
+      nextTechnique: null,
+      favorite: false,
+      flashcard: {
+        name: 'Unload and Make Safe Flashcard',
+        complete: false,
+        question: 'What are the steps to unload and make safe?',
+        answer:
+          'Shift grip and release mag, lock slide to rear, check chamber, release slide',
+      },
+      video: {
+        code: '584709997',
+        thumbnail:
+          'd86d9e96-1592-4b7c-8770-6cd668c17c33.gif?ClientID=vimeo-core-prod&Date=1628486975&Signature=891fed9841af6cb40f9820160e04de35bbaae50b',
       },
     },
   };
