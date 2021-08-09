@@ -138,7 +138,7 @@ export class AuthenticationService {
       id: 100,
       name: 'unloadAndMakeSafe',
       displayName: 'Unload and Make Safe',
-      prevTechnique: 'unloadAndMakeSafe',
+      prevTechnique: 'loadAndMakeReady',
       nextTechnique: null,
       favorite: false,
       flashcard: {
