@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-manage-technique-list',
   templateUrl: './manage-technique-list.component.html',
-  styleUrls: ['./manage-technique-list.component.scss'],
+  styleUrls: ['./manage-technique-list.component.s`css'],
 })
 export class ManageTechniqueListComponent implements OnInit {
   techniques$: Observable<Technique[]>;
