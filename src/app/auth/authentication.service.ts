@@ -20,6 +20,29 @@ export class AuthenticationService {
       prevTechnique: null,
       nextTechnique: 'doubleFeed',
       favorite: false,
+      quiz: {
+        name: 'Presentation Quiz',
+        complete: false,
+        question: 'What are the 5 counts or steps of the presentation?',
+        responses: [
+          {
+            text: 'Grip, clear, click, smack, look',
+            correct: true,
+          },
+          {
+            text: 'Look, step, reach, draw, kneel',
+            correct: false,
+          },
+          {
+            text: 'Spin, duck, draw, point, click',
+            correct: false,
+          },
+          {
+            text: 'Hop, skip, jump, sit, shoot',
+            correct: false,
+          },
+        ],
+      },
       flashcard: {
         name: 'Presentation Flashcard',
         complete: false,
@@ -39,6 +62,30 @@ export class AuthenticationService {
       prevTechnique: 'presentation',
       nextTechnique: 'tacticalReload',
       favorite: false,
+      quiz: {
+        name: 'Double Feed Quiz',
+        complete: false,
+        question:
+          'What should you do when a Tap Roll and Rack fails to clear the malfunction?',
+        responses: [
+          {
+            text: 'Lock the slide back, stip out the magazine and do 3 Tap Roll Racks',
+            correct: true,
+          },
+          {
+            text: 'Keep doing Tap Roll and Racks until it is clear',
+            correct: false,
+          },
+          {
+            text: 'Pry the rounds out with your fingers',
+            correct: false,
+          },
+          {
+            text: 'Perform a speed reload',
+            correct: false,
+          },
+        ],
+      },
       flashcard: {
         name: 'Double Feed Flashcard',
         complete: false,
@@ -60,6 +107,29 @@ export class AuthenticationService {
       prevTechnique: 'doubleFeed',
       nextTechnique: 'speedReload',
       favorite: false,
+      quiz: {
+        name: 'Tactical Reload Quiz',
+        complete: false,
+        question: 'What are the steps for a tactical reload?',
+        responses: [
+          {
+            text: 'Grab a spare magazine, release used magazine into palm, insert new magazine and save old magazine',
+            correct: true,
+          },
+          {
+            text: 'Remove used magazine, replace in mag holster then grab new magazine and speed load it',
+            correct: false,
+          },
+          {
+            text: 'Lock the slide back, drop the old magazine and speed load the new magazine',
+            correct: false,
+          },
+          {
+            text: 'Remove used magazine, put pistol under your arm and top off the mag',
+            correct: false,
+          },
+        ],
+      },
       flashcard: {
         name: 'Tactical Reload Flashcard',
         complete: false,
@@ -80,6 +150,29 @@ export class AuthenticationService {
       prevTechnique: 'tacticalReload',
       nextTechnique: 'shootingAroundObstacles',
       favorite: false,
+      quiz: {
+        name: 'Speed Reload Quiz',
+        complete: false,
+        question: 'How do you execute a speed reload?',
+        responses: [
+          {
+            text: 'Shift pistol in hand, put thumb on mag release, withdraw new mag, release used mag, flat on flat, insert new mag',
+            correct: true,
+          },
+          {
+            text: 'Funny joke wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Common mistake wrong answer #1',
+            correct: false,
+          },
+          {
+            text: 'Funny joke wrong answer #2',
+            correct: false,
+          },
+        ],
+      },
       flashcard: {
         name: 'Speed Reload Flashcard',
         complete: false,
@@ -100,6 +193,30 @@ export class AuthenticationService {
       prevTechnique: 'speedReload',
       nextTechnique: 'loadAndMakeReady',
       favorite: false,
+      quiz: {
+        name: 'Shooting Around Obstacles Quiz',
+        question:
+          'What are the tactical pointers for shooting around obstacles?',
+        responses: [
+          {
+            text: 'Distance is your friend, pie the corners, expose only what is necessary and do not rely on quick peeks',
+            correct: true,
+          },
+          {
+            text: 'Shoot and scoot',
+            correct: false,
+          },
+          {
+            text: 'Slang and bang',
+            correct: false,
+          },
+          {
+            text: 'Run and gun',
+            correct: false,
+          },
+        ],
+        complete: false,
+      },
       flashcard: {
         name: 'Shooting Around Obstacles Flashcard',
         complete: false,
