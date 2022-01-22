@@ -1,7 +1,10 @@
-<iframe
-  [src]="'https://player.vimeo.com/video/' + code | safe"
-  frameborder="0"
-  height="564"
-  allow="autoplay; fullscreen"
-  allowfullscreen
-></iframe>
+<div class="mt-3">
+  <iframe
+    [src]="url | safe"
+    frameborder="0"
+    [width]="isSmallScreen || '560'"
+    [height]="isSmallScreen || '315'"
+    allow="autoplay; fullscreen"
+    allowfullscreen
+  ></iframe>
+</div>

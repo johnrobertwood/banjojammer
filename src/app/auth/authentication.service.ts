@@ -13,308 +13,606 @@ export class AuthenticationService {
   userData: any;
 
   techniques: { [key: string]: object } = {
-    presentation: {
-      id: 40,
-      name: 'presentation',
-      displayName: 'Presentation',
+    armbar: {
+      id: 0,
+      name: 'armbar',
+      displayName: 'Armbar',
       prevTechnique: null,
-      nextTechnique: 'doubleFeed',
+      nextTechnique: 'triangle',
       favorite: false,
       quiz: {
-        name: 'Presentation Quiz',
-        complete: false,
-        question: 'What are the 5 counts or steps of the presentation?',
-        responses: [
-          {
-            text: 'Grip, clear, click, smack, look',
-            correct: true,
-          },
-          {
-            text: 'Look, step, reach, draw, kneel',
-            correct: false,
-          },
-          {
-            text: 'Spin, duck, draw, point, click',
-            correct: false,
-          },
-          {
-            text: 'Hop, skip, jump, sit, shoot',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Presentation Flashcard',
-        complete: false,
-        question: 'What are the 5 counts of the presentation?',
-        answer: 'Grip, clear, rotate, connect, extend',
-      },
-      video: {
-        code: '567776116',
-        thumbnail:
-          '6f3cc017-950d-4eab-a821-b2398a9fd03c.gif?ClientID=vimeo-core-prod&Date=1624907667&Signature=f820153e0ca94ec56181897c5bb6f23770e04a77',
-      },
-    },
-    doubleFeed: {
-      id: 50,
-      name: 'doubleFeed',
-      displayName: 'The Double Feed',
-      prevTechnique: 'presentation',
-      nextTechnique: 'tacticalReload',
-      favorite: false,
-      quiz: {
-        name: 'Double Feed Quiz',
+        name: 'Armbar Quiz',
         complete: false,
         question:
-          'What should you do when a Tap Roll and Rack fails to clear the malfunction?',
+          'What are the important body part elements for entering to the armbar position?',
         responses: [
           {
-            text: 'Lock the slide back, stip out the magazine and do 3 Tap Roll Racks',
+            text: 'Controlling his head and pulling his elbow inside your hip',
             correct: true,
           },
           {
-            text: 'Keep doing Tap Roll and Racks until it is clear',
+            text: 'Controlling his feet, turning our chest and shoulders',
             correct: false,
           },
           {
-            text: 'Pry the rounds out with your fingers',
+            text: 'Inverting, leg outside of his hips',
             correct: false,
           },
           {
-            text: 'Perform a speed reload',
+            text: 'Keeping the hips low, pushing with the feet and inverting',
             correct: false,
           },
         ],
       },
       flashcard: {
-        name: 'Double Feed Flashcard',
+        name: 'Armbar',
+        complete: false,
+        question: 'What is the body position for entering an armbar?',
+        answer: 'Controlling his head, pulling his elbow inside our hips',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/pQ43Oy5k9yQ',
+        thumbnail: 'https://img.youtube.com/vi/pQ43Oy5k9yQ/default.jpg',
+      },
+    },
+    triangle: {
+      id: 1,
+      name: 'triangle',
+      displayName: 'Triangle',
+      prevTechnique: 'armbar',
+      nextTechnique: 'kimura',
+      favorite: false,
+      quiz: {
+        name: 'Triangle Quiz',
+        complete: false,
+        question: 'How do you lock up a triangle?',
+        responses: [
+          {
+            text: 'Underhook the leg, shin is horizontal across back of neck, pull head',
+            correct: true,
+          },
+          { text: 'Stay square and keep leg across back', correct: false },
+          { text: 'Pull them onto their side and squeeze', correct: false },
+          { text: 'Reach for kimura grip', correct: false },
+        ],
+      },
+      flashcard: {
+        name: 'Triangle',
+        complete: false,
+        question: 'What are the triangle key points?',
+        answer:
+          'Push one hand and pull the other, shoot hips up, grab shin, underhook leg',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/oVvEQeasAxQ',
+        thumbnail: 'https://img.youtube.com/vi/oVvEQeasAxQ/default.jpg',
+      },
+    },
+    kimura: {
+      id: 2,
+      name: 'kimura',
+      displayName: 'Kimura',
+      prevTechnique: 'triangle',
+      nextTechnique: 'rearNakedChoke',
+      avorite: false,
+      quiz: {
+        name: 'Kimura Quiz',
+        complete: false,
+        question: 'What are the key body positions for a kimura from guard?',
+        responses: [
+          {
+            text: 'Get their hands on mat, grip the wrist low, lock your elbow out straight, shrimp out a little, elbows tight to finish with monkey grip',
+            correct: true,
+          },
+          {
+            text: 'Hold tight with seatbelt, gable grip to lift up chin, gable grip the other side then slide arm across neck',
+            correct: false,
+          },
+          {
+            text: 'Push his thumb to peel one hand, then pull his other hand and finish',
+            correct: false,
+          },
+          {
+            text: 'Put your head on the map with his arm trapped then reach your crossface arm deep for the gable grip',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Kimura',
+        complete: false,
+        question: 'What is the first step of Kimura from closed guard?',
+        answer: 'Get his hands on the mat',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/mVkKOPNGvjA',
+        thumbnail: 'https://img.youtube.com/vi/mVkKOPNGvjA/default.jpg',
+      },
+    },
+    rearNakedChoke: {
+      id: 3,
+      name: 'rearNakedChoke',
+      displayName: 'Rear Naked Choke',
+      prevTechnique: 'kimura',
+      nextTechnique: 'omoplata',
+      favorite: false,
+      quiz: {
+        name: 'Rear Naked Choke Quiz',
+        question:
+          'How do you break his grip to finish choke when opponent is holding your hands?',
+        responses: [
+          {
+            text: 'Push his thumb to peel one hand, then pull his other hand and finish',
+            correct: true,
+          },
+          {
+            text: 'Squeeze as hard as possible',
+            correct: false,
+          },
+          {
+            text: 'Cover his mouth to restrict breathing',
+            correct: false,
+          },
+          {
+            text: 'Strike their windpipe with a knifehand',
+            correct: false,
+          },
+        ],
+        complete: false,
+      },
+      flashcard: {
+        name: 'Rear Naked Choke',
+        complete: false,
+        question: 'Steps to finish a Rear Naked Choke?',
+        answer:
+          'Hold tight with seatbelt, gable grip to lift up chin, gable grip the other side then slide arm across neck',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/lZnST9hNkNU',
+        thumbnail: 'https://img.youtube.com/vi/lZnST9hNkNU/default.jpg',
+      },
+    },
+    omoplata: {
+      id: 4,
+      name: 'omoplata',
+      displayName: 'Omoplata',
+      prevTechnique: 'rearNakedChoke',
+      nextTechnique: 'guillotine',
+      favorite: false,
+      quiz: {
+        name: 'Omoplata Quiz',
+        complete: false,
+        question: 'What are the two variations of Omoplata from closed guard?',
+        responses: [
+          {
+            text: 'Traditional (clamping with bent knees) and Marceloplata (kicking with straight leg)',
+            correct: true,
+          },
+          {
+            text: 'American and Brazilian',
+            correct: false,
+          },
+          {
+            text: 'Original or Extra Crispy',
+            correct: false,
+          },
+          {
+            text: 'Mounted or Half Guard',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Omoplata',
+        complete: false,
+        question: 'What are the two variations of Omoplata from closed guard?',
+        answer:
+          'Traditional (clamping with bent knees) and Marceloplata (kicking with straight leg)',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/LVy4tGv5Fk4',
+        thumbnail: 'https://img.youtube.com/vi/LVy4tGv5Fk4/default.jpg',
+      },
+    },
+    guillotine: {
+      id: 5,
+      name: 'guillotine',
+      displayName: 'Guillotine',
+      prevTechnique: 'omoplata',
+      nextTechnique: 'headAndArmChoke',
+      favorite: false,
+      quiz: {
+        name: 'Guillotine Quiz',
         complete: false,
         question:
-          'What should you do when a Tap Roll and Rack fails to clear the malfunction?',
-        answer:
-          'Lock the slide back, stip out the magazine and do 3 tap, roll, racks',
-      },
-      video: {
-        code: '556981700',
-        thumbnail:
-          '71fae51d-3dec-4c33-8110-c690811913a7.gif?ClientID=vimeo-core-prod&Date=1624908989&Signature=6098c567a40470f4302e54e7d947cc1ab3f868c3',
-      },
-    },
-    tacticalReload: {
-      id: 60,
-      name: 'tacticalReload',
-      displayName: 'Tactical Reload',
-      prevTechnique: 'doubleFeed',
-      nextTechnique: 'speedReload',
-      favorite: false,
-      quiz: {
-        name: 'Tactical Reload Quiz',
-        complete: false,
-        question: 'What are the steps for a tactical reload?',
+          'True or False: To finish a guillotine you lean straight back while pulling on the head',
         responses: [
           {
-            text: 'Grab a spare magazine, release used magazine into palm, insert new magazine and save old magazine',
+            text: 'True',
+            correct: false,
+          },
+          {
+            text: 'False',
+            correct: true,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Guillotine',
+        complete: false,
+        question: 'How can you stop the pass when sitting back on guillotine?',
+        answer:
+          'Use a high leg to block his hips and a high elbow on the choke to block his upper body',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/DPKhbTth0So',
+        thumbnail: 'https://img.youtube.com/vi/DPKhbTth0So/default.jpg',
+      },
+    },
+    headAndArmChoke: {
+      id: 6,
+      name: 'headAndArmChoke',
+      displayName: 'Head and Arm Choke',
+      prevTechnique: 'guillotine',
+      nextTechnique: 'defendingAmericana',
+
+      favorite: false,
+      quiz: {
+        name: 'Head and Arm Choke Quiz',
+        complete: false,
+        question: 'What is the setup for Head and Arm from side control',
+        responses: [
+          {
+            text: 'Put your head on the mat with his arm trapped then reach your crossface arm deep for the gable grip',
             correct: true,
           },
           {
-            text: 'Remove used magazine, replace in mag holster then grab new magazine and speed load it',
+            text: 'Switch your hips for reverse kesa gatame side control and step over to mount',
             correct: false,
           },
           {
-            text: 'Lock the slide back, drop the old magazine and speed load the new magazine',
+            text: 'Lift up on your toes then move to north south position',
             correct: false,
           },
           {
-            text: 'Remove used magazine, put pistol under your arm and top off the mag',
+            text: 'Hop up to knee on belly then windshield wiper leg to get mount',
             correct: false,
           },
         ],
       },
       flashcard: {
-        name: 'Tactical Reload Flashcard',
+        name: 'Head and Arm Choke',
         complete: false,
-        question: 'What are the steps for a tactical reload?',
+        question: 'What is the finish for head and arm choke',
         answer:
-          'Remove spare magazine, release used magazine into palm and remove, insert new magazine and place old magazine in pouch',
+          'Sink the hips, flatten out low and apply squeeze while being patient',
       },
       video: {
-        code: '568553306',
-        thumbnail:
-          'b713601b-6a46-4615-b7b5-0d9310202f23.gif?ClientID=vimeo-core-prod&Date=1624908457&Signature=aef56cea9c4cbdfd4985830e889fa46a6b384179',
+        url: 'https://www.youtube.com/embed/Hw8-59qdvnU',
+        thumbnail: 'https://img.youtube.com/vi/Hw8-59qdvnU/default.jpg',
       },
     },
-    speedReload: {
-      id: 70,
-      name: 'speedReload',
-      displayName: 'Speed Reload',
-      prevTechnique: 'tacticalReload',
-      nextTechnique: 'shootingAroundObstacles',
+    defendingAmericana: {
+      id: 7,
+      name: 'defendingAmericana',
+      displayName: 'Defending Americana',
+      prevTechnique: 'headAndArmChoke',
+      nextTechnique: 'straightArmlock',
       favorite: false,
       quiz: {
-        name: 'Speed Reload Quiz',
-        complete: false,
-        question: 'How do you execute a speed reload?',
-        responses: [
-          {
-            text: 'Shift pistol in hand, put thumb on mag release, withdraw new mag, release used mag, flat on flat, insert new mag',
-            correct: true,
-          },
-          {
-            text: 'Funny joke wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Common mistake wrong answer #1',
-            correct: false,
-          },
-          {
-            text: 'Funny joke wrong answer #2',
-            correct: false,
-          },
-        ],
-      },
-      flashcard: {
-        name: 'Speed Reload Flashcard',
-        complete: false,
-        question: 'How do you execute a speed reload?',
-        answer:
-          'Shift pistol in hand, put thumb on mag release, withdraw new mag, release used mag, flat on flat, insert new mag',
-      },
-      video: {
-        code: '556939734',
-        thumbnail:
-          'f74a26c7-fb1a-46df-becb-1986bee2de51.gif?ClientID=vimeo-core-prod&Date=1624908704&Signature=37075fe6e20660876804df268e6629ab52c25673',
-      },
-    },
-    shootingAroundObstacles: {
-      id: 80,
-      name: 'shootingAroundObstacles',
-      displayName: 'Shooting Around Obstacles',
-      prevTechnique: 'speedReload',
-      nextTechnique: 'loadAndMakeReady',
-      favorite: false,
-      quiz: {
-        name: 'Shooting Around Obstacles Quiz',
-        question:
-          'What are the tactical pointers for shooting around obstacles?',
-        responses: [
-          {
-            text: 'Distance is your friend, pie the corners, expose only what is necessary and do not rely on quick peeks',
-            correct: true,
-          },
-          {
-            text: 'Shoot and scoot',
-            correct: false,
-          },
-          {
-            text: 'Slang and bang',
-            correct: false,
-          },
-          {
-            text: 'Run and gun',
-            correct: false,
-          },
-        ],
-        complete: false,
-      },
-      flashcard: {
-        name: 'Shooting Around Obstacles Flashcard',
+        name: 'Defending Americana Quiz',
         complete: false,
         question:
-          'What are the tactical pointers for shooting around obstacles?',
-        answer:
-          'Distance is your friend, pie the corners, expose only what is necessary and do not rely on quick peeks',
-      },
-      video: {
-        code: '568554791',
-        thumbnail:
-          'b7df8567-b0b8-498c-a6ff-670c56661a5e.gif?ClientID=vimeo-core-prod&Date=1624908103&Signature=70586cc389bb9353705c03a2413683e9927a81dc',
-      },
-    },
-    loadAndMakeReady: {
-      id: 90,
-      name: 'loadAndMakeReady',
-      displayName: 'Load and Make Ready',
-      prevTechnique: 'shootingAroundObstacles',
-      nextTechnique: 'unloadAndMakeSafe',
-      favorite: false,
-      quiz: {
-        name: 'Load and Make Ready Quiz',
-        question: 'What are the steps to Load and Make Ready?',
+          'To defend the Americana you turn towards the arm and suck it in towards your body',
         responses: [
           {
-            text: 'Insert magazine, rack slide',
+            text: 'True',
             correct: true,
           },
           {
-            text: 'Shoot and scoot',
-            correct: false,
-          },
-          {
-            text: 'Slang and bang',
-            correct: false,
-          },
-          {
-            text: 'Run and gun',
+            text: 'False',
             correct: false,
           },
         ],
-        complete: false,
       },
       flashcard: {
-        name: 'Load and Make Ready Flashcard',
+        name: 'Americana',
         complete: false,
-        question: 'What are the steps to load and make ready?',
-        answer:
-          'Bring into your workstation, get a mag, insert and drive the pistol forward to rack the slide',
+        question: 'How do you defend an Americana when it is already deep?',
+        answer: 'Bridge and then suck in the arm while pusing his elbow',
       },
       video: {
-        code: '578978794',
-        thumbnail:
-          '2bbe1a0e-1658-4fce-b61a-2259caa60435.gif?ClientID=vimeo-core-prod&Date=1628487036&Signature=a97f7b1ae7cdc0c054e8565332a2fb179ea0def3',
+        url: 'https://www.youtube.com/embed/FNyL93v5fGs',
+        thumbnail: 'https://img.youtube.com/vi/FNyL93v5fGs/default.jpg',
       },
     },
-    unloadAndMakeSafe: {
-      id: 100,
-      name: 'unloadAndMakeSafe',
-      displayName: 'Unload and Make Safe',
-      prevTechnique: 'loadAndMakeReady',
+    straightArmlock: {
+      id: 8,
+      name: 'straightArmlock',
+      displayName: 'Straight Armlock',
+      prevTechnique: 'defendingAmericana',
+      nextTechnique: 'straightKneebar',
+
+      favorite: false,
+      quiz: {
+        name: 'Straight Armlock Quiz',
+        complete: false,
+        question:
+          'To finish the straight arm lock, put one hand on mat and use the other to turn his wrist',
+        responses: [
+          {
+            text: 'True',
+            correct: true,
+          },
+          {
+            text: 'False',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Straight Arm Lock',
+        complete: false,
+        question: 'What are common mistake in finishing the straight arm lock?',
+        answer:
+          'Mistakes are your arms too far away from chest and using the double wrist lock',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/rZNFFH2hpbo',
+        thumbnail: 'https://img.youtube.com/vi/rZNFFH2hpbo/default.jpg',
+      },
+    },
+    straightKneebar: {
+      id: 9,
+      name: 'straightKneebar',
+      displayName: 'Straight Kneebar',
+      prevTechnique: 'straightArmlock',
+      nextTechnique: 'avoidDeepHalfGuard',
+      favorite: false,
+      quiz: {
+        name: 'Straight Kneebar Quiz',
+        complete: false,
+        question:
+          'What move should you fake to provoke a reaction for the knee bar entry?',
+        responses: [
+          {
+            text: 'Kimura',
+            correct: true,
+          },
+          {
+            text: 'Americana',
+            correct: false,
+          },
+          {
+            text: 'Heel hook',
+            correct: false,
+          },
+          {
+            text: 'Triangle',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Straight Knee Bar Flashcard',
+        complete: false,
+        question: 'What position is a good start for the Straight Knee Bar?',
+        answer: 'Works well from top half when opponent is up on his side',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/1UYJRNqW5Ao',
+        thumbnail: 'https://img.youtube.com/vi/1UYJRNqW5Ao/default.jpg',
+      },
+    },
+    avoidDeepHalfGuard: {
+      id: 10,
+      name: 'avoidDeepHalfGuard',
+      displayName: 'Avoid Deep Half Guard',
+      prevTechnique: 'straightKneebar',
+      nextTechnique: 'scissorSweep',
+      favorite: false,
+      quiz: {
+        name: 'Avoid Deep Half Guard Quiz',
+        complete: false,
+        question:
+          'What should you do to avoid getting stuck in deep half guard?',
+        responses: [
+          {
+            text: 'Sprawl, use a crossface and pummel your foot inside his calf',
+            correct: true,
+          },
+          {
+            text: 'Keep hips in tight and keep head down',
+            correct: false,
+          },
+          {
+            text: 'Posture up and limp arm out',
+            correct: false,
+          },
+          {
+            text: 'Put hands on the mat and shrimp away',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Half Guard Sweep Flashcard',
+        complete: false,
+        question: 'What should you do to avoid getting stuck deep half guard?',
+        answer: 'Sprawl, use a crossface and pummel your foot inside his calf',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/FNaMku7pjDU',
+        thumbnail: 'https://img.youtube.com/vi/FNaMku7pjDU/default.jpg',
+      },
+    },
+    scissorSweep: {
+      id: 11,
+      name: 'scissorSweep',
+      displayName: 'Scissor Sweep',
+      prevTechnique: 'avoidDeepHalfGuard',
+      nextTechnique: 'heelHookDefense',
+      favorite: false,
+      quiz: {
+        name: 'Scissor Sweep Quiz',
+        complete: false,
+        question:
+          'What is the position for scissor sweep when opponent lifts leg and postures',
+        responses: [
+          {
+            text: 'Stay flat and butterfly the outside leg',
+            correct: false,
+          },
+          {
+            text: 'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
+            correct: true,
+          },
+          {
+            text: 'Kick straight out with top leg and drop bottom leg like a prostitute',
+            correct: false,
+          },
+          {
+            text: 'Swim under then grab around the waist',
+            correct: false,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Scissor Sweep Flashcard',
+        complete: false,
+        question: 'What is the correct leg position for scissor sweep',
+        answer:
+          'Bottom leg with calf against his knee, top leg is strong with shin across his waist',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/X-PA21_0xTg',
+        thumbnail: 'https://img.youtube.com/vi/X-PA21_0xTg/default.jpg',
+      },
+    },
+    heelHookDefense: {
+      id: 12,
+      name: 'heelHookDefense',
+      displayName: 'Heel Hook Defense',
+      prevTechnique: 'scissorSweep',
+      nextTechnique: 'triangleEscape',
+      favorite: false,
+      quiz: {
+        name: 'Heel Hook Defense Quiz',
+        complete: false,
+        question: 'How do you defend the inside heel hook?',
+        responses: [
+          {
+            text: 'Straighten your leg',
+            correct: false,
+          },
+          {
+            text: 'Hide your heel',
+            correct: false,
+          },
+          {
+            text: 'Post up and elevate your hips',
+            correct: false,
+          },
+          {
+            text: 'All of the above',
+            correct: true,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Heel Hook Defense Flashcard',
+        complete: false,
+        question: 'How do you defend the inside heel hook',
+        answer:
+          'Get your leg straight, hide your heel, hips up and push them back on their shoulder',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/w-W0ug7Edag',
+        thumbnail: 'https://img.youtube.com/vi/w-W0ug7Edag/default.jpg',
+      },
+    },
+    triangleEscape: {
+      id: 13,
+      name: 'triangleEscape',
+      displayName: 'Triangle Escape',
+      prevTechnique: 'heelHookDefense',
+      nextTechnique: 'armbarDefense',
+      favorite: false,
+      quiz: {
+        name: 'Triangle Escape Quiz',
+        complete: false,
+        question: 'How do you escape the late front triangle?',
+        responses: [
+          {
+            text: 'Lock hands to create space and posture',
+            correct: false,
+          },
+          {
+            text: 'Extend arms and stand up',
+            correct: false,
+          },
+          {
+            text: 'Step both legs over and sit back with feet up on his chest',
+            correct: false,
+          },
+          {
+            text: 'All of the above',
+            correct: true,
+          },
+        ],
+      },
+      flashcard: {
+        name: 'Triangle Escape',
+        complete: false,
+        question: 'Triangle Escape Flashcard',
+        answer:
+          'Lock hands, posture up to standing then step both legs on their chest',
+      },
+      video: {
+        url: 'https://www.youtube.com/embed/od-lcD_34f8',
+        thumbnail: 'https://img.youtube.com/vi/od-lcD_34f8/default.jpg',
+      },
+    },
+    armbarDefense: {
+      id: 14,
+      name: 'armbarDefense',
+      displayName: 'Armbar Defense',
+      prevTechnique: 'triangleEscape',
       nextTechnique: null,
       favorite: false,
       quiz: {
-        name: 'Unload and Make Safe Quiz',
-        question: 'How do you unload and make safe?',
+        name: 'Armbar Defense Quiz',
+        complete: false,
+        question: 'How do you escape the armbar?',
         responses: [
           {
-            text: 'Remove the magazine, lock back the slide, inspect the barrell',
+            text: 'Keep arms crossed then bridge up on knees to come on top',
             correct: true,
           },
           {
-            text: 'Shoot and scoot',
+            text: 'Stay flat on back while shrimping',
+            correct: true,
+          },
+          {
+            text: 'Stand up and pull arm out in one motion',
             correct: false,
           },
           {
-            text: 'Slang and bang',
-            correct: false,
-          },
-          {
-            text: 'Run and gun',
+            text: 'Roll away with shoulder and arm extended',
             correct: false,
           },
         ],
-        complete: false,
       },
       flashcard: {
-        name: 'Unload and Make Safe Flashcard',
+        name: 'Armbar Defense Flashcard',
         complete: false,
-        question: 'What are the steps to unload and make safe?',
+        question: 'What are the armbar defense steps?',
         answer:
-          'Shift grip and release mag, lock slide to rear, check chamber, release slide',
+          'Keep arms crossed then bridge up to knees. Stack and pull elbow out in little spurts',
       },
       video: {
-        code: '584709997',
-        thumbnail:
-          'd86d9e96-1592-4b7c-8770-6cd668c17c33.gif?ClientID=vimeo-core-prod&Date=1628486975&Signature=891fed9841af6cb40f9820160e04de35bbaae50b',
+        url: 'https://www.youtube.com/embed/zwNOXB8GQ3w',
+        thumbnail: 'https://img.youtube.com/vi/zwNOXB8GQ3w/default.jpg',
       },
     },
   };

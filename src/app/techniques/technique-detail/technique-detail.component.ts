@@ -18,7 +18,7 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
   technique$: Observable<Technique>;
   isSmallScreen: boolean;
   isLoggedIn: boolean;
-  code: string;
+  url: string;
 
   constructor(
     private breakpointObserver: BreakpointObserver,

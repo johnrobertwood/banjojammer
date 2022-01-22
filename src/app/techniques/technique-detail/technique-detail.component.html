@@ -5,7 +5,10 @@
   <div
     class="d-flex flex-column justify-content-center align-items-center mb-2"
   >
-    <app-video-frame [code]="technique.video.code"></app-video-frame>
+    <app-video-frame
+      [isSmallScreen]="isSmallScreen"
+      [url]="technique.video.url"
+    ></app-video-frame>
     <div class="d-flex justify-content-center my-2">
       <p class="h4 text-center">{{ technique.displayName }}</p>
     </div>

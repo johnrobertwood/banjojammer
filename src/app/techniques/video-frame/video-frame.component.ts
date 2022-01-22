@@ -6,5 +6,6 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
   styleUrls: ['./video-frame.component.css'],
 })
 export class VideoFrameComponent {
-  @Input() code: string;
+  @Input() url: string;
+  @Input() isSmallScreen: boolean;
 }
