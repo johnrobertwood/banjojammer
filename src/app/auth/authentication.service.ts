@@ -238,6 +238,29 @@ export class AuthenticationService {
       prevTechnique: 'shootingAroundObstacles',
       nextTechnique: 'unloadAndMakeSafe',
       favorite: false,
+      quiz: {
+        name: 'Load and Make Ready Quiz',
+        question: 'What are the steps to Load and Make Ready?',
+        responses: [
+          {
+            text: 'Insert magazine, rack slide',
+            correct: true,
+          },
+          {
+            text: 'Shoot and scoot',
+            correct: false,
+          },
+          {
+            text: 'Slang and bang',
+            correct: false,
+          },
+          {
+            text: 'Run and gun',
+            correct: false,
+          },
+        ],
+        complete: false,
+      },
       flashcard: {
         name: 'Load and Make Ready Flashcard',
         complete: false,
@@ -258,6 +281,29 @@ export class AuthenticationService {
       prevTechnique: 'loadAndMakeReady',
       nextTechnique: null,
       favorite: false,
+      quiz: {
+        name: 'Unload and Make Safe Quiz',
+        question: 'How do you unload and make safe?',
+        responses: [
+          {
+            text: 'Remove the magazine, lock back the slide, inspect the barrell',
+            correct: true,
+          },
+          {
+            text: 'Shoot and scoot',
+            correct: false,
+          },
+          {
+            text: 'Slang and bang',
+            correct: false,
+          },
+          {
+            text: 'Run and gun',
+            correct: false,
+          },
+        ],
+        complete: false,
+      },
       flashcard: {
         name: 'Unload and Make Safe Flashcard',
         complete: false,
