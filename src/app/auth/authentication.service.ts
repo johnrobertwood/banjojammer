@@ -663,9 +663,9 @@ export class AuthenticationService {
       .pipe(catchError(this.ehs.handleError<any>('addUser HTTP post error')));
   }
 
-  addTechniques(payload: any): Observable<any> {
+  addTechniques(userId: string): Observable<any> {
     const data = {
-      userId: payload.data.userSub,
+      userId: userId,
       techniques: this.techniques,
     };
     const url =

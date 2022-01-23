@@ -82,11 +82,6 @@ export class AppComponent implements OnInit {
         .addUser(data)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe();
-
-      this.authService
-        .addTechniques(data)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe();
     }
   }
 

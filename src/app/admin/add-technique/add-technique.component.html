@@ -1,1 +1,16 @@
-<p>add-technique works!</p>
+<form>
+  <input
+    #techNameInput
+    matInput
+    name="addTechniqueId"
+    [(ngModel)]="techArrayName"
+  />
+  <button
+    mat-raised-button
+    color="primary"
+    class="p-2 mx-1"
+    (click)="addTechnique()"
+  >
+    Add Full Set
+  </button>
+</form>

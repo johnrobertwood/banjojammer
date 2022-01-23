@@ -42,10 +42,6 @@ export class TechniqueService {
   }
 
   getUserTechnique(techniqueName: string): Observable<Technique> {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    const username = {
-      username: currentUser ? currentUser.username.toLowerCase() : 'testuser1',
-    };
     const url = `${this.apiGatewayUrl}/user`;
 
     return this.http.get<any>(url, this.httpOptions).pipe(
