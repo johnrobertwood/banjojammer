@@ -21,12 +21,8 @@ export class TechniqueService {
   constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
 
   getTechniques(): Observable<Technique[]> {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    const data = {
-      username: currentUser ? currentUser.username.toLowerCase() : 'testuser1',
-    };
     return this.http
-      .post<any>(`${this.apiGatewayUrl}/user`, data, this.httpOptions)
+      .get<any>(`${this.apiGatewayUrl}/user`, this.httpOptions)
       .pipe(
         map((data) => {
           const obj = data.techniques;
@@ -50,9 +46,9 @@ export class TechniqueService {
     const username = {
       username: currentUser ? currentUser.username.toLowerCase() : 'testuser1',
     };
-    const url = `${this.apiGatewayUrl}/technique`;
+    const url = `${this.apiGatewayUrl}/user`;
 
-    return this.http.post<any>(url, username, this.httpOptions).pipe(
+    return this.http.get<any>(url, this.httpOptions).pipe(
       map((data) => {
         const technique = data.techniques;
         return technique[
