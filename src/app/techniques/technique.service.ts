@@ -22,14 +22,14 @@ export class TechniqueService {
 
   getTechniques(): Observable<Technique[]> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    const username = {
+    const data = {
       username: currentUser ? currentUser.username.toLowerCase() : 'testuser1',
     };
     return this.http
-      .post<any>(`${this.apiGatewayUrl}/user`, username, this.httpOptions)
+      .post<any>(`${this.apiGatewayUrl}/user`, data, this.httpOptions)
       .pipe(
         map((data) => {
-          const obj = JSON.parse(data.body).techniques;
+          const obj = data.techniques;
           const arr = [];
           for (const key in obj) {
             if (obj[key]) {
@@ -50,11 +50,11 @@ export class TechniqueService {
     const username = {
       username: currentUser ? currentUser.username.toLowerCase() : 'testuser1',
     };
-    const url = `${this.apiGatewayUrl}/user`;
+    const url = `${this.apiGatewayUrl}/technique`;
 
     return this.http.post<any>(url, username, this.httpOptions).pipe(
       map((data) => {
-        const technique = JSON.parse(data.body).techniques;
+        const technique = data.techniques;
         return technique[
           Object.keys(technique).filter(
             (t) => technique[t].name === techniqueName

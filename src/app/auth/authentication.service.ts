@@ -651,7 +651,7 @@ export class AuthenticationService {
   }
 
   addUser(payload: any): Observable<any> {
-    const user = {
+    const data = {
       userId: payload.data.userSub,
       username: payload.data.user.username.toLowerCase(),
       techniques: this.techniques,
@@ -659,7 +659,21 @@ export class AuthenticationService {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/users';
     return this.http
-      .post<any>(url, user, this.httpOptions)
+      .post<any>(url, data, this.httpOptions)
       .pipe(catchError(this.ehs.handleError<any>('addUser HTTP post error')));
+  }
+
+  addTechniques(payload: any): Observable<any> {
+    const data = {
+      userId: payload.data.userSub,
+      techniques: this.techniques,
+    };
+    const url =
+      'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/technique';
+    return this.http
+      .post<any>(url, data, this.httpOptions)
+      .pipe(
+        catchError(this.ehs.handleError<any>('addTechnique HTTP post error'))
+      );
   }
 }

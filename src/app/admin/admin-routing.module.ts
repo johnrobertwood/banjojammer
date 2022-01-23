@@ -9,6 +9,7 @@ import { ManageTechniqueListComponent } from './manage-technique-list/manage-tec
 import { ManageTechniqueDetailComponent } from './manage-technique-detail/manage-technique-detail.component';
 import { CanDeactivateGuard } from '../can-deactivate.guard';
 import { ManageTechniqueDetailResolverService } from './manage-technique-detail-resolver.service';
+import { AddTechniqueComponent } from './add-technique/add-technique.component';
 
 const adminRoutes: Routes = [
   {
@@ -33,6 +34,10 @@ const adminRoutes: Routes = [
               technique: ManageTechniqueDetailResolverService,
             },
             data: { animation: 'detail' },
+          },
+          {
+            path: 'add-technique',
+            component: AddTechniqueComponent,
           },
           {
             path: '',

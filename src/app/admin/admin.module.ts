@@ -12,6 +12,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ManageTechniqueDetailComponent } from './manage-technique-detail/manage-technique-detail.component';
 import { ManageTechniqueListComponent } from './manage-technique-list/manage-technique-list.component';
+import { AddTechniqueComponent } from './add-technique/add-technique.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ManageTechniqueListComponent } from './manage-technique-list/manage-tec
     AdminDashboardComponent,
     ManageTechniqueDetailComponent,
     ManageTechniqueListComponent,
+    AddTechniqueComponent,
   ],
   imports: [
     CommonModule,
