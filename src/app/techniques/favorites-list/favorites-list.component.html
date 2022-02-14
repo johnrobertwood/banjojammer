@@ -5,15 +5,13 @@
         <h2>My Favorite Techniques</h2>
         <mat-chip-list>
           <ng-container *ngFor="let technique of techniques$ | async">
-            <mat-chip
-              *ngIf="technique.favorite"
-              [routerLink]="['/technique', technique.name]"
-              >{{ technique.displayName }}</mat-chip
-            >
+            <mat-chip [routerLink]="['/technique', technique.name]">{{
+              technique.displayName
+            }}</mat-chip>
           </ng-container>
         </mat-chip-list>
         <div *ngFor="let technique of techniques$ | async" class="col my-2">
-          <div *ngIf="technique.favorite" class="card shadow-sm">
+          <div class="card shadow-sm">
             <img
               [src]="
                 'https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/' +

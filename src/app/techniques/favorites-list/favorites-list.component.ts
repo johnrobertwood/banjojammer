@@ -3,8 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Technique } from 'src/app/techniques/technique';
 import { TechniqueService } from 'src/app/techniques/technique.service';
-import { switchMap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { AuthenticationService } from 'src/app/auth/authentication.service';
 
 @Component({
   selector: 'app-favorites-list',
@@ -16,7 +17,7 @@ export class FavoritesListComponent implements OnInit {
   techniques$: Observable<Technique[]>;
 
   constructor(
-    private techniqueService: TechniqueService,
+    private authService: AuthenticationService,
     private route: ActivatedRoute
   ) {}
 
@@ -28,8 +29,9 @@ export class FavoritesListComponent implements OnInit {
     this.techniques$ = this.route.paramMap.pipe(
       switchMap((params) => {
         this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques();
-      })
+        return this.authService.getUserHistory();
+      }),
+      map((user) => user.userHistory.favorite)
     );
   }
 

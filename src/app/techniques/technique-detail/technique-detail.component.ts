@@ -47,8 +47,8 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
         if (localStorage.getItem('currentUser')) {
           this.isLoggedIn = true;
           this.authService.getUserHistory().subscribe((res) => {
-            this.isFavorite = res.userHistory.favorite.find((fav) => {
-              return fav === technique.name;
+            this.isFavorite = res.userHistory.favorite.find((t) => {
+              return t.name === technique.name;
             });
           });
         } else {

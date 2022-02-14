@@ -672,17 +672,17 @@ export class AuthenticationService {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
 
-    const found = this.userHistory.favorite.find(function (name) {
-      return name === technique.name;
+    const found = this.userHistory.favorite.find(function (t) {
+      return t.name === technique.name;
     });
     if (found) {
       this.userHistory.favorite = this.userHistory.favorite.filter(function (
-        name
+        tech
       ) {
-        return name !== technique.name;
+        return tech.name !== technique.name;
       });
     } else {
-      this.userHistory.favorite.push(technique.name);
+      this.userHistory.favorite.push(technique);
     }
     const data = {
       username: this.userData.username,
