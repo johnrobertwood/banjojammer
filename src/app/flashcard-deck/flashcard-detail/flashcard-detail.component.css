@@ -17,7 +17,6 @@ mat-card {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #eee;
 }
 
 .hidden-card {
@@ -49,6 +48,6 @@ mat-card {
 }
 
 .activebutton {
-  background-color: #ffd740;
+  background-color: #69f0ae;
   color: #fff;
 }

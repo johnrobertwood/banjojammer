@@ -1,14 +1,16 @@
 <div class="container">
   <router-outlet></router-outlet>
   <mat-selection-list [multiple]="false">
-    <button
-      mat-list-item
-      *ngFor="let technique of techniques$ | async"
-      [routerLink]="['/flashcard-deck', technique.name]"
-      routerLinkActive="activebutton"
-      class="d-flex justify-content-center mb-2"
-    >
-      {{ technique.displayName }}
+    <button class="w-100 bg-grey">
+      <span
+        mat-list-item
+        *ngFor="let technique of techniques$ | async"
+        [routerLink]="['/flashcard-deck', technique.name]"
+        routerLinkActive="activebutton"
+        class="d-flex justify-content-center mb-2"
+      >
+        {{ technique.displayName }}
+      </span>
     </button>
   </mat-selection-list>
 </div>
