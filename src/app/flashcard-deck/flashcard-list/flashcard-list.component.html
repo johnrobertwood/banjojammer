@@ -2,14 +2,14 @@
   <router-outlet></router-outlet>
   <h2>Flashcard Practice Deck</h2>
   <mat-selection-list [multiple]="false">
-    <mat-list-option
+    <button
+      mat-list-item
       *ngFor="let technique of techniques$ | async"
       [routerLink]="['/flashcard-deck', technique.name]"
-      [class.selected]="technique.name === selectedName"
       routerLinkActive="activebutton"
-      class="d-flex justify-content-center"
+      class="d-flex justify-content-center mb-2"
     >
       {{ technique.displayName }}
-    </mat-list-option>
+    </button>
   </mat-selection-list>
 </div>
