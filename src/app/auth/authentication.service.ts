@@ -645,7 +645,11 @@ export class AuthenticationService {
     const data = {
       userId: payload.data.userSub,
       username: payload.data.user.username.toLowerCase(),
-      userHistory: this.userHistory,
+      userHistory: {
+        flashcard: [],
+        quiz: [],
+        favorite: [],
+      },
     };
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/users';
