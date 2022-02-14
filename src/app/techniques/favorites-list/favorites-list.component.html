@@ -1,7 +1,7 @@
 <main>
   <div class="album py-3 bg-light">
     <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="row row-cols-1 row-cols-sm-2 g-3">
         <h2>My Favorite Techniques</h2>
         <mat-chip-list>
           <ng-container *ngFor="let technique of techniques$ | async">
@@ -13,10 +13,7 @@
         <div *ngFor="let technique of techniques$ | async" class="col my-2">
           <div class="card shadow-sm">
             <img
-              [src]="
-                'https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/' +
-                  technique.video.thumbnail | safe
-              "
+              [src]="technique.video.thumbnail | safe"
               [routerLink]="['/technique', technique.name]"
               class="img-responsive card-container"
               alt="Video Thumbnail"
