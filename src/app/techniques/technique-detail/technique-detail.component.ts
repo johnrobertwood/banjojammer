@@ -4,9 +4,10 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { pluck, switchMap, takeUntil } from 'rxjs/operators';
+import { pluck, switchMap, tap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { AuthenticationService } from 'src/app/auth/authentication.service';
 
 @Component({
   selector: 'app-technique-detail',
@@ -18,12 +19,14 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
   technique$: Observable<Technique>;
   isSmallScreen: boolean;
   isLoggedIn: boolean;
+  isFavorite: boolean;
   url: string;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private route: ActivatedRoute,
-    private techniqueService: TechniqueService
+    private techniqueService: TechniqueService,
+    private authService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
@@ -39,20 +42,25 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
     this.technique$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.techniqueService.getUserTechnique(params.get('name'))
-      )
+      ),
+      tap((technique) => {
+        if (localStorage.getItem('currentUser')) {
+          this.isLoggedIn = true;
+          this.authService.getUserHistory().subscribe((res) => {
+            this.isFavorite = res.userHistory.favorite.find((fav) => {
+              return fav === technique.name;
+            });
+          });
+        } else {
+          this.isLoggedIn = false;
+        }
+      })
     );
-    if (localStorage.getItem('currentUser')) {
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
-    }
   }
 
   favoriteTechnique(technique: Technique) {
-    this.techniqueService
-      .favoriteTechnique(technique)
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe();
+    this.authService.favoriteTechnique(technique).subscribe();
+    this.isFavorite = !this.isFavorite;
   }
 
   ngOnDestroy() {

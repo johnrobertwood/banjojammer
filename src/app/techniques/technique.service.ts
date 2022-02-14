@@ -89,25 +89,6 @@ export class TechniqueService {
       .pipe(catchError(this.ehs.handleError<any>('editTechnique')));
   }
 
-  favoriteTechnique(technique: Technique): Observable<Technique> {
-    technique.favorite = !technique.favorite;
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    const url = `${this.apiGatewayUrl}/favorite`;
-
-    if (currentUser !== null) {
-      const data = {
-        currentUser,
-        technique,
-      };
-
-      return this.http
-        .patch(url, data, this.httpOptions)
-        .pipe(catchError(this.ehs.handleError<any>('favoriteTechnique error')));
-    } else {
-      return of(null);
-    }
-  }
-
   /** POST: add a new technique to the server */
   addTechnique(technique: Technique): Observable<Technique> {
     return this.http

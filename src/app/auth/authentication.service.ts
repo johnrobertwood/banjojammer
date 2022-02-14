@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { ErrorHandlingService } from '../error-handling.service';
+import { Technique } from '../techniques/technique';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,6 @@ export class AuthenticationService {
       displayName: 'Armbar',
       prevTechnique: null,
       nextTechnique: 'triangle',
-      favorite: false,
       quiz: {
         name: 'Armbar Quiz',
         complete: false,
@@ -61,7 +61,6 @@ export class AuthenticationService {
       displayName: 'Triangle',
       prevTechnique: 'armbar',
       nextTechnique: 'kimura',
-      favorite: false,
       quiz: {
         name: 'Triangle Quiz',
         complete: false,
@@ -94,7 +93,6 @@ export class AuthenticationService {
       displayName: 'Kimura',
       prevTechnique: 'triangle',
       nextTechnique: 'rearNakedChoke',
-      avorite: false,
       quiz: {
         name: 'Kimura Quiz',
         complete: false,
@@ -135,7 +133,6 @@ export class AuthenticationService {
       displayName: 'Rear Naked Choke',
       prevTechnique: 'kimura',
       nextTechnique: 'omoplata',
-      favorite: false,
       quiz: {
         name: 'Rear Naked Choke Quiz',
         question:
@@ -178,7 +175,6 @@ export class AuthenticationService {
       displayName: 'Omoplata',
       prevTechnique: 'rearNakedChoke',
       nextTechnique: 'guillotine',
-      favorite: false,
       quiz: {
         name: 'Omoplata Quiz',
         complete: false,
@@ -220,7 +216,6 @@ export class AuthenticationService {
       displayName: 'Guillotine',
       prevTechnique: 'omoplata',
       nextTechnique: 'headAndArmChoke',
-      favorite: false,
       quiz: {
         name: 'Guillotine Quiz',
         complete: false,
@@ -255,8 +250,6 @@ export class AuthenticationService {
       displayName: 'Head and Arm Choke',
       prevTechnique: 'guillotine',
       nextTechnique: 'defendingAmericana',
-
-      favorite: false,
       quiz: {
         name: 'Head and Arm Choke Quiz',
         complete: false,
@@ -298,7 +291,6 @@ export class AuthenticationService {
       displayName: 'Defending Americana',
       prevTechnique: 'headAndArmChoke',
       nextTechnique: 'straightArmlock',
-      favorite: false,
       quiz: {
         name: 'Defending Americana Quiz',
         complete: false,
@@ -333,7 +325,6 @@ export class AuthenticationService {
       prevTechnique: 'defendingAmericana',
       nextTechnique: 'straightKneebar',
 
-      favorite: false,
       quiz: {
         name: 'Straight Armlock Quiz',
         complete: false,
@@ -368,7 +359,6 @@ export class AuthenticationService {
       displayName: 'Straight Kneebar',
       prevTechnique: 'straightArmlock',
       nextTechnique: 'avoidDeepHalfGuard',
-      favorite: false,
       quiz: {
         name: 'Straight Kneebar Quiz',
         complete: false,
@@ -410,7 +400,6 @@ export class AuthenticationService {
       displayName: 'Avoid Deep Half Guard',
       prevTechnique: 'straightKneebar',
       nextTechnique: 'scissorSweep',
-      favorite: false,
       quiz: {
         name: 'Avoid Deep Half Guard Quiz',
         complete: false,
@@ -452,7 +441,6 @@ export class AuthenticationService {
       displayName: 'Scissor Sweep',
       prevTechnique: 'avoidDeepHalfGuard',
       nextTechnique: 'heelHookDefense',
-      favorite: false,
       quiz: {
         name: 'Scissor Sweep Quiz',
         complete: false,
@@ -495,7 +483,6 @@ export class AuthenticationService {
       displayName: 'Heel Hook Defense',
       prevTechnique: 'scissorSweep',
       nextTechnique: 'triangleEscape',
-      favorite: false,
       quiz: {
         name: 'Heel Hook Defense Quiz',
         complete: false,
@@ -537,7 +524,6 @@ export class AuthenticationService {
       displayName: 'Triangle Escape',
       prevTechnique: 'heelHookDefense',
       nextTechnique: 'armbarDefense',
-      favorite: false,
       quiz: {
         name: 'Triangle Escape Quiz',
         complete: false,
@@ -579,7 +565,6 @@ export class AuthenticationService {
       displayName: 'Armbar Defense',
       prevTechnique: 'triangleEscape',
       nextTechnique: null,
-      favorite: false,
       quiz: {
         name: 'Armbar Defense Quiz',
         complete: false,
@@ -615,6 +600,12 @@ export class AuthenticationService {
         thumbnail: 'https://img.youtube.com/vi/zwNOXB8GQ3w/default.jpg',
       },
     },
+  };
+
+  userHistory = {
+    flashcard: [],
+    quiz: [],
+    favorite: [],
   };
 
   httpOptions = {
@@ -654,7 +645,7 @@ export class AuthenticationService {
     const data = {
       userId: payload.data.userSub,
       username: payload.data.user.username.toLowerCase(),
-      techniques: this.techniques,
+      userHistory: this.userHistory,
     };
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/users';
@@ -673,7 +664,49 @@ export class AuthenticationService {
     return this.http
       .post<any>(url, data, this.httpOptions)
       .pipe(
-        catchError(this.ehs.handleError<any>('addTechnique HTTP post error'))
+        catchError(this.ehs.handleError<any>('addTechniques HTTP post error'))
       );
+  }
+
+  favoriteTechnique(technique: Technique): Observable<any> {
+    const url =
+      'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
+
+    const found = this.userHistory.favorite.find(function (name) {
+      return name === technique.name;
+    });
+    if (found) {
+      this.userHistory.favorite = this.userHistory.favorite.filter(function (
+        name
+      ) {
+        return name !== technique.name;
+      });
+    } else {
+      this.userHistory.favorite.push(technique.name);
+    }
+    const data = {
+      username: this.userData.username,
+      userHistory: this.userHistory,
+    };
+
+    return this.http
+      .patch<any>(url, data, this.httpOptions)
+      .pipe(
+        catchError(
+          this.ehs.handleError<any>('favoriteTechnique HTTP patch error')
+        )
+      );
+  }
+
+  getUserHistory() {
+    const data = {
+      username: this.userData.username,
+    };
+    const url =
+      'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/user';
+    return this.http.post<any>(url, data, this.httpOptions).pipe(
+      tap((user) => (this.userHistory = user.userHistory)),
+      catchError(this.ehs.handleError<any>('getUserHistory HTTP get error'))
+    );
   }
 }

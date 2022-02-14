@@ -4,7 +4,6 @@ export interface Technique {
   displayName: string;
   prevTechnique: string;
   nextTechnique: string;
-  favorite: boolean;
   quiz: {
     complete: boolean;
     question: string;
