@@ -1,15 +1,6 @@
 @import "@angular/material/prebuilt-themes/purple-green.css";
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
-nav a {
-  padding: 5px 10px;
-  text-decoration: none;
-  margin-right: 10px;
-  margin-top: 10px;
-  display: inline-block;
-  border-radius: 4px;
-}
-
 * {
   font-family: Arial, Helvetica, sans-serif;
 }

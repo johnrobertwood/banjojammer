@@ -8,12 +8,10 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
   templateUrl: './add-technique.component.html',
   styleUrls: ['./add-technique.component.css'],
 })
-export class AddTechniqueComponent implements OnInit {
+export class AddTechniqueComponent {
   private ngUnsubscribe = new Subject();
   constructor(private authService: AuthenticationService) {}
   techArrayName: string;
-
-  ngOnInit(): void {}
 
   addTechnique() {
     this.authService

@@ -660,7 +660,7 @@ export class AuthenticationService {
 
   addTechniques(userId: string): Observable<any> {
     const data = {
-      userId: userId,
+      userId,
       techniques: this.techniques,
     };
     const url =
@@ -676,13 +676,11 @@ export class AuthenticationService {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
 
-    const found = this.userHistory.favorite.find(function (t) {
+    const found = this.userHistory.favorite.find((t) => {
       return t.name === technique.name;
     });
     if (found) {
-      this.userHistory.favorite = this.userHistory.favorite.filter(function (
-        tech
-      ) {
+      this.userHistory.favorite = this.userHistory.favorite.filter((tech) => {
         return tech.name !== technique.name;
       });
     } else {
