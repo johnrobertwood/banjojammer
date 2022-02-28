@@ -4,10 +4,12 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import { AuthenticationService } from 'src/app/auth/authentication.service';
 import { Technique } from '../../techniques/technique';
-import { TechniqueService } from '../../techniques/technique.service';
 
 export interface DialogData {
   technique: Technique;
@@ -21,10 +23,12 @@ export interface DialogData {
 export class DialogContentFlashcardComponent implements OnDestroy {
   private ngUnsubscribe = new Subject();
   @Input() technique: Technique;
+  answered: boolean;
+  @Input() isFlashDone: boolean;
 
   constructor(
     public dialog: MatDialog,
-    private techniqueService: TechniqueService
+    private authService: AuthenticationService
   ) {}
 
   openDialog(): void {
@@ -37,8 +41,8 @@ export class DialogContentFlashcardComponent implements OnDestroy {
 
     dialogRef.afterClosed().subscribe((result) => {
       // set to answered with HTTP for user profile
-      this.technique.flashcard.complete = true;
-      this.techniqueService
+      this.isFlashDone = true;
+      this.authService
         .updateTechnique(this.technique, 'flashcard')
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe();

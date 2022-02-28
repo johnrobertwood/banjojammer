@@ -20,6 +20,8 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
   isSmallScreen: boolean;
   isLoggedIn: boolean;
   isFavorite: boolean;
+  isQuizDone: boolean;
+  isFlashDone: boolean;
   url: string;
 
   constructor(
@@ -47,9 +49,17 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
         if (localStorage.getItem('currentUser')) {
           this.isLoggedIn = true;
           this.authService.getUserHistory().subscribe((res) => {
-            this.isFavorite = res.userHistory.favorite.find((t) => {
+            this.isFavorite = res.userHistory.favorite.find((t: Technique) => {
               return t.name === technique.name;
             });
+            this.isQuizDone = res.userHistory.quiz.find((t: Technique) => {
+              return t.name === technique.name;
+            });
+            this.isFlashDone = res.userHistory.flashcard.find(
+              (t: Technique) => {
+                return t.name === technique.name;
+              }
+            );
           });
         } else {
           this.isLoggedIn = false;
@@ -58,8 +68,13 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
     );
   }
 
-  favoriteTechnique(technique: Technique) {
-    this.authService.favoriteTechnique(technique).subscribe();
+  clearQuiz(): void {
+    this.isQuizDone = false;
+    this.isFlashDone = false;
+  }
+
+  updateTechnique(technique: Technique, saveType: string) {
+    this.authService.updateTechnique(technique, saveType).subscribe();
     this.isFavorite = !this.isFavorite;
   }
 

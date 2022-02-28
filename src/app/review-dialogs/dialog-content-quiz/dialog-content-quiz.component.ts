@@ -4,10 +4,12 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import { AuthenticationService } from 'src/app/auth/authentication.service';
 import { Technique } from '../../techniques/technique';
-import { TechniqueService } from '../../techniques/technique.service';
 
 export interface DialogData {
   technique: Technique;
@@ -23,10 +25,11 @@ export class DialogContentQuizComponent implements OnDestroy {
   private ngUnsubscribe = new Subject();
   @Input() technique: Technique;
   answered: boolean;
+  @Input() isQuizDone: boolean;
 
   constructor(
     public dialog: MatDialog,
-    private techniqueService: TechniqueService
+    private authService: AuthenticationService
   ) {}
 
   openDialog(): void {
@@ -38,9 +41,9 @@ export class DialogContentQuizComponent implements OnDestroy {
       },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      this.technique.quiz.complete = true;
-      this.techniqueService
+    dialogRef.afterClosed().subscribe(() => {
+      this.isQuizDone = true;
+      this.authService
         .updateTechnique(this.technique, 'quiz')
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe();

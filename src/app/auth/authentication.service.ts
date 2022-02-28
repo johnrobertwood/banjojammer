@@ -87,20 +87,21 @@ export class AuthenticationService {
       );
   }
 
-  favoriteTechnique(technique: Technique): Observable<any> {
+  updateTechnique(technique: Technique, saveType: string): Observable<any> {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
 
-    const found = this.userHistory.favorite.find((t) => {
+    const found = this.userHistory[saveType].find((t) => {
       return t.name === technique.name;
     });
     if (found) {
-      this.userHistory.favorite = this.userHistory.favorite.filter((tech) => {
+      this.userHistory[saveType] = this.userHistory[saveType].filter((tech) => {
         return tech.name !== technique.name;
       });
     } else {
-      this.userHistory.favorite.push(technique);
+      this.userHistory[saveType].push(technique);
     }
+
     const data = {
       username: this.userData.username,
       userHistory: this.userHistory,
