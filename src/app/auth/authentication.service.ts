@@ -21,7 +21,6 @@ export class AuthenticationService {
       prevTechnique: null,
       nextTechnique: 'triangle',
       quiz: {
-        name: 'Armbar Quiz',
         complete: false,
         question:
           'What are the important body part elements for entering to the armbar position?',
@@ -45,14 +44,13 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Armbar',
         complete: false,
         question: 'What is the body position for entering an armbar?',
         answer: 'Controlling his head, pulling his elbow inside our hips',
       },
       video: {
         url: 'https://www.youtube.com/embed/pQ43Oy5k9yQ',
-        thumbnail: 'https://img.youtube.com/vi/pQ43Oy5k9yQ/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/pQ43Oy5k9yQ/mqdefault.jpg',
       },
     },
     triangle: {
@@ -62,7 +60,6 @@ export class AuthenticationService {
       prevTechnique: 'armbar',
       nextTechnique: 'kimura',
       quiz: {
-        name: 'Triangle Quiz',
         complete: false,
         question: 'How do you lock up a triangle?',
         responses: [
@@ -76,7 +73,6 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Triangle',
         complete: false,
         question: 'What are the triangle key points?',
         answer:
@@ -84,7 +80,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/oVvEQeasAxQ',
-        thumbnail: 'https://img.youtube.com/vi/oVvEQeasAxQ/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/oVvEQeasAxQ/mqdefault.jpg',
       },
     },
     kimura: {
@@ -94,7 +90,6 @@ export class AuthenticationService {
       prevTechnique: 'triangle',
       nextTechnique: 'rearNakedChoke',
       quiz: {
-        name: 'Kimura Quiz',
         complete: false,
         question: 'What are the key body positions for a kimura from guard?',
         responses: [
@@ -117,14 +112,13 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Kimura',
         complete: false,
         question: 'What is the first step of Kimura from closed guard?',
         answer: 'Get his hands on the mat',
       },
       video: {
         url: 'https://www.youtube.com/embed/mVkKOPNGvjA',
-        thumbnail: 'https://img.youtube.com/vi/mVkKOPNGvjA/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/mVkKOPNGvjA/mqdefault.jpg',
       },
     },
     rearNakedChoke: {
@@ -134,7 +128,7 @@ export class AuthenticationService {
       prevTechnique: 'kimura',
       nextTechnique: 'omoplata',
       quiz: {
-        name: 'Rear Naked Choke Quiz',
+        complete: false,
         question:
           'How do you break his grip to finish choke when opponent is holding your hands?',
         responses: [
@@ -155,10 +149,8 @@ export class AuthenticationService {
             correct: false,
           },
         ],
-        complete: false,
       },
       flashcard: {
-        name: 'Rear Naked Choke',
         complete: false,
         question: 'Steps to finish a Rear Naked Choke?',
         answer:
@@ -166,7 +158,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/lZnST9hNkNU',
-        thumbnail: 'https://img.youtube.com/vi/lZnST9hNkNU/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/lZnST9hNkNU/mqdefault.jpg',
       },
     },
     omoplata: {
@@ -176,7 +168,6 @@ export class AuthenticationService {
       prevTechnique: 'rearNakedChoke',
       nextTechnique: 'guillotine',
       quiz: {
-        name: 'Omoplata Quiz',
         complete: false,
         question: 'What are the two variations of Omoplata from closed guard?',
         responses: [
@@ -199,7 +190,6 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Omoplata',
         complete: false,
         question: 'What are the two variations of Omoplata from closed guard?',
         answer:
@@ -207,7 +197,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/LVy4tGv5Fk4',
-        thumbnail: 'https://img.youtube.com/vi/LVy4tGv5Fk4/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/LVy4tGv5Fk4/mqdefault.jpg',
       },
     },
     guillotine: {
@@ -217,7 +207,6 @@ export class AuthenticationService {
       prevTechnique: 'omoplata',
       nextTechnique: 'headAndArmChoke',
       quiz: {
-        name: 'Guillotine Quiz',
         complete: false,
         question:
           'True or False: To finish a guillotine you lean straight back while pulling on the head',
@@ -233,7 +222,6 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Guillotine',
         complete: false,
         question: 'How can you stop the pass when sitting back on guillotine?',
         answer:
@@ -241,7 +229,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/DPKhbTth0So',
-        thumbnail: 'https://img.youtube.com/vi/DPKhbTth0So/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/DPKhbTth0So/mqdefault.jpg',
       },
     },
     headAndArmChoke: {
@@ -251,7 +239,6 @@ export class AuthenticationService {
       prevTechnique: 'guillotine',
       nextTechnique: 'defendingAmericana',
       quiz: {
-        name: 'Head and Arm Choke Quiz',
         complete: false,
         question: 'What is the setup for Head and Arm from side control',
         responses: [
@@ -274,7 +261,6 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Head and Arm Choke',
         complete: false,
         question: 'What is the finish for head and arm choke',
         answer:
@@ -282,7 +268,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/Hw8-59qdvnU',
-        thumbnail: 'https://img.youtube.com/vi/Hw8-59qdvnU/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/Hw8-59qdvnU/mqdefault.jpg',
       },
     },
     defendingAmericana: {
@@ -292,7 +278,6 @@ export class AuthenticationService {
       prevTechnique: 'headAndArmChoke',
       nextTechnique: 'straightArmlock',
       quiz: {
-        name: 'Defending Americana Quiz',
         complete: false,
         question:
           'To defend the Americana you turn towards the arm and suck it in towards your body',
@@ -308,14 +293,13 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Americana',
         complete: false,
         question: 'How do you defend an Americana when it is already deep?',
         answer: 'Bridge and then suck in the arm while pusing his elbow',
       },
       video: {
         url: 'https://www.youtube.com/embed/FNyL93v5fGs',
-        thumbnail: 'https://img.youtube.com/vi/FNyL93v5fGs/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/FNyL93v5fGs/mqdefault.jpg',
       },
     },
     straightArmlock: {
@@ -324,9 +308,7 @@ export class AuthenticationService {
       displayName: 'Straight Armlock',
       prevTechnique: 'defendingAmericana',
       nextTechnique: 'straightKneebar',
-
       quiz: {
-        name: 'Straight Armlock Quiz',
         complete: false,
         question:
           'To finish the straight arm lock, put one hand on mat and use the other to turn his wrist',
@@ -342,7 +324,6 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Straight Arm Lock',
         complete: false,
         question: 'What are common mistake in finishing the straight arm lock?',
         answer:
@@ -350,7 +331,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/rZNFFH2hpbo',
-        thumbnail: 'https://img.youtube.com/vi/rZNFFH2hpbo/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/rZNFFH2hpbo/mqdefault.jpg',
       },
     },
     straightKneebar: {
@@ -360,7 +341,6 @@ export class AuthenticationService {
       prevTechnique: 'straightArmlock',
       nextTechnique: 'avoidDeepHalfGuard',
       quiz: {
-        name: 'Straight Kneebar Quiz',
         complete: false,
         question:
           'What move should you fake to provoke a reaction for the knee bar entry?',
@@ -384,14 +364,13 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Straight Knee Bar Flashcard',
         complete: false,
         question: 'What position is a good start for the Straight Knee Bar?',
         answer: 'Works well from top half when opponent is up on his side',
       },
       video: {
         url: 'https://www.youtube.com/embed/1UYJRNqW5Ao',
-        thumbnail: 'https://img.youtube.com/vi/1UYJRNqW5Ao/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/1UYJRNqW5Ao/mqdefault.jpg',
       },
     },
     avoidDeepHalfGuard: {
@@ -401,7 +380,6 @@ export class AuthenticationService {
       prevTechnique: 'straightKneebar',
       nextTechnique: 'scissorSweep',
       quiz: {
-        name: 'Avoid Deep Half Guard Quiz',
         complete: false,
         question:
           'What should you do to avoid getting stuck in deep half guard?',
@@ -425,14 +403,13 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Half Guard Sweep Flashcard',
         complete: false,
         question: 'What should you do to avoid getting stuck deep half guard?',
         answer: 'Sprawl, use a crossface and pummel your foot inside his calf',
       },
       video: {
         url: 'https://www.youtube.com/embed/FNaMku7pjDU',
-        thumbnail: 'https://img.youtube.com/vi/FNaMku7pjDU/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/FNaMku7pjDU/mqdefault.jpg',
       },
     },
     scissorSweep: {
@@ -442,7 +419,6 @@ export class AuthenticationService {
       prevTechnique: 'avoidDeepHalfGuard',
       nextTechnique: 'heelHookDefense',
       quiz: {
-        name: 'Scissor Sweep Quiz',
         complete: false,
         question:
           'What is the position for scissor sweep when opponent lifts leg and postures',
@@ -466,7 +442,6 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Scissor Sweep Flashcard',
         complete: false,
         question: 'What is the correct leg position for scissor sweep',
         answer:
@@ -474,7 +449,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/X-PA21_0xTg',
-        thumbnail: 'https://img.youtube.com/vi/X-PA21_0xTg/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/X-PA21_0xTg/mqdefault.jpg',
       },
     },
     heelHookDefense: {
@@ -484,7 +459,6 @@ export class AuthenticationService {
       prevTechnique: 'scissorSweep',
       nextTechnique: 'triangleEscape',
       quiz: {
-        name: 'Heel Hook Defense Quiz',
         complete: false,
         question: 'How do you defend the inside heel hook?',
         responses: [
@@ -507,7 +481,6 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Heel Hook Defense Flashcard',
         complete: false,
         question: 'How do you defend the inside heel hook',
         answer:
@@ -515,7 +488,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/w-W0ug7Edag',
-        thumbnail: 'https://img.youtube.com/vi/w-W0ug7Edag/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/w-W0ug7Edag/mqdefault.jpg',
       },
     },
     triangleEscape: {
@@ -525,7 +498,6 @@ export class AuthenticationService {
       prevTechnique: 'heelHookDefense',
       nextTechnique: 'armbarDefense',
       quiz: {
-        name: 'Triangle Escape Quiz',
         complete: false,
         question: 'How do you escape the late front triangle?',
         responses: [
@@ -548,15 +520,14 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Triangle Escape',
         complete: false,
-        question: 'Triangle Escape Flashcard',
+        question: 'How do you escape the triangle',
         answer:
           'Lock hands, posture up to standing then step both legs on their chest',
       },
       video: {
         url: 'https://www.youtube.com/embed/od-lcD_34f8',
-        thumbnail: 'https://img.youtube.com/vi/od-lcD_34f8/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/od-lcD_34f8/mqdefault.jpg',
       },
     },
     armbarDefense: {
@@ -566,7 +537,6 @@ export class AuthenticationService {
       prevTechnique: 'triangleEscape',
       nextTechnique: null,
       quiz: {
-        name: 'Armbar Defense Quiz',
         complete: false,
         question: 'How do you escape the armbar?',
         responses: [
@@ -589,7 +559,6 @@ export class AuthenticationService {
         ],
       },
       flashcard: {
-        name: 'Armbar Defense Flashcard',
         complete: false,
         question: 'What are the armbar defense steps?',
         answer:
@@ -597,7 +566,7 @@ export class AuthenticationService {
       },
       video: {
         url: 'https://www.youtube.com/embed/zwNOXB8GQ3w',
-        thumbnail: 'https://img.youtube.com/vi/zwNOXB8GQ3w/default.jpg',
+        thumbnail: 'https://img.youtube.com/vi/zwNOXB8GQ3w/mqdefault.jpg',
       },
     },
   };
