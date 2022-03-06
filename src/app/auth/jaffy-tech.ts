@@ -1,8 +1,8 @@
 const jaffyTech = {
-  armbar: {
+  kneeSlice: {
     id: 0,
     name: 'kneeSlice',
-    displayName: 'Knee Slice Closed Guard',
+    displayName: 'Knee Slice Closed',
     prevTechnique: null,
     nextTechnique: 'barDarce',
     quiz: {
@@ -29,7 +29,7 @@ const jaffyTech = {
     },
     flashcard: {
       complete: false,
-      question: 'What is the keys for knee slice from closed guard?',
+      question: 'What are the keys for knee slice from closed guard?',
       answer:
         'Stand up, knee in the middle, turn knee down, underhook and slice',
     },
@@ -341,7 +341,7 @@ const jaffyTech = {
     flashcard: {
       complete: false,
       question: 'What is the single leg a good alternative for?',
-      answer: 'Alternative to recovering guard',
+      answer: 'An alternative to recovering guard',
     },
     notes: [
       { text: 'Single leg is a good alternative to recovering guard' },
@@ -487,7 +487,7 @@ const jaffyTech = {
     name: 'donkeyGuillotine',
     displayName: 'Donkey Guillotine',
     prevTechnique: 'paperCutterChoke',
-    nextTechnique: null,
+    nextTechnique: 'fakeSingleToHook',
     quiz: {
       complete: false,
       question: 'What is the donkey guillotine?',
@@ -526,8 +526,8 @@ const jaffyTech = {
     id: 12,
     name: 'fakeSingleToHook',
     displayName: 'Fake Single To Hook',
-    prevTechnique: 'paperCutterChoke',
-    nextTechnique: 'deepHalfGuardSweep',
+    prevTechnique: 'donkeyGuillotine',
+    nextTechnique: 'gogoplata',
     quiz: {
       complete: false,
       question: 'What is the fake single to hook?',
@@ -569,7 +569,7 @@ const jaffyTech = {
     name: 'gogoplata',
     displayName: 'Gogoplata',
     prevTechnique: 'fakeSingleToHook',
-    nextTechnique: null,
+    nextTechnique: 'deepHalfGuardSweep',
     quiz: {
       complete: false,
       question: 'What is the gogoplata?',
@@ -611,7 +611,7 @@ const jaffyTech = {
     id: 14,
     name: 'Deep Half Guard Sweep',
     displayName: 'Deep Half Guard Sweep',
-    prevTechnique: 'fakeSingleToHook',
+    prevTechnique: 'gogoplata',
     nextTechnique: null,
     quiz: {
       complete: false,
