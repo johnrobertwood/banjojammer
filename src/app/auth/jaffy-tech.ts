@@ -522,6 +522,133 @@ const jaffyTech = {
       thumbnail: 'https://img.youtube.com/vi/56387hMPiLk/mqdefault.jpg',
     },
   },
+  fakeSingleToHook: {
+    id: 12,
+    name: 'fakeSingleToHook',
+    displayName: 'Fake Single To Hook',
+    prevTechnique: 'paperCutterChoke',
+    nextTechnique: 'deepHalfGuardSweep',
+    quiz: {
+      complete: false,
+      question: 'What is the fake single to hook?',
+      responses: [
+        {
+          text: 'Change levels and touch the leg then rise up with the left hook',
+          correct: false,
+        },
+        {
+          text: 'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
+          correct: true,
+        },
+        {
+          text: 'Kick straight out with top leg and drop bottom leg like a prostitute',
+          correct: false,
+        },
+        {
+          text: 'Swim under then grab around the waist',
+          correct: false,
+        },
+      ],
+    },
+    flashcard: {
+      complete: false,
+      question: 'What is the fake single to hook?',
+      answer: 'Change levels and touch the leg then rise up with the left hook',
+    },
+    notes: [
+      { text: 'Think Fake - Punch - Real' },
+      { text: 'A good one to try on your friends' },
+    ],
+    video: {
+      url: 'https://www.youtube.com/embed/h9Bxfnob1Cc',
+      thumbnail: 'https://img.youtube.com/vi/h9Bxfnob1Cc/mqdefault.jpg',
+    },
+  },
+  gogoplata: {
+    id: 13,
+    name: 'gogoplata',
+    displayName: 'Gogoplata',
+    prevTechnique: 'fakeSingleToHook',
+    nextTechnique: null,
+    quiz: {
+      complete: false,
+      question: 'What is the gogoplata?',
+      responses: [
+        {
+          text: 'Shrimp away then swing your leg up from guard or trap the arm in mount and bring the shin across under chin',
+          correct: false,
+        },
+        {
+          text: 'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
+          correct: true,
+        },
+        {
+          text: 'Kick straight out with top leg and drop bottom leg like a prostitute',
+          correct: false,
+        },
+        {
+          text: 'Swim under then grab around the waist',
+          correct: false,
+        },
+      ],
+    },
+    flashcard: {
+      complete: false,
+      question: 'What is the gogoplata?',
+      answer:
+        'Shrimp away then swing your leg up from guard or trap the arm in mount and bring the shin across under chin',
+    },
+    notes: [
+      { text: 'A good move for flexible guys' },
+      { text: 'Reach over his head to grab your own foot for the finish' },
+    ],
+    video: {
+      url: 'https://www.youtube.com/embed/9gUzj39Kh0s',
+      thumbnail: 'https://img.youtube.com/vi/9gUzj39Kh0s/mqdefault.jpg',
+    },
+  },
+  deepHalfGuardSweep: {
+    id: 14,
+    name: 'Deep Half Guard Sweep',
+    displayName: 'Deep Half Guard Sweep',
+    prevTechnique: 'fakeSingleToHook',
+    nextTechnique: null,
+    quiz: {
+      complete: false,
+      question: 'What is the Deep Half Guard Sweep?',
+      responses: [
+        {
+          text: 'Get his knee to touch the ground then use his momentum to swing up to single leg with head inside',
+          correct: false,
+        },
+        {
+          text: 'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
+          correct: true,
+        },
+        {
+          text: 'Kick straight out with top leg and drop bottom leg like a prostitute',
+          correct: false,
+        },
+        {
+          text: 'Swim under then grab around the waist',
+          correct: false,
+        },
+      ],
+    },
+    flashcard: {
+      complete: false,
+      question: 'What is the Deep Half Guard Sweep?',
+      answer:
+        'Get his knee to touch the ground to provoke pull back reaction then momentum to swing up on head inside single leg',
+    },
+    notes: [
+      { text: 'Can use inside hook to spin and transition to 50/50 heel hook' },
+    ],
+    video: {
+      url: 'https://www.youtube.com/embed/WNXrZjz8nFU',
+      thumbnail: 'https://img.youtube.com/vi/WNXrZjz8nFU/mqdefault.jpg',
+    },
+  },
 };
 
 export default jaffyTech;
