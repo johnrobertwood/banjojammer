@@ -14,4 +14,4 @@ _npm run-script build_ creates a folder for production deployment on S3 or GH pa
 
 Built with Angular, Material UI, Bootstrap, AWS API Gateway, AWS Lambda, AWS DynamoDB and AWS Amplify.
 
-**Wood Web Development, LLC**
+**Woodz Web Development, LLC**
