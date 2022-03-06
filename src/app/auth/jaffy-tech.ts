@@ -609,7 +609,7 @@ const jaffyTech = {
   },
   deepHalfGuardSweep: {
     id: 14,
-    name: 'Deep Half Guard Sweep',
+    name: 'deepHalfGuardSweep',
     displayName: 'Deep Half Guard Sweep',
     prevTechnique: 'gogoplata',
     nextTechnique: null,
