@@ -487,7 +487,7 @@ const jaffyTech = {
     name: 'donkeyGuillotine',
     displayName: 'Donkey Guillotine',
     prevTechnique: 'paperCutterChoke',
-    nextTechnique: 'heelHookDefense',
+    nextTechnique: 'null',
     quiz: {
       complete: false,
       question: 'What is the donkey guillotine?',
