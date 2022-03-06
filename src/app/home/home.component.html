@@ -2,7 +2,7 @@
   <section *ngIf="!isLoggedIn" class="pt-3 text-center container">
     <div class="row">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <p class="lead text-muted">
+        <p class="lead text-white-50 font-weight-bold">
           Take your Jiu Jitsu game to the next level with videos, notes,
           flashcards and quizzes.
         </p>
@@ -42,12 +42,14 @@
               alt="Video Thumbnail"
             />
             <div class="h-100 d-flex flex-column justify-content-between">
-              <div class="d-flex flex-column justify-content-between px-2">
-                <h3 class="mb-0 align-self-center">
-                  {{ technique.displayName }}
-                </h3>
+              <div class="d-flex flex-column px-2">
+                <div class="mb-0 align-self-center">
+                  <h3>
+                    {{ technique.displayName }}
+                  </h3>
+                </div>
                 <div>
-                  <p class="text-muted m-0">
+                  <p class="flashcard-text text-white-50 m-0">
                     {{ technique.flashcard.question }}
                   </p>
                 </div>
