@@ -6,7 +6,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { ErrorHandlingService } from '../error-handling.service';
 import { Technique } from '../techniques/technique';
 
-import basicTechniques from './basic-techniques';
+import jaffyTech from './jaffy-tech';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class AuthenticationService {
   isLoggedIn = false;
   userData: any;
 
-  techniques: { [key: string]: object } = basicTechniques;
+  techniques: { [key: string]: object } = jaffyTech;
 
   userHistory = {
     flashcard: [],
