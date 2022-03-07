@@ -4,7 +4,7 @@ h1 a {
 }
 
 mat-toolbar {
-  height: 54px;
+  height: 58px;
 }
 
 a {
@@ -49,4 +49,11 @@ li {
 
 .activebutton:hover {
   background-color: #cfd8dc;
+}
+
+mat-icon {
+  color: #69f0ae;
+  font-size: 1.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
 }

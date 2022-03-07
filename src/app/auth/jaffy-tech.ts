@@ -435,7 +435,7 @@ const jaffyTech = {
     },
     notes: [
       { text: 'Get inside hand position on his biceps and stand up' },
-      { text: 'Practice the cross arm grip to finish' },
+      { text: 'Practice the cross arm elbow to elbow grip for the finish' },
     ],
     video: {
       url: 'https://www.youtube.com/embed/GpBqyOjidSU',
