@@ -41,7 +41,7 @@ export class DialogContentFlashcardComponent implements OnDestroy {
 
     dialogRef.afterClosed().subscribe((result) => {
       // set to answered with HTTP for user profile
-      this.isFlashDone = true;
+      // this.isFlashDone = true;
       this.authService
         .updateTechnique(this.technique, 'flashcard')
         .pipe(takeUntil(this.ngUnsubscribe))

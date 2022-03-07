@@ -68,11 +68,6 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
     );
   }
 
-  clearQuiz(): void {
-    this.isQuizDone = false;
-    this.isFlashDone = false;
-  }
-
   updateTechnique(technique: Technique, saveType: string) {
     this.authService.updateTechnique(technique, saveType).subscribe();
     this.isFavorite = !this.isFavorite;

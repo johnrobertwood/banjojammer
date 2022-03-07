@@ -26,7 +26,6 @@
               color="accent"
               class="p-2 w-100 btn-dark"
               [routerLink]="['/technique', technique.prevTechnique]"
-              (click)="clearQuiz()"
             >
               <mat-icon>keyboard_arrow_left</mat-icon> Previous
             </button>
@@ -38,7 +37,6 @@
               color="accent"
               class="p-2 w-100 btn-dark"
               [routerLink]="['/technique', technique.nextTechnique]"
-              (click)="clearQuiz()"
             >
               Next <mat-icon>keyboard_arrow_right</mat-icon>
             </button>

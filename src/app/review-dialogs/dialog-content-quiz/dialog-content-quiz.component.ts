@@ -42,7 +42,7 @@ export class DialogContentQuizComponent implements OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      this.isQuizDone = true;
+      // this.isQuizDone = true;
       this.authService
         .updateTechnique(this.technique, 'quiz')
         .pipe(takeUntil(this.ngUnsubscribe))
