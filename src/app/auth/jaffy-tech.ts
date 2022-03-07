@@ -443,7 +443,12 @@ const jaffyTech = {
         'Scoot in low to butterfly with underhooks, pull them back and force their hands onto mat then trap the arm',
     },
     notes: [
-      { text: 'Get inside hand position on his biceps and stand up' },
+      {
+        text: 'Scoot in and get a body lock, then lean back to get them to post',
+      },
+      {
+        text: 'Scoot back then use head, shoulder and face to clamp his arm straight',
+      },
       { text: 'Practice the cross arm elbow to elbow grip for the finish' },
     ],
     video: {
