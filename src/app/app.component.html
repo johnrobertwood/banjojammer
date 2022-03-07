@@ -59,8 +59,22 @@
       >
         Admin
       </button>
-      <button *ngIf="!loggedIn" mat-menu-item routerLink="/login">Login</button>
-      <button *ngIf="loggedIn" mat-menu-item routerLink="/login">Logout</button>
+      <button
+        *ngIf="!loggedIn"
+        mat-menu-item
+        routerLink="/login"
+        routerLinkActive="activebutton"
+      >
+        Login
+      </button>
+      <button
+        *ngIf="loggedIn"
+        mat-menu-item
+        routerLink="/login"
+        routerLinkActive="activebutton"
+      >
+        Logout
+      </button>
     </mat-menu>
     <mat-nav-list *ngFor="let technique of techniques$ | async">
       <a

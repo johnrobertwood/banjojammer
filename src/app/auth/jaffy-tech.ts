@@ -2,7 +2,7 @@ const jaffyTech = {
   kneeSlice: {
     id: 0,
     name: 'kneeSlice',
-    displayName: 'Knee Slice Closed',
+    displayName: 'Knee Slice',
     prevTechnique: null,
     nextTechnique: 'barDarce',
     quiz: {
@@ -134,6 +134,7 @@ const jaffyTech = {
       {
         text: 'Push their hands down then climb up their back using your legs',
       },
+      { text: 'Pry the fingers as a last resort escape' },
     ],
     video: {
       url: 'https://www.youtube.com/embed/4csIWClv-vo',
@@ -309,7 +310,10 @@ const jaffyTech = {
         text: 'Turn guard away and lift your arm to expose your side as bait',
       },
       {
-        text: 'If his head is inside go darce, if outside arm in guillotine',
+        text: 'If his head is inside go darce, wizzer then throw yourself down to create space',
+      },
+      {
+        text: 'If head is outside, scoot back and lock up the arm in guillotine',
       },
     ],
     video: {
@@ -320,7 +324,7 @@ const jaffyTech = {
   bottomSideToSingleLeg: {
     id: 7,
     name: 'bottomSideToSingleLeg',
-    displayName: 'Botom Side To Single Leg',
+    displayName: 'Bottom Side To Single Leg',
     prevTechnique: 'darceOrGuillotineTrap',
     nextTechnique: 'crossAshiSweep',
     quiz: {
@@ -344,8 +348,13 @@ const jaffyTech = {
       answer: 'An alternative to recovering guard',
     },
     notes: [
+      {
+        text: 'Works as a defense to front headlock, guillotine, darce, anaconda and loop choke',
+      },
       { text: 'Single leg is a good alternative to recovering guard' },
-      { text: 'Single leg opens up a lot of jiu jitsu' },
+      {
+        text: 'Single leg is not just for wrestling and opens up a lot of cool jiu jitsu',
+      },
     ],
     video: {
       url: 'https://www.youtube.com/embed/ySpx7x7dZbE',
@@ -431,7 +440,7 @@ const jaffyTech = {
       complete: false,
       question: 'What are the steps for a reverse armbar?',
       answer:
-        'Scoot in low to butterfly with underhooks, pull them back and force their hands onto map then trap the arm',
+        'Scoot in low to butterfly with underhooks, pull them back and force their hands onto mat then trap the arm',
     },
     notes: [
       { text: 'Get inside hand position on his biceps and stand up' },
@@ -476,7 +485,18 @@ const jaffyTech = {
       answer:
         'Reach arm thru like an arm drag to grab the back of his collar.  Then use a cross lapel grip to choke',
     },
-    notes: [{ text: 'Similar to an arm drag' }],
+    notes: [
+      { text: 'Similar to an arm drag from top side control' },
+      {
+        text: 'Can start from north south and swim arm through',
+      },
+      {
+        text: 'Drop the head and chest down to get a deep grip on the back of lapel',
+      },
+      {
+        text: 'If they hand fight, bring them closer and scrap their face with forearm',
+      },
+    ],
     video: {
       url: 'https://www.youtube.com/embed/T46fOa6N4eE',
       thumbnail: 'https://img.youtube.com/vi/T46fOa6N4eE/mqdefault.jpg',
@@ -516,7 +536,17 @@ const jaffyTech = {
       answer:
         'Present your back, then reach around for the guillotine and connect your hands behind back',
     },
-    notes: [{ text: 'Can switch to an arm in guillotine or front headlock' }],
+    notes: [
+      {
+        text: 'Start in donkey stance with hand wraped behind back',
+      },
+      {
+        text: 'Can switch to a high elbow guillotine, arm in guillotine or front headlock',
+      },
+      {
+        text: 'Having confidence with someone attacking your back opens up creativity in your game',
+      },
+    ],
     video: {
       url: 'https://www.youtube.com/embed/56387hMPiLk',
       thumbnail: 'https://img.youtube.com/vi/56387hMPiLk/mqdefault.jpg',
@@ -556,8 +586,12 @@ const jaffyTech = {
       answer: 'Change levels and touch the leg then rise up with the left hook',
     },
     notes: [
-      { text: 'Think Fake - Punch - Real' },
-      { text: 'A good one to try on your friends' },
+      { text: 'Single leg distraction short circuits the brain' },
+      {
+        text: 'Fake the single leg, throw the left hook, then do a real single leg',
+      },
+      { text: "Fun to try on your friends when you're messing around" },
+      { text: 'Can also use this with a double leg at the end' },
     ],
     video: {
       url: 'https://www.youtube.com/embed/h9Bxfnob1Cc',
@@ -600,7 +634,10 @@ const jaffyTech = {
     },
     notes: [
       { text: 'A good move for flexible guys' },
-      { text: 'Reach over his head to grab your own foot for the finish' },
+      {
+        text: 'Reach over his head to grab your own foot for the finish from guard',
+      },
+      { text: 'Lean forward and push down on foot to finish from mount' },
     ],
     video: {
       url: 'https://www.youtube.com/embed/9gUzj39Kh0s',
@@ -642,6 +679,8 @@ const jaffyTech = {
         'Get his knee to touch the ground to provoke pull back reaction then momentum to swing up on head inside single leg',
     },
     notes: [
+      { text: 'Timing is important to follow his leg up using the momentum' },
+      { text: 'Keep your head inside to avoid getting guillotined' },
       { text: 'Can use inside hook to spin and transition to 50/50 heel hook' },
     ],
     video: {
