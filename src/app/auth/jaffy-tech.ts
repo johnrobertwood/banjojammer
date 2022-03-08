@@ -524,7 +524,7 @@ const jaffyTech = {
           correct: true,
         },
         {
-          text: 'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
+          text: 'Lift up on your toes then move to north south position',
           correct: false,
         },
         {
@@ -578,11 +578,11 @@ const jaffyTech = {
           correct: false,
         },
         {
-          text: 'Kick straight out with top leg and drop bottom leg like a prostitute',
+          text: 'De la riva to x guard and berimbolo',
           correct: false,
         },
         {
-          text: 'Swim under then grab around the waist',
+          text: 'Put hands on the mat and shrimp away',
           correct: false,
         },
       ],
@@ -620,11 +620,11 @@ const jaffyTech = {
           correct: true,
         },
         {
-          text: 'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
+          text: 'De la riva to x guard and berimbolo',
           correct: false,
         },
         {
-          text: 'Kick straight out with top leg and drop bottom leg like a prostitute',
+          text: 'Put hands on the mat and shrimp away',
           correct: false,
         },
         {
@@ -666,15 +666,14 @@ const jaffyTech = {
           correct: true,
         },
         {
-          text: 'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
+          text: 'Drop the head and chest down to get a deep grip on the back of lapel',
+        },
+        {
+          text: 'Put hands on the mat and shrimp away',
           correct: false,
         },
         {
-          text: 'Kick straight out with top leg and drop bottom leg like a prostitute',
-          correct: false,
-        },
-        {
-          text: 'Swim under then grab around the waist',
+          text: 'Lift up on your toes then move to north south position',
           correct: false,
         },
       ],
