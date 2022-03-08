@@ -10,3 +10,8 @@
 .answer-container {
   min-height: 60px;
 }
+
+li,
+p {
+  color: #ffffffb3;
+}

@@ -7,9 +7,8 @@ mat-toolbar {
   height: 58px;
 }
 
-a {
-  color: #fff;
-  text-decoration: none;
+.mat-list-item {
+  color: #ffffffb3;
 }
 
 ul {
@@ -24,7 +23,7 @@ li {
 
 .nav-container {
   position: absolute;
-  top: 54px;
+  top: 58px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -44,11 +43,11 @@ li {
 
 .activebutton {
   color: #fff;
-  background-color: #69f0ae;
+  background-color: #4fbb87;
 }
 
 .activebutton:hover {
-  background-color: #cfd8dc;
+  background-color: #398b64;
 }
 
 mat-icon {

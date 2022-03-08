@@ -1,7 +1,7 @@
 <div class="container">
   <router-outlet></router-outlet>
   <mat-selection-list [multiple]="false">
-    <button class="w-100 bg-grey">
+    <button class="w-100" mat-stroked-button>
       <span
         mat-list-item
         *ngFor="let technique of techniques$ | async"

@@ -1,15 +1,27 @@
 <h3>ADMIN</h3>
 <nav>
   <a
+    mat-stroked-button
+    color="accent"
     routerLink="./"
-    routerLinkActive="active"
+    routerLinkActive="activebutton"
     [routerLinkActiveOptions]="{ exact: true }"
     >Dashboard</a
   >
-  <a routerLink="./manage-technique-list" routerLinkActive="active"
+  <a
+    mat-stroked-button
+    color="accent"
+    routerLink="./manage-technique-list"
+    routerLinkActive="activebutton"
     >Manage Techniques</a
   >
-  <a routerLink="./add-technique" routerLinkActive="active">Add Technique</a>
+  <a
+    mat-stroked-button
+    color="accent"
+    routerLink="./add-technique"
+    routerLinkActive="activebutton"
+    >Add Technique</a
+  >
 </nav>
 <div [@routeAnimation]="getAnimationData(routerOutlet)">
   <router-outlet #routerOutlet="outlet"></router-outlet>

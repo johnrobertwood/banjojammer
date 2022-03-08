@@ -149,14 +149,22 @@ const jaffyTech = {
     nextTechnique: 'suckerDrag',
     quiz: {
       complete: false,
-      question: 'True or false: Monoplata is the mounted version of Omoplata?',
+      question: 'True or false: Monoplata is the _______ version of Omoplata?',
       responses: [
         {
-          text: 'True',
+          text: 'Mouted',
           correct: true,
         },
         {
-          text: 'False',
+          text: 'Guard',
+          correct: false,
+        },
+        {
+          text: 'Inverted',
+          correct: false,
+        },
+        {
+          text: 'Reverse',
           correct: false,
         },
       ],
@@ -198,7 +206,7 @@ const jaffyTech = {
           correct: true,
         },
         {
-          text: 'American and Brazilian',
+          text: 'Harai goshi',
           correct: false,
         },
         {
@@ -206,7 +214,7 @@ const jaffyTech = {
           correct: false,
         },
         {
-          text: 'Mounted or Half Guard',
+          text: 'Mounted guillotine ',
           correct: false,
         },
       ],
@@ -329,15 +337,23 @@ const jaffyTech = {
     quiz: {
       complete: false,
       question:
-        'True or False: The single leg is not a good alternative to recovering guard',
+        'The single leg is a good alternative to _________________ when you opponent is on top',
       responses: [
         {
-          text: 'True',
+          text: 'Recovering guard',
+          correct: true,
+        },
+        {
+          text: 'Front headlock',
           correct: false,
         },
         {
-          text: 'False',
-          correct: true,
+          text: 'Kani Basami',
+          correct: false,
+        },
+        {
+          text: 'Guillotine',
+          correct: false,
         },
       ],
     },
@@ -597,7 +613,7 @@ const jaffyTech = {
       {
         text: 'Fake the single leg, throw the left hook, then do a real single leg',
       },
-      { text: "Fun to try on your friends when you're messing around" },
+      { text: 'Fun to try on your friends messing around' },
       { text: 'Can also use this with a double leg at the end' },
     ],
     video: {
