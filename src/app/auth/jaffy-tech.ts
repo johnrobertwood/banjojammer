@@ -59,7 +59,7 @@ const jaffyTech = {
       question: 'What is the bar darce analogy?',
       responses: [
         {
-          text: 'If you are at a bar next to a buddy and they are reaching across it exposes their neck and arm',
+          text: 'If you are at a bar and your buddy sitting next to you reaches for your drink it exposes their neck and arm',
           correct: true,
         },
         {
@@ -78,9 +78,9 @@ const jaffyTech = {
     },
     flashcard: {
       complete: false,
-      question: 'What is the bar darce?',
+      question: 'What is the bar darce analogy?',
       answer:
-        'Side by side with partner, they reach across and expose neck to darce',
+        'An arm drag with a hop step to the side when opponent has you in front headlock',
     },
     notes: [
       { text: 'Works best when side to side' },
@@ -149,7 +149,7 @@ const jaffyTech = {
     nextTechnique: 'suckerDrag',
     quiz: {
       complete: false,
-      question: 'True or false: Monoplata is the top version of Omoplata?',
+      question: 'True or false: Monoplata is the mounted version of Omoplata?',
       responses: [
         {
           text: 'True',
@@ -168,9 +168,6 @@ const jaffyTech = {
         'When they underhook and turn into side control, lean forward and swing your leg over their body',
     },
     notes: [
-      {
-        text: 'Mount-o-plata',
-      },
       {
         text: 'Starts when they are underhooking your side control to wrestle up on a single leg',
       },
@@ -205,7 +202,7 @@ const jaffyTech = {
           correct: false,
         },
         {
-          text: 'Original or Extra Crispy',
+          text: 'Butt scooting',
           correct: false,
         },
         {
