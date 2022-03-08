@@ -106,7 +106,7 @@ const jaffyTech = {
       question: 'How do you do the seven year old choke?',
       responses: [
         {
-          text: 'Push their hands down and climb over their shoulders with legs',
+          text: 'Push their hands down and climb over their shoulders with legs, hands clasped under their chin',
           correct: true,
         },
         {
@@ -169,6 +169,9 @@ const jaffyTech = {
     },
     notes: [
       {
+        text: 'Mount-o-plata',
+      },
+      {
         text: 'Starts when they are underhooking your side control to wrestle up on a single leg',
       },
       {
@@ -194,7 +197,7 @@ const jaffyTech = {
       question: 'What is the sucker drag?',
       responses: [
         {
-          text: 'Traditional (clamping with bent knees) and Marceloplata (kicking with straight leg)',
+          text: 'An arm drag with a hop step to the side when opponent has you in front headlock',
           correct: true,
         },
         {
@@ -252,10 +255,9 @@ const jaffyTech = {
       complete: false,
       question:
         'What should you do to draw your opponent into the triangle from knees',
-      answer: 'Raise your arm to create space for them to go for the underhook',
+      answer: 'Raise your arm to create space and bait them into an underhook',
     },
     notes: [
-      { text: 'Lift your arm up to open yourself to your opponents underhook' },
       {
         text: 'Leg up and over back first, then swing bottom leg around the neck',
       },
@@ -279,7 +281,7 @@ const jaffyTech = {
     nextTechnique: 'bottomSideToSingleLeg',
     quiz: {
       complete: false,
-      question: 'What is the setup for darce or guillotine trap?',
+      question: 'What is the setup for Darce or Guillotine Trap?',
       responses: [
         {
           text: 'Turn your legs away and lift your arm to expose your side as bait',
@@ -301,19 +303,19 @@ const jaffyTech = {
     },
     flashcard: {
       complete: false,
-      question: 'What is the setup for darce or guillotine trap?',
+      question: 'What is the setup for Darce or Guillotine Trap?',
       answer:
         'Turn your legs away and lift your arm to expose your side as bait',
     },
     notes: [
       {
-        text: 'Turn guard away and lift your arm to expose your side as bait',
+        text: 'The entrance is what catches them. Wait for the touch then spring the trap',
       },
       {
-        text: 'If his head is inside go darce, wizzer then throw yourself down to create space',
+        text: 'If his head is inside grab the wizzer then throw yourself down to create space for darce',
       },
       {
-        text: 'If head is outside, scoot back and lock up the arm in guillotine',
+        text: 'If head is outside, pop hips back and get the arm in guillotine',
       },
     ],
     video: {
@@ -330,15 +332,15 @@ const jaffyTech = {
     quiz: {
       complete: false,
       question:
-        'True or False: The single leg is a good alternative to recovering guard',
+        'True or False: The single leg is not a good alternative to recovering guard',
       responses: [
         {
           text: 'True',
-          correct: true,
+          correct: false,
         },
         {
           text: 'False',
-          correct: false,
+          correct: true,
         },
       ],
     },
@@ -395,13 +397,16 @@ const jaffyTech = {
       answer: 'Load them up, twist and drop them down to 411',
     },
     notes: [
-      { text: 'Load them up, twist and drop them down to ashi' },
       {
         text: 'Use ashi to heel hook or capitalize top position to step over for side control',
       },
       {
-        text: 'This technique is challenging to learn but is worth it',
+        text: 'This technique is challenging and takes practice but is worth it',
       },
+      {
+        text: 'Connect one butterfly hook and slide the other leg under to practice movement',
+      },
+      { text: 'Throw in a submission after the pass like a darce' },
     ],
     video: {
       url: 'https://www.youtube.com/embed/zXUKhU7TC-w',
@@ -519,11 +524,11 @@ const jaffyTech = {
       responses: [
         {
           text: 'Present your back, then reach around for the guillotine and connect your hands behind back',
-          correct: false,
+          correct: true,
         },
         {
           text: 'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
-          correct: true,
+          correct: false,
         },
         {
           text: 'Kick straight out with top leg and drop bottom leg like a prostitute',
@@ -568,12 +573,12 @@ const jaffyTech = {
       question: 'What is the fake single to hook?',
       responses: [
         {
-          text: 'Change levels and touch the leg then rise up with the left hook',
-          correct: false,
+          text: 'Change levels and touch the leg for the fake shot, then rise up to throw a left hook',
+          correct: true,
         },
         {
           text: 'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
-          correct: true,
+          correct: false,
         },
         {
           text: 'Kick straight out with top leg and drop bottom leg like a prostitute',
@@ -615,11 +620,11 @@ const jaffyTech = {
       responses: [
         {
           text: 'Shrimp away then swing your leg up from guard or trap the arm in mount and bring the shin across under chin',
-          correct: false,
+          correct: true,
         },
         {
           text: 'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
-          correct: true,
+          correct: false,
         },
         {
           text: 'Kick straight out with top leg and drop bottom leg like a prostitute',
@@ -661,11 +666,11 @@ const jaffyTech = {
       responses: [
         {
           text: 'Get his knee to touch the ground then use his momentum to swing up to single leg with head inside',
-          correct: false,
+          correct: true,
         },
         {
           text: 'Open guard and lift hips. Go onto shoulder to create space and then pull him onto you',
-          correct: true,
+          correct: false,
         },
         {
           text: 'Kick straight out with top leg and drop bottom leg like a prostitute',
@@ -681,7 +686,7 @@ const jaffyTech = {
       complete: false,
       question: 'What is the Deep Half Guard Sweep?',
       answer:
-        'Get his knee to touch the ground to provoke pull back reaction then momentum to swing up on head inside single leg',
+        'Get his knee to touch the ground to provoke pull back reaction, then use momentum to swing up to head inside single leg',
     },
     notes: [
       { text: 'Timing is important to follow his leg up using the momentum' },
