@@ -8,11 +8,11 @@
     <li *ngFor="let response of data.technique.quiz.responses | random">
       <button cdkFocusInitial style="display: none"></button>
       <button
-        mat-stroked-button
+        mat-raised-button
         (click)="selectAnswer()"
         [ngClass]="{ green: data.answered && response.correct }"
         color="basic"
-        class="w-100 d-flex justify-content-center align-items-center px-2 py-1 btn-secondary"
+        class="w-100 d-flex justify-content-center align-items-center px-2 py-1 btn-dark"
       >
         {{ response.text }}
       </button>
