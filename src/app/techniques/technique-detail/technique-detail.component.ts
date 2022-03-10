@@ -26,7 +26,7 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private techniqueService: TechniqueService,
     private authService: AuthenticationService
   ) {}
@@ -41,7 +41,7 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
   }
 
   getTechnique(): void {
-    this.technique$ = this.route.paramMap.pipe(
+    this.technique$ = this.activatedRoute.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.techniqueService.getUserTechnique(
           'ramsey-tech',

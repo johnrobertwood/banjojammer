@@ -80,7 +80,7 @@
         <mat-expansion-panel-header>
           <mat-panel-title>Jeff Glover</mat-panel-title>
         </mat-expansion-panel-header>
-        <div
+        <mat-panel-description
           mat-menu-item
           [routerLink]="['technique', technique.name]"
           (click)="isSmallScreen ? sidenav.toggle() : null"
@@ -88,11 +88,12 @@
           *ngFor="let technique of techniquesA$ | async"
         >
           {{ technique.displayName }}
-        </div>
+        </mat-panel-description>
       </mat-expansion-panel>
-      <mat-expansion-panel expanded>
+      <mat-expansion-panel #ramtech disabled>
         <mat-expansion-panel-header>
-          <mat-panel-title>Ramsey Nijem</mat-panel-title>
+          <mat-panel-title>Ramsey Nijem </mat-panel-title>
+          <mat-icon *ngIf="!loggedIn">lock</mat-icon>
         </mat-expansion-panel-header>
         <div
           mat-menu-item

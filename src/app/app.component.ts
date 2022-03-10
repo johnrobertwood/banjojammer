@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { pluck, switchMap, takeUntil } from 'rxjs/operators';
@@ -9,6 +9,7 @@ import { AuthenticationService } from './auth/authentication.service';
 import { Hub } from 'aws-amplify';
 import { HubPayload } from './hub-payload';
 import { Observable, Subject } from 'rxjs';
+import { MatExpansionPanel } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-root',
@@ -23,12 +24,15 @@ export class AppComponent implements OnInit {
   loggedIn = false;
   techniquesA$: Observable<Technique[]>;
   techniquesB$: Observable<Technique[]>;
+  @ViewChild('ramtech') expansionPanel: MatExpansionPanel;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private techniqueService: TechniqueService,
-    private route: ActivatedRoute,
-    private authService: AuthenticationService
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private authService: AuthenticationService,
+    private zone: NgZone
   ) {
     Hub.listen('auth', (data) => {
       const { payload } = data;
@@ -72,11 +76,18 @@ export class AppComponent implements OnInit {
     if (data.event === 'signIn') {
       this.loggedIn = true;
       this.authService.login(data);
+      this.expansionPanel.hideToggle = false;
+      this.expansionPanel.disabled = false;
+      this.expansionPanel.expanded = true;
     }
 
     if (data.event === 'signOut') {
       this.loggedIn = false;
       this.authService.logout();
+      this.expansionPanel.close();
+      this.expansionPanel.disabled = true;
+      this.expansionPanel.hideToggle = true;
+      this.expansionPanel.expanded = false;
     }
 
     if (data.event === 'signUp') {
@@ -85,10 +96,13 @@ export class AppComponent implements OnInit {
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe();
     }
+    this.zone.run(() => {
+      this.router.navigate(['/technique/kneeSlice']);
+    });
   }
 
   getTechniquesA(techName: string): void {
-    this.techniquesA$ = this.route.paramMap.pipe(
+    this.techniquesA$ = this.activatedRoute.paramMap.pipe(
       switchMap((params) => {
         this.selectedName = params.get('name');
         return this.techniqueService.getTechniques(techName);
@@ -97,7 +111,7 @@ export class AppComponent implements OnInit {
   }
 
   getTechniquesB(techName: string): void {
-    this.techniquesB$ = this.route.paramMap.pipe(
+    this.techniquesB$ = this.activatedRoute.paramMap.pipe(
       switchMap((params) => {
         this.selectedName = params.get('name');
         return this.techniqueService.getTechniques(techName);
