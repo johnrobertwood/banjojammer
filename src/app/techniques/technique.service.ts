@@ -20,12 +20,14 @@ export class TechniqueService {
 
   constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
 
-  getTechniques(): Observable<Technique[]> {
+  getTechniques(moduleName: string): Observable<Technique[]> {
+    const data = { moduleName };
+
     return this.http
-      .get<any>(`${this.apiGatewayUrl}/user`, this.httpOptions)
+      .post<any>(`${this.apiGatewayUrl}/modules`, data, this.httpOptions)
       .pipe(
-        map((data) => {
-          const obj = data.techniques;
+        map((res) => {
+          const obj = res.techniques;
           const arr = [];
           for (const key in obj) {
             if (obj[key]) {
@@ -41,15 +43,19 @@ export class TechniqueService {
       );
   }
 
-  getUserTechnique(techniqueName: string): Observable<Technique> {
-    const url = `${this.apiGatewayUrl}/user`;
+  getUserTechnique(
+    moduleName: string,
+    techName: string
+  ): Observable<Technique> {
+    const url = `${this.apiGatewayUrl}/modules`;
+    const data = { moduleName };
 
-    return this.http.get<any>(url, this.httpOptions).pipe(
-      map((data) => {
-        const technique = data.techniques;
+    return this.http.post<any>(url, data, this.httpOptions).pipe(
+      map((res) => {
+        const technique = res.techniques;
         return technique[
           Object.keys(technique).filter(
-            (t) => technique[t].name === techniqueName
+            (t) => technique[t].name === techName
           )[0]
         ];
       }),
@@ -101,28 +107,28 @@ export class TechniqueService {
   }
 
   /** DELETE: delete the technique from the server */
-  deleteTechnique(technique: Technique | number): Observable<Technique> {
-    const id = typeof technique === 'number' ? technique : technique.name;
-    const url = `${this.apiGatewayUrl}/user/${id}`;
-    return this.http
-      .delete<Technique>(url, this.httpOptions)
-      .pipe(catchError(this.ehs.handleError<Technique>('deleteTechnique')));
-  }
+  // deleteTechnique(technique: Technique | number): Observable<Technique> {
+  //   const id = typeof technique === 'number' ? technique : technique.name;
+  //   const url = `${this.apiGatewayUrl}/user/${id}`;
+  //   return this.http
+  //     .delete<Technique>(url, this.httpOptions)
+  //     .pipe(catchError(this.ehs.handleError<Technique>('deleteTechnique')));
+  // }
 
   /* GET techniques that contains search term */
-  searchTechniques(term: string): Observable<Technique[]> {
-    const url = `${this.apiGatewayUrl}/user/?name=${term}`;
-    if (!term.trim()) {
-      // if not search term, return empty technique array.
-      return of([]);
-    }
-    return this.http.get<Technique[]>(url).pipe(
-      // tap((x) =>
-      //   x.length
-      //     ? this.log(`found techniques matching "${term}"`)
-      //     : this.log(`no techniques matching "${term}"`)
-      // ),
-      catchError(this.ehs.handleError<Technique[]>('searchTechniques', []))
-    );
-  }
+  // searchTechniques(term: string): Observable<Technique[]> {
+  //   const url = `${this.apiGatewayUrl}/user/?name=${term}`;
+  //   if (!term.trim()) {
+  //     // if not search term, return empty technique array.
+  //     return of([]);
+  //   }
+  //   return this.http.get<Technique[]>(url).pipe(
+  //     // tap((x) =>
+  //     //   x.length
+  //     //     ? this.log(`found techniques matching "${term}"`)
+  //     //     : this.log(`no techniques matching "${term}"`)
+  //     // ),
+  //     catchError(this.ehs.handleError<Technique[]>('searchTechniques', []))
+  //   );
+  // }
 }

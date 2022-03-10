@@ -19,7 +19,7 @@ export class ManageTechniqueDetailResolverService
   ): Observable<Technique> | Observable<never> {
     const name = route.paramMap.get('name');
 
-    return this.ts.getUserTechnique(name).pipe(
+    return this.ts.getUserTechnique('ramsey-tech', name).pipe(
       take(1),
       mergeMap((technique) => {
         if (technique) {

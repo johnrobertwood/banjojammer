@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Technique } from 'src/app/techniques/technique';
-import { TechniqueService } from 'src/app/techniques/technique.service';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from 'src/app/auth/authentication.service';
@@ -22,10 +21,10 @@ export class FavoritesListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getTechniques();
+    this.getTechniques('jaffy-tech');
   }
 
-  getTechniques(): void {
+  getTechniques(tech: string): void {
     this.techniques$ = this.route.paramMap.pipe(
       switchMap((params) => {
         this.selectedName = params.get('name');
@@ -35,8 +34,8 @@ export class FavoritesListComponent implements OnInit {
     );
   }
 
-  delete(technique: Technique): void {
-    // this.techniques = this.techniques.filter((t) => t !== technique);
-    // this.techniqueService.deleteTechnique(technique).subscribe();
-  }
+  // delete(technique: Technique): void {
+  //   this.techniques = this.techniques.filter((t) => t !== technique);
+  //   this.techniqueService.deleteTechnique(technique).subscribe();
+  // }
 }

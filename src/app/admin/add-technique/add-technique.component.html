@@ -1,21 +1,16 @@
-<mat-form-field>
-  <mat-label>Clearable input</mat-label>
+<form>
   <input
-    type="outline"
     #techNameInput
-    color="accent"
     matInput
     name="addTechniqueId"
     [(ngModel)]="techArrayName"
   />
-</mat-form-field>
-<mat-form-field>
   <button
     mat-stroked-button
-    color="accent"
+    color="primary"
     class="p-2 mx-1"
     (click)="addTechnique()"
   >
     Add Full Set
   </button>
-</mat-form-field>
+</form>

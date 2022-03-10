@@ -75,14 +75,35 @@
         Logout
       </button>
     </mat-menu>
-    <mat-nav-list *ngFor="let technique of techniques$ | async">
-      <a
-        mat-menu-item
-        [routerLink]="['technique', technique.name]"
-        (click)="isSmallScreen ? sidenav.toggle() : null"
-        routerLinkActive="activebutton"
-        >{{ technique.displayName }}</a
-      >
+    <mat-nav-list>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Jeff Glover</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div
+          mat-menu-item
+          [routerLink]="['technique', technique.name]"
+          (click)="isSmallScreen ? sidenav.toggle() : null"
+          routerLinkActive="activebutton"
+          *ngFor="let technique of techniquesA$ | async"
+        >
+          {{ technique.displayName }}
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Ramsey Nijem</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div
+          mat-menu-item
+          [routerLink]="['technique', technique.name]"
+          (click)="isSmallScreen ? sidenav.toggle() : null"
+          routerLinkActive="activebutton"
+          *ngFor="let technique of techniquesB$ | async"
+        >
+          {{ technique.displayName }}
+        </div>
+      </mat-expansion-panel>
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>

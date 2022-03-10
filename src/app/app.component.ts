@@ -21,7 +21,8 @@ export class AppComponent implements OnInit {
   isSmallScreen: boolean;
   selectedName: string;
   loggedIn = false;
-  techniques$: Observable<Technique[]>;
+  techniquesA$: Observable<Technique[]>;
+  techniquesB$: Observable<Technique[]>;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -36,7 +37,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getTechniques();
+    this.getTechniquesA('jaffy-tech');
+    this.getTechniquesB('ramsey-tech');
     this.checkLocalStorage();
 
     this.breakpointObserver
@@ -85,11 +87,20 @@ export class AppComponent implements OnInit {
     }
   }
 
-  getTechniques(): void {
-    this.techniques$ = this.route.paramMap.pipe(
+  getTechniquesA(techName: string): void {
+    this.techniquesA$ = this.route.paramMap.pipe(
       switchMap((params) => {
         this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques();
+        return this.techniqueService.getTechniques(techName);
+      })
+    );
+  }
+
+  getTechniquesB(techName: string): void {
+    this.techniquesB$ = this.route.paramMap.pipe(
+      switchMap((params) => {
+        this.selectedName = params.get('name');
+        return this.techniqueService.getTechniques(techName);
       })
     );
   }
