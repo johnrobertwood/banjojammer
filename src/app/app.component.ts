@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   selectedName: string;
   loggedIn = false;
   techniquesA$: Observable<Technique[]>;
-  techniquesB$: Observable<Technique[]>;
+  // techniquesB$: Observable<Technique[]>;
   @ViewChild('ramtech') expansionPanel: MatExpansionPanel;
 
   constructor(
@@ -41,8 +41,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getTechniquesA('jaffy-tech');
-    this.getTechniquesB('ramsey-tech');
+    this.getTechniquesA('randy-tech');
+    // this.getTechniquesB('jaffy-tech');
     this.checkLocalStorage();
 
     this.breakpointObserver
@@ -110,14 +110,14 @@ export class AppComponent implements OnInit {
     );
   }
 
-  getTechniquesB(techName: string): void {
-    this.techniquesB$ = this.activatedRoute.paramMap.pipe(
-      switchMap((params) => {
-        this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques(techName);
-      })
-    );
-  }
+  // getTechniquesB(techName: string): void {
+  //   this.techniquesB$ = this.activatedRoute.paramMap.pipe(
+  //     switchMap((params) => {
+  //       this.selectedName = params.get('name');
+  //       return this.techniqueService.getTechniques(techName);
+  //     })
+  //   );
+  // }
 
   get sidenavMode() {
     return this.isSmallScreen ? 'over' : 'side';

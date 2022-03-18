@@ -21,7 +21,7 @@ export class FavoritesListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getTechniques('jaffy-tech');
+    this.getTechniques('randy-tech');
   }
 
   getTechniques(tech: string): void {

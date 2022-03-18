@@ -43,10 +43,7 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
   getTechnique(): void {
     this.technique$ = this.activatedRoute.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.techniqueService.getUserTechnique(
-          'ramsey-tech',
-          params.get('name')
-        )
+        this.techniqueService.getUserTechnique('randy-tech', params.get('name'))
       ),
       tap((technique) => {
         if (localStorage.getItem('currentUser')) {

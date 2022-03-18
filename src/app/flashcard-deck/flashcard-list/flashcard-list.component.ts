@@ -28,7 +28,7 @@ export class FlashcardListComponent implements OnInit {
     this.techniques$ = this.route.paramMap.pipe(
       switchMap((params) => {
         this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques('jaffy-tech');
+        return this.techniqueService.getTechniques('randy-tech');
       })
     );
   }
