@@ -76,7 +76,7 @@
       </button>
     </mat-menu>
     <mat-nav-list>
-      <mat-expansion-panel>
+      <mat-expansion-panel #freeContent expanded>
         <mat-expansion-panel-header>
           <mat-panel-title>Jeff Glover</mat-panel-title>
         </mat-expansion-panel-header>
@@ -90,7 +90,7 @@
           {{ technique.displayName }}
         </mat-panel-description>
       </mat-expansion-panel>
-      <mat-expansion-panel #ramtech disabled>
+      <mat-expansion-panel #paidContent disabled>
         <mat-expansion-panel-header>
           <mat-panel-title>Bill "The Grill" Cooper </mat-panel-title>
           <mat-icon *ngIf="!loggedIn">lock</mat-icon>
@@ -105,7 +105,7 @@
           {{ technique.displayName }}
         </div>
       </mat-expansion-panel>
-      <mat-expansion-panel #ramtech disabled>
+      <mat-expansion-panel #paidContent disabled>
         <mat-expansion-panel-header>
           <mat-panel-title>Pete "The Greek" Letsos</mat-panel-title>
           <mat-icon *ngIf="!loggedIn">lock</mat-icon>
@@ -120,7 +120,7 @@
           {{ technique.displayName }}
         </div>
       </mat-expansion-panel>
-      <mat-expansion-panel #ramtech disabled>
+      <mat-expansion-panel #paidContent disabled>
         <mat-expansion-panel-header>
           <mat-panel-title>Magid "Gorilla Hands" Hage</mat-panel-title>
           <mat-icon *ngIf="!loggedIn">lock</mat-icon>

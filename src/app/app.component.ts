@@ -24,7 +24,8 @@ export class AppComponent implements OnInit {
   loggedIn = false;
   techniquesA$: Observable<Technique[]>;
   techniquesB$: Observable<Technique[]>;
-  @ViewChild('ramtech') expansionPanel: MatExpansionPanel;
+  @ViewChild('freeContent') freeExpansionPanel: MatExpansionPanel;
+  @ViewChild('paidContent') paidExpansionPanel: MatExpansionPanel;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -42,7 +43,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getTechniquesA('jaffy-tech');
-    this.getTechniquesB('ramsey-tech');
+    // this.getTechniquesB('jaffy-tech');
     this.checkLocalStorage();
 
     this.breakpointObserver
@@ -76,18 +77,20 @@ export class AppComponent implements OnInit {
     if (data.event === 'signIn') {
       this.loggedIn = true;
       this.authService.login(data);
-      this.expansionPanel.hideToggle = false;
-      this.expansionPanel.disabled = false;
-      this.expansionPanel.expanded = true;
+      this.paidExpansionPanel.hideToggle = false;
+      this.paidExpansionPanel.disabled = false;
+      this.paidExpansionPanel.expanded = true;
+      this.freeExpansionPanel.expanded = false;
     }
 
     if (data.event === 'signOut') {
       this.loggedIn = false;
       this.authService.logout();
-      this.expansionPanel.close();
-      this.expansionPanel.disabled = true;
-      this.expansionPanel.hideToggle = true;
-      this.expansionPanel.expanded = false;
+      this.paidExpansionPanel.close();
+      this.paidExpansionPanel.disabled = true;
+      this.paidExpansionPanel.hideToggle = true;
+      this.paidExpansionPanel.expanded = false;
+      this.freeExpansionPanel.expanded = true;
     }
 
     if (data.event === 'signUp') {
