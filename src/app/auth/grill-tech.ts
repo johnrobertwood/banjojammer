@@ -1,8 +1,8 @@
-const gorillaTech = {
-  baseballChoke: {
+const grillTech = {
+  bravoFlipChoke: {
     id: 0,
-    name: 'baseballChoke',
-    displayName: 'Baseball Choke',
+    name: 'bravoFlipChoke',
+    displayName: 'Bravo Flip Choke',
     prevTechnique: null,
     nextTechnique: null,
     quiz: {
@@ -57,10 +57,10 @@ const gorillaTech = {
       },
     ],
     video: {
-      url: 'https://www.youtube.com/embed/9-0z3DdiiJI',
-      thumbnail: 'https://img.youtube.com/vi/9-0z3DdiiJI/mqdefault.jpg',
+      url: 'https://www.youtube.com/embed/1i92oa6jLsA',
+      thumbnail: 'https://img.youtube.com/vi/1i92oa6jLsA/mqdefault.jpg',
     },
   },
 };
 
-export default gorillaTech;
+export default grillTech;

@@ -1,8 +1,8 @@
-const gorillaTech = {
-  baseballChoke: {
+const greekTech = {
+  dopeMount: {
     id: 0,
-    name: 'baseballChoke',
-    displayName: 'Baseball Choke',
+    name: 'dopeMount',
+    displayName: 'Dope Mount',
     prevTechnique: null,
     nextTechnique: null,
     quiz: {
@@ -57,10 +57,10 @@ const gorillaTech = {
       },
     ],
     video: {
-      url: 'https://www.youtube.com/embed/9-0z3DdiiJI',
-      thumbnail: 'https://img.youtube.com/vi/9-0z3DdiiJI/mqdefault.jpg',
+      url: 'https://www.youtube.com/embed/1ujz7K-JiNs',
+      thumbnail: 'https://img.youtube.com/vi/1ujz7K-JiNs/mqdefault.jpg',
     },
   },
 };
 
-export default gorillaTech;
+export default greekTech;

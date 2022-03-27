@@ -7,7 +7,9 @@ import { ErrorHandlingService } from '../error-handling.service';
 import { Technique } from '../techniques/technique';
 
 // import jaffyTech from './jaffy-tech';
-import gorillaTech from './gorilla-tech';
+// import gorillaTech from './gorilla-tech';
+// import grillTech from './grill-tech';
+import greekTech from './greek-tech';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +18,7 @@ export class AuthenticationService {
   isLoggedIn = false;
   userData: any;
 
-  techniques: { [key: string]: object } = gorillaTech;
+  techniques: { [key: string]: object } = greekTech;
 
   userHistory = {
     flashcard: [],
