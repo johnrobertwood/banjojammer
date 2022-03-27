@@ -9,7 +9,7 @@
         <p class="mb-0">
           <a
             mat-stroked-button
-            href="/technique/kneeSlice"
+            href="/technique/jaffy-tech/kneeSlice"
             color="accent"
             class="btn btn-secondary m-2 px-4 py-1 br-2"
           >
@@ -37,7 +37,7 @@
           >
             <img
               [src]="technique.video.thumbnail | safe"
-              [routerLink]="['/technique', technique.name]"
+              [routerLink]="['/technique', 'jaffy-tech', technique.name]"
               class="img-responsive card-container"
               alt="Video Thumbnail"
             />
@@ -61,7 +61,11 @@
                       mat-stroked-button
                       color="accent"
                       class="w-100 p-2 mb-1 btn-dark"
-                      [routerLink]="['/technique', technique.name]"
+                      [routerLink]="[
+                        '/technique',
+                        'jaffy-tech',
+                        technique.name
+                      ]"
                     >
                       Technique Details
                     </button>

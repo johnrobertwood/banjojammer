@@ -23,6 +23,7 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
   isQuizDone: boolean;
   isFlashDone: boolean;
   url: string;
+  modulePath: string;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -42,9 +43,15 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
 
   getTechnique(): void {
     this.technique$ = this.activatedRoute.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.techniqueService.getUserTechnique('jaffy-tech', params.get('name'))
-      ),
+      switchMap((params: ParamMap) => {
+        // Need this in the template for navigation
+        this.modulePath = params.get('module');
+        const techniqueName = params.get('name');
+        return this.techniqueService.getUserTechnique(
+          this.modulePath,
+          techniqueName
+        );
+      }),
       tap((technique) => {
         if (localStorage.getItem('currentUser')) {
           this.isLoggedIn = true;

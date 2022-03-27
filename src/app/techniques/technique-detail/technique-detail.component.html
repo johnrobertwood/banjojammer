@@ -25,7 +25,7 @@
               mat-stroked-button
               color="accent"
               class="p-2 w-100 btn-dark"
-              [routerLink]="['/technique', technique.prevTechnique]"
+              [routerLink]="['/technique', modulePath, technique.prevTechnique]"
             >
               <mat-icon>keyboard_arrow_left</mat-icon> Previous
             </button>
@@ -36,7 +36,7 @@
               mat-stroked-button
               color="accent"
               class="p-2 w-100 btn-dark"
-              [routerLink]="['/technique', technique.nextTechnique]"
+              [routerLink]="['/technique', modulePath, technique.nextTechnique]"
             >
               Next <mat-icon>keyboard_arrow_right</mat-icon>
             </button>

@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getTechniquesA('jaffy-tech');
-    // this.getTechniquesB('jaffy-tech');
+    this.getTechniquesB('gorilla-tech');
     this.checkLocalStorage();
 
     this.breakpointObserver
@@ -100,7 +100,7 @@ export class AppComponent implements OnInit {
         .subscribe();
     }
     this.zone.run(() => {
-      this.router.navigate(['/technique/kneeSlice']);
+      this.router.navigate(['/technique/gorilla-tech/conceptsToGrips']);
     });
   }
 
@@ -108,7 +108,7 @@ export class AppComponent implements OnInit {
     this.techniquesA$ = this.activatedRoute.paramMap.pipe(
       switchMap((params) => {
         this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques(techName);
+        return this.techniqueService.getTechniques('jaffy-tech');
       })
     );
   }
@@ -117,7 +117,7 @@ export class AppComponent implements OnInit {
     this.techniquesB$ = this.activatedRoute.paramMap.pipe(
       switchMap((params) => {
         this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques(techName);
+        return this.techniqueService.getTechniques('gorilla-tech');
       })
     );
   }

@@ -82,13 +82,28 @@
         </mat-expansion-panel-header>
         <mat-panel-description
           mat-menu-item
-          [routerLink]="['technique', technique.name]"
+          [routerLink]="['technique', 'jaffy-tech', technique.name]"
           (click)="isSmallScreen ? sidenav.toggle() : null"
           routerLinkActive="activebutton"
           *ngFor="let technique of techniquesA$ | async"
         >
           {{ technique.displayName }}
         </mat-panel-description>
+      </mat-expansion-panel>
+      <mat-expansion-panel #paidContent>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Magid "Gorilla Hands" Hage</mat-panel-title>
+          <mat-icon *ngIf="!loggedIn">lock</mat-icon>
+        </mat-expansion-panel-header>
+        <div
+          mat-menu-item
+          [routerLink]="['technique', 'gorilla-tech', technique.name]"
+          (click)="isSmallScreen ? sidenav.toggle() : null"
+          routerLinkActive="activebutton"
+          *ngFor="let technique of techniquesB$ | async"
+        >
+          {{ technique.displayName }}
+        </div>
       </mat-expansion-panel>
       <mat-expansion-panel #paidContent disabled>
         <mat-expansion-panel-header>
@@ -108,21 +123,6 @@
       <mat-expansion-panel #paidContent disabled>
         <mat-expansion-panel-header>
           <mat-panel-title>Pete "The Greek" Letsos</mat-panel-title>
-          <mat-icon *ngIf="!loggedIn">lock</mat-icon>
-        </mat-expansion-panel-header>
-        <div
-          mat-menu-item
-          [routerLink]="['technique', technique.name]"
-          (click)="isSmallScreen ? sidenav.toggle() : null"
-          routerLinkActive="activebutton"
-          *ngFor="let technique of techniquesB$ | async"
-        >
-          {{ technique.displayName }}
-        </div>
-      </mat-expansion-panel>
-      <mat-expansion-panel #paidContent disabled>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Magid "Gorilla Hands" Hage</mat-panel-title>
           <mat-icon *ngIf="!loggedIn">lock</mat-icon>
         </mat-expansion-panel-header>
         <div

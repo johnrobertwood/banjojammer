@@ -6,7 +6,7 @@ import { FavoritesListComponent } from './favorites-list/favorites-list.componen
 
 const techniquesRoutes: Routes = [
   {
-    path: 'technique/:name',
+    path: 'technique/:module/:name',
     component: TechniqueDetailComponent,
     // data: { animation: 'technique' },
   },

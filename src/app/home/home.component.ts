@@ -5,7 +5,7 @@ import { Technique } from '../techniques/technique';
 import { TechniqueService } from '../techniques/technique.service';
 
 import { Observable } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
