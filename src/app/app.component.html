@@ -90,10 +90,10 @@
           {{ technique.displayName }}
         </mat-panel-description>
       </mat-expansion-panel>
-      <mat-expansion-panel #gorillaContent>
+      <mat-expansion-panel #gorillaContent disabled hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-title>Magid "Gorilla Hands" Hage</mat-panel-title>
-          <mat-icon [hidden]="loggedIn">lock</mat-icon>
+          <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
         </mat-expansion-panel-header>
         <div
           mat-menu-item
@@ -105,10 +105,10 @@
           {{ technique.displayName }}
         </div>
       </mat-expansion-panel>
-      <mat-expansion-panel #grillContent>
+      <mat-expansion-panel #grillContent disabled hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-title>Bill "The Grill" Cooper </mat-panel-title>
-          <mat-icon [hidden]="loggedIn">lock</mat-icon>
+          <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
         </mat-expansion-panel-header>
         <div
           mat-menu-item
@@ -120,10 +120,10 @@
           {{ technique.displayName }}
         </div>
       </mat-expansion-panel>
-      <mat-expansion-panel #greekContent>
+      <mat-expansion-panel #greekContent disabled hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-title>Pete "The Greek" Letsos</mat-panel-title>
-          <mat-icon [hidden]="loggedIn">lock</mat-icon>
+          <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
         </mat-expansion-panel-header>
         <div
           mat-menu-item

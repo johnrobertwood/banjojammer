@@ -1,4 +1,10 @@
-import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  NgZone,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
 import { BreakpointObserver } from '@angular/cdk/layout';
@@ -17,7 +23,7 @@ import { MatExpansionPanel } from '@angular/material/expansion';
   styleUrls: ['app.component.css'],
   animations: [slideInAnimation],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   private ngUnsubscribe = new Subject();
   isSmallScreen: boolean;
   selectedName: string;
@@ -50,12 +56,15 @@ export class AppComponent implements OnInit {
     this.getTechniquesB('gorilla-tech');
     this.getTechniquesC('grill-tech');
     this.getTechniquesD('greek-tech');
-    this.checkLocalStorage();
 
     this.breakpointObserver
       .observe(['(max-width: 800px)'])
       .pipe(pluck('matches'))
       .subscribe((m: boolean) => (this.isSmallScreen = m));
+  }
+
+  ngAfterViewInit(): void {
+    this.checkLocalStorage();
   }
 
   getAnimationData(outlet: RouterOutlet) {
@@ -76,6 +85,19 @@ export class AppComponent implements OnInit {
       });
     } else {
       this.loggedIn = false;
+      this.gorillaExpansionPanel.hideToggle = true;
+      this.gorillaExpansionPanel.disabled = true;
+      this.gorillaExpansionPanel.expanded = false;
+      this.gorillaExpansionPanel.close();
+      this.grillExpansionPanel.hideToggle = true;
+      this.grillExpansionPanel.disabled = true;
+      this.grillExpansionPanel.expanded = false;
+      this.grillExpansionPanel.close();
+      this.greekExpansionPanel.hideToggle = true;
+      this.greekExpansionPanel.disabled = true;
+      this.greekExpansionPanel.expanded = false;
+      this.freeExpansionPanel.expanded = false;
+      this.greekExpansionPanel.close();
     }
   }
 
