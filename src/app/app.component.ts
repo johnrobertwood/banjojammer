@@ -113,6 +113,9 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.greekExpansionPanel.hideToggle = false;
       this.greekExpansionPanel.disabled = false;
       this.freeExpansionPanel.expanded = false;
+      this.zone.run(() => {
+        this.router.navigate(['/home']);
+      });
     }
 
     if (data.event === 'signOut') {
@@ -138,10 +141,11 @@ export class AppComponent implements OnInit, AfterViewInit {
         .addUser(data)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe();
+
+      this.zone.run(() => {
+        this.router.navigate(['/confirm']);
+      });
     }
-    this.zone.run(() => {
-      this.router.navigate(['/technique/gorilla-tech/baseballChoke']);
-    });
   }
 
   getTechniquesA(techName: string): void {
