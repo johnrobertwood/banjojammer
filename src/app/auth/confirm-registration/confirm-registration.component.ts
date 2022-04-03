@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-confirm-registration',
   templateUrl: './confirm-registration.component.html',
-  styleUrls: ['./confirm-registration.component.css']
+  styleUrls: ['./confirm-registration.component.css'],
 })
-export class ConfirmRegistrationComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class ConfirmRegistrationComponent {}

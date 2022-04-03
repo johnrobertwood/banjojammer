@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  NgZone,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
 import { BreakpointObserver } from '@angular/cdk/layout';
@@ -82,19 +76,6 @@ export class AppComponent implements OnInit {
       });
     } else {
       this.loggedIn = false;
-      this.gorillaExpansionPanel.hideToggle = true;
-      this.gorillaExpansionPanel.disabled = true;
-      this.gorillaExpansionPanel.expanded = false;
-      this.gorillaExpansionPanel.close();
-      this.grillExpansionPanel.hideToggle = true;
-      this.grillExpansionPanel.disabled = true;
-      this.grillExpansionPanel.expanded = false;
-      this.grillExpansionPanel.close();
-      this.greekExpansionPanel.hideToggle = true;
-      this.greekExpansionPanel.disabled = true;
-      this.greekExpansionPanel.expanded = false;
-      this.freeExpansionPanel.expanded = false;
-      this.greekExpansionPanel.close();
     }
   }
 
@@ -179,13 +160,5 @@ export class AppComponent implements OnInit {
         return this.techniqueService.getTechniques('greek-tech');
       })
     );
-  }
-
-  get sidenavMode() {
-    return this.isSmallScreen ? 'over' : 'side';
-  }
-
-  get isHomePage() {
-    return window.location.pathname === '/home';
   }
 }
