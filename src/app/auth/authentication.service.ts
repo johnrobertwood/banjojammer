@@ -126,7 +126,7 @@ export class AuthenticationService {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/user';
     return this.http.post<any>(url, data, this.httpOptions).pipe(
-      tap((user) => (this.userHistory = user.userHistory)),
+      tap((user) => (user ? (this.userHistory = user.userHistory) : null)),
       catchError(this.ehs.handleError<any>('getUserHistory HTTP get error'))
     );
   }

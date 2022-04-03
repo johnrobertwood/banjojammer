@@ -23,7 +23,7 @@ import { MatExpansionPanel } from '@angular/material/expansion';
   styleUrls: ['app.component.css'],
   animations: [slideInAnimation],
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
   private ngUnsubscribe = new Subject();
   isSmallScreen: boolean;
   selectedName: string;
@@ -56,15 +56,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.getTechniquesB('gorilla-tech');
     this.getTechniquesC('grill-tech');
     this.getTechniquesD('greek-tech');
+    this.checkLocalStorage();
 
     this.breakpointObserver
       .observe(['(max-width: 800px)'])
       .pipe(pluck('matches'))
       .subscribe((m: boolean) => (this.isSmallScreen = m));
-  }
-
-  ngAfterViewInit(): void {
-    this.checkLocalStorage();
   }
 
   getAnimationData(outlet: RouterOutlet) {
