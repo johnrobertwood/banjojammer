@@ -137,14 +137,12 @@
       </mat-expansion-panel>
     </mat-nav-list>
   </mat-drawer>
-  <mat-drawer-content>
-    <div class="d-flex flex-column flex-wrap drawer-content">
-      <div class="w-100 d-flex justify-content-center align-items-center px-3">
-        <div [@routeAnimation]="getAnimationData(routerOutlet)" class="w-100">
-          <router-outlet #routerOutlet="outlet"></router-outlet>
-        </div>
-        <router-outlet name="popup" class="popupContainer"></router-outlet>
+  <mat-drawer-content class="d-flex flex-column justify-content-between">
+    <div class="w-100 d-flex px-3">
+      <div [@routeAnimation]="getAnimationData(routerOutlet)" class="w-100">
+        <router-outlet #routerOutlet="outlet"></router-outlet>
       </div>
+      <router-outlet name="popup" class="popupContainer"></router-outlet>
     </div>
     <div class="footer w-100">
       <footer class="text-muted bd-footer d-flex">
