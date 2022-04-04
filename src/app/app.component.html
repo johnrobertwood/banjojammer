@@ -91,7 +91,7 @@
           [routerLink]="['technique', 'jaffy-tech', technique.name]"
           (click)="sidenav.close()"
           routerLinkActive="activebutton"
-          *ngFor="let technique of techniquesA$ | async"
+          *ngFor="let technique of techArray[0] | async"
         >
           {{ technique.displayName }}
         </mat-panel-description>
@@ -104,9 +104,9 @@
         <mat-panel-description
           mat-menu-item
           [routerLink]="['technique', 'gorilla-tech', technique.name]"
-          (click)="isSmallScreen ? sidenav.toggle() : null"
+          (click)="sidenav.close()"
           routerLinkActive="activebutton"
-          *ngFor="let technique of techniquesB$ | async"
+          *ngFor="let technique of techArray[1] | async"
         >
           {{ technique.displayName }}
         </mat-panel-description>
@@ -119,9 +119,9 @@
         <mat-panel-description
           mat-menu-item
           [routerLink]="['technique', 'grill-tech', technique.name]"
-          (click)="isSmallScreen ? sidenav.toggle() : null"
+          (click)="sidenav.close()"
           routerLinkActive="activebutton"
-          *ngFor="let technique of techniquesC$ | async"
+          *ngFor="let technique of techArray[2] | async"
         >
           {{ technique.displayName }}
         </mat-panel-description>
@@ -134,9 +134,9 @@
         <mat-panel-description
           mat-menu-item
           [routerLink]="['technique', 'greek-tech', technique.name]"
-          (click)="isSmallScreen ? sidenav.toggle() : null"
+          (click)="sidenav.close()"
           routerLinkActive="activebutton"
-          *ngFor="let technique of techniquesD$ | async"
+          *ngFor="let technique of techArray[3] | async"
         >
           {{ technique.displayName }}
         </mat-panel-description>

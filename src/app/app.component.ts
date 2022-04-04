@@ -22,14 +22,12 @@ export class AppComponent implements OnInit {
   isSmallScreen: boolean;
   selectedName: string;
   loggedIn = false;
-  techniquesA$: Observable<Technique[]>;
-  techniquesB$: Observable<Technique[]>;
-  techniquesC$: Observable<Technique[]>;
-  techniquesD$: Observable<Technique[]>;
+  techniques$: Observable<Technique[]>;
   @ViewChild('freeContent') freeExpansionPanel: MatExpansionPanel;
   @ViewChild('gorillaContent') gorillaExpansionPanel: MatExpansionPanel;
   @ViewChild('grillContent') grillExpansionPanel: MatExpansionPanel;
   @ViewChild('greekContent') greekExpansionPanel: MatExpansionPanel;
+  techArray: Observable<Technique[]>[] = [];
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -46,10 +44,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getTechniquesA('jaffy-tech');
-    this.getTechniquesB('gorilla-tech');
-    this.getTechniquesC('grill-tech');
-    this.getTechniquesD('greek-tech');
+    this.getTechniques('jaffy-tech');
+    this.getTechniques('gorilla-tech');
+    this.getTechniques('grill-tech');
+    this.getTechniques('greek-tech');
     this.checkLocalStorage();
 
     this.breakpointObserver
@@ -85,11 +83,13 @@ export class AppComponent implements OnInit {
       this.authService.login(data);
       this.gorillaExpansionPanel.hideToggle = false;
       this.gorillaExpansionPanel.disabled = false;
-      this.gorillaExpansionPanel.expanded = true;
+      this.gorillaExpansionPanel.open();
       this.grillExpansionPanel.hideToggle = false;
       this.grillExpansionPanel.disabled = false;
+      this.grillExpansionPanel.open();
       this.greekExpansionPanel.hideToggle = false;
       this.greekExpansionPanel.disabled = false;
+      this.greekExpansionPanel.open();
       this.freeExpansionPanel.expanded = false;
       this.zone.run(() => {
         this.router.navigate(['/home']);
@@ -102,15 +102,12 @@ export class AppComponent implements OnInit {
       this.gorillaExpansionPanel.close();
       this.gorillaExpansionPanel.disabled = true;
       this.gorillaExpansionPanel.hideToggle = true;
-      this.gorillaExpansionPanel.expanded = false;
       this.grillExpansionPanel.close();
       this.grillExpansionPanel.disabled = true;
       this.grillExpansionPanel.hideToggle = true;
-      this.grillExpansionPanel.expanded = false;
       this.greekExpansionPanel.close();
       this.greekExpansionPanel.disabled = true;
       this.greekExpansionPanel.hideToggle = true;
-      this.greekExpansionPanel.expanded = false;
       this.freeExpansionPanel.expanded = true;
     }
 
@@ -126,39 +123,13 @@ export class AppComponent implements OnInit {
     }
   }
 
-  getTechniquesA(techName: string): void {
-    this.techniquesA$ = this.activatedRoute.paramMap.pipe(
+  getTechniques(techName: string): void {
+    this.techniques$ = this.activatedRoute.paramMap.pipe(
       switchMap((params) => {
         this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques('jaffy-tech');
+        return this.techniqueService.getTechniques(techName);
       })
     );
-  }
-
-  getTechniquesB(techName: string): void {
-    this.techniquesB$ = this.activatedRoute.paramMap.pipe(
-      switchMap((params) => {
-        this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques('gorilla-tech');
-      })
-    );
-  }
-
-  getTechniquesC(techName: string): void {
-    this.techniquesC$ = this.activatedRoute.paramMap.pipe(
-      switchMap((params) => {
-        this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques('grill-tech');
-      })
-    );
-  }
-
-  getTechniquesD(techName: string): void {
-    this.techniquesD$ = this.activatedRoute.paramMap.pipe(
-      switchMap((params) => {
-        this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques('greek-tech');
-      })
-    );
+    this.techArray.push(this.techniques$);
   }
 }
