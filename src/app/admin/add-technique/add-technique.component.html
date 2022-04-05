@@ -1,16 +1,21 @@
 <form>
-  <input
-    #techNameInput
-    matInput
-    name="addTechniqueId"
-    [(ngModel)]="techArrayName"
-  />
-  <button
-    mat-stroked-button
-    color="primary"
-    class="p-2 mx-1"
-    (click)="addTechnique()"
-  >
-    Add Full Set
-  </button>
+  <mat-form-field appearance="fill" color="accent">
+    <mat-label>Add Technique Set</mat-label>
+    <input
+      #techNameInput
+      matInput
+      name="addTechniqueId"
+      [(ngModel)]="techArrayName"
+    />
+  </mat-form-field>
+  <div>
+    <button
+      mat-stroked-button
+      color="basic"
+      class="p-2"
+      (click)="addTechnique()"
+    >
+      Add
+    </button>
+  </div>
 </form>
