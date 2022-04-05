@@ -15,11 +15,11 @@ const flashcardDeckRoutes: Routes = [
     component: FlashcardDeckComponent,
     children: [
       {
-        path: '',
+        path: ':name',
         component: FlashcardListComponent,
         children: [
           {
-            path: ':name',
+            path: '',
             component: FlashcardDetailComponent,
             canDeactivate: [CanDeactivateGuard],
             resolve: {

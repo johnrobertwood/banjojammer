@@ -1,14 +1,13 @@
 <div>
   <router-outlet></router-outlet>
-  <mat-selection-list [multiple]="false">
-    <span
-      mat-list-item
-      *ngFor="let technique of techniques$ | async"
-      [routerLink]="['/flashcard-deck', technique.name]"
-      routerLinkActive="activebutton"
-      class="d-flex justify-content-center align-items-center mb-2"
-    >
-      {{ technique.displayName }}
-    </span>
-  </mat-selection-list>
+  <mat-chip-list>
+    <ng-container *ngFor="let technique of techniques$ | async">
+      <mat-chip
+        [routerLink]="['/flashcard-deck', technique.name]"
+        [selected]="selectedName === technique.name"
+        color="accent"
+        >{{ technique.displayName }}</mat-chip
+      >
+    </ng-container>
+  </mat-chip-list>
 </div>
