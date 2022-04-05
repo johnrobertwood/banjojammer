@@ -7,10 +7,10 @@ const greekTech = {
     nextTechnique: null,
     quiz: {
       complete: false,
-      question: 'How do you execute a knee slice from closed guard?',
+      question: 'How do you do the Dope Mount?',
       responses: [
         {
-          text: 'Stand up, knee in the middle, turn knee down, underhook and slice',
+          text: 'Walk towards his hips to wind him up, get a knee between his legs and slide over to mount',
           correct: true,
         },
         {
@@ -29,31 +29,25 @@ const greekTech = {
     },
     flashcard: {
       complete: false,
-      question: 'What are the keys for knee slice from closed guard?',
+      question: 'How do you do the Dope Mount?',
       answer:
-        'Stand up, knee in the middle, turn knee down, underhook and slice',
+        'Walk towards his hips to wind him up, get a knee between his legs and slide over to mount',
     },
     notes: [
       {
-        text: 'Grips create angles of attack and set up opportunities for other moves',
+        text: 'Move around towards his hips and get knee between his legs',
       },
       {
-        text: 'Types include mirror collar or cross collar and high / low collar grip',
+        text: "Underhooks are good and put your head on the floor so he can't push you off",
       },
       {
-        text: 'Mirror grip can be patient, cross collar you need to shake and attack',
+        text: '1 knee is good 2 knees is better',
       },
       {
-        text: 'High collar to hang on them and hold their head down',
+        text: 'Walk back to wind him up and then then get the mount',
       },
       {
-        text: 'Reach with first hand to fish, then follow up with the other hand to grab a mirror',
-      },
-      {
-        text: 'Reach with first hand to fish to flare the lapel out then jab stiff arm mirror grip',
-      },
-      {
-        text: 'Use the stiff arm mirror to move them around and control',
+        text: 'Catch the knee in middle if he turns into you or away in side control',
       },
     ],
     video: {
