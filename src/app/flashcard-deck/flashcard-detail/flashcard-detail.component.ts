@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { DialogService } from '../../dialog.service';
 import { Technique } from 'src/app/techniques/technique';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-flashcard-detail',
@@ -12,6 +13,7 @@ import { Technique } from 'src/app/techniques/technique';
 export class FlashcardDetailComponent implements OnInit {
   reveal: boolean;
   technique: Technique;
+  module: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,6 +24,10 @@ export class FlashcardDetailComponent implements OnInit {
     this.route.data.subscribe((data: { flashcard: Technique }) => {
       this.reveal = false;
       this.technique = data.flashcard;
+    });
+
+    this.route.paramMap.subscribe((data) => {
+      this.module = data.get('module');
     });
   }
 

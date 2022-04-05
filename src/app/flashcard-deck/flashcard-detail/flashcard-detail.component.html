@@ -23,7 +23,7 @@
             mat-stroked-button
             color="accent"
             class="w-100 p-2 btn-dark"
-            [routerLink]="['/flashcard-deck', technique.prevTechnique]"
+            [routerLink]="['/flashcard-deck', module, technique.prevTechnique]"
           >
             Prev
           </button>
@@ -34,7 +34,7 @@
             mat-stroked-button
             color="accent"
             class="w-100 p-2 btn-dark"
-            [routerLink]="['/flashcard-deck', technique.nextTechnique]"
+            [routerLink]="['/flashcard-deck', module, technique.nextTechnique]"
           >
             Next
           </button>
