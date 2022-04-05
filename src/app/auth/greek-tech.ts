@@ -38,7 +38,7 @@ const greekTech = {
         text: 'Move around towards his hips and get knee between his legs',
       },
       {
-        text: "Underhooks are good and put your head on the floor so he can't push you off",
+        text: 'Underhooks are good and put your head on the floor so they cannot push you off',
       },
       {
         text: '1 knee is good 2 knees is better',

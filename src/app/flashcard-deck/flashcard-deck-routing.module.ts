@@ -15,7 +15,7 @@ const flashcardDeckRoutes: Routes = [
     component: FlashcardDeckComponent,
     children: [
       {
-        path: ':name',
+        path: ':module/:name',
         component: FlashcardListComponent,
         children: [
           {

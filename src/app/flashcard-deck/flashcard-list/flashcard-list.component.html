@@ -3,7 +3,7 @@
   <mat-chip-list>
     <ng-container *ngFor="let technique of techniques$ | async">
       <mat-chip
-        [routerLink]="['/flashcard-deck', technique.name]"
+        [routerLink]="['/flashcard-deck', modulePath, technique.name]"
         [selected]="selectedName === technique.name"
         color="accent"
         >{{ technique.displayName }}</mat-chip
