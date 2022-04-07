@@ -7,10 +7,11 @@ const gorillaTech = {
     nextTechnique: null,
     quiz: {
       complete: false,
-      question: 'How do you execute a knee slice from closed guard?',
+      question: 'How do you execute the baseball choke?',
       responses: [
         {
-          text: 'Stand up, knee in the middle, turn knee down, underhook and slice',
+          text: 'Get the four finger lapel grip, make space to insert grip on other side of neck then bring elbow across their neck and squeeze the choke',
+
           correct: true,
         },
         {
@@ -29,36 +30,30 @@ const gorillaTech = {
     },
     flashcard: {
       complete: false,
-      question: 'What are the keys for knee slice from closed guard?',
+      question: 'What are the keys for baseball choke?',
       answer:
-        'Stand up, knee in the middle, turn knee down, underhook and slice',
+        'Get the four finger lapel grip, make space to insert grip on other side of neck then bring elbow across their neck and squeeze the choke',
     },
     notes: [
       {
-        text: 'Grips create angles of attack and set up opportunities for other moves',
+        text: 'Works against pressure pass because you have time to make the grip setup',
       },
       {
-        text: 'Types include mirror collar or cross collar and high / low collar grip',
+        text: 'Push and frame to get four finger grips on near side and make space to get grip on top of gi from other side of his neck',
       },
       {
-        text: 'Mirror grip can be patient, cross collar you need to shake and attack',
+        text: 'When he sprawls and comes accross, upa and bring your elbow across his neck',
       },
       {
-        text: 'High collar to hang on them and hold their head down',
+        text: 'Squeeze and turn the collar choke to finish',
       },
       {
-        text: 'Reach with first hand to fish, then follow up with the other hand to grab a mirror',
-      },
-      {
-        text: 'Reach with first hand to fish to flare the lapel out then jab stiff arm mirror grip',
-      },
-      {
-        text: 'Use the stiff arm mirror to move them around and control',
+        text: 'Can setup the four finger grip from guard being lazy for the setup',
       },
     ],
     video: {
-      url: 'https://www.youtube.com/embed/9-0z3DdiiJI',
-      thumbnail: 'https://img.youtube.com/vi/9-0z3DdiiJI/mqdefault.jpg',
+      url: 'https://www.youtube.com/embed/k3GN886_CYE',
+      thumbnail: 'https://img.youtube.com/vi/k3GN886_CYE/mqdefault.jpg',
     },
   },
 };

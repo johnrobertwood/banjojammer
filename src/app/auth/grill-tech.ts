@@ -4,13 +4,14 @@ const grillTech = {
     name: 'bravoFlipChoke',
     displayName: 'Bravo Flip Choke',
     prevTechnique: null,
-    nextTechnique: null,
+    nextTechnique: 'unstoppableNoGiGuardSequence',
     quiz: {
       complete: false,
-      question: 'How do you execute a knee slice from closed guard?',
+      question:
+        'How do you execute a Bravo Flip Choke when opponent is turtled?',
       responses: [
         {
-          text: 'Stand up, knee in the middle, turn knee down, underhook and slice',
+          text: 'Remove his lapel, pass it over his back in front of his face, then bring other hand around to dig under and grab lapel to flip',
           correct: true,
         },
         {
@@ -29,36 +30,82 @@ const grillTech = {
     },
     flashcard: {
       complete: false,
-      question: 'What are the keys for knee slice from closed guard?',
+      question:
+        'How do you execute a Bravo Flip Choke when opponent is turtled?',
       answer:
-        'Stand up, knee in the middle, turn knee down, underhook and slice',
+        'Remove his lapel, pass it over his back in front of his face, then bring other hand around to dig under and grab lapel to flip',
     },
     notes: [
       {
-        text: 'Grips create angles of attack and set up opportunities for other moves',
+        text: 'Pull out opponents lapel and get the slack out',
       },
       {
-        text: 'Types include mirror collar or cross collar and high / low collar grip',
+        text: 'Pass lapel over his back and in front of shoulder, keeping tension',
       },
       {
-        text: 'Mirror grip can be patient, cross collar you need to shake and attack',
+        text: 'Other hand goes around and digs under their arm and neck to find the collar',
       },
       {
-        text: 'High collar to hang on them and hold their head down',
-      },
-      {
-        text: 'Reach with first hand to fish, then follow up with the other hand to grab a mirror',
-      },
-      {
-        text: 'Reach with first hand to fish to flare the lapel out then jab stiff arm mirror grip',
-      },
-      {
-        text: 'Use the stiff arm mirror to move them around and control',
+        text: 'Use the grip to flip, cup his head and dig elbow to stuff his arm for the choke finish',
       },
     ],
     video: {
       url: 'https://www.youtube.com/embed/1i92oa6jLsA',
       thumbnail: 'https://img.youtube.com/vi/1i92oa6jLsA/mqdefault.jpg',
+    },
+  },
+  unstoppableNoGiGuard: {
+    id: 0,
+    name: 'unstoppableNoGiGuardSequence',
+    displayName: 'Unstoppable No Gi Guard Sequence',
+    prevTechnique: 'bravoFlipChoke',
+    nextTechnique: null,
+    quiz: {
+      complete: false,
+      question: 'What is the Unstoppable No Gi Guard Sequence?',
+      responses: [
+        {
+          text: '',
+          correct: true,
+        },
+        {
+          text: 'Stand up, knee in middle, push with hand on legs to mount',
+          correct: false,
+        },
+        {
+          text: 'Inverting, leg outside of his hips',
+          correct: false,
+        },
+        {
+          text: 'Keeping the hips low, pushing with the feet and inverting',
+          correct: false,
+        },
+      ],
+    },
+    flashcard: {
+      complete: false,
+      question:
+        'How do you execute a Bravo Flip Choke when opponent is turtled?',
+      answer:
+        'Remove his lapel, pass it over his back in front of his face, then bring other hand around to dig under and grab lapel to flip',
+    },
+    notes: [
+      {
+        text: 'Make your partner feel comfortable but use your Batman blade frames',
+      },
+      {
+        text: 'Keep your feet in play so you can back up',
+      },
+      {
+        text: 'Jab one, two to double grip his arm, then straigten his arm out',
+      },
+      {
+        text: 'Finish by sitting up, reaching around to grab his lat wing and turn into a takedown or use a darce to sweep',
+      },
+    ],
+    video: {
+      url: 'https://www.youtube.com/embed/_WNDZPwzLyk',
+      thumbnail: 'https://img.youtube.com/vi/_WNDZPwzLyk/mqdefault.jpg',
     },
   },
 };
