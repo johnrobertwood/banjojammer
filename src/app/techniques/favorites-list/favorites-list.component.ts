@@ -41,9 +41,9 @@ export class FavoritesListComponent implements OnInit {
         return this.ts.getTechniques(this.modulePath);
       }),
       map((arr1) => {
-        var arr = [];
-        for (var i = 0; i < arr1.length; ++i) {
-          for (var j = 0; j < this.favArray.length; ++j) {
+        const arr = [];
+        for (let i = 0; i < arr1.length; ++i) {
+          for (let j = 0; j < this.favArray.length; ++j) {
             if (arr1[i].name === this.favArray[j].name) {
               // If element is in both the arrays
               arr.push(arr1[i]); // Push to arr array

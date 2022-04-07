@@ -2,7 +2,7 @@ import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { pluck, switchMap, takeUntil } from 'rxjs/operators';
+import { pluck, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { TechniqueService } from './techniques/technique.service';
 import { Technique } from './techniques/technique';
 import { AuthenticationService } from './auth/authentication.service';
@@ -48,7 +48,6 @@ export class AppComponent implements OnInit {
     this.getTechniques('gorilla-tech');
     this.getTechniques('grill-tech');
     this.getTechniques('greek-tech');
-    this.checkLocalStorage();
 
     this.breakpointObserver
       .observe(['(max-width: 800px)'])
@@ -66,6 +65,16 @@ export class AppComponent implements OnInit {
     const localData = localStorage.getItem('currentUser');
     if (localStorage.getItem('currentUser')) {
       this.loggedIn = true;
+      this.gorillaExpansionPanel.hideToggle = false;
+      this.gorillaExpansionPanel.disabled = false;
+      this.gorillaExpansionPanel.open();
+      this.grillExpansionPanel.hideToggle = false;
+      this.grillExpansionPanel.disabled = false;
+      this.grillExpansionPanel.open();
+      this.greekExpansionPanel.hideToggle = false;
+      this.greekExpansionPanel.disabled = false;
+      this.greekExpansionPanel.open();
+      this.freeExpansionPanel.expanded = false;
       this.authService.login({
         data: {
           username: JSON.parse(localData).username,
@@ -128,7 +137,8 @@ export class AppComponent implements OnInit {
       switchMap((params) => {
         this.selectedName = params.get('name');
         return this.techniqueService.getTechniques(techName);
-      })
+      }),
+      tap(() => this.checkLocalStorage())
     );
     this.techArray.push(this.techniques$);
   }
