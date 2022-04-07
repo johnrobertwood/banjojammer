@@ -1,9 +1,9 @@
 <main>
   <div class="album py-3">
     <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 g-3">
+      <nav class="mb-2">
         <h2>My Favorite Techniques</h2>
-        <nav>
+        <div class="d-flex justify-content-center mb-2">
           <button
             mat-stroked-button
             color="accent"
@@ -36,52 +36,59 @@
           >
             Greek Tech
           </button>
-        </nav>
+        </div>
         <mat-chip-list>
           <ng-container *ngFor="let technique of techniques$ | async">
             <mat-chip
-              [routerLink]="['/technique', modulePath, technique.name]"
+              multiple
+              color="accent"
+              (click)="selectTech(technique)"
+              [selected]="selectedName === technique.name"
               >{{ technique.displayName }}</mat-chip
             >
           </ng-container>
         </mat-chip-list>
+      </nav>
+      <div class="row row-cols-1 row-cols-sm-2 g-3">
         <div *ngFor="let technique of techniques$ | async" class="col my-2">
-          <div class="shadow-sm">
-            <img
-              [src]="technique.video.thumbnail | safe"
-              [routerLink]="['/technique', modulePath, technique.name]"
-              alt="Video Thumbnail"
-              class="w-100"
-            />
-            <div class="card-container p-2">
-              <h3 class="card-title">{{ technique.displayName }}</h3>
-              <p class="card-text">
-                {{ technique.flashcard.question }}
-              </p>
-              <div
-                class="d-flex flex-column justify-content-center align-items-center"
-              >
-                <div class="mb-2 w-100">
-                  <button
-                    mat-stroked-button
-                    color="accent"
-                    class="p-2 mr-2 w-100 btn-dark"
-                    [routerLink]="['/technique', modulePath, technique.name]"
-                  >
-                    Technique Details
-                  </button>
+          <ng-container *ngIf="!(technique.name === selectedName)">
+            <div class="shadow-sm">
+              <img
+                [src]="technique.video.thumbnail | safe"
+                [routerLink]="['/technique', modulePath, technique.name]"
+                alt="Video Thumbnail"
+                class="w-100"
+              />
+              <div class="card-container p-2">
+                <h3 class="card-title">{{ technique.displayName }}</h3>
+                <p class="card-text">
+                  {{ technique.flashcard.question }}
+                </p>
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center"
+                >
+                  <div class="mb-2 w-100">
+                    <button
+                      mat-stroked-button
+                      color="accent"
+                      class="p-2 mr-2 w-100 btn-dark"
+                      [routerLink]="['/technique', modulePath, technique.name]"
+                    >
+                      Technique Details
+                    </button>
+                  </div>
+                  <app-dialog-content-quiz
+                    class="mb-2 w-100"
+                    [technique]="technique"
+                  ></app-dialog-content-quiz>
+                  <app-dialog-content-flashcard
+                    class="w-100"
+                    [technique]="technique"
+                  ></app-dialog-content-flashcard>
                 </div>
-                <app-dialog-content-quiz
-                  class="mb-2 w-100"
-                  [technique]="technique"
-                ></app-dialog-content-quiz>
-                <app-dialog-content-flashcard
-                  class="w-100"
-                  [technique]="technique"
-                ></app-dialog-content-flashcard>
               </div>
             </div>
-          </div>
+          </ng-container>
         </div>
       </div>
     </div>

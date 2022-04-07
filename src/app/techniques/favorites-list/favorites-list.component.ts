@@ -14,7 +14,7 @@ import { TechniqueService } from '../technique.service';
 })
 export class FavoritesListComponent implements OnInit {
   techniques$: Observable<Technique[]>;
-  selectedName: string;
+  selectedName = null;
   modulePath: string;
   favArray = [];
 
@@ -26,6 +26,10 @@ export class FavoritesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTechniques();
+  }
+
+  selectTech(tech: Technique) {
+    this.selectedName = tech.name;
   }
 
   getTechniques(): void {
