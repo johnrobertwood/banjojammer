@@ -6,7 +6,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { ErrorHandlingService } from '../error-handling.service';
 import { Technique } from '../techniques/technique';
 
-// import jaffyTech from './jaffy-tech';
+// import gloverTech from './glover-tech';
 // import gorillaTech from './gorilla-tech';
 // import grillTech from './grill-tech';
 import greekTech from './greek-tech';

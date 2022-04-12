@@ -25,7 +25,7 @@ export class FavoritesListResolverService implements Resolve<Technique> {
           return of(technique);
         } else {
           // id not found
-          this.router.navigate(['/favorites/jaffy-tech/kneeSlice']);
+          this.router.navigate(['/favorites/glover-tech/kneeSlice']);
           return EMPTY;
         }
       })

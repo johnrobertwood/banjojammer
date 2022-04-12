@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-between w-100">
     <div class="mx-3">
       <p class="h3 mb-0">
-        <span class="mandofont" routerLink="/home">BJJQUIZ.C0M</span>
+        <span class="mandofont" routerLink="/home">BJJQUIZ</span>
       </p>
     </div>
     <div>
@@ -30,7 +30,7 @@
         *ngIf="loggedIn"
         mat-menu-item
         (click)="sidenav.close()"
-        routerLink="/favorites/jaffy-tech/kneeSlice"
+        routerLink="/favorites/glover-tech/kneeSlice"
         routerLinkActive="activebutton"
       >
         Favorites
@@ -48,7 +48,7 @@
         *ngIf="loggedIn"
         mat-menu-item
         (click)="sidenav.close()"
-        routerLink="/flashcard-deck/jaffy-tech/kneeSlice"
+        routerLink="/flashcard-deck/glover-tech/kneeSlice"
         routerLinkActive="activebutton"
       >
         Flashcards
@@ -88,7 +88,7 @@
         </mat-expansion-panel-header>
         <mat-panel-description
           mat-menu-item
-          [routerLink]="['technique', 'jaffy-tech', technique.name]"
+          [routerLink]="['technique', 'glover-tech', technique.name]"
           (click)="sidenav.close()"
           routerLinkActive="activebutton"
           *ngFor="let technique of techArray[0] | async"

@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     this.techniques$ = this.route.paramMap.pipe(
       switchMap((params) => {
         this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques('jaffy-tech');
+        return this.techniqueService.getTechniques('glover-tech');
       })
     );
     if (localStorage.getItem('currentUser')) {

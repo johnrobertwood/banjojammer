@@ -15,7 +15,8 @@ body {
 .mandofont {
   font-family: "mandalorelaser";
   color: #69f0ae;
-  font-size: 42px;
+  font-size: 32px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {

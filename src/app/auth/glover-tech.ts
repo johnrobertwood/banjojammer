@@ -1,4 +1,4 @@
-const jaffyTech = {
+const gloverTech = {
   kneeSlice: {
     id: 0,
     name: 'kneeSlice',
@@ -712,4 +712,4 @@ const jaffyTech = {
   },
 };
 
-export default jaffyTech;
+export default gloverTech;
