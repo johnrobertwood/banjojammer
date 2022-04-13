@@ -13,6 +13,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ManageTechniqueDetailComponent } from './manage-technique-detail/manage-technique-detail.component';
 import { ManageTechniqueListComponent } from './manage-technique-list/manage-technique-list.component';
 import { AddTechniqueComponent } from './add-technique/add-technique.component';
+import { TosComponent } from '../tos/tos.component';
+import { PrivacyComponent } from '../privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { AddTechniqueComponent } from './add-technique/add-technique.component';
     ManageTechniqueDetailComponent,
     ManageTechniqueListComponent,
     AddTechniqueComponent,
+    TosComponent,
+    PrivacyComponent,
   ],
   imports: [
     CommonModule,
