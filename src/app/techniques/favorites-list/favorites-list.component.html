@@ -39,19 +39,15 @@
         </div>
         <mat-chip-list>
           <ng-container *ngFor="let technique of techniques$ | async">
-            <mat-chip
-              multiple
-              color="accent"
-              (click)="selectTech(technique)"
-              [selected]="selectedName === technique.name"
-              >{{ technique.displayName }}</mat-chip
-            >
+            <mat-chip multiple color="accent">{{
+              technique.displayName
+            }}</mat-chip>
           </ng-container>
         </mat-chip-list>
       </nav>
       <div class="row row-cols-1 row-cols-sm-2 g-3">
         <div *ngFor="let technique of techniques$ | async" class="col my-2">
-          <ng-container *ngIf="!(technique.name === selectedName)">
+          <ng-container>
             <div class="shadow-sm">
               <img
                 [src]="technique.video.thumbnail | safe"
