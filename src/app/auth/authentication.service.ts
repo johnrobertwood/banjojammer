@@ -30,6 +30,7 @@ export class AuthenticationService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
+    body: {},
   };
 
   constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
@@ -42,6 +43,7 @@ export class AuthenticationService {
       JSON.stringify({
         userId: payload.data.attributes.sub,
         username: payload.data.username,
+        email: payload.data.attributes.email,
       })
     );
   }
