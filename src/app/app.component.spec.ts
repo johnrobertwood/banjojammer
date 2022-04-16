@@ -92,7 +92,7 @@ describe('AppComponent', () => {
         question: 'What are the key body positions for a kimura from guard?',
         responses: [
           {
-            text: 'Get their hands on mat, grip the wrist low, lock your elbow out straight, shrimp out a little, elbows tight to finish with monkey grip',
+            text: 'Get their hands on mat, grip wrist low, lock elbow out straight, shrimp a little, elbows tight to finish monkey grip',
             correct: true,
           },
           {
@@ -121,19 +121,17 @@ describe('AppComponent', () => {
     },
   };
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          RouterTestingModule,
-          BrowserAnimationsModule,
-          HttpClientModule,
-          AppMaterialModule,
-        ],
-        declarations: [AppComponent],
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AppMaterialModule,
+      ],
+      declarations: [AppComponent],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     const techniqueService = jasmine.createSpyObj('TechniqueService', [

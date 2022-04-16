@@ -9,14 +9,14 @@ import { ErrorHandlingService } from '../error-handling.service';
 
 @Injectable({ providedIn: 'root' })
 export class TechniqueService {
-  private apiGatewayUrl =
-    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production';
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
   };
+
+  private apiGatewayUrl =
+    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production';
 
   constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
 
@@ -34,9 +34,7 @@ export class TechniqueService {
               arr.push(obj[key]);
             }
           }
-          arr.sort((a, b) => {
-            return a.id - b.id;
-          });
+          arr.sort((a, b) => a.id - b.id);
           return arr;
         }),
         catchError(this.ehs.handleError<Technique[]>('getTechniques', []))

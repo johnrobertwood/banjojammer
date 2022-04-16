@@ -9,9 +9,10 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
   styleUrls: ['./add-technique.component.css'],
 })
 export class AddTechniqueComponent {
-  private ngUnsubscribe = new Subject();
-  constructor(private authService: AuthenticationService) {}
   techArrayName: string;
+  private ngUnsubscribe = new Subject();
+
+  constructor(private authService: AuthenticationService) {}
 
   addTechnique() {
     this.authService

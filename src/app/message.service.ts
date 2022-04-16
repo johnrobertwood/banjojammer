@@ -7,14 +7,14 @@ import { ErrorHandlingService } from './error-handling.service';
   providedIn: 'root',
 })
 export class MessageService {
-  private feedbackUrl =
-    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/feedback';
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
   };
+
+  private feedbackUrl =
+    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/feedback';
 
   constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
 

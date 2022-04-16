@@ -21,10 +21,10 @@ export interface DialogData {
   styleUrls: ['dialog-content-flashcard.component.css'],
 })
 export class DialogContentFlashcardComponent implements OnDestroy {
-  private ngUnsubscribe = new Subject();
   @Input() technique: Technique;
-  answered: boolean;
   @Input() isFlashDone: boolean;
+  answered: boolean;
+  private ngUnsubscribe = new Subject();
 
   constructor(
     public dialog: MatDialog,

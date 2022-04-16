@@ -41,16 +41,14 @@ export class FavoritesListComponent implements OnInit {
       }),
       map((user) => user.userHistory.favorite),
       tap((x) => (this.favArray = x)),
-      switchMap((fav) => {
-        return this.ts.getTechniques(this.modulePath);
-      }),
+      switchMap((fav) => this.ts.getTechniques(this.modulePath)),
       map((arr1) => {
-        var arr = [];
-        for (var i = 0; i < arr1.length; ++i) {
-          for (var j = 0; j < this.favArray.length; ++j) {
-            if (arr1[i].name === this.favArray[j].name) {
+        const arr = [];
+        for (const element of arr1) {
+          for (const element2 of this.favArray) {
+            if (element.name === element2.name) {
               // If element is in both the arrays
-              arr.push(arr1[i]); // Push to arr array
+              arr.push(element); // Push to arr array
             }
           }
         }

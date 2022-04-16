@@ -18,7 +18,7 @@ export class AuthenticationService {
   isLoggedIn = false;
   userData: any;
 
-  techniques: { [key: string]: object } = greekTech;
+  techniques = greekTech;
 
   userHistory = {
     flashcard: [],
@@ -96,13 +96,13 @@ export class AuthenticationService {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
 
-    const found = this.userHistory[saveType].find((t) => {
-      return t.name === technique.name;
-    });
+    const found = this.userHistory[saveType].find(
+      (t) => t.name === technique.name
+    );
     if (found) {
-      this.userHistory[saveType] = this.userHistory[saveType].filter((tech) => {
-        return tech.name !== technique.name;
-      });
+      this.userHistory[saveType] = this.userHistory[saveType].filter(
+        (tech) => tech.name !== technique.name
+      );
     } else {
       this.userHistory[saveType].push(technique);
     }

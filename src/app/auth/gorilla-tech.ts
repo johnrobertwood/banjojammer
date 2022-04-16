@@ -10,7 +10,7 @@ const gorillaTech = {
       question: 'How do you execute the baseball choke?',
       responses: [
         {
-          text: 'Get the four finger lapel grip, make space to insert grip on other side of neck then bring elbow across their neck and squeeze the choke',
+          text: 'Get the four finger lapel grip, make space to insert grip on other side of neck, bring elbow across neck and squeeze choke',
 
           correct: true,
         },
@@ -31,8 +31,7 @@ const gorillaTech = {
     flashcard: {
       complete: false,
       question: 'What are the keys for baseball choke?',
-      answer:
-        'Get the four finger lapel grip, make space to insert grip on other side of neck then bring elbow across their neck and squeeze the choke',
+      answer: '',
     },
     notes: [
       {

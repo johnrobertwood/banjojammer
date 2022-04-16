@@ -18,16 +18,16 @@ import { MatExpansionPanel } from '@angular/material/expansion';
   animations: [slideInAnimation],
 })
 export class AppComponent implements OnInit {
-  private ngUnsubscribe = new Subject();
-  isSmallScreen: boolean;
-  selectedName: string;
-  loggedIn = false;
-  techniques$: Observable<Technique[]>;
   @ViewChild('freeContent') freeExpansionPanel: MatExpansionPanel;
   @ViewChild('gorillaContent') gorillaExpansionPanel: MatExpansionPanel;
   @ViewChild('grillContent') grillExpansionPanel: MatExpansionPanel;
   @ViewChild('greekContent') greekExpansionPanel: MatExpansionPanel;
+  isSmallScreen: boolean;
+  selectedName: string;
+  loggedIn = false;
+  techniques$: Observable<Technique[]>;
   techArray: Observable<Technique[]>[] = [];
+  private ngUnsubscribe = new Subject();
 
   constructor(
     private breakpointObserver: BreakpointObserver,

@@ -22,10 +22,10 @@ export interface DialogData {
   styleUrls: ['dialog-content-quiz.component.css'],
 })
 export class DialogContentQuizComponent implements OnDestroy {
-  private ngUnsubscribe = new Subject();
   @Input() technique: Technique;
-  answered: boolean;
   @Input() isQuizDone: boolean;
+  answered: boolean;
+  private ngUnsubscribe = new Subject();
 
   constructor(
     public dialog: MatDialog,

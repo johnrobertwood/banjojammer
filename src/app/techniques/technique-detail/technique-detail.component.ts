@@ -15,7 +15,6 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
   styleUrls: ['./technique-detail.component.css'],
 })
 export class TechniqueDetailComponent implements OnInit, OnDestroy {
-  private ngUnsubscribe = new Subject();
   technique$: Observable<Technique>;
   isSmallScreen: boolean;
   isLoggedIn: boolean;
@@ -24,6 +23,7 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
   isFlashDone: boolean;
   url: string;
   modulePath: string;
+  private ngUnsubscribe = new Subject();
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -56,16 +56,14 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
         if (localStorage.getItem('currentUser')) {
           this.isLoggedIn = true;
           this.authService.getUserHistory().subscribe((res) => {
-            this.isFavorite = res.userHistory.favorite.find((t: Technique) => {
-              return t.name === technique.name;
-            });
-            this.isQuizDone = res.userHistory.quiz.find((t: Technique) => {
-              return t.name === technique.name;
-            });
+            this.isFavorite = res.userHistory.favorite.find(
+              (t: Technique) => t.name === technique.name
+            );
+            this.isQuizDone = res.userHistory.quiz.find(
+              (t: Technique) => t.name === technique.name
+            );
             this.isFlashDone = res.userHistory.flashcard.find(
-              (t: Technique) => {
-                return t.name === technique.name;
-              }
+              (t: Technique) => t.name === technique.name
             );
           });
         } else {
