@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Technique } from 'src/app/techniques/technique';
-import { filter, map, switchMap, tap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from 'src/app/auth/authentication.service';
 import { TechniqueService } from '../technique.service';
@@ -41,7 +41,7 @@ export class FavoritesListComponent implements OnInit {
       }),
       map((user) => user.userHistory.favorite),
       tap((x) => (this.favArray = x)),
-      switchMap((fav) => this.ts.getTechniques(this.modulePath)),
+      switchMap(() => this.ts.getTechniques(this.modulePath)),
       map((arr1) => {
         const arr = [];
         for (const element of arr1) {

@@ -12,7 +12,7 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
 import { Technique } from '../../techniques/technique';
 
 export interface DialogData {
-  technique: Technique;
+  quiz: any;
   answered: boolean;
 }
 
@@ -36,13 +36,12 @@ export class DialogContentQuizComponent implements OnDestroy {
     const dialogRef = this.dialog.open(DialogContentQuizDialogComponent, {
       width: '500px',
       data: {
-        technique: this.technique,
+        quiz: this.technique.quiz,
         answered: false,
       },
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      // this.isQuizDone = true;
       this.authService
         .updateTechnique(this.technique, 'quiz')
         .pipe(takeUntil(this.ngUnsubscribe))

@@ -97,11 +97,11 @@ export class AuthenticationService {
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
 
     const found = this.userHistory[saveType].find(
-      (t) => t.name === technique.name
+      (t: { name: string }) => t.name === technique.name
     );
     if (found) {
       this.userHistory[saveType] = this.userHistory[saveType].filter(
-        (tech) => tech.name !== technique.name
+        (tech: { name: string }) => tech.name !== technique.name
       );
     } else {
       this.userHistory[saveType].push(technique);

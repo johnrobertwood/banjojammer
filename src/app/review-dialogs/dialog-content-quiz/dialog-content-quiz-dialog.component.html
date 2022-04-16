@@ -1,11 +1,11 @@
 <div
-  *ngIf="data.technique.quiz"
+  *ngIf="data.quiz"
   mat-dialog-content
   class="d-flex flex-column align-items-center"
 >
-  <h3>{{ data.technique.quiz.question }}</h3>
+  <h3>{{ data.quiz.question }}</h3>
   <ul class="w-100">
-    <li *ngFor="let response of data.technique.quiz.responses | random">
+    <li *ngFor="let response of data.quiz.responses | random">
       <button cdkFocusInitial style="display: none"></button>
       <button
         mat-raised-button
