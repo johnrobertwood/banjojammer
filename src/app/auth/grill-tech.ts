@@ -11,7 +11,7 @@ const grillTech = {
         'How do you execute a Bravo Flip Choke when opponent is turtled?',
       responses: [
         {
-          text: 'Remove his lapel, pass it over his back in front of his face, then bring other hand around to dig under and grab lapel to flip',
+          text: 'Remove lapel, pass over his back in front of his face, then bring other hand around to dig under and grab lapel to flip',
           correct: true,
         },
         {

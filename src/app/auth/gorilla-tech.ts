@@ -10,7 +10,7 @@ const gorillaTech = {
       question: 'How do you execute the baseball choke?',
       responses: [
         {
-          text: 'Get the four finger lapel grip, make space to insert grip on other side of neck, bring elbow across neck and squeeze choke',
+          text: 'Get four finger lapel grip, make space to insert grip on other side of neck, bring elbow across neck and squeeze choke',
 
           correct: true,
         },
