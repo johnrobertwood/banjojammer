@@ -56,9 +56,4 @@ export class FavoritesListComponent implements OnInit {
       })
     );
   }
-
-  // delete(technique: Technique): void {
-  //   this.techniques = this.techniques.filter((t) => t !== technique);
-  //   this.techniqueService.deleteTechnique(technique).subscribe();
-  // }
 }

@@ -93,7 +93,6 @@ export class TechniqueService {
       .pipe(catchError(this.ehs.handleError<any>('editTechnique')));
   }
 
-  /** POST: add a new technique to the server */
   addTechnique(technique: Technique): Observable<Technique> {
     return this.http
       .post<Technique>(

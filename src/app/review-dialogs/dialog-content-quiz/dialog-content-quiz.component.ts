@@ -10,9 +10,10 @@ import { takeUntil } from 'rxjs/operators';
 
 import { AuthenticationService } from 'src/app/auth/authentication.service';
 import { Technique } from '../../techniques/technique';
+import { Quiz } from './quiz';
 
 export interface DialogData {
-  quiz: any;
+  quiz: Quiz;
   answered: boolean;
 }
 

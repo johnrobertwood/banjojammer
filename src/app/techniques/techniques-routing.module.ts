@@ -9,12 +9,10 @@ const techniquesRoutes: Routes = [
   {
     path: 'technique/:module/:name',
     component: TechniqueDetailComponent,
-    // data: { animation: 'technique' },
   },
   {
     path: 'favorites/:module/:name',
     component: FavoritesListComponent,
-    // data: { animation: 'favorites' },
     resolve: {
       flashcard: FavoritesListResolverService,
     },

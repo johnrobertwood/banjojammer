@@ -13,7 +13,6 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  selectedName: string;
   techniques$: Observable<Technique[]>;
   isLoggedIn: boolean;
   thumbnailUrl: string;
@@ -29,8 +28,7 @@ export class HomeComponent implements OnInit {
 
   getTechniques(): void {
     this.techniques$ = this.route.paramMap.pipe(
-      switchMap((params) => {
-        this.selectedName = params.get('name');
+      switchMap(() => {
         return this.techniqueService.getTechniques('glover-tech');
       })
     );
