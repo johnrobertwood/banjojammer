@@ -1,22 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/auth/authentication.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-technique',
   templateUrl: './add-technique.component.html',
   styleUrls: ['./add-technique.component.css'],
 })
-export class AddTechniqueComponent {
-  techArrayName: string;
+export class AddTechniqueComponent implements OnInit {
+  tagForm = this.fb.group({
+    id: '',
+    name: '',
+    displayName: '',
+    prevTechnique: '',
+    nextTechnique: '',
+    quiz: this.fb.group({
+      complete: '',
+      question: '',
+      response1: '',
+      response2: '',
+      response3: '',
+      response4: '',
+    }),
+    flashcard: this.fb.group({
+      complete: '',
+      question: '',
+      answer: '',
+    }),
+    video: this.fb.group({
+      url: '',
+      thumbnail: '',
+    }),
+  });
   private ngUnsubscribe = new Subject();
 
-  constructor(private authService: AuthenticationService) {}
+  ngOnInit(): void {}
 
-  addTechnique() {
+  constructor(
+    private authService: AuthenticationService,
+    private fb: FormBuilder
+  ) {}
+
+  addTechnique(moduleName) {
     this.authService
-      .addTechniques(this.techArrayName)
+      .addTechniques(this.tagForm.value, moduleName)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe();
   }

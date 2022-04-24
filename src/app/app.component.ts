@@ -22,6 +22,8 @@ export class AppComponent implements OnInit {
   @ViewChild('gorillaContent') gorillaExpansionPanel: MatExpansionPanel;
   @ViewChild('grillContent') grillExpansionPanel: MatExpansionPanel;
   @ViewChild('greekContent') greekExpansionPanel: MatExpansionPanel;
+  @ViewChild('kurtContent') kurtExpansionPanel: MatExpansionPanel;
+
   isSmallScreen: boolean;
   selectedName: string;
   loggedIn = false;
@@ -48,6 +50,7 @@ export class AppComponent implements OnInit {
     this.getTechniques('gorilla-tech');
     this.getTechniques('grill-tech');
     this.getTechniques('greek-tech');
+    this.getTechniques('kurt-tech');
 
     this.breakpointObserver
       .observe(['(max-width: 800px)'])
@@ -74,6 +77,9 @@ export class AppComponent implements OnInit {
       this.greekExpansionPanel.hideToggle = false;
       this.greekExpansionPanel.disabled = false;
       this.greekExpansionPanel.open();
+      this.kurtExpansionPanel.hideToggle = false;
+      this.kurtExpansionPanel.disabled = false;
+      this.kurtExpansionPanel.open();
       this.freeExpansionPanel.expanded = false;
       this.authService.login({
         data: {
@@ -99,6 +105,9 @@ export class AppComponent implements OnInit {
       this.greekExpansionPanel.hideToggle = false;
       this.greekExpansionPanel.disabled = false;
       this.greekExpansionPanel.open();
+      this.kurtExpansionPanel.hideToggle = false;
+      this.kurtExpansionPanel.disabled = false;
+      this.kurtExpansionPanel.open();
       this.freeExpansionPanel.expanded = false;
       this.zone.run(() => {
         this.router.navigate(['/home']);
@@ -117,6 +126,9 @@ export class AppComponent implements OnInit {
       this.greekExpansionPanel.close();
       this.greekExpansionPanel.disabled = true;
       this.greekExpansionPanel.hideToggle = true;
+      this.kurtExpansionPanel.close();
+      this.kurtExpansionPanel.disabled = true;
+      this.kurtExpansionPanel.hideToggle = true;
       this.freeExpansionPanel.expanded = true;
     }
 

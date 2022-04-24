@@ -6,9 +6,9 @@ import { catchError, tap } from 'rxjs/operators';
 import { ErrorHandlingService } from '../error-handling.service';
 import { Technique } from '../techniques/technique';
 
-// import gloverTech from './glover-tech';
-// import gorillaTech from './gorilla-tech';
-// import grillTech from './grill-tech';
+import gloverTech from './glover-tech';
+import gorillaTech from './gorilla-tech';
+import grillTech from './grill-tech';
 import greekTech from './greek-tech';
 
 @Injectable({
@@ -78,10 +78,38 @@ export class AuthenticationService {
       .pipe(catchError(this.ehs.handleError<any>('addUser HTTP post error')));
   }
 
-  addTechniques(user: string): Observable<any> {
+  addModule(user: string): Observable<any> {
     const data = {
       user,
       techniques: this.techniques,
+    };
+
+    const url =
+      'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/module';
+    return this.http
+      .post<any>(url, data, this.httpOptions)
+      .pipe(
+        catchError(this.ehs.handleError<any>('addTechniques HTTP post error'))
+      );
+  }
+
+  addTechniques(tagForm: any, moduleName: any): Observable<any> {
+    tagForm.quiz.responses = [
+      { text: tagForm.quiz.response1, correct: true },
+      { text: tagForm.quiz.response2, correct: false },
+      { text: tagForm.quiz.response3, correct: false },
+      { text: tagForm.quiz.response4, correct: false },
+    ];
+
+    delete tagForm.quiz.response1;
+    delete tagForm.quiz.response2;
+    delete tagForm.quiz.response3;
+    delete tagForm.quiz.response4;
+
+    console.log(tagForm);
+    const data = {
+      user: moduleName,
+      technique: tagForm,
     };
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/technique';

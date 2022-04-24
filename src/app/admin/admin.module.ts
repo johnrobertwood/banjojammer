@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AppMaterialModule } from 'src/app/app-material.module';
@@ -15,6 +15,7 @@ import { ManageTechniqueListComponent } from './manage-technique-list/manage-tec
 import { AddTechniqueComponent } from './add-technique/add-technique.component';
 import { TosComponent } from '../tos/tos.component';
 import { PrivacyComponent } from '../privacy/privacy.component';
+import { AddModuleComponent } from './add-module/add-module.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,12 @@ import { PrivacyComponent } from '../privacy/privacy.component';
     AddTechniqueComponent,
     TosComponent,
     PrivacyComponent,
+    AddModuleComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
     AppMaterialModule,
