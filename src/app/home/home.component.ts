@@ -15,7 +15,7 @@ import { switchMap } from 'rxjs/operators';
 export class HomeComponent implements OnInit {
   techniques$: Observable<Technique[]>;
   isLoggedIn: boolean;
-  thumbnailUrl: string;
+  thumbnailUrl = '';
 
   constructor(
     private route: ActivatedRoute,

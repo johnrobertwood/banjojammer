@@ -10,8 +10,8 @@ import { MessageService } from '../message.service';
   styleUrls: ['./compose-message.component.css'],
 })
 export class ComposeMessageComponent implements OnDestroy {
-  details: string;
-  message: string;
+  details = '';
+  message = '';
   sending = false;
   private ngUnsubscribe = new Subject();
 

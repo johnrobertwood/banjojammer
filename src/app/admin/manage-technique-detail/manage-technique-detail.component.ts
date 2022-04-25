@@ -18,9 +18,9 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   technique$: Observable<Technique>;
   technique: Technique;
   display = false;
-  isSmallScreen: boolean;
-  editName: string;
-  editAnswer: string;
+  isSmallScreen = false;
+  editName = '';
+  editAnswer = '';
   private ngUnsubscribe = new Subject();
 
   constructor(

@@ -9,9 +9,9 @@ import { Technique } from 'src/app/techniques/technique';
   styleUrls: ['./flashcard-detail.component.css'],
 })
 export class FlashcardDetailComponent implements OnInit {
-  reveal: boolean;
-  technique: Technique;
-  module: string;
+  reveal = false;
+  technique!: Technique;
+  module!: string | null;
 
   constructor(private route: ActivatedRoute) {}
 

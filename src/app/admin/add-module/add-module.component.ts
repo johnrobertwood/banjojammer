@@ -9,7 +9,7 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
   styleUrls: ['./add-module.component.css'],
 })
 export class AddModuleComponent {
-  techArrayName: string;
+  techArrayName = '';
   private ngUnsubscribe = new Subject();
 
   constructor(private authService: AuthenticationService) {}

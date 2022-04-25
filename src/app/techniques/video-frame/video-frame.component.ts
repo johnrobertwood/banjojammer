@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./video-frame.component.css'],
 })
 export class VideoFrameComponent {
-  @Input() url: string;
-  @Input() isSmallScreen: boolean;
+  @Input() url = '';
+  @Input() isSmallScreen = false;
 }
