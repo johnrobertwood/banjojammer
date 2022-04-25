@@ -70,16 +70,12 @@ export class AppComponent implements OnInit {
       this.loggedIn = true;
       this.gorillaExpansionPanel.hideToggle = false;
       this.gorillaExpansionPanel.disabled = false;
-      this.gorillaExpansionPanel.open();
       this.grillExpansionPanel.hideToggle = false;
       this.grillExpansionPanel.disabled = false;
-      this.grillExpansionPanel.open();
       this.greekExpansionPanel.hideToggle = false;
       this.greekExpansionPanel.disabled = false;
-      this.greekExpansionPanel.open();
       this.kurtExpansionPanel.hideToggle = false;
       this.kurtExpansionPanel.disabled = false;
-      this.kurtExpansionPanel.open();
       this.freeExpansionPanel.expanded = false;
       this.authService.login({
         data: {
@@ -98,16 +94,12 @@ export class AppComponent implements OnInit {
       this.authService.login(data);
       this.gorillaExpansionPanel.hideToggle = false;
       this.gorillaExpansionPanel.disabled = false;
-      this.gorillaExpansionPanel.open();
       this.grillExpansionPanel.hideToggle = false;
       this.grillExpansionPanel.disabled = false;
-      this.grillExpansionPanel.open();
       this.greekExpansionPanel.hideToggle = false;
       this.greekExpansionPanel.disabled = false;
-      this.greekExpansionPanel.open();
       this.kurtExpansionPanel.hideToggle = false;
       this.kurtExpansionPanel.disabled = false;
-      this.kurtExpansionPanel.open();
       this.freeExpansionPanel.expanded = false;
       this.zone.run(() => {
         this.router.navigate(['/home']);
