@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/auth/authentication.service';
@@ -9,7 +9,7 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './add-technique.component.html',
   styleUrls: ['./add-technique.component.css'],
 })
-export class AddTechniqueComponent implements OnInit {
+export class AddTechniqueComponent {
   tagForm = this.fb.group({
     id: '',
     name: '',
@@ -35,8 +35,6 @@ export class AddTechniqueComponent implements OnInit {
     }),
   });
   private ngUnsubscribe = new Subject();
-
-  ngOnInit(): void {}
 
   constructor(
     private authService: AuthenticationService,

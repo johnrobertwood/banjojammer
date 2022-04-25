@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
-import { FlashcardDeckHomeComponent } from './flashcard-deck-home/flashcard-deck-home.component';
 import { FlashcardListComponent } from './flashcard-list/flashcard-list.component';
 import { FlashcardDeckComponent } from './flashcard-deck/flashcard-deck.component';
 import { FlashcardDetailComponent } from './flashcard-detail/flashcard-detail.component';
@@ -24,7 +23,6 @@ import { AppMaterialModule } from '../app-material.module';
   declarations: [
     FlashcardDeckComponent,
     FlashcardListComponent,
-    FlashcardDeckHomeComponent,
     FlashcardDetailComponent,
   ],
 })

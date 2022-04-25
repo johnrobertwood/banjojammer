@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './static-pages/page-not-found/page-not-found.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
-import { TosComponent } from './tos/tos.component';
-import { PrivacyComponent } from './privacy/privacy.component';
+import { TosComponent } from './static-pages/tos/tos.component';
+import { PrivacyComponent } from './static-pages/privacy/privacy.component';
 
 import { AuthGuard } from './auth/auth.guard';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';

@@ -13,8 +13,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ManageTechniqueDetailComponent } from './manage-technique-detail/manage-technique-detail.component';
 import { ManageTechniqueListComponent } from './manage-technique-list/manage-technique-list.component';
 import { AddTechniqueComponent } from './add-technique/add-technique.component';
-import { TosComponent } from '../tos/tos.component';
-import { PrivacyComponent } from '../privacy/privacy.component';
+import { TosComponent } from '../static-pages/tos/tos.component';
+import { PrivacyComponent } from '../static-pages/privacy/privacy.component';
 import { AddModuleComponent } from './add-module/add-module.component';
 
 @NgModule({

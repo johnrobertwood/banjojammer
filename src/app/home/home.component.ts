@@ -28,9 +28,7 @@ export class HomeComponent implements OnInit {
 
   getTechniques(): void {
     this.techniques$ = this.route.paramMap.pipe(
-      switchMap(() => {
-        return this.techniqueService.getTechniques('glover-tech');
-      })
+      switchMap(() => this.techniqueService.getTechniques('glover-tech'))
     );
     if (localStorage.getItem('currentUser')) {
       this.isLoggedIn = true;

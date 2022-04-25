@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { FlashcardDeckHomeComponent } from './flashcard-deck-home/flashcard-deck-home.component';
 import { FlashcardListComponent } from './flashcard-list/flashcard-list.component';
 import { FlashcardDeckComponent } from './flashcard-deck/flashcard-deck.component';
 import { FlashcardDetailComponent } from './flashcard-detail/flashcard-detail.component';
@@ -25,10 +24,6 @@ const flashcardDeckRoutes: Routes = [
             resolve: {
               flashcard: FlashcardDetailResolverService,
             },
-          },
-          {
-            path: '',
-            component: FlashcardDeckHomeComponent,
           },
         ],
       },

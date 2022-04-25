@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/auth/authentication.service';
@@ -8,13 +8,11 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
   templateUrl: './add-module.component.html',
   styleUrls: ['./add-module.component.css'],
 })
-export class AddModuleComponent implements OnInit {
+export class AddModuleComponent {
   techArrayName: string;
   private ngUnsubscribe = new Subject();
 
   constructor(private authService: AuthenticationService) {}
-
-  ngOnInit(): void {}
 
   addModule() {
     this.authService
