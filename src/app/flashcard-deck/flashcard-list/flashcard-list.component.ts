@@ -30,7 +30,7 @@ export class FlashcardListComponent implements OnInit {
       switchMap((params) => {
         this.modulePath = params.get('module');
         this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques(this.modulePath);
+        return this.techniqueService.getTechniques(this.modulePath = 'glover-tech');
       })
     );
   }

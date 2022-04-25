@@ -18,16 +18,16 @@ import { MatExpansionPanel } from '@angular/material/expansion';
   animations: [slideInAnimation],
 })
 export class AppComponent implements OnInit {
-  @ViewChild('freeContent') freeExpansionPanel: MatExpansionPanel;
-  @ViewChild('gorillaContent') gorillaExpansionPanel: MatExpansionPanel;
-  @ViewChild('grillContent') grillExpansionPanel: MatExpansionPanel;
-  @ViewChild('greekContent') greekExpansionPanel: MatExpansionPanel;
-  @ViewChild('kurtContent') kurtExpansionPanel: MatExpansionPanel;
+  @ViewChild('freeContent') freeExpansionPanel!: MatExpansionPanel;
+  @ViewChild('gorillaContent') gorillaExpansionPanel!: MatExpansionPanel;
+  @ViewChild('grillContent') grillExpansionPanel!: MatExpansionPanel;
+  @ViewChild('greekContent') greekExpansionPanel!: MatExpansionPanel;
+  @ViewChild('kurtContent') kurtExpansionPanel!: MatExpansionPanel;
 
-  isSmallScreen: boolean;
-  selectedName: string;
+  isSmallScreen = false;
+  selectedName!: string | null;
   loggedIn = false;
-  techniques$: Observable<Technique[]>;
+  techniques$!: Observable<Technique[]>;
   techArray: Observable<Technique[]>[] = [];
   private ngUnsubscribe = new Subject();
 
@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
 
   checkLocalStorage() {
     const localData = localStorage.getItem('currentUser');
-    if (localStorage.getItem('currentUser')) {
+    if (localData) {
       this.loggedIn = true;
       this.gorillaExpansionPanel.hideToggle = false;
       this.gorillaExpansionPanel.disabled = false;

@@ -10,6 +10,8 @@ import { Technique } from '../techniques/technique';
   providedIn: 'root',
 })
 export class FavoritesListResolverService implements Resolve<Technique> {
+  modulePath!: string | null;
+  techName!: string | null;
   constructor(private ts: TechniqueService, private router: Router) {}
 
   resolve(
@@ -18,7 +20,7 @@ export class FavoritesListResolverService implements Resolve<Technique> {
     const name = route.paramMap.get('name');
     const module = route.paramMap.get('module');
 
-    return this.ts.getUserTechnique(module, name).pipe(
+    return this.ts.getUserTechnique(this.modulePath = 'glover-tech', this.techName = 'knee-slice').pipe(
       take(1),
       mergeMap((technique) => {
         if (technique) {

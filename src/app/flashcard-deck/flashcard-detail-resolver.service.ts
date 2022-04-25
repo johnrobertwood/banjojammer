@@ -10,15 +10,17 @@ import { Technique } from '../techniques/technique';
   providedIn: 'root',
 })
 export class FlashcardDetailResolverService implements Resolve<Technique> {
+  modulePath!: string | null;
+  techName!: string | null; 
   constructor(private ts: TechniqueService, private router: Router) {}
 
   resolve(
     route: ActivatedRouteSnapshot
   ): Observable<Technique> | Observable<never> {
-    const name = route.paramMap.get('name');
-    const module = route.paramMap.get('module');
+    this.techName = route.paramMap.get('name');
+    this.modulePath = route.paramMap.get('module');
 
-    return this.ts.getUserTechnique(module, name).pipe(
+    return this.ts.getUserTechnique(this.modulePath, this.techName).pipe(
       take(1),
       mergeMap((technique) => {
         if (technique) {

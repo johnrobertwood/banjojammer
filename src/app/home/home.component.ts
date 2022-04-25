@@ -13,8 +13,8 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  techniques$: Observable<Technique[]>;
-  isLoggedIn: boolean;
+  techniques$!: Observable<Technique[]>;
+  isLoggedIn = false;
   thumbnailUrl = '';
 
   constructor(

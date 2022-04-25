@@ -15,14 +15,15 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
   styleUrls: ['./technique-detail.component.css'],
 })
 export class TechniqueDetailComponent implements OnInit, OnDestroy {
-  technique$: Observable<Technique>;
-  isSmallScreen: boolean;
-  isLoggedIn: boolean;
-  isFavorite: boolean;
-  isQuizDone: boolean;
-  isFlashDone: boolean;
-  url: string;
-  modulePath: string;
+  technique$!: Observable<Technique>;
+  isSmallScreen = false;
+  isLoggedIn = false;
+  isFavorite = false;
+  isQuizDone = false;
+  isFlashDone = false;
+  url = '';
+  modulePath!: string | null;
+  techniqueName!: string | null;
   private ngUnsubscribe = new Subject();
 
   constructor(
@@ -45,11 +46,12 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
     this.technique$ = this.activatedRoute.paramMap.pipe(
       switchMap((params: ParamMap) => {
         // Need this in the template for navigation
+        
         this.modulePath = params.get('module');
-        const techniqueName = params.get('name');
+        this.techniqueName = params.get('name');
         return this.techniqueService.getUserTechnique(
           this.modulePath,
-          techniqueName
+          this.techniqueName
         );
       }),
       tap((technique) => {

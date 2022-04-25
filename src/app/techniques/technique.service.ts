@@ -64,7 +64,7 @@ export class TechniqueService {
   updateTechnique(
     technique: Technique,
     quizType: string
-  ): Observable<Technique> {
+  ): Observable<Technique> | Observable<null> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser !== null) {
       const data = {
@@ -73,7 +73,7 @@ export class TechniqueService {
         quizType,
       };
       return this.http
-        .patch(`${this.apiGatewayUrl}/user`, data, this.httpOptions)
+        .patch<any>(`${this.apiGatewayUrl}/user`, data, this.httpOptions)
         .pipe(catchError(this.ehs.handleError<any>('updateTechnique')));
     } else {
       return of(null);
@@ -89,7 +89,7 @@ export class TechniqueService {
     const url = `${this.apiGatewayUrl}/users`;
 
     return this.http
-      .patch(url, data, this.httpOptions)
+      .patch<any>(url, data, this.httpOptions)
       .pipe(catchError(this.ehs.handleError<any>('editTechnique')));
   }
 

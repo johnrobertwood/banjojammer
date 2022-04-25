@@ -21,9 +21,9 @@ export interface DialogData {
   styleUrls: ['flashcard.component.css'],
 })
 export class FlashcardComponent implements OnDestroy {
-  @Input() technique: Technique;
-  @Input() isFlashDone: boolean;
-  answered: boolean;
+  @Input() technique!: Technique;
+  @Input() isFlashDone!: boolean;
+  answered = false;
   private ngUnsubscribe = new Subject();
 
   constructor(
@@ -59,7 +59,7 @@ export class FlashcardComponent implements OnDestroy {
   styleUrls: ['flashcard-dialog.component.css'],
 })
 export class FlashcardDialogComponent {
-  reveal: boolean;
+  reveal = false;
 
   constructor(
     public dialogRef: MatDialogRef<FlashcardDialogComponent>,

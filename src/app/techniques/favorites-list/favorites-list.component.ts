@@ -13,10 +13,10 @@ import { TechniqueService } from '../technique.service';
   styleUrls: ['./favorites-list.component.css'],
 })
 export class FavoritesListComponent implements OnInit {
-  techniques$: Observable<Technique[]>;
-  selectedName = null;
-  modulePath: string;
-  favArray = [];
+  techniques$!: Observable<Technique[]>;
+  selectedName!: string | null;
+  modulePath!: string | null;
+  favArray: any;
 
   constructor(
     private authService: AuthenticationService,
@@ -40,7 +40,7 @@ export class FavoritesListComponent implements OnInit {
         return this.authService.getUserHistory();
       }),
       map((user) => user.userHistory.favorite),
-      tap((x) => (this.favArray = x)),
+      tap((data) => (this.favArray = data)),
       switchMap(() => this.ts.getTechniques(this.modulePath)),
       map((arr1) => {
         const arr = [];
