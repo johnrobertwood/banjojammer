@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatInputModule } from '@angular/material/input';
 
 import { TechniqueDetailComponent } from './technique-detail/technique-detail.component';
 import { FavoritesListComponent } from './favorites-list/favorites-list.component';
@@ -21,8 +19,6 @@ import { VideoFrameComponent } from './video-frame/video-frame.component';
   imports: [
     CommonModule,
     FormsModule,
-    MatDialogModule,
-    MatInputModule,
     AppMaterialModule,
     TechniquesRoutingModule,
     PipeModule,

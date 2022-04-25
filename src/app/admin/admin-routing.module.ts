@@ -16,11 +16,11 @@ const adminRoutes: Routes = [
   {
     path: '',
     component: AdminComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       {
         path: '',
-        canActivateChild: [AuthGuard],
+        // canActivateChild: [AuthGuard],
         children: [
           {
             path: 'manage-technique-list',

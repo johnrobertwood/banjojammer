@@ -10,19 +10,21 @@ import { takeUntil } from 'rxjs/operators';
 
 import { AuthenticationService } from 'src/app/auth/authentication.service';
 import { Technique } from '../../techniques/technique';
+import { Quiz } from './quiz';
 
 export interface DialogData {
-  technique: Technique;
+  quiz: Quiz;
+  answered: boolean;
 }
 
 @Component({
-  selector: 'app-dialog-content-flashcard',
-  templateUrl: 'dialog-content-flashcard.component.html',
-  styleUrls: ['dialog-content-flashcard.component.css'],
+  selector: 'app-quiz',
+  templateUrl: 'quiz.component.html',
+  styleUrls: ['quiz.component.css'],
 })
-export class DialogContentFlashcardComponent implements OnDestroy {
+export class QuizComponent implements OnDestroy {
   @Input() technique: Technique;
-  @Input() isFlashDone: boolean;
+  @Input() isQuizDone: boolean;
   answered: boolean;
   private ngUnsubscribe = new Subject();
 
@@ -32,16 +34,17 @@ export class DialogContentFlashcardComponent implements OnDestroy {
   ) {}
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogContentFlashcardDialogComponent, {
+    const dialogRef = this.dialog.open(QuizDialogComponent, {
       width: '500px',
       data: {
-        technique: this.technique,
+        quiz: this.technique.quiz,
+        answered: false,
       },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe(() => {
       this.authService
-        .updateTechnique(this.technique, 'flashcard')
+        .updateTechnique(this.technique, 'quiz')
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe();
     });
@@ -54,23 +57,26 @@ export class DialogContentFlashcardComponent implements OnDestroy {
 }
 
 @Component({
-  selector: 'app-dialog-content-flashcard-dialog',
-  templateUrl: 'dialog-content-flashcard-dialog.component.html',
-  styleUrls: ['dialog-content-flashcard-dialog.component.css'],
+  selector: 'app-quiz-dialog',
+  templateUrl: 'quiz-dialog.component.html',
+  styleUrls: ['quiz-dialog.component.css'],
 })
-export class DialogContentFlashcardDialogComponent {
-  reveal: boolean;
+export class QuizDialogComponent implements OnDestroy {
+  answered: boolean;
 
   constructor(
-    public dialogRef: MatDialogRef<DialogContentFlashcardDialogComponent>,
+    public dialogRef: MatDialogRef<QuizDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
-  onNoClick(): void {
-    this.dialogRef.close();
+  selectAnswer() {
+    this.data.answered = true;
   }
 
-  revealAnswer() {
-    this.reveal = true;
+  ngOnDestroy() {
+    // this is to reset the green box after closing
+    this.answered = false;
+    // pass data back with this method
+    // this.dialogRef.close(this.data);
   }
 }
