@@ -108,6 +108,8 @@ export class AuthenticationService {
       { text: tagForm.notes.note4 },
     ];
 
+    tagForm.nextTechnique = null;
+
     delete tagForm.quiz.response1;
     delete tagForm.quiz.response2;
     delete tagForm.quiz.response3;
