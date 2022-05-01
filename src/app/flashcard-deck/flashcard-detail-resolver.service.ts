@@ -11,7 +11,7 @@ import { Technique } from '../techniques/technique';
 })
 export class FlashcardDetailResolverService implements Resolve<Technique> {
   modulePath!: string | null;
-  techName!: string | null; 
+  techName!: string | null;
   constructor(private ts: TechniqueService, private router: Router) {}
 
   resolve(

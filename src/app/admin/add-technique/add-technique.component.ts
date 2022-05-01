@@ -17,7 +17,6 @@ export class AddTechniqueComponent {
     prevTechnique: '',
     nextTechnique: '',
     quiz: this.fb.group({
-      complete: '',
       question: '',
       response1: '',
       response2: '',
@@ -25,13 +24,18 @@ export class AddTechniqueComponent {
       response4: '',
     }),
     flashcard: this.fb.group({
-      complete: '',
       question: '',
       answer: '',
     }),
     video: this.fb.group({
       url: '',
       thumbnail: '',
+    }),
+    notes: this.fb.group({
+      note1: '',
+      note2: '',
+      note3: '',
+      note4: '',
     }),
   });
   private ngUnsubscribe = new Subject();

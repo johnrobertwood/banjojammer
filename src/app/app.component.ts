@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   @ViewChild('gorillaContent') gorillaExpansionPanel!: MatExpansionPanel;
   @ViewChild('grillContent') grillExpansionPanel!: MatExpansionPanel;
   @ViewChild('greekContent') greekExpansionPanel!: MatExpansionPanel;
-  @ViewChild('kurtContent') kurtExpansionPanel!: MatExpansionPanel;
+  // @ViewChild('kurtContent') kurtExpansionPanel!: MatExpansionPanel;
 
   isSmallScreen = false;
   selectedName!: string | null;
@@ -74,8 +74,8 @@ export class AppComponent implements OnInit {
       this.grillExpansionPanel.disabled = false;
       this.greekExpansionPanel.hideToggle = false;
       this.greekExpansionPanel.disabled = false;
-      this.kurtExpansionPanel.hideToggle = false;
-      this.kurtExpansionPanel.disabled = false;
+      // this.kurtExpansionPanel.hideToggle = false;
+      // this.kurtExpansionPanel.disabled = false;
       this.freeExpansionPanel.expanded = false;
       this.authService.login({
         data: {
@@ -98,8 +98,8 @@ export class AppComponent implements OnInit {
       this.grillExpansionPanel.disabled = false;
       this.greekExpansionPanel.hideToggle = false;
       this.greekExpansionPanel.disabled = false;
-      this.kurtExpansionPanel.hideToggle = false;
-      this.kurtExpansionPanel.disabled = false;
+      // this.kurtExpansionPanel.hideToggle = false;
+      // this.kurtExpansionPanel.disabled = false;
       this.freeExpansionPanel.expanded = false;
       this.zone.run(() => {
         this.router.navigate(['/home']);
@@ -118,9 +118,9 @@ export class AppComponent implements OnInit {
       this.greekExpansionPanel.close();
       this.greekExpansionPanel.disabled = true;
       this.greekExpansionPanel.hideToggle = true;
-      this.kurtExpansionPanel.close();
-      this.kurtExpansionPanel.disabled = true;
-      this.kurtExpansionPanel.hideToggle = true;
+      // this.kurtExpansionPanel.close();
+      // this.kurtExpansionPanel.disabled = true;
+      // this.kurtExpansionPanel.hideToggle = true;
       this.freeExpansionPanel.expanded = true;
     }
 

@@ -101,12 +101,22 @@ export class AuthenticationService {
       { text: tagForm.quiz.response4, correct: false },
     ];
 
+    tagForm.notes = [
+      { text: tagForm.notes.note1 },
+      { text: tagForm.notes.note2 },
+      { text: tagForm.notes.note3 },
+      { text: tagForm.notes.note4 },
+    ];
+
     delete tagForm.quiz.response1;
     delete tagForm.quiz.response2;
     delete tagForm.quiz.response3;
     delete tagForm.quiz.response4;
+    delete tagForm.notes.note1;
+    delete tagForm.notes.note2;
+    delete tagForm.notes.note3;
+    delete tagForm.notes.note4;
 
-    console.log(tagForm);
     const data = {
       user: moduleName,
       technique: tagForm,
