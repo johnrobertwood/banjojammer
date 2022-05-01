@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
   @ViewChild('gorillaContent') gorillaExpansionPanel!: MatExpansionPanel;
   @ViewChild('grillContent') grillExpansionPanel!: MatExpansionPanel;
   @ViewChild('greekContent') greekExpansionPanel!: MatExpansionPanel;
-  // @ViewChild('kurtContent') kurtExpansionPanel!: MatExpansionPanel;
 
   isSmallScreen = false;
   selectedName!: string | null;
@@ -50,7 +49,6 @@ export class AppComponent implements OnInit {
     this.getTechniques('gorilla-tech');
     this.getTechniques('grill-tech');
     this.getTechniques('greek-tech');
-    this.getTechniques('kurt-tech');
 
     this.breakpointObserver
       .observe(['(max-width: 800px)'])
@@ -68,15 +66,6 @@ export class AppComponent implements OnInit {
     const localData = localStorage.getItem('currentUser');
     if (localData) {
       this.loggedIn = true;
-      this.gorillaExpansionPanel.hideToggle = false;
-      this.gorillaExpansionPanel.disabled = false;
-      this.grillExpansionPanel.hideToggle = false;
-      this.grillExpansionPanel.disabled = false;
-      this.greekExpansionPanel.hideToggle = false;
-      this.greekExpansionPanel.disabled = false;
-      // this.kurtExpansionPanel.hideToggle = false;
-      // this.kurtExpansionPanel.disabled = false;
-      this.freeExpansionPanel.expanded = false;
       this.authService.login({
         data: {
           username: JSON.parse(localData).username,
@@ -92,15 +81,6 @@ export class AppComponent implements OnInit {
     if (data.event === 'signIn') {
       this.loggedIn = true;
       this.authService.login(data);
-      this.gorillaExpansionPanel.hideToggle = false;
-      this.gorillaExpansionPanel.disabled = false;
-      this.grillExpansionPanel.hideToggle = false;
-      this.grillExpansionPanel.disabled = false;
-      this.greekExpansionPanel.hideToggle = false;
-      this.greekExpansionPanel.disabled = false;
-      // this.kurtExpansionPanel.hideToggle = false;
-      // this.kurtExpansionPanel.disabled = false;
-      this.freeExpansionPanel.expanded = false;
       this.zone.run(() => {
         this.router.navigate(['/home']);
       });
@@ -109,19 +89,6 @@ export class AppComponent implements OnInit {
     if (data.event === 'signOut') {
       this.loggedIn = false;
       this.authService.logout();
-      this.gorillaExpansionPanel.close();
-      this.gorillaExpansionPanel.disabled = true;
-      this.gorillaExpansionPanel.hideToggle = true;
-      this.grillExpansionPanel.close();
-      this.grillExpansionPanel.disabled = true;
-      this.grillExpansionPanel.hideToggle = true;
-      this.greekExpansionPanel.close();
-      this.greekExpansionPanel.disabled = true;
-      this.greekExpansionPanel.hideToggle = true;
-      // this.kurtExpansionPanel.close();
-      // this.kurtExpansionPanel.disabled = true;
-      // this.kurtExpansionPanel.hideToggle = true;
-      this.freeExpansionPanel.expanded = true;
     }
 
     if (data.event === 'signUp') {

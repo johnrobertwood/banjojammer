@@ -96,7 +96,7 @@
           {{ technique.displayName }}
         </mat-panel-description>
       </mat-expansion-panel>
-      <mat-expansion-panel #gorillaContent disabled hideToggle>
+      <mat-expansion-panel #gorillaContent [disabled]="!loggedIn">
         <mat-expansion-panel-header>
           <mat-panel-title>Magid "Gorilla Hands" Hage</mat-panel-title>
           <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
@@ -111,7 +111,7 @@
           {{ technique.displayName }}
         </mat-panel-description>
       </mat-expansion-panel>
-      <mat-expansion-panel #grillContent disabled hideToggle>
+      <mat-expansion-panel #grillContent [disabled]="!loggedIn">
         <mat-expansion-panel-header>
           <mat-panel-title>Bill "The Grill" Cooper </mat-panel-title>
           <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
@@ -126,7 +126,7 @@
           {{ technique.displayName }}
         </mat-panel-description>
       </mat-expansion-panel>
-      <mat-expansion-panel #greekContent disabled hideToggle>
+      <mat-expansion-panel #greekContent [disabled]="!loggedIn">
         <mat-expansion-panel-header>
           <mat-panel-title>Pete "The Greek" Letsos</mat-panel-title>
           <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
@@ -141,21 +141,6 @@
           {{ technique.displayName }}
         </mat-panel-description>
       </mat-expansion-panel>
-      <!-- <mat-expansion-panel #kurtContent disabled hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Kurt Osiander</mat-panel-title>
-          <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-        </mat-expansion-panel-header>
-        <mat-panel-description
-          mat-menu-item
-          [routerLink]="['technique', 'kurt-tech', technique.name]"
-          (click)="sidenav.close()"
-          routerLinkActive="activebutton"
-          *ngFor="let technique of techArray[4] | async"
-        >
-          {{ technique.displayName }}
-        </mat-panel-description>
-      </mat-expansion-panel> -->
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content class="d-flex flex-column justify-content-between">
