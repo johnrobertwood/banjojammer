@@ -1,154 +1,165 @@
-<div class="container">
-  <form [formGroup]="tagForm">
-    <mat-form-field appearance="outline" color="accent">
-      <mat-label>Module Name</mat-label>
-      <input #modInput type="text" placeholder="Module Name" matInput />
-    </mat-form-field>
-    <mat-form-field appearance="outline" color="accent">
-      <mat-label>ID</mat-label>
-      <input type="text" placeholder="id" matInput formControlName="id" />
-    </mat-form-field>
-    <mat-form-field appearance="outline" color="accent">
-      <mat-label>Name</mat-label>
-      <input type="text" placeholder="name" matInput formControlName="name" />
-    </mat-form-field>
-    <mat-form-field appearance="outline" color="accent">
-      <mat-label>Display Name</mat-label>
-      <input
-        type="text"
-        placeholder="Display Name"
-        matInput
-        formControlName="displayName"
-      />
-    </mat-form-field>
-    <mat-form-field appearance="outline" color="accent">
-      <mat-label>Prev Technique</mat-label>
-      <input
-        type="text"
-        placeholder="Prev Technique"
-        matInput
-        formControlName="prevTechnique"
-      />
-    </mat-form-field>
+<div>
+  <p>Add Technique</p>
+  <div [formGroup]="tagForm">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Module Name</mat-label>
+        <input #modInput type="text" placeholder="Module Name" matInput />
+      </mat-form-field>
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>ID</mat-label>
+        <input type="text" placeholder="id" matInput formControlName="id" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Name</mat-label>
+        <input type="text" placeholder="name" matInput formControlName="name" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Display Name</mat-label>
+        <input
+          type="text"
+          placeholder="Display Name"
+          matInput
+          formControlName="displayName"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Prev Technique</mat-label>
+        <input
+          type="text"
+          placeholder="Prev Technique"
+          matInput
+          formControlName="prevTechnique"
+        />
+      </mat-form-field>
+    </div>
     <div formGroupName="quiz">
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Question</mat-label>
-        <input
-          type="text"
-          placeholder="Question"
-          matInput
-          formControlName="question"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Response 1</mat-label>
-        <input
-          type="text"
-          placeholder="Response 1"
-          matInput
-          formControlName="response1"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Response 2</mat-label>
-        <input
-          type="text"
-          placeholder="Response 2"
-          matInput
-          formControlName="response2"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Response 3</mat-label>
-        <input
-          type="text"
-          placeholder="Response 3"
-          matInput
-          formControlName="response3"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Response 4</mat-label>
-        <input
-          type="text"
-          placeholder="Response 4"
-          matInput
-          formControlName="response4"
-        />
-      </mat-form-field>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Question</mat-label>
+          <input
+            type="text"
+            placeholder="Question"
+            matInput
+            formControlName="question"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Response 1</mat-label>
+          <input
+            type="text"
+            placeholder="Response 1"
+            matInput
+            formControlName="response1"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Response 2</mat-label>
+          <input
+            type="text"
+            placeholder="Response 2"
+            matInput
+            formControlName="response2"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Response 3</mat-label>
+          <input
+            type="text"
+            placeholder="Response 3"
+            matInput
+            formControlName="response3"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Response 4</mat-label>
+          <input
+            type="text"
+            placeholder="Response 4"
+            matInput
+            formControlName="response4"
+          />
+        </mat-form-field>
+      </div>
     </div>
     <div formGroupName="flashcard">
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Question</mat-label>
-        <input
-          type="text"
-          placeholder="Question"
-          matInput
-          formControlName="question"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Answer</mat-label>
-        <input
-          type="text"
-          placeholder="Answer"
-          matInput
-          formControlName="answer"
-        />
-      </mat-form-field>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Question</mat-label>
+          <input
+            type="text"
+            placeholder="Question"
+            matInput
+            formControlName="question"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Answer</mat-label>
+          <input
+            type="text"
+            placeholder="Answer"
+            matInput
+            formControlName="answer"
+          />
+        </mat-form-field>
+      </div>
     </div>
     <div formGroupName="video">
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>URL</mat-label>
-        <input type="text" placeholder="URL" matInput formControlName="url" />
-      </mat-form-field>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Thumbnail</mat-label>
-        <input
-          type="text"
-          placeholder="Thumbnail"
-          matInput
-          formControlName="thumbnail"
-        />
-      </mat-form-field>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>URL</mat-label>
+          <input type="text" placeholder="URL" matInput formControlName="url" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Thumbnail</mat-label>
+          <input
+            type="text"
+            placeholder="Thumbnail"
+            matInput
+            formControlName="thumbnail"
+          />
+        </mat-form-field>
+      </div>
     </div>
     <div formGroupName="notes">
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Note 1</mat-label>
-        <input
-          type="text"
-          placeholder="Note 1"
-          matInput
-          formControlName="note1"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Note 2</mat-label>
-        <input
-          type="text"
-          placeholder="Note 2"
-          matInput
-          formControlName="note2"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Note 3</mat-label>
-        <input
-          type="text"
-          placeholder="Note 3"
-          matInput
-          formControlName="note3"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Note 4</mat-label>
-        <input
-          type="text"
-          placeholder="Note 4"
-          matInput
-          formControlName="note4"
-        />
-      </mat-form-field>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Note 1</mat-label>
+          <input
+            type="text"
+            placeholder="Note 1"
+            matInput
+            formControlName="note1"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Note 2</mat-label>
+          <input
+            type="text"
+            placeholder="Note 2"
+            matInput
+            formControlName="note2"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Note 3</mat-label>
+          <input
+            type="text"
+            placeholder="Note 3"
+            matInput
+            formControlName="note3"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Note 4</mat-label>
+          <input
+            type="text"
+            placeholder="Note 4"
+            matInput
+            formControlName="note4"
+          />
+        </mat-form-field>
+      </div>
     </div>
     <button
       mat-stroked-button
@@ -158,5 +169,5 @@
     >
       Add
     </button>
-  </form>
+  </div>
 </div>

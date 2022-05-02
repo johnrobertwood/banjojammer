@@ -1,35 +1,40 @@
-<h3>ADMIN</h3>
-<nav>
-  <a
-    mat-stroked-button
-    color="accent"
-    routerLink="./"
-    routerLinkActive="activebutton"
-    [routerLinkActiveOptions]="{ exact: true }"
-    >Dashboard</a
-  >
-  <a
-    mat-stroked-button
-    color="accent"
-    routerLink="./manage-technique-list"
-    routerLinkActive="activebutton"
-    >Manage Techniques</a
-  >
-  <a
-    mat-stroked-button
-    color="accent"
-    routerLink="./add-module"
-    routerLinkActive="activebutton"
-    >Add Module</a
-  >
-  <a
-    mat-stroked-button
-    color="accent"
-    routerLink="./add-technique"
-    routerLinkActive="activebutton"
-    >Add Technique</a
-  >
-</nav>
-<div [@routeAnimation]="getAnimationData(routerOutlet)">
+<div class="container d-flex flex-column justify-content-center">
+  <h3>ADMIN</h3>
+  <nav>
+    <a
+      mat-stroked-button
+      color="accent"
+      routerLink="./"
+      routerLinkActive="activebutton"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Dashboard</a
+    >
+    <a
+      mat-stroked-button
+      color="accent"
+      routerLink="./manage-technique-list"
+      routerLinkActive="activebutton"
+      >Manage Techniques</a
+    >
+    <a
+      mat-stroked-button
+      color="accent"
+      routerLink="./add-module"
+      routerLinkActive="activebutton"
+      >Add Module</a
+    >
+    <a
+      mat-stroked-button
+      color="accent"
+      routerLink="./add-technique"
+      routerLinkActive="activebutton"
+      >Add Technique</a
+    >
+  </nav>
+</div>
+<div
+  class="row d-flex flex-column justify-content-center align-items-center"
+  [@routeAnimation]="getAnimationData(routerOutlet)"
+>
   <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>
