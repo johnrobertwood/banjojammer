@@ -6,7 +6,7 @@
   <p>Token: {{ token | async }}</p>
 
   Preloaded Modules
-  <ul>
-    <li *ngFor="let module of modules">{{ module }}</li>
-  </ul>
+  <mat-list>
+    <mat-list-item *ngFor="let module of modules">{{ module }}</mat-list-item>
+  </mat-list>
 </div>

@@ -157,31 +157,27 @@
       <footer class="text-muted bd-footer d-flex">
         <div class="d-flex justify-content-between w-100 p-2 flex-wrap">
           <div>
-            <ul>
-              <li>
+            <mat-list>
+              <mat-list-item>
                 <a href="mailto: snapjohn77@gmail.com" mat-button>
                   © 2022 Wood Web Development, LLC
                 </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <ul>
-              <li>
+              </mat-list-item>
+              <mat-list-item>
                 <a
                   mat-button
                   [routerLink]="[{ outlets: { popup: ['compose'] } }]"
                 >
                   Contact
                 </a>
-              </li>
-              <li>
+              </mat-list-item>
+              <mat-list-item>
                 <a mat-button routerLink="/tos"> Terms of Service </a>
-              </li>
-              <li>
+              </mat-list-item>
+              <mat-list-item>
                 <a mat-button routerLink="/privacy"> Privacy Policy </a>
-              </li>
-            </ul>
+              </mat-list-item>
+            </mat-list>
           </div>
         </div>
       </footer>

@@ -2,17 +2,14 @@ mat-toolbar {
   height: 65px;
 }
 
-.mat-list-item {
-  color: #ffffff;
-}
-
-ul {
+mat-list {
   display: flex;
   margin: 0;
   padding: 0;
 }
 
-li {
+mat-list-item {
+  color: #ffffff;
   list-style-type: none;
 }
 

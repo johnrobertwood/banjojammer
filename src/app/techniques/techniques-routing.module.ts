@@ -13,9 +13,9 @@ const techniquesRoutes: Routes = [
   {
     path: 'favorites/:module/:name',
     component: FavoritesListComponent,
-    resolve: {
-      flashcard: FavoritesListResolverService,
-    },
+    // resolve: {
+    //   flashcard: FavoritesListResolverService,
+    // },
   },
 ];
 

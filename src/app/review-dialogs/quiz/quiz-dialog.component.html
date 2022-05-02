@@ -4,26 +4,28 @@
   class="d-flex flex-column align-items-center"
 >
   <h3>{{ data.quiz.question }}</h3>
-  <ul class="w-100 mb-3">
-    <li *ngFor="let response of data.quiz.responses | random">
+  <mat-list class="w-100 mb-3">
+    <mat-list-item *ngFor="let response of data.quiz.responses | random">
       <button cdkFocusInitial style="display: none"></button>
       <button
         mat-raised-button
         (click)="selectAnswer()"
         [ngClass]="{ green: data.answered && response.correct }"
         color="basic"
-        class="w-100 d-flex justify-content-center align-items-center px-2 py-1 btn-dark"
+        class="w-100 d-flex justify-content-center align-items-center btn-dark"
       >
         {{ response.text }}
       </button>
-    </li>
-  </ul>
-  <button
-    mat-stroked-button
-    color="accent"
-    [mat-dialog-close]="data"
-    class="w-100 d-flex justify-content-center align-items-center px-2 py-1 btn-secondary close-button"
-  >
-    Close
-  </button>
+    </mat-list-item>
+    <mat-list-item>
+      <button
+        mat-stroked-button
+        color="accent"
+        [mat-dialog-close]="data"
+        class="w-100 d-flex justify-content-center align-items-center btn-secondary close-button"
+      >
+        Close
+      </button>
+    </mat-list-item>
+  </mat-list>
 </div>
