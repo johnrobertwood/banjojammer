@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center w-100">
-  <div *ngIf="technique" mat-dialog-content class="dialog-container w-100">
-    <div class="card-container mb-0 mt-2" (click)="revealAnswer()">
+  <div *ngIf="technique" mat-dialog-content class="dialog-container">
+    <div class="card-container w-100 mb-0 mt-2" (click)="revealAnswer()">
       <mat-card>
         <p class="card-text">
           {{ technique.displayName }}
@@ -11,27 +11,35 @@
         [style.color]="reveal ? 'accent' : 'primary'"
       >
         <p class="card-text">
-          {{ reveal ? technique.flashcard.answer : "Click to Reveal" }}
+          {{ reveal ? technique.flashcard.answer : "Tap to Reveal" }}
         </p>
       </mat-card>
     </div>
-    <div class="button-container">
-      <a
-        mat-stroked-button
-        color="accent"
-        class="nav-button"
-        [routerLink]="['/flashcard-deck', technique.prevTechnique]"
-      >
-        Prev
-      </a>
-      <a
-        mat-stroked-button
-        color="accent"
-        class="nav-button"
-        [routerLink]="['/flashcard-deck', technique.nextTechnique]"
-      >
-        Next
-      </a>
+    <div class="container d-flex justify-content-center">
+      <div class="row w-100">
+        <div class="col-6">
+          <button
+            [disabled]="technique.prevTechnique === null"
+            mat-stroked-button
+            color="accent"
+            class="w-100 p-2 btn-dark"
+            [routerLink]="['/flashcard-deck', module, technique.prevTechnique]"
+          >
+            Prev
+          </button>
+        </div>
+        <div class="col-6">
+          <button
+            [disabled]="technique.nextTechnique === null"
+            mat-stroked-button
+            color="accent"
+            class="w-100 p-2 btn-dark"
+            [routerLink]="['/flashcard-deck', module, technique.nextTechnique]"
+          >
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

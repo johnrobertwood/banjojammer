@@ -12,8 +12,9 @@ import { TechniqueService } from 'src/app/techniques/technique.service';
   styleUrls: ['./flashcard-list.component.css'],
 })
 export class FlashcardListComponent implements OnInit {
-  techniques$: Observable<Technique[]>;
-  selectedName: string;
+  techniques$!: Observable<Technique[]>;
+  selectedName!: string | null;
+  modulePath!: string | null;
 
   constructor(
     private techniqueService: TechniqueService,
@@ -27,6 +28,7 @@ export class FlashcardListComponent implements OnInit {
   getTechniques(): void {
     this.techniques$ = this.route.paramMap.pipe(
       switchMap((params) => {
+        this.modulePath = params.get('module');
         this.selectedName = params.get('name');
         return this.techniqueService.getTechniques('randy-tech');
       })

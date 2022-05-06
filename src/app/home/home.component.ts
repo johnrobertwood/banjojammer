@@ -5,7 +5,7 @@ import { Technique } from '../techniques/technique';
 import { TechniqueService } from '../techniques/technique.service';
 
 import { Observable } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -13,10 +13,9 @@ import { switchMap, tap } from 'rxjs/operators';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  selectedName: string;
-  techniques$: Observable<Technique[]>;
-  isLoggedIn: boolean;
-  thumbnailUrl: string;
+  techniques$!: Observable<Technique[]>;
+  isLoggedIn = false;
+  thumbnailUrl = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -29,10 +28,7 @@ export class HomeComponent implements OnInit {
 
   getTechniques(): void {
     this.techniques$ = this.route.paramMap.pipe(
-      switchMap((params) => {
-        this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques('randy-tech');
-      })
+      switchMap(() => this.techniqueService.getTechniques('randy-tech'))
     );
     if (localStorage.getItem('currentUser')) {
       this.isLoggedIn = true;

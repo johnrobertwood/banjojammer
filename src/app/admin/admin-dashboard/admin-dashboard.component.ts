@@ -11,8 +11,8 @@ import { SelectivePreloadingStrategyService } from 'src/app/selective-preloading
   styleUrls: ['./admin-dashboard.component.css'],
 })
 export class AdminDashboardComponent implements OnInit {
-  sessionId: Observable<string>;
-  token: Observable<string>;
+  sessionId!: Observable<string>;
+  token!: Observable<string>;
   modules: string[];
 
   constructor(

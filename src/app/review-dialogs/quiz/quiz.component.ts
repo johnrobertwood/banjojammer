@@ -10,22 +10,23 @@ import { takeUntil } from 'rxjs/operators';
 
 import { AuthenticationService } from 'src/app/auth/authentication.service';
 import { Technique } from '../../techniques/technique';
+import { Quiz } from './quiz';
 
 export interface DialogData {
-  technique: Technique;
+  quiz: Quiz;
   answered: boolean;
 }
 
 @Component({
-  selector: 'app-dialog-content-quiz',
-  templateUrl: 'dialog-content-quiz.component.html',
-  styleUrls: ['dialog-content-quiz.component.css'],
+  selector: 'app-quiz',
+  templateUrl: 'quiz.component.html',
+  styleUrls: ['quiz.component.css'],
 })
-export class DialogContentQuizComponent implements OnDestroy {
+export class QuizComponent implements OnDestroy {
+  @Input() technique!: Technique;
+  @Input() isQuizDone!: boolean;
+  answered = false;
   private ngUnsubscribe = new Subject();
-  @Input() technique: Technique;
-  answered: boolean;
-  @Input() isQuizDone: boolean;
 
   constructor(
     public dialog: MatDialog,
@@ -33,16 +34,15 @@ export class DialogContentQuizComponent implements OnDestroy {
   ) {}
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogContentQuizDialogComponent, {
+    const dialogRef = this.dialog.open(QuizDialogComponent, {
       width: '500px',
       data: {
-        technique: this.technique,
+        quiz: this.technique.quiz,
         answered: false,
       },
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      // this.isQuizDone = true;
       this.authService
         .updateTechnique(this.technique, 'quiz')
         .pipe(takeUntil(this.ngUnsubscribe))
@@ -57,15 +57,15 @@ export class DialogContentQuizComponent implements OnDestroy {
 }
 
 @Component({
-  selector: 'app-dialog-content-quiz-dialog',
-  templateUrl: 'dialog-content-quiz-dialog.component.html',
-  styleUrls: ['dialog-content-quiz-dialog.component.css'],
+  selector: 'app-quiz-dialog',
+  templateUrl: 'quiz-dialog.component.html',
+  styleUrls: ['quiz-dialog.component.css'],
 })
-export class DialogContentQuizDialogComponent implements OnDestroy {
-  answered: boolean;
+export class QuizDialogComponent implements OnDestroy {
+  answered = false;
 
   constructor(
-    public dialogRef: MatDialogRef<DialogContentQuizDialogComponent>,
+    public dialogRef: MatDialogRef<QuizDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 

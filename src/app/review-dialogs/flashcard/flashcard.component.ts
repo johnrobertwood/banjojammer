@@ -16,15 +16,15 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'app-dialog-content-flashcard',
-  templateUrl: 'dialog-content-flashcard.component.html',
-  styleUrls: ['dialog-content-flashcard.component.css'],
+  selector: 'app-flashcard',
+  templateUrl: 'flashcard.component.html',
+  styleUrls: ['flashcard.component.css'],
 })
-export class DialogContentFlashcardComponent implements OnDestroy {
+export class FlashcardComponent implements OnDestroy {
+  @Input() technique!: Technique;
+  @Input() isFlashDone!: boolean;
+  answered = false;
   private ngUnsubscribe = new Subject();
-  @Input() technique: Technique;
-  answered: boolean;
-  @Input() isFlashDone: boolean;
 
   constructor(
     public dialog: MatDialog,
@@ -32,7 +32,7 @@ export class DialogContentFlashcardComponent implements OnDestroy {
   ) {}
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogContentFlashcardDialogComponent, {
+    const dialogRef = this.dialog.open(FlashcardDialogComponent, {
       width: '500px',
       data: {
         technique: this.technique,
@@ -40,8 +40,6 @@ export class DialogContentFlashcardComponent implements OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      // set to answered with HTTP for user profile
-      // this.isFlashDone = true;
       this.authService
         .updateTechnique(this.technique, 'flashcard')
         .pipe(takeUntil(this.ngUnsubscribe))
@@ -56,15 +54,15 @@ export class DialogContentFlashcardComponent implements OnDestroy {
 }
 
 @Component({
-  selector: 'app-dialog-content-flashcard-dialog',
-  templateUrl: 'dialog-content-flashcard-dialog.component.html',
-  styleUrls: ['dialog-content-flashcard-dialog.component.css'],
+  selector: 'app-flashcard-dialog',
+  templateUrl: 'flashcard-dialog.component.html',
+  styleUrls: ['flashcard-dialog.component.css'],
 })
-export class DialogContentFlashcardDialogComponent {
-  reveal: boolean;
+export class FlashcardDialogComponent {
+  reveal = false;
 
   constructor(
-    public dialogRef: MatDialogRef<DialogContentFlashcardDialogComponent>,
+    public dialogRef: MatDialogRef<FlashcardDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 

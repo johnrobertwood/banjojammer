@@ -7,6 +7,18 @@ body {
   margin: 0;
 }
 
+@font-face {
+  font-family: "mandalorelaser";
+  src: url("./assets/mandalorelaser.ttf") format("opentype");
+}
+
+.mandofont {
+  font-family: "mandalorelaser";
+  color: #69f0ae;
+  font-size: 32px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 767px) {
   input,
   select,

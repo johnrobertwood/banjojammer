@@ -16,8 +16,8 @@
       class="d-flex justify-content-center align-items-center mt-3"
       [class]="reveal ? 'bg-secondary' : 'bg-dark'"
     >
-      <p class="card-text text-center">
-        {{ reveal ? data.technique.flashcard.answer : "Click to Reveal" }}
+      <p class="card-text text-center answer-card">
+        {{ reveal ? data.technique.flashcard.answer : "Tap to Reveal" }}
       </p>
     </mat-card>
   </div>
@@ -25,7 +25,7 @@
     mat-stroked-button
     color="accent"
     [mat-dialog-close]="data"
-    class="w-100 d-flex justify-content-center align-items-center px-2 py-1 btn-dark"
+    class="w-100 d-flex justify-content-center align-items-center px-2 py-1 btn-secondary"
     style="height: 70px"
   >
     Close

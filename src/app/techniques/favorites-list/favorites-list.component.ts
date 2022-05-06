@@ -5,6 +5,7 @@ import { Technique } from 'src/app/techniques/technique';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from 'src/app/auth/authentication.service';
+import { TechniqueService } from '../technique.service';
 
 @Component({
   selector: 'app-favorites-list',
@@ -12,30 +13,47 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
   styleUrls: ['./favorites-list.component.css'],
 })
 export class FavoritesListComponent implements OnInit {
-  selectedName: string;
-  techniques$: Observable<Technique[]>;
+  techniques$!: Observable<Technique[]>;
+  selectedName!: string | null;
+  modulePath!: string | null;
+  favArray: any;
 
   constructor(
     private authService: AuthenticationService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private ts: TechniqueService
   ) {}
 
   ngOnInit(): void {
-    this.getTechniques('randy-tech');
+    this.getTechniques();
   }
 
-  getTechniques(tech: string): void {
+  selectTech(tech: Technique) {
+    this.selectedName = tech.name;
+  }
+
+  getTechniques(): void {
     this.techniques$ = this.route.paramMap.pipe(
       switchMap((params) => {
+        this.modulePath = params.get('module');
         this.selectedName = params.get('name');
         return this.authService.getUserHistory();
       }),
-      map((user) => user.userHistory.favorite)
+      map((user) => user.userHistory.favorite),
+      tap((data) => (this.favArray = data)),
+      switchMap(() => this.ts.getTechniques(this.modulePath)),
+      map((arr1) => {
+        const arr = [];
+        for (const element of arr1) {
+          for (const element2 of this.favArray) {
+            if (element.name === element2.name) {
+              // If element is in both the arrays
+              arr.push(element); // Push to arr array
+            }
+          }
+        }
+        return arr;
+      })
     );
   }
-
-  // delete(technique: Technique): void {
-  //   this.techniques = this.techniques.filter((t) => t !== technique);
-  //   this.techniqueService.deleteTechnique(technique).subscribe();
-  // }
 }

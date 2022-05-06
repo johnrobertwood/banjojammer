@@ -1,11 +1,11 @@
 <mat-toolbar>
   <div class="d-flex justify-content-between w-100">
     <div class="mx-3">
-      <p class="h3 mb-0">
-        <a routerLink="/home"><img src="../assets/warrior-creed.png" /></a>
+      <p class="h1 mb-0">
+        <span class="mandofont" routerLink="/home">Warrior Creed</span>
       </p>
     </div>
-    <div>
+    <div class="d-flex align-items-center">
       <button mat-button [matMenuTriggerFor]="menu">
         <mat-icon>account_circle</mat-icon>
       </button>
@@ -16,20 +16,21 @@
   </div>
 </mat-toolbar>
 <mat-drawer-container class="nav-container">
-  <mat-drawer
-    #sidenav
-    [mode]="sidenavMode"
-    [opened]="!isSmallScreen && !isHomePage"
-    position="end"
-  >
+  <mat-drawer #sidenav mode="over" position="end">
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/home" routerLinkActive="activebutton">
+      <button
+        mat-menu-item
+        (click)="sidenav.close()"
+        routerLink="/home"
+        routerLinkActive="activebutton"
+      >
         Home
       </button>
       <button
         *ngIf="loggedIn"
         mat-menu-item
-        routerLink="/favorites"
+        (click)="sidenav.close()"
+        routerLink="/favorites/randy-tech/activeShooterResponseProtocol"
         routerLinkActive="activebutton"
       >
         Favorites
@@ -37,6 +38,7 @@
       <button
         *ngIf="loggedIn"
         mat-menu-item
+        (click)="sidenav.close()"
         routerLink="/profile"
         routerLinkActive="activebutton"
       >
@@ -45,7 +47,8 @@
       <button
         *ngIf="loggedIn"
         mat-menu-item
-        routerLink="/flashcard-deck"
+        (click)="sidenav.close()"
+        routerLink="/flashcard-deck/randy-tech/activeShooterResponseProtocol"
         routerLinkActive="activebutton"
       >
         Flashcards
@@ -53,6 +56,7 @@
       <button
         *ngIf="loggedIn"
         mat-menu-item
+        (click)="sidenav.close()"
         routerLink="/admin"
         routerLinkActive="activebutton"
       >
@@ -61,6 +65,7 @@
       <button
         *ngIf="!loggedIn"
         mat-menu-item
+        (click)="sidenav.close()"
         routerLink="/login"
         routerLinkActive="activebutton"
       >
@@ -69,6 +74,7 @@
       <button
         *ngIf="loggedIn"
         mat-menu-item
+        (click)="sidenav.close()"
         routerLink="/login"
         routerLinkActive="activebutton"
       >
@@ -76,43 +82,44 @@
       </button>
     </mat-menu>
     <mat-nav-list>
-      <mat-expansion-panel expanded>
+      <mat-expansion-panel #freeContent>
         <mat-expansion-panel-header>
           <mat-panel-title>Basic Doctrine</mat-panel-title>
         </mat-expansion-panel-header>
         <mat-panel-description
           mat-menu-item
-          [routerLink]="['technique', technique.name]"
-          (click)="isSmallScreen ? sidenav.toggle() : null"
+          [routerLink]="['technique', 'randy-tech', technique.name]"
+          (click)="sidenav.close()"
           routerLinkActive="activebutton"
-          *ngFor="let technique of techniquesA$ | async"
+          *ngFor="let technique of techArray[0] | async"
         >
           {{ technique.displayName }}
         </mat-panel-description>
       </mat-expansion-panel>
-      <mat-expansion-panel #ramtech disabled>
+      <mat-expansion-panel #gorillaContent [disabled]="!loggedIn">
         <mat-expansion-panel-header>
           <mat-panel-title>Elite Doctrine</mat-panel-title>
-          <mat-icon *ngIf="!loggedIn">lock</mat-icon>
+          <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
         </mat-expansion-panel-header>
-        <div
+        <mat-panel-description
           mat-menu-item
-          [routerLink]="['technique', technique.name]"
-          (click)="isSmallScreen ? sidenav.toggle() : null"
+          [routerLink]="['technique', 'gorilla-tech', technique.name]"
+          (click)="sidenav.close()"
           routerLinkActive="activebutton"
-          *ngFor="let technique of techniquesA$ | async"
+          *ngFor="let technique of techniques$ | async"
         >
           {{ technique.displayName }}
-        </div>
+        </mat-panel-description>
       </mat-expansion-panel>
     </mat-nav-list>
   </mat-drawer>
-  <mat-drawer-content>
-    <div class="d-flex flex-column flex-wrap drawer-content">
-      <div class="w-100 d-flex justify-content-center align-items-center px-3">
-        <div [@routeAnimation]="getAnimationData(routerOutlet)" class="w-100">
-          <router-outlet #routerOutlet="outlet"></router-outlet>
-        </div>
+  <mat-drawer-content class="d-flex flex-column justify-content-between">
+    <div class="w-100 d-flex px-3">
+      <div
+        [@routeAnimation]="getAnimationData(routerOutlet)"
+        class="w-100 d-flex flex-column align-items-center"
+      >
+        <router-outlet #routerOutlet="outlet"></router-outlet>
         <router-outlet name="popup" class="popupContainer"></router-outlet>
       </div>
     </div>
@@ -120,27 +127,27 @@
       <footer class="text-muted bd-footer d-flex">
         <div class="d-flex justify-content-between w-100 p-2 flex-wrap">
           <div>
-            <ul>
-              <li><a mat-button> © 2022 Woodz Web Development, LLC </a></li>
-            </ul>
-          </div>
-          <div>
-            <ul>
-              <li>
+            <mat-list>
+              <mat-list-item>
+                <a href="mailto: snapjohn77@gmail.com" mat-button>
+                  © 2022 Wood Web Development, LLC
+                </a>
+              </mat-list-item>
+              <mat-list-item>
                 <a
                   mat-button
                   [routerLink]="[{ outlets: { popup: ['compose'] } }]"
                 >
                   Contact
                 </a>
-              </li>
-              <li>
-                <a mat-button> Terms of Service </a>
-              </li>
-              <li>
-                <a mat-button> Privacy Policy </a>
-              </li>
-            </ul>
+              </mat-list-item>
+              <mat-list-item>
+                <a mat-button routerLink="/tos"> Terms of Service </a>
+              </mat-list-item>
+              <mat-list-item>
+                <a mat-button routerLink="/privacy"> Privacy Policy </a>
+              </mat-list-item>
+            </mat-list>
           </div>
         </div>
       </footer>

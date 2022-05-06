@@ -7,11 +7,15 @@
   margin: 0 auto;
 }
 
+.title-container {
+  min-height: 70px;
+}
+
 .answer-container {
   min-height: 60px;
 }
 
 li,
 p {
-  color: #ffffffb3;
+  color: #ffffff;
 }

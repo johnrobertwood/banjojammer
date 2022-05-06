@@ -15,13 +15,13 @@ import { DialogService } from 'src/app/dialog.service';
   styleUrls: ['./manage-technique-detail.component.css'],
 })
 export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
-  private ngUnsubscribe = new Subject();
-  technique$: Observable<Technique>;
-  technique: Technique;
+  technique$!: Observable<Technique>;
+  technique!: Technique;
   display = false;
-  isSmallScreen: boolean;
-  editName: string;
-  editAnswer: string;
+  isSmallScreen = false;
+  editName = '';
+  editAnswer = '';
+  private ngUnsubscribe = new Subject();
 
   constructor(
     private breakpointObserver: BreakpointObserver,

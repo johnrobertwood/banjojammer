@@ -3,17 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TechniqueDetailComponent } from './technique-detail/technique-detail.component';
 import { FavoritesListComponent } from './favorites-list/favorites-list.component';
+import { FavoritesListResolverService } from './favorites-list-resolver.service';
 
 const techniquesRoutes: Routes = [
   {
-    path: 'technique/:name',
+    path: 'technique/:module/:name',
     component: TechniqueDetailComponent,
-    // data: { animation: 'technique' },
   },
   {
-    path: 'favorites',
+    path: 'favorites/:module/:name',
     component: FavoritesListComponent,
-    // data: { animation: 'favorites' },
+    // resolve: {
+    //   flashcard: FavoritesListResolverService,
+    // },
   },
 ];
 

@@ -1,0 +1,14 @@
+<div class="d-flex flex-column align-items-start">
+  <mat-form-field appearance="outline" color="accent">
+    <mat-label>Add Technique Module</mat-label>
+    <input
+      #techNameInput
+      matInput
+      name="addTechniqueId"
+      [(ngModel)]="techArrayName"
+    />
+  </mat-form-field>
+  <button mat-stroked-button color="accent" class="p-2" (click)="addModule()">
+    Add
+  </button>
+</div>

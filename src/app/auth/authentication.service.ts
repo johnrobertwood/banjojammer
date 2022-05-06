@@ -6,7 +6,6 @@ import { catchError, tap } from 'rxjs/operators';
 import { ErrorHandlingService } from '../error-handling.service';
 import { Technique } from '../techniques/technique';
 
-// import jaffyTech from './jaffy-tech';
 import randyTech from './randy-tech';
 
 @Injectable({
@@ -40,6 +39,7 @@ export class AuthenticationService {
       JSON.stringify({
         userId: payload.data.attributes.sub,
         username: payload.data.username,
+        email: payload.data.attributes.email,
       })
     );
   }
@@ -74,10 +74,50 @@ export class AuthenticationService {
       .pipe(catchError(this.ehs.handleError<any>('addUser HTTP post error')));
   }
 
-  addTechniques(user: string): Observable<any> {
+  addModule(user: string): Observable<any> {
     const data = {
       user,
       techniques: this.techniques,
+    };
+
+    const url =
+      'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/module';
+    return this.http
+      .post<any>(url, data, this.httpOptions)
+      .pipe(
+        catchError(this.ehs.handleError<any>('addTechniques HTTP post error'))
+      );
+  }
+
+  addTechniques(tagForm: any, moduleName: any): Observable<any> {
+    tagForm.quiz.responses = [
+      { text: tagForm.quiz.response1, correct: true },
+      { text: tagForm.quiz.response2, correct: false },
+      { text: tagForm.quiz.response3, correct: false },
+      { text: tagForm.quiz.response4, correct: false },
+    ];
+
+    tagForm.notes = [
+      { text: tagForm.notes.note1 },
+      { text: tagForm.notes.note2 },
+      { text: tagForm.notes.note3 },
+      { text: tagForm.notes.note4 },
+    ];
+
+    tagForm.nextTechnique = null;
+
+    delete tagForm.quiz.response1;
+    delete tagForm.quiz.response2;
+    delete tagForm.quiz.response3;
+    delete tagForm.quiz.response4;
+    delete tagForm.notes.note1;
+    delete tagForm.notes.note2;
+    delete tagForm.notes.note3;
+    delete tagForm.notes.note4;
+
+    const data = {
+      user: moduleName,
+      technique: tagForm,
     };
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/technique';
@@ -92,13 +132,13 @@ export class AuthenticationService {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
 
-    const found = this.userHistory[saveType].find((t) => {
-      return t.name === technique.name;
-    });
+    const found = this.userHistory[saveType].find(
+      (t: { name: string }) => t.name === technique.name
+    );
     if (found) {
-      this.userHistory[saveType] = this.userHistory[saveType].filter((tech) => {
-        return tech.name !== technique.name;
-      });
+      this.userHistory[saveType] = this.userHistory[saveType].filter(
+        (tech: { name: string }) => tech.name !== technique.name
+      );
     } else {
       this.userHistory[saveType].push(technique);
     }
@@ -124,7 +164,7 @@ export class AuthenticationService {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/user';
     return this.http.post<any>(url, data, this.httpOptions).pipe(
-      tap((user) => (this.userHistory = user.userHistory)),
+      tap((user) => (user ? (this.userHistory = user.userHistory) : null)),
       catchError(this.ehs.handleError<any>('getUserHistory HTTP get error'))
     );
   }

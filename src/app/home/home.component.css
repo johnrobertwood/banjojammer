@@ -2,7 +2,16 @@
   text-align: center;
 }
 
+.title-text {
+  min-height: 45px;
+  text-align: center;
+}
+
 li,
 p {
   color: #ffffffb3;
+}
+
+h3 {
+  line-height: 1.3;
 }

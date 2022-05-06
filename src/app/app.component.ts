@@ -2,7 +2,7 @@ import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { pluck, switchMap, takeUntil } from 'rxjs/operators';
+import { pluck, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { TechniqueService } from './techniques/technique.service';
 import { Technique } from './techniques/technique';
 import { AuthenticationService } from './auth/authentication.service';
@@ -18,13 +18,17 @@ import { MatExpansionPanel } from '@angular/material/expansion';
   animations: [slideInAnimation],
 })
 export class AppComponent implements OnInit {
-  private ngUnsubscribe = new Subject();
-  isSmallScreen: boolean;
-  selectedName: string;
+  @ViewChild('freeContent') freeExpansionPanel!: MatExpansionPanel;
+  @ViewChild('gorillaContent') gorillaExpansionPanel!: MatExpansionPanel;
+  @ViewChild('grillContent') grillExpansionPanel!: MatExpansionPanel;
+  @ViewChild('greekContent') greekExpansionPanel!: MatExpansionPanel;
+
+  isSmallScreen = false;
+  selectedName!: string | null;
   loggedIn = false;
-  techniquesA$: Observable<Technique[]>;
-  // techniquesB$: Observable<Technique[]>;
-  @ViewChild('ramtech') expansionPanel: MatExpansionPanel;
+  techniques$!: Observable<Technique[]>;
+  techArray: Observable<Technique[]>[] = [];
+  private ngUnsubscribe = new Subject();
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -41,8 +45,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getTechniquesA('randy-tech');
-    // this.getTechniquesB('jaffy-tech');
+    this.getTechniques('randy-tech');
     this.checkLocalStorage();
 
     this.breakpointObserver
@@ -59,7 +62,7 @@ export class AppComponent implements OnInit {
 
   checkLocalStorage() {
     const localData = localStorage.getItem('currentUser');
-    if (localStorage.getItem('currentUser')) {
+    if (localData) {
       this.loggedIn = true;
       this.authService.login({
         data: {
@@ -76,18 +79,14 @@ export class AppComponent implements OnInit {
     if (data.event === 'signIn') {
       this.loggedIn = true;
       this.authService.login(data);
-      this.expansionPanel.hideToggle = false;
-      this.expansionPanel.disabled = false;
-      this.expansionPanel.expanded = true;
+      this.zone.run(() => {
+        this.router.navigate(['/home']);
+      });
     }
 
     if (data.event === 'signOut') {
       this.loggedIn = false;
       this.authService.logout();
-      this.expansionPanel.close();
-      this.expansionPanel.disabled = true;
-      this.expansionPanel.hideToggle = true;
-      this.expansionPanel.expanded = false;
     }
 
     if (data.event === 'signUp') {
@@ -95,35 +94,21 @@ export class AppComponent implements OnInit {
         .addUser(data)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe();
+
+      this.zone.run(() => {
+        this.router.navigate(['/confirm']);
+      });
     }
-    this.zone.run(() => {
-      this.router.navigate(['/technique/kneeSlice']);
-    });
   }
 
-  getTechniquesA(techName: string): void {
-    this.techniquesA$ = this.activatedRoute.paramMap.pipe(
+  getTechniques(techName: string): void {
+    this.techniques$ = this.activatedRoute.paramMap.pipe(
       switchMap((params) => {
         this.selectedName = params.get('name');
         return this.techniqueService.getTechniques(techName);
-      })
+      }),
+      tap(() => this.checkLocalStorage())
     );
-  }
-
-  // getTechniquesB(techName: string): void {
-  //   this.techniquesB$ = this.activatedRoute.paramMap.pipe(
-  //     switchMap((params) => {
-  //       this.selectedName = params.get('name');
-  //       return this.techniqueService.getTechniques(techName);
-  //     })
-  //   );
-  // }
-
-  get sidenavMode() {
-    return this.isSmallScreen ? 'over' : 'side';
-  }
-
-  get isHomePage() {
-    return window.location.pathname === '/home';
+    this.techArray.push(this.techniques$);
   }
 }

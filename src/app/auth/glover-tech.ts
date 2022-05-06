@@ -1,7 +1,7 @@
-const jaffyTech = {
-  kneeSlice: {
+const gloverTech = {
+  activeShooterResponseProtocol: {
     id: 0,
-    name: 'kneeSlice',
+    name: 'activeShooterResponseProtocol',
     displayName: 'Knee Slice',
     prevTechnique: null,
     nextTechnique: 'barDarce',
@@ -52,7 +52,7 @@ const jaffyTech = {
     id: 1,
     name: 'barDarce',
     displayName: 'Bar Darce',
-    prevTechnique: 'kneeSlice',
+    prevTechnique: 'activeShooterResponseProtocol',
     nextTechnique: 'sevenYearOldChoke',
     quiz: {
       complete: false,
@@ -80,7 +80,7 @@ const jaffyTech = {
       complete: false,
       question: 'What is the bar darce analogy?',
       answer:
-        'An arm drag with a hop step to the side when opponent has you in front headlock',
+        'If you are at a bar and your buddy sitting next to you reaches for your drink it exposes their neck and arm',
     },
     notes: [
       { text: 'Works best when side to side' },
@@ -712,4 +712,4 @@ const jaffyTech = {
   },
 };
 
-export default jaffyTech;
+export default gloverTech;

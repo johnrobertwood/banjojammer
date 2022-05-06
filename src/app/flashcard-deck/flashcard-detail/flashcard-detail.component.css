@@ -8,7 +8,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 500px;
+  min-width: 350px;
   margin-bottom: 30px;
 }
 
@@ -21,6 +21,7 @@ mat-card {
 
 .hidden-card {
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .card-text {
@@ -30,24 +31,11 @@ mat-card {
 }
 
 .card-container {
-  width: 100%;
+  width: 350px;
   height: 400px;
   margin-bottom: 30px;
 }
 
 .button-container {
   display: flex;
-  flex-direction: row;
-}
-
-.nav-button {
-  margin-right: 5px;
-  margin-bottom: 5px;
-  padding: 5px 10px;
-  height: 46px;
-}
-
-.activebutton {
-  background-color: #69f0ae;
-  color: #fff;
 }

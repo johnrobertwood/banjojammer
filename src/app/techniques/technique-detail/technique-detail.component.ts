@@ -15,14 +15,16 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
   styleUrls: ['./technique-detail.component.css'],
 })
 export class TechniqueDetailComponent implements OnInit, OnDestroy {
+  technique$!: Observable<Technique>;
+  isSmallScreen = false;
+  isLoggedIn = false;
+  isFavorite = false;
+  isQuizDone = false;
+  isFlashDone = false;
+  url = '';
+  modulePath!: string | null;
+  techniqueName!: string | null;
   private ngUnsubscribe = new Subject();
-  technique$: Observable<Technique>;
-  isSmallScreen: boolean;
-  isLoggedIn: boolean;
-  isFavorite: boolean;
-  isQuizDone: boolean;
-  isFlashDone: boolean;
-  url: string;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -42,23 +44,26 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
 
   getTechnique(): void {
     this.technique$ = this.activatedRoute.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.techniqueService.getUserTechnique('randy-tech', params.get('name'))
-      ),
+      switchMap((params: ParamMap) => {
+        this.modulePath = params.get('module');
+        this.techniqueName = params.get('name');
+        return this.techniqueService.getUserTechnique(
+          this.modulePath,
+          this.techniqueName
+        );
+      }),
       tap((technique) => {
         if (localStorage.getItem('currentUser')) {
           this.isLoggedIn = true;
           this.authService.getUserHistory().subscribe((res) => {
-            this.isFavorite = res.userHistory.favorite.find((t: Technique) => {
-              return t.name === technique.name;
-            });
-            this.isQuizDone = res.userHistory.quiz.find((t: Technique) => {
-              return t.name === technique.name;
-            });
+            this.isFavorite = res.userHistory.favorite.find(
+              (t: Technique) => t.name === technique.name
+            );
+            this.isQuizDone = res.userHistory.quiz.find(
+              (t: Technique) => t.name === technique.name
+            );
             this.isFlashDone = res.userHistory.flashcard.find(
-              (t: Technique) => {
-                return t.name === technique.name;
-              }
+              (t: Technique) => t.name === technique.name
             );
           });
         } else {

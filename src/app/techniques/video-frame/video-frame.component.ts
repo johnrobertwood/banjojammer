@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-video-frame',
@@ -6,6 +6,6 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
   styleUrls: ['./video-frame.component.css'],
 })
 export class VideoFrameComponent {
-  @Input() url: string;
-  @Input() isSmallScreen: boolean;
+  @Input() url = '';
+  @Input() isSmallScreen = false;
 }

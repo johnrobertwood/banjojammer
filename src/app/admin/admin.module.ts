@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AppMaterialModule } from 'src/app/app-material.module';
@@ -13,6 +13,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ManageTechniqueDetailComponent } from './manage-technique-detail/manage-technique-detail.component';
 import { ManageTechniqueListComponent } from './manage-technique-list/manage-technique-list.component';
 import { AddTechniqueComponent } from './add-technique/add-technique.component';
+import { TosComponent } from '../static-pages/tos/tos.component';
+import { PrivacyComponent } from '../static-pages/privacy/privacy.component';
+import { AddModuleComponent } from './add-module/add-module.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,14 @@ import { AddTechniqueComponent } from './add-technique/add-technique.component';
     ManageTechniqueDetailComponent,
     ManageTechniqueListComponent,
     AddTechniqueComponent,
+    TosComponent,
+    PrivacyComponent,
+    AddModuleComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
     AppMaterialModule,

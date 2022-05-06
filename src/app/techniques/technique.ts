@@ -20,7 +20,12 @@ export interface Technique {
     answer: string;
   };
   video: {
-    code: string;
+    url: string;
     thumbnail: string;
   };
+  notes: [
+    {
+      text: string;
+    }
+  ];
 }

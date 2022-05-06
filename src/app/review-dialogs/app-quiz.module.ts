@@ -2,30 +2,30 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-  DialogContentQuizComponent,
-  DialogContentQuizDialogComponent,
-} from 'src/app/review-dialogs/dialog-content-quiz/dialog-content-quiz.component';
+  QuizComponent,
+  QuizDialogComponent,
+} from 'src/app/review-dialogs/quiz/quiz.component';
 import {
-  DialogContentFlashcardComponent,
-  DialogContentFlashcardDialogComponent,
-} from 'src/app/review-dialogs/dialog-content-flashcard/dialog-content-flashcard.component';
+  FlashcardComponent,
+  FlashcardDialogComponent,
+} from 'src/app/review-dialogs/flashcard/flashcard.component';
 
 import { AppMaterialModule } from '../app-material.module';
 import { PipeModule } from '../app-pipe.module';
 
 @NgModule({
   declarations: [
-    DialogContentQuizComponent,
-    DialogContentQuizDialogComponent,
-    DialogContentFlashcardComponent,
-    DialogContentFlashcardDialogComponent,
+    QuizComponent,
+    QuizDialogComponent,
+    FlashcardComponent,
+    FlashcardDialogComponent,
   ],
   imports: [CommonModule, AppMaterialModule, PipeModule],
   exports: [
-    DialogContentQuizComponent,
-    DialogContentQuizDialogComponent,
-    DialogContentFlashcardComponent,
-    DialogContentFlashcardDialogComponent,
+    QuizComponent,
+    QuizDialogComponent,
+    FlashcardComponent,
+    FlashcardDialogComponent,
   ],
 })
 export class AppQuizModule {}

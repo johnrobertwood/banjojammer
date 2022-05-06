@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthRoutingModule } from './auth-routing.module';
 
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
+import { ConfirmRegistrationComponent } from './confirm-registration/confirm-registration.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
     MatButtonModule,
     AmplifyUIAngularModule,
   ],
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, ConfirmRegistrationComponent],
 })
 export class AuthenticationModule {}

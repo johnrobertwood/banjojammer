@@ -9,14 +9,14 @@ import { ErrorHandlingService } from '../error-handling.service';
 
 @Injectable({ providedIn: 'root' })
 export class TechniqueService {
-  private apiGatewayUrl =
-    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production';
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
   };
+
+  private apiGatewayUrl =
+    'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production';
 
   constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
 
@@ -34,9 +34,7 @@ export class TechniqueService {
               arr.push(obj[key]);
             }
           }
-          arr.sort((a, b) => {
-            return a.id - b.id;
-          });
+          arr.sort((a, b) => a.id - b.id);
           return arr;
         }),
         catchError(this.ehs.handleError<Technique[]>('getTechniques', []))
@@ -49,7 +47,6 @@ export class TechniqueService {
   ): Observable<Technique> {
     const url = `${this.apiGatewayUrl}/modules`;
     const data = { moduleName };
-
     return this.http.post<any>(url, data, this.httpOptions).pipe(
       map((res) => {
         const technique = res.techniques;
@@ -66,7 +63,7 @@ export class TechniqueService {
   updateTechnique(
     technique: Technique,
     quizType: string
-  ): Observable<Technique> {
+  ): Observable<Technique> | Observable<null> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser !== null) {
       const data = {
@@ -75,7 +72,7 @@ export class TechniqueService {
         quizType,
       };
       return this.http
-        .patch(`${this.apiGatewayUrl}/user`, data, this.httpOptions)
+        .patch<any>(`${this.apiGatewayUrl}/user`, data, this.httpOptions)
         .pipe(catchError(this.ehs.handleError<any>('updateTechnique')));
     } else {
       return of(null);
@@ -91,11 +88,10 @@ export class TechniqueService {
     const url = `${this.apiGatewayUrl}/users`;
 
     return this.http
-      .patch(url, data, this.httpOptions)
+      .patch<any>(url, data, this.httpOptions)
       .pipe(catchError(this.ehs.handleError<any>('editTechnique')));
   }
 
-  /** POST: add a new technique to the server */
   addTechnique(technique: Technique): Observable<Technique> {
     return this.http
       .post<Technique>(

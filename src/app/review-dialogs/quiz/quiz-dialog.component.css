@@ -8,19 +8,19 @@ h3 {
 button {
   border: none;
   border-radius: 4px;
-  height: 70px;
+  height: 60px;
   line-height: 18px;
   font-size: 14px;
   white-space: normal;
 }
 
-ul {
+mat-list {
   list-style-type: none;
   padding-left: 0;
 }
 
-li {
-  margin-top: 15px;
+mat-list-item {
+  margin-top: 20px;
   font-size: 0.6em;
 }
 

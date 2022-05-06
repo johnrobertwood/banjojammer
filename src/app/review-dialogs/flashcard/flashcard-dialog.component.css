@@ -9,3 +9,7 @@ mat-card {
 .card-text {
   font-size: 1.2em;
 }
+
+.answer-card {
+  cursor: pointer;
+}
