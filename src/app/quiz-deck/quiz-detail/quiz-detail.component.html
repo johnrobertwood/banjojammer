@@ -1,0 +1,45 @@
+<div mat-dialog-content class="d-flex flex-column align-items-center">
+  <h3>{{ technique.quiz.question }}</h3>
+  <mat-list class="w-100 mb-3">
+    <mat-list-item *ngFor="let response of technique.quiz.responses | random">
+      <button cdkFocusInitial style="display: none"></button>
+      <button
+        mat-raised-button
+        (click)="selectAnswer()"
+        [ngClass]="{ green: answered && response.correct }"
+        color="basic"
+        class="w-100 d-flex justify-content-center align-items-center btn-dark"
+      >
+        {{ response.text }}
+      </button>
+    </mat-list-item>
+  </mat-list>
+  <div class="container d-flex justify-content-center">
+    <div class="row w-100 mb-2">
+      <div class="col-6">
+        <button
+          [disabled]="technique.prevTechnique === null"
+          mat-stroked-button
+          color="accent"
+          class="w-100 p-2 btn-dark"
+          [routerLink]="['/quiz-deck', module, technique.prevTechnique]"
+          (click)="nextTechnique()"
+        >
+          Prev
+        </button>
+      </div>
+      <div class="col-6">
+        <button
+          [disabled]="technique.nextTechnique === null"
+          mat-stroked-button
+          color="accent"
+          class="w-100 p-2 btn-dark"
+          [routerLink]="['/quiz-deck', module, technique.nextTechnique]"
+          (click)="nextTechnique()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

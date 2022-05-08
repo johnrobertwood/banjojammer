@@ -15,7 +15,7 @@ export class AuthenticationService {
   isLoggedIn = false;
   userData: any;
 
-  techniques: { [key: string]: object } = randyTech;
+  techniques = randyTech;
 
   userHistory = {
     flashcard: [],

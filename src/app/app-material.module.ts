@@ -9,6 +9,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   exports: [
@@ -23,6 +24,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatChipsModule,
     MatListModule,
     MatExpansionModule,
+    MatInputModule,
   ],
 })
 export class AppMaterialModule {}
