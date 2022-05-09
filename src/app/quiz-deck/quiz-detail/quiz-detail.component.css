@@ -3,7 +3,7 @@
 }
 
 .quiz-container {
-  width: 600px;
+  max-width: 800px;
 }
 
 .quiz-button {
