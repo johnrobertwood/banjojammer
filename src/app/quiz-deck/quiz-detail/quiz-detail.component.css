@@ -1,3 +1,16 @@
 .green {
   background-color: #4fbb87;
 }
+
+.quiz-container {
+  width: 600px;
+}
+
+.quiz-button {
+  height: 80px;
+  text-align: center;
+}
+
+.item-container {
+  height: 100px;
+}

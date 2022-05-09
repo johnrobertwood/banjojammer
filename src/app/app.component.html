@@ -133,30 +133,26 @@
       </div>
     </div>
     <div class="footer w-100">
-      <footer class="text-muted bd-footer d-flex">
+      <footer class="d-flex bd-footer m-3">
         <div class="d-flex justify-content-between w-100 p-2 flex-wrap">
           <div>
-            <mat-list>
-              <mat-list-item>
-                <a href="mailto: snapjohn77@gmail.com" mat-button>
-                  © 2022 Wood Web Development, LLC
-                </a>
-              </mat-list-item>
-              <mat-list-item>
-                <a
-                  mat-button
-                  [routerLink]="[{ outlets: { popup: ['compose'] } }]"
-                >
-                  Contact
-                </a>
-              </mat-list-item>
-              <mat-list-item>
-                <a mat-button routerLink="/tos"> Terms of Service </a>
-              </mat-list-item>
-              <mat-list-item>
-                <a mat-button routerLink="/privacy"> Privacy Policy </a>
-              </mat-list-item>
-            </mat-list>
+            <a class="text-muted" href="mailto: snapjohn77@gmail.com">
+              © 2022 Wood Web Dev
+            </a>
+          </div>
+          <div>
+            <a
+              class="text-muted"
+              [routerLink]="[{ outlets: { popup: ['compose'] } }]"
+            >
+              Contact
+            </a>
+          </div>
+          <div>
+            <a class="text-muted" routerLink="/tos"> Terms of Service </a>
+          </div>
+          <div>
+            <a class="text-muted" routerLink="/privacy"> Privacy Policy </a>
           </div>
         </div>
       </footer>

@@ -1,5 +1,9 @@
 <div class="d-flex justify-content-center w-100">
-  <div *ngIf="technique" mat-dialog-content class="dialog-container">
+  <div
+    *ngIf="technique"
+    mat-dialog-content
+    class="dialog-container d-flex flex-column align-items-center"
+  >
     <div class="card-container w-100 mb-0 mt-2" (click)="revealAnswer()">
       <mat-card>
         <p class="card-text">

@@ -2,17 +2,6 @@ mat-toolbar {
   height: 65px;
 }
 
-mat-list {
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-mat-list-item {
-  color: #ffffff;
-  list-style-type: none;
-}
-
 .nav-container {
   position: absolute;
   top: 65px;
