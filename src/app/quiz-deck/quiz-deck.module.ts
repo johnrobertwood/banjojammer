@@ -19,4 +19,4 @@ import { PipeModule } from '../app-pipe.module';
     PipeModule,
   ],
 })
-export class QuizDeckModule {}
+export class QuizDeckModule { }

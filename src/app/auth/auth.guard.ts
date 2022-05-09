@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   constructor(
     private authService: AuthenticationService,
     private router: Router
-  ) {}
+  ) { }
 
   canActivate(): boolean {
     return this.checkLogin();

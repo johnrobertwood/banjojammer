@@ -1,24 +1,12 @@
 <div class="container d-flex justify-content-center">
-  <div
-    *ngIf="technique"
-    mat-dialog-content
-    class="row d-flex flex-column align-items-center"
-  >
+  <div *ngIf="technique" mat-dialog-content class="row d-flex flex-column align-items-center">
     <div class="quiz-container mb-0 mt-2">
       <h3>{{ technique.quiz.question }}</h3>
       <mat-list class="w-100 mb-3">
-        <mat-list-item
-          *ngFor="let response of technique.quiz.responses | random"
-          class="item-container w-100 mb-2"
-        >
+        <mat-list-item *ngFor="let response of technique.quiz.responses | random" class="item-container w-100 mb-2">
           <!-- <button cdkFocusInitial style="display: none"></button> -->
-          <div
-            mat-raised-button
-            (click)="selectAnswer()"
-            [ngClass]="{ green: answered && response.correct }"
-            color="basic"
-            class="quiz-button w-100 d-flex justify-content-center align-items-center btn-dark px-3"
-          >
+          <div mat-raised-button (click)="selectAnswer()" [ngClass]="{ green: answered && response.correct }"
+            color="basic" class="quiz-button w-100 d-flex justify-content-center align-items-center btn-dark px-3">
             {{ response.text }}
           </div>
         </mat-list-item>
@@ -27,26 +15,16 @@
     <div class="container d-flex justify-content-center">
       <div class="row w-100 mb-2">
         <div class="col-6">
-          <button
-            [disabled]="technique.prevTechnique === null"
-            mat-stroked-button
-            color="accent"
-            class="w-100 p-2 btn-dark"
-            [routerLink]="['/quiz-deck', module, technique.prevTechnique]"
-            (click)="nextTechnique()"
-          >
+          <button [disabled]="technique.prevTechnique === null" mat-stroked-button color="accent"
+            class="w-100 p-2 btn-dark" [routerLink]="['/quiz-deck', module, technique.prevTechnique]"
+            (click)="nextTechnique()">
             Prev
           </button>
         </div>
         <div class="col-6">
-          <button
-            [disabled]="technique.nextTechnique === null"
-            mat-stroked-button
-            color="accent"
-            class="w-100 p-2 btn-dark"
-            [routerLink]="['/quiz-deck', module, technique.nextTechnique]"
-            (click)="nextTechnique()"
-          >
+          <button [disabled]="technique.nextTechnique === null" mat-stroked-button color="accent"
+            class="w-100 p-2 btn-dark" [routerLink]="['/quiz-deck', module, technique.nextTechnique]"
+            (click)="nextTechnique()">
             Next
           </button>
         </div>

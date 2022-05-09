@@ -7,20 +7,11 @@
           flashcards and quizzes.
         </p>
         <p class="mb-0">
-          <a
-            mat-stroked-button
-            href="/technique/randy-tech/activeShooterResponseProtocol"
-            color="accent"
-            class="btn btn-secondary m-2 px-4 py-1 br-2"
-          >
+          <a mat-stroked-button href="/technique/randy-tech/activeShooterResponseProtocol" color="accent"
+            class="btn btn-secondary m-2 px-4 py-1 br-2">
             Start Learning
           </a>
-          <a
-            mat-stroked-button
-            href="/login"
-            color="accent"
-            class="btn btn-secondary m-2 px-4 py-1 br-2"
-          >
+          <a mat-stroked-button href="/login" color="accent" class="btn btn-secondary m-2 px-4 py-1 br-2">
             Create Profile
           </a>
         </p>
@@ -30,15 +21,9 @@
   <div class="container card-body">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <div class="col my-2" *ngFor="let technique of techniques$ | async">
-        <div
-          class="h-100 d-flex flex-column justify-content-between rounded-sm border"
-        >
-          <img
-            [src]="technique.video.thumbnail | safe"
-            [routerLink]="['/technique', 'randy-tech', technique.name]"
-            class="w-100 mb-1"
-            alt="Video Thumbnail"
-          />
+        <div class="h-100 d-flex flex-column justify-content-between rounded-sm border">
+          <img [src]="technique.video.thumbnail | safe" [routerLink]="['/technique', 'randy-tech', technique.name]"
+            class="w-100 mb-1" alt="Video Thumbnail" />
           <div class="h-100 d-flex flex-column justify-content-between">
             <div class="d-flex flex-column px-2">
               <div class="title-text d-flex flex-column justify-content-center">
@@ -55,18 +40,11 @@
             <div class="p-2">
               <div class="d-flex justify-content-center align-items-center">
                 <div class="mb-2">
-                  <button
-                    mat-stroked-button
-                    color="accent"
-                    class="w-100 p-2 mb-1 btn-dark"
-                    [routerLink]="['/technique', 'randy-tech', technique.name]"
-                  >
+                  <button mat-stroked-button color="accent" class="w-100 p-2 mb-1 btn-dark"
+                    [routerLink]="['/technique', 'randy-tech', technique.name]">
                     Technique Details
                   </button>
-                  <app-flashcard
-                    class="quiz-button btn-dark"
-                    [technique]="technique"
-                  ></app-flashcard>
+                  <app-flashcard class="quiz-button btn-dark" [technique]="technique"></app-flashcard>
                 </div>
               </div>
             </div>

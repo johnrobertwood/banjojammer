@@ -18,75 +18,35 @@
 <mat-drawer-container class="nav-container">
   <mat-drawer #sidenav mode="over" position="end">
     <mat-menu #menu="matMenu">
-      <button
-        mat-menu-item
-        (click)="sidenav.close()"
-        routerLink="/home"
-        routerLinkActive="activebutton"
-      >
+      <button mat-menu-item (click)="sidenav.close()" routerLink="/home" routerLinkActive="activebutton">
         Home
       </button>
-      <button
-        *ngIf="loggedIn"
-        mat-menu-item
-        (click)="sidenav.close()"
-        routerLink="/favorites/randy-tech/activeShooterResponseProtocol"
-        routerLinkActive="activebutton"
-      >
+      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()"
+        routerLink="/favorites/randy-tech/activeShooterResponseProtocol" routerLinkActive="activebutton">
         Favorites
       </button>
-      <button
-        *ngIf="loggedIn"
-        mat-menu-item
-        (click)="sidenav.close()"
-        routerLink="/profile"
-        routerLinkActive="activebutton"
-      >
+      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/profile"
+        routerLinkActive="activebutton">
         Profile
       </button>
-      <button
-        *ngIf="loggedIn"
-        mat-menu-item
-        (click)="sidenav.close()"
-        routerLink="/quiz-deck/randy-tech/activeShooterResponseProtocol"
-        routerLinkActive="activebutton"
-      >
+      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()"
+        routerLink="/quiz-deck/randy-tech/activeShooterResponseProtocol" routerLinkActive="activebutton">
         Quiz Deck
       </button>
-      <button
-        *ngIf="loggedIn"
-        mat-menu-item
-        (click)="sidenav.close()"
-        routerLink="/flashcard-deck/randy-tech/activeShooterResponseProtocol"
-        routerLinkActive="activebutton"
-      >
+      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()"
+        routerLink="/flashcard-deck/randy-tech/activeShooterResponseProtocol" routerLinkActive="activebutton">
         Flashcards
       </button>
-      <button
-        *ngIf="loggedIn"
-        mat-menu-item
-        (click)="sidenav.close()"
-        routerLink="/admin"
-        routerLinkActive="activebutton"
-      >
+      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/admin"
+        routerLinkActive="activebutton">
         Admin
       </button>
-      <button
-        *ngIf="!loggedIn"
-        mat-menu-item
-        (click)="sidenav.close()"
-        routerLink="/login"
-        routerLinkActive="activebutton"
-      >
+      <button *ngIf="!loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/login"
+        routerLinkActive="activebutton">
         Login
       </button>
-      <button
-        *ngIf="loggedIn"
-        mat-menu-item
-        (click)="sidenav.close()"
-        routerLink="/login"
-        routerLinkActive="activebutton"
-      >
+      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/login"
+        routerLinkActive="activebutton">
         Logout
       </button>
     </mat-menu>
@@ -95,13 +55,8 @@
         <mat-expansion-panel-header>
           <mat-panel-title>Basic Doctrine</mat-panel-title>
         </mat-expansion-panel-header>
-        <mat-panel-description
-          mat-menu-item
-          [routerLink]="['technique', 'randy-tech', technique.name]"
-          (click)="sidenav.close()"
-          routerLinkActive="activebutton"
-          *ngFor="let technique of techArray[0] | async"
-        >
+        <mat-panel-description mat-menu-item [routerLink]="['technique', 'randy-tech', technique.name]"
+          (click)="sidenav.close()" routerLinkActive="activebutton" *ngFor="let technique of techArray[0] | async">
           {{ technique.displayName }}
         </mat-panel-description>
       </mat-expansion-panel>
@@ -110,13 +65,8 @@
           <mat-panel-title>Elite Doctrine</mat-panel-title>
           <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
         </mat-expansion-panel-header>
-        <mat-panel-description
-          mat-menu-item
-          [routerLink]="['technique', 'gorilla-tech', technique.name]"
-          (click)="sidenav.close()"
-          routerLinkActive="activebutton"
-          *ngFor="let technique of techniques$ | async"
-        >
+        <mat-panel-description mat-menu-item [routerLink]="['technique', 'gorilla-tech', technique.name]"
+          (click)="sidenav.close()" routerLinkActive="activebutton" *ngFor="let technique of techniques$ | async">
           {{ technique.displayName }}
         </mat-panel-description>
       </mat-expansion-panel>
@@ -124,10 +74,7 @@
   </mat-drawer>
   <mat-drawer-content class="d-flex flex-column justify-content-between">
     <div class="w-100 d-flex px-3">
-      <div
-        [@routeAnimation]="getAnimationData(routerOutlet)"
-        class="w-100 d-flex flex-column align-items-center"
-      >
+      <div [@routeAnimation]="getAnimationData(routerOutlet)" class="w-100 d-flex flex-column align-items-center">
         <router-outlet #routerOutlet="outlet"></router-outlet>
         <router-outlet name="popup" class="popupContainer"></router-outlet>
       </div>
@@ -141,10 +88,7 @@
             </a>
           </div>
           <div>
-            <a
-              class="text-muted"
-              [routerLink]="[{ outlets: { popup: ['compose'] } }]"
-            >
+            <a class="text-muted" [routerLink]="[{ outlets: { popup: ['compose'] } }]">
               Contact
             </a>
           </div>

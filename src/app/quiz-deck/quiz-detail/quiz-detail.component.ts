@@ -13,7 +13,7 @@ export class QuizDetailComponent implements OnInit {
   module!: string | null;
   answered = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.data.subscribe((data: { quiz: Technique }) => {

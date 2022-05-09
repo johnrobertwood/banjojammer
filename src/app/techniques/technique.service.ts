@@ -18,7 +18,7 @@ export class TechniqueService {
   private apiGatewayUrl =
     'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production';
 
-  constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
+  constructor(private http: HttpClient, private ehs: ErrorHandlingService) { }
 
   getTechniques(moduleName: string): Observable<Technique[]> {
     const data = { moduleName };

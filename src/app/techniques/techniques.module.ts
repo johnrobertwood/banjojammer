@@ -25,4 +25,4 @@ import { VideoFrameComponent } from './video-frame/video-frame.component';
     AppQuizModule,
   ],
 })
-export class TechniquesModule {}
+export class TechniquesModule { }

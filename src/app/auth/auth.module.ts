@@ -19,4 +19,4 @@ import { ConfirmRegistrationComponent } from './confirm-registration/confirm-reg
   ],
   declarations: [LoginComponent, ConfirmRegistrationComponent],
 })
-export class AuthenticationModule {}
+export class AuthenticationModule { }

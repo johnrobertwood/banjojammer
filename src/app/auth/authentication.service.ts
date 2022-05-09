@@ -29,7 +29,7 @@ export class AuthenticationService {
     }),
   };
 
-  constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
+  constructor(private http: HttpClient, private ehs: ErrorHandlingService) { }
 
   login(payload: any) {
     this.userData = payload.data;

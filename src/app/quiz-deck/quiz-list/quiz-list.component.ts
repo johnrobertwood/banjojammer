@@ -19,7 +19,7 @@ export class QuizListComponent implements OnInit {
   constructor(
     private techniqueService: TechniqueService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getTechniques();

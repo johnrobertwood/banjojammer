@@ -12,7 +12,7 @@ export class AddModuleComponent {
   techArrayName = '';
   private ngUnsubscribe = new Subject();
 
-  constructor(private authService: AuthenticationService) {}
+  constructor(private authService: AuthenticationService) { }
 
   addModule() {
     this.authService

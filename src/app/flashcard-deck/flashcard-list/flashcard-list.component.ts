@@ -19,7 +19,7 @@ export class FlashcardListComponent implements OnInit {
   constructor(
     private techniqueService: TechniqueService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getTechniques();

@@ -13,7 +13,7 @@ export class FlashcardDetailComponent implements OnInit {
   technique!: Technique;
   module!: string | null;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.data.subscribe((data: { flashcard: Technique }) => {

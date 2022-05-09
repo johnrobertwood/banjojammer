@@ -43,7 +43,7 @@ export class AddTechniqueComponent {
   constructor(
     private authService: AuthenticationService,
     private fb: FormBuilder
-  ) {}
+  ) { }
 
   addTechnique(moduleName: string) {
     this.authService

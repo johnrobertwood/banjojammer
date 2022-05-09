@@ -22,7 +22,7 @@ export class FavoritesListComponent implements OnInit {
     private authService: AuthenticationService,
     private route: ActivatedRoute,
     private ts: TechniqueService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getTechniques();

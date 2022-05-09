@@ -31,7 +31,7 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private techniqueService: TechniqueService,
     private authService: AuthenticationService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getTechnique();

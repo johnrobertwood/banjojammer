@@ -28,4 +28,4 @@ import { PipeModule } from '../app-pipe.module';
     FlashcardDialogComponent,
   ],
 })
-export class AppQuizModule {}
+export class AppQuizModule { }

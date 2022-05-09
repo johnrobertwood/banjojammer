@@ -29,7 +29,7 @@ export class FlashcardComponent implements OnDestroy {
   constructor(
     public dialog: MatDialog,
     private authService: AuthenticationService
-  ) {}
+  ) { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(FlashcardDialogComponent, {
@@ -64,7 +64,7 @@ export class FlashcardDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<FlashcardDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) {}
+  ) { }
 
   onNoClick(): void {
     this.dialogRef.close();

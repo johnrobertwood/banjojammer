@@ -16,7 +16,7 @@ export class MessageService {
   private feedbackUrl =
     'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/feedback';
 
-  constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
+  constructor(private http: HttpClient, private ehs: ErrorHandlingService) { }
 
   sendFeedback(message: string) {
     const feedback = { message };

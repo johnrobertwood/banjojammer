@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private techniqueService: TechniqueService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getTechniques();

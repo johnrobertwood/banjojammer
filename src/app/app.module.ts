@@ -40,4 +40,4 @@ import { AppQuizModule } from './review-dialogs/app-quiz.module';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

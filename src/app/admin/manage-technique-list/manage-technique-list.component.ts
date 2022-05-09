@@ -18,7 +18,7 @@ export class ManageTechniqueListComponent implements OnInit {
   constructor(
     private techniqueService: TechniqueService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getTechniques();

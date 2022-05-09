@@ -29,7 +29,7 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
     private router: Router,
     private techniqueService: TechniqueService,
     private dialogService: DialogService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getTechnique();
