@@ -13,7 +13,8 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  techniques$!: Observable<Technique[]>;
+  pistolTech$!: Observable<Technique[]>;
+  grappleTech$!: Observable<Technique[]>;
   isLoggedIn = false;
   thumbnailUrl = '';
 
@@ -27,8 +28,11 @@ export class HomeComponent implements OnInit {
   }
 
   getTechniques(): void {
-    this.techniques$ = this.route.paramMap.pipe(
-      switchMap(() => this.techniqueService.getTechniques('randy-tech'))
+    this.pistolTech$ = this.route.paramMap.pipe(
+      switchMap(() => this.techniqueService.getTechniques('randy-tech')),
+    );
+    this.grappleTech$ = this.route.paramMap.pipe(
+      switchMap(() => this.techniqueService.getTechniques('glover-tech')),
     );
     if (localStorage.getItem('currentUser')) {
       this.isLoggedIn = true;
