@@ -1,7 +1,9 @@
 <div class="quiz-container container d-flex justify-content-center">
   <div *ngIf="technique" mat-dialog-content class="w-100 row d-flex flex-column align-items-center">
     <div class="w-100 m-3">
-      <h2 class="mb-0">{{ technique.quiz.question }}</h2>
+      <div class="title-container d-flex flex-column justify-content-center mt-2">
+        <h2 class="mb-0">{{ technique.quiz.question }}</h2>
+      </div>
       <mat-list class="w-100 mb-3">
         <mat-list-item *ngFor="let response of technique.quiz.responses | random" class="item-container w-100 mb-2">
           <div mat-raised-button (click)="selectAnswer()" [ngClass]="{ green: answered && response.correct }"

@@ -1,6 +1,6 @@
 <div>
   <router-outlet></router-outlet>
-  <div class="chip-container">
+  <div>
     <mat-chip-list>
       <ng-container *ngFor="let technique of techniques$ | async">
         <mat-chip [routerLink]="['/quiz-deck', modulePath, technique.name]" [selected]="selectedName === technique.name"
