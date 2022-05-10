@@ -1,21 +1,35 @@
 <main>
-  <div class="container">
-    <nav class="mb-2">
+  <div class="container d-flex flex-column justify-content-center">
+    <div class="d-flex justify-content-center mt-2">
       <p class="h3">Favorite Techniques</p>
-      <div class="d-flex justify-content-center mb-2">
-        <button mat-stroked-button color="accent" [routerLink]="['/favorites/randy-tech/activeShooterResponseProtocol']"
-          routerLinkActive="activebutton">
-          Randy Tech
-        </button>
-      </div>
-      <mat-chip-list>
-        <ng-container *ngFor="let technique of techniques$ | async">
-          <mat-chip multiple color="accent">{{
-            technique.displayName
-            }}</mat-chip>
-        </ng-container>
-      </mat-chip-list>
-    </nav>
+    </div>
+    <div class="row d-flex justify-content-center mt-2">
+      <nav class="mb-2">
+        <div class="mb-2">
+          <button mat-stroked-button color="accent"
+            [routerLink]="['/favorites/randy-tech/activeShooterResponseProtocol']" routerLinkActive="activebutton">
+            Pistol Tactics
+          </button>
+          <button mat-stroked-button color="accent" [routerLink]="['/favorites/glover-tech/kneeSlice']"
+            routerLinkActive="activebutton">
+            Grappling
+          </button>
+          <button mat-stroked-button color="accent" [routerLink]="['/favorites/gorilla-tech/baseballChoke']"
+            routerLinkActive="activebutton">
+            Non Lethal Weapons
+          </button>
+          <button mat-stroked-button color="accent" [routerLink]="['/favorites/greek-tech/dopeMount']"
+            routerLinkActive="activebutton">
+            Edged Weapons
+          </button>
+          <button mat-stroked-button color="accent" [routerLink]="['/favorites/grill-tech/bravoFlipChoke']"
+            routerLinkActive="activebutton">
+            Situational Awareness
+          </button>
+        </div>
+
+      </nav>
+    </div>
     <div class="row row-cols-1 row-cols-sm-2 g-3">
       <div *ngFor="let technique of techniques$ | async" class="col my-2">
         <ng-container>
@@ -42,5 +56,12 @@
         </ng-container>
       </div>
     </div>
+    <mat-chip-list class="mt-2">
+      <ng-container *ngFor="let technique of techniques$ | async">
+        <mat-chip multiple color="accent">{{
+          technique.displayName
+          }}</mat-chip>
+      </ng-container>
+    </mat-chip-list>
   </div>
 </main>
