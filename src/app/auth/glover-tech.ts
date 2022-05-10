@@ -1,7 +1,7 @@
 const gloverTech = {
-  activeShooterResponseProtocol: {
+  activeShooterResponse: {
     id: 0,
-    name: 'activeShooterResponseProtocol',
+    name: 'activeShooterResponse',
     displayName: 'Knee Slice',
     prevTechnique: null,
     nextTechnique: 'barDarce',
@@ -52,7 +52,7 @@ const gloverTech = {
     id: 1,
     name: 'barDarce',
     displayName: 'Bar Darce',
-    prevTechnique: 'activeShooterResponseProtocol',
+    prevTechnique: 'activeShooterResponse',
     nextTechnique: 'sevenYearOldChoke',
     quiz: {
       complete: false,

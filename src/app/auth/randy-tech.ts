@@ -1,7 +1,7 @@
 const randyTech = {
-  activeShooterResponseProtocol: {
+  activeShooterResponse: {
     id: 0,
-    name: 'activeShooterResponseProtocol',
+    name: 'activeShooterResponse',
     displayName: 'Active Shooter Response Protocol',
     prevTechnique: null,
     nextTechnique: 'defendingYourHomeGroundJanuary2018',
@@ -53,7 +53,7 @@ const randyTech = {
     id: 10,
     name: 'defendingYourHomeGroundJanuary2018',
     displayName: 'Defending Your Home Ground January 2018 ',
-    prevTechnique: 'activeShooterResponseProtocol',
+    prevTechnique: 'activeShooterResponse',
     nextTechnique: 'strongHandPistol',
     quiz: {
       complete: false,

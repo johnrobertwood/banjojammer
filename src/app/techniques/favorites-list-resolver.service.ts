@@ -33,7 +33,7 @@ export class FavoritesListResolverService implements Resolve<Technique> {
           } else {
             // id not found
             this.router.navigate([
-              '/favorites/randy-tech/activeShooterResponseProtocol',
+              '/favorites/randy-tech/activeShooterResponse',
             ]);
             return EMPTY;
           }
