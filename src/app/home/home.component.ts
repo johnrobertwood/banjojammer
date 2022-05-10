@@ -13,8 +13,12 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  pistolTech$!: Observable<Technique[]>;
-  grappleTech$!: Observable<Technique[]>;
+  pistolTactics$!: Observable<Technique[]>;
+  grappling$!: Observable<Technique[]>;
+  nonLethalWeapons$!: Observable<Technique[]>;
+  edgedWeapons$!: Observable<Technique[]>;
+  situationalAwareness$!: Observable<Technique[]>;
+
   isLoggedIn = false;
   thumbnailUrl = '';
 
@@ -28,11 +32,20 @@ export class HomeComponent implements OnInit {
   }
 
   getTechniques(): void {
-    this.pistolTech$ = this.route.paramMap.pipe(
+    this.pistolTactics$ = this.route.paramMap.pipe(
       switchMap(() => this.techniqueService.getTechniques('randy-tech')),
     );
-    this.grappleTech$ = this.route.paramMap.pipe(
+    this.grappling$ = this.route.paramMap.pipe(
       switchMap(() => this.techniqueService.getTechniques('glover-tech')),
+    );
+    this.nonLethalWeapons$ = this.route.paramMap.pipe(
+      switchMap(() => this.techniqueService.getTechniques('gorilla-tech')),
+    );
+    this.edgedWeapons$ = this.route.paramMap.pipe(
+      switchMap(() => this.techniqueService.getTechniques('grill-tech')),
+    );
+    this.situationalAwareness$ = this.route.paramMap.pipe(
+      switchMap(() => this.techniqueService.getTechniques('greek-tech')),
     );
     if (localStorage.getItem('currentUser')) {
       this.isLoggedIn = true;
