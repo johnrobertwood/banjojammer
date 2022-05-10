@@ -79,7 +79,7 @@
           <mat-panel-title>Non Lethal Weapons</mat-panel-title>
           <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
         </mat-expansion-panel-header>
-        <mat-panel-description mat-menu-item [routerLink]="['technique', 'grill-tech', technique.name]"
+        <mat-panel-description mat-menu-item [routerLink]="['technique', 'gorilla-tech', technique.name]"
           (click)="sidenav.close()" routerLinkActive="activebutton" *ngFor="let technique of techArray[2] | async">
           {{ technique.displayName }}
         </mat-panel-description>
@@ -89,7 +89,7 @@
           <mat-panel-title>Edged Weapons</mat-panel-title>
           <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
         </mat-expansion-panel-header>
-        <mat-panel-description mat-menu-item [routerLink]="['technique', 'greek-tech', technique.name]"
+        <mat-panel-description mat-menu-item [routerLink]="['technique', 'grill-tech', technique.name]"
           (click)="sidenav.close()" routerLinkActive="activebutton" *ngFor="let technique of techArray[3] | async">
           {{ technique.displayName }}
         </mat-panel-description>
@@ -99,7 +99,7 @@
           <mat-panel-title>Situational Awareness</mat-panel-title>
           <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
         </mat-expansion-panel-header>
-        <mat-panel-description mat-menu-item [routerLink]="['technique', 'gorilla-tech', technique.name]"
+        <mat-panel-description mat-menu-item [routerLink]="['technique', 'greek-tech', technique.name]"
           (click)="sidenav.close()" routerLinkActive="activebutton" *ngFor="let technique of techArray[4] | async">
           {{ technique.displayName }}
         </mat-panel-description>

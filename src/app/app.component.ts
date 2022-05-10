@@ -47,9 +47,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.getTechniques('randy-tech');
     this.getTechniques('glover-tech');
+    this.getTechniques('gorilla-tech');
     this.getTechniques('grill-tech');
     this.getTechniques('greek-tech');
-    this.getTechniques('gorilla-tech');
     this.checkLocalStorage();
 
     this.breakpointObserver
