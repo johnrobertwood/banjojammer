@@ -21,22 +21,11 @@
       <button mat-menu-item (click)="sidenav.close()" routerLink="/home" routerLinkActive="activebutton">
         Home
       </button>
-      <button *ngIf="!loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/login"
-        routerLinkActive="activebutton">
-        Login
-      </button>
-      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/login"
-        routerLinkActive="activebutton">
-        Logout
-      </button>
+
       <button [disabled]="!loggedIn" mat-menu-item (click)="sidenav.close()"
         routerLink="/favorites/randy-tech/activeShooterResponseProtocol" routerLinkActive="activebutton">
         <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
         Favorites
-      </button>
-      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/profile"
-        routerLinkActive="activebutton">
-        Profile
       </button>
       <button [disabled]="!loggedIn" mat-menu-item (click)="sidenav.close()"
         routerLink="/quiz-deck/randy-tech/activeShooterResponseProtocol" routerLinkActive="activebutton">
@@ -48,9 +37,21 @@
         <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
         Flashcard Deck
       </button>
+      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/profile"
+        routerLinkActive="activebutton">
+        Profile
+      </button>
       <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/admin"
         routerLinkActive="activebutton">
         Admin
+      </button>
+      <button *ngIf="!loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/login"
+        routerLinkActive="activebutton">
+        Login
+      </button>
+      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/login"
+        routerLinkActive="activebutton">
+        Logout
       </button>
     </mat-menu>
     <mat-nav-list>
