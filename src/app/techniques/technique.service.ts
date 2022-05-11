@@ -45,7 +45,7 @@ export class TechniqueService {
     moduleName: string,
     techName: string
   ): Observable<Technique> {
-    const url = `${this.apiGatewayUrl}/module`;
+    const url = `${this.apiGatewayUrl}/techniques`;
     const data = { moduleName };
     return this.http.post<any>(url, data, this.httpOptions).pipe(
       map((res) => {
