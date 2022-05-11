@@ -1,7 +1,8 @@
 {
   "auth": {
-    "grapplejits009df1ec": {
+    "johnwickschoolbf8ada58": {
       "service": "Cognito",
+      "serviceType": "imported",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false
