@@ -85,7 +85,7 @@ export class TechniqueService {
       currentUser,
       technique,
     };
-    const url = `${this.apiGatewayUrl}/users`;
+    const url = `${this.apiGatewayUrl}/technique`;
 
     return this.http
       .patch<any>(url, data, this.httpOptions)
