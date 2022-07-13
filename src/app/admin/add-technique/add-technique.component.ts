@@ -15,7 +15,7 @@ export class AddTechniqueComponent {
     name: '',
     displayName: '',
     prevTechnique: '',
-    nextTechnique: null,
+    nextTechnique: '',
     quiz: this.fb.group({
       question: '',
       response1: '',
