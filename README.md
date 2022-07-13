@@ -1,8 +1,8 @@
-# grapplingreview
+# bjjquiz
 
-**A jiu jitsu technique video and learning app**
+**Self defense and martial arts technique app**
 
-(https://grapplingreview.com)
+(https://bjjquiz.com)
 
 ### Getting started
 
@@ -12,6 +12,6 @@ _npm run-script build_ creates a folder for production deployment on S3 or GH pa
 
 ### Tech Stack
 
-Built with Angular, Material UI, Bootstrap, AWS API Gateway, AWS Lambda, AWS DynamoDB and AWS Amplify.
+Built with Angular 13, Material UI, Bootstrap, S3, API Gateway, Lambda, DynamoDB and Amplify.
 
 **Wood Web Development, LLC**
