@@ -15,9 +15,9 @@ export class AddModuleComponent {
   constructor(private authService: AuthenticationService) { }
 
   addModule() {
-    this.authService
-      .addModule(this.techArrayName)
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe();
+    // this.authService
+    //   .addModule(this.techArrayName)
+    //   .pipe(takeUntil(this.ngUnsubscribe))
+    //   .subscribe();
   }
 }

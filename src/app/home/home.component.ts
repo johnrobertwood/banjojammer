@@ -35,18 +35,18 @@ export class HomeComponent implements OnInit {
     this.pistolTactics$ = this.route.paramMap.pipe(
       switchMap(() => this.techniqueService.getTechniques('randy-tech')),
     );
-    this.grappling$ = this.route.paramMap.pipe(
-      switchMap(() => this.techniqueService.getTechniques('glover-tech')),
-    );
-    this.nonLethalWeapons$ = this.route.paramMap.pipe(
-      switchMap(() => this.techniqueService.getTechniques('gorilla-tech')),
-    );
-    this.edgedWeapons$ = this.route.paramMap.pipe(
-      switchMap(() => this.techniqueService.getTechniques('grill-tech')),
-    );
-    this.situationalAwareness$ = this.route.paramMap.pipe(
-      switchMap(() => this.techniqueService.getTechniques('greek-tech')),
-    );
+    // this.grappling$ = this.route.paramMap.pipe(
+    //   switchMap(() => this.techniqueService.getTechniques('glover-tech')),
+    // );
+    // this.nonLethalWeapons$ = this.route.paramMap.pipe(
+    //   switchMap(() => this.techniqueService.getTechniques('gorilla-tech')),
+    // );
+    // this.edgedWeapons$ = this.route.paramMap.pipe(
+    //   switchMap(() => this.techniqueService.getTechniques('grill-tech')),
+    // );
+    // this.situationalAwareness$ = this.route.paramMap.pipe(
+    //   switchMap(() => this.techniqueService.getTechniques('greek-tech')),
+    // );
     if (localStorage.getItem('currentUser')) {
       this.isLoggedIn = true;
     } else {

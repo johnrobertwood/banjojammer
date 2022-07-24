@@ -1,5 +1,7 @@
-const grillTech = {
-  bravoFlipChoke: {
+import { Technique } from '../techniques/technique';
+
+export const grillTech: Technique[] = [
+  {
     id: 0,
     name: 'bravoFlipChoke',
     displayName: 'Bravo Flip Choke',
@@ -54,7 +56,7 @@ const grillTech = {
       thumbnail: 'https://img.youtube.com/vi/1i92oa6jLsA/mqdefault.jpg',
     },
   },
-  unstoppableNoGiGuard: {
+  {
     id: 0,
     name: 'unstoppableNoGiGuardSequence',
     displayName: 'Unstoppable No Gi Guard Sequence',
@@ -108,6 +110,6 @@ const grillTech = {
       thumbnail: 'https://img.youtube.com/vi/_WNDZPwzLyk/mqdefault.jpg',
     },
   },
-};
+];
 
 export default grillTech;

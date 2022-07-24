@@ -21,7 +21,7 @@ export class FavoritesListResolverService implements Resolve<Technique> {
     const module = route.paramMap.get('module');
 
     return this.ts
-      .getUserTechnique(
+      .getUserFilterTechnique(
         (this.modulePath = 'randy-tech'),
         (this.techName = 'knee-slice')
       )

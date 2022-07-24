@@ -15,7 +15,7 @@ export class TechniqueService {
     }),
   };
 
-  private apiGatewayUrl =
+  apiGatewayUrl =
     'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production';
 
   constructor(private http: HttpClient, private ehs: ErrorHandlingService) { }
@@ -24,39 +24,20 @@ export class TechniqueService {
     const data = { moduleName };
 
     return this.http
-      .post<any>(`${this.apiGatewayUrl}/techniques`, data, this.httpOptions)
+      .post<Technique[]>(`${this.apiGatewayUrl}/techniques`, data, this.httpOptions)
       .pipe(
-        map((res) => {
-          const obj = res.techniques;
-          const arr = [];
-          for (const key in obj) {
-            if (obj[key]) {
-              arr.push(obj[key]);
-            }
-          }
-          arr.sort((a, b) => a.id - b.id);
-          return arr;
-        }),
         catchError(this.ehs.handleError<Technique[]>('getTechniques', []))
       );
   }
 
-  getUserTechnique(
+  getUserFilterTechnique(
     moduleName: string,
     techName: string
   ): Observable<Technique> {
-    const url = `${this.apiGatewayUrl}/techniques`;
-    const data = { moduleName };
-    return this.http.post<any>(url, data, this.httpOptions).pipe(
-      map((res) => {
-        const technique = res.techniques;
-        return technique[
-          Object.keys(technique).filter(
-            (t) => technique[t].name === techName
-          )[0]
-        ];
-      }),
-      catchError(this.ehs.handleError<Technique>('getUserTechnique'))
+    const url = `${this.apiGatewayUrl}/user-filter`;
+    const data = { moduleName, techName };
+    return this.http.post<Technique>(url, data, this.httpOptions).pipe(
+      catchError(this.ehs.handleError<Technique>('getUserFilterTechnique'))
     );
   }
 

@@ -47,7 +47,7 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
       switchMap((params: ParamMap) => {
         this.modulePath = params.get('module');
         this.techniqueName = params.get('name');
-        return this.techniqueService.getUserTechnique(
+        return this.techniqueService.getUserFilterTechnique(
           this.modulePath,
           this.techniqueName
         );

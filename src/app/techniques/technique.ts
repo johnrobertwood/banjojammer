@@ -11,6 +11,18 @@ export interface Technique {
       {
         text: string;
         correct: boolean;
+      },
+      {
+        text: string;
+        correct: boolean;
+      },
+      {
+        text: string;
+        correct: boolean;
+      },
+      {
+        text: string;
+        correct: boolean;
       }
     ];
   };
@@ -24,6 +36,15 @@ export interface Technique {
     thumbnail: string;
   };
   notes: [
+    {
+      text: string;
+    },
+    {
+      text: string;
+    },
+    {
+      text: string;
+    },
     {
       text: string;
     }

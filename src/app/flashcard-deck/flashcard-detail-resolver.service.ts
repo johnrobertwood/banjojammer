@@ -20,7 +20,7 @@ export class FlashcardDetailResolverService implements Resolve<Technique> {
     this.techName = route.paramMap.get('name');
     this.modulePath = route.paramMap.get('module');
 
-    return this.ts.getUserTechnique(this.modulePath, this.techName).pipe(
+    return this.ts.getUserFilterTechnique(this.modulePath, this.techName).pipe(
       take(1),
       mergeMap((technique) => {
         if (technique) {
