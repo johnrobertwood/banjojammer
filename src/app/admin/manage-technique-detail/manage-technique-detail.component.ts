@@ -34,7 +34,7 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getTechnique();
 
-    this.route.data.subscribe((data: { technique: Technique; }) => {
+    this.route.data.subscribe((data: { technique: Technique }) => {
       this.editName = data.technique.displayName;
       this.editAnswer = data.technique.flashcard.answer;
       this.technique = data.technique;

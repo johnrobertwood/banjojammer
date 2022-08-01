@@ -21,7 +21,6 @@
       <button mat-menu-item (click)="sidenav.close()" routerLink="/home" routerLinkActive="activebutton">
         Home
       </button>
-
       <button [disabled]="!loggedIn" mat-menu-item (click)="sidenav.close()"
         routerLink="/favorites/randy-tech/activeShooterResponse" routerLinkActive="activebutton">
         <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
@@ -55,21 +54,21 @@
       </button>
     </mat-menu>
     <mat-nav-list>
-      <mat-expansion-panel #freeContent>
+      <mat-expansion-panel #gloverContent>
         <mat-expansion-panel-header>
-          <mat-panel-title>Pistol Tactics</mat-panel-title>
+          <mat-panel-title>Grappling</mat-panel-title>
         </mat-expansion-panel-header>
-        <mat-panel-description mat-menu-item [routerLink]="['technique', 'randy-tech', technique.name]"
+        <mat-panel-description mat-menu-item [routerLink]="['technique', 'glover-tech', technique.name]"
           (click)="sidenav.close()" routerLinkActive="activebutton" *ngFor="let technique of techArray[0] | async">
           {{ technique.displayName }}
         </mat-panel-description>
       </mat-expansion-panel>
-      <mat-expansion-panel #gorillaContent [disabled]="!loggedIn">
+      <mat-expansion-panel #freeContent [disabled]="!loggedIn">
         <mat-expansion-panel-header>
-          <mat-panel-title>Grappling</mat-panel-title>
+          <mat-panel-title>Pistol Tactics</mat-panel-title>
           <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
         </mat-expansion-panel-header>
-        <mat-panel-description mat-menu-item [routerLink]="['technique', 'glover-tech', technique.name]"
+        <mat-panel-description mat-menu-item [routerLink]="['technique', 'randy-tech', technique.name]"
           (click)="sidenav.close()" routerLinkActive="activebutton" *ngFor="let technique of techArray[1] | async">
           {{ technique.displayName }}
         </mat-panel-description>

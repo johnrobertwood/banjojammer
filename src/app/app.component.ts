@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   @ViewChild('gorillaContent') gorillaExpansionPanel!: MatExpansionPanel;
   @ViewChild('grillContent') grillExpansionPanel!: MatExpansionPanel;
   @ViewChild('greekContent') greekExpansionPanel!: MatExpansionPanel;
+  @ViewChild('gloverContent') gloverExpansionPanel!: MatExpansionPanel;
 
   isSmallScreen = false;
   selectedName!: string | null;
@@ -45,8 +46,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getTechniques('glover-tech');
     this.getTechniques('randy-tech');
-    // this.getTechniques('glover-tech');
     // this.getTechniques('gorilla-tech');
     // this.getTechniques('grill-tech');
     // this.getTechniques('greek-tech');

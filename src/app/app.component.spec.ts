@@ -53,13 +53,14 @@ describe('AppComponent', () => {
   it('should display the h1 page title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const h1 = fixture.nativeElement.querySelector('.h1 .mandofont');
-    expect(h1.textContent).toEqual('Prospex Training');
+    expect(h1.textContent).toEqual('BJJ Quiz');
   });
 
   it('should call getTechniqueService', async () => {
     const fixture = TestBed.createComponent(AppComponent);
+    expect(getTechniquesSpy.calls.any()).toBe(false);
     fixture.detectChanges();
-    // expect(getTechniquesSpy.calls.any()).toBe(true);
+    expect(getTechniquesSpy.calls.any()).toBe(true);
   });
 
 });

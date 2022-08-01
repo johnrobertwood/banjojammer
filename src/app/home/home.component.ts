@@ -32,12 +32,12 @@ export class HomeComponent implements OnInit {
   }
 
   getTechniques(): void {
+    this.grappling$ = this.route.paramMap.pipe(
+      switchMap(() => this.techniqueService.getTechniques('glover-tech')),
+    );
     this.pistolTactics$ = this.route.paramMap.pipe(
       switchMap(() => this.techniqueService.getTechniques('randy-tech')),
     );
-    // this.grappling$ = this.route.paramMap.pipe(
-    //   switchMap(() => this.techniqueService.getTechniques('glover-tech')),
-    // );
     // this.nonLethalWeapons$ = this.route.paramMap.pipe(
     //   switchMap(() => this.techniqueService.getTechniques('gorilla-tech')),
     // );
