@@ -70,20 +70,20 @@ export class AuthenticationService {
       .pipe(catchError(this.ehs.handleError<any>('addUser HTTP post error')));
   }
 
-  // addModule(user: string): Observable<any> {
-  //   const data = {
-  //     user,
-  //     techniques: this.techniques,
-  //   };
+  addModule(user: string): Observable<any> {
+    const data = {
+      user,
+      techniques: {},
+    };
 
-  //   const url =
-  //     'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/module';
-  //   return this.http
-  //     .post<any>(url, data, this.httpOptions)
-  //     .pipe(
-  //       catchError(this.ehs.handleError<any>('addTechniques HTTP post error'))
-  //     );
-  // }
+    const url =
+      'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/module';
+    return this.http
+      .post<any>(url, data, this.httpOptions)
+      .pipe(
+        catchError(this.ehs.handleError<any>('addModule HTTP post error'))
+      );
+  }
 
   addTechniques(tagForm: any, moduleName: any): Observable<any> {
     tagForm.quiz.responses = [

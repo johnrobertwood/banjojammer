@@ -18,7 +18,7 @@ import { MatExpansionPanel } from '@angular/material/expansion';
   animations: [slideInAnimation],
 })
 export class AppComponent implements OnInit {
-  @ViewChild('freeContent') freeExpansionPanel!: MatExpansionPanel;
+  @ViewChild('randyContent') randyExpansionPanel!: MatExpansionPanel;
   @ViewChild('gorillaContent') gorillaExpansionPanel!: MatExpansionPanel;
   @ViewChild('grillContent') grillExpansionPanel!: MatExpansionPanel;
   @ViewChild('greekContent') greekExpansionPanel!: MatExpansionPanel;
