@@ -1,0 +1,31 @@
+<button mat-menu-item (click)="toggleMenuClick()" routerLink="/home" routerLinkActive="activebutton">
+  Home
+</button>
+<button [disabled]="!loggedIn" mat-menu-item (click)="toggleMenuClick()"
+  routerLink="/favorites/randy-tech/activeShooterResponse" routerLinkActive="activebutton">
+  <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
+  Favorites
+</button>
+<button [disabled]="!loggedIn" mat-menu-item (click)="toggleMenuClick()"
+  routerLink="/quiz-deck/randy-tech/activeShooterResponse" routerLinkActive="activebutton">
+  <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
+  Quiz Deck
+</button>
+<button [disabled]="!loggedIn" mat-menu-item (click)="toggleMenuClick()"
+  routerLink="/flashcard-deck/randy-tech/activeShooterResponse" routerLinkActive="activebutton">
+  <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
+  Flashcard Deck
+</button>
+<button *ngIf="loggedIn" mat-menu-item (click)="toggleMenuClick()" routerLink="/profile"
+  routerLinkActive="activebutton">
+  Profile
+</button>
+<button *ngIf="loggedIn" mat-menu-item (click)="toggleMenuClick()" routerLink="/admin" routerLinkActive="activebutton">
+  Admin
+</button>
+<button *ngIf="!loggedIn" mat-menu-item (click)="toggleMenuClick()" routerLink="/login" routerLinkActive="activebutton">
+  Login
+</button>
+<button *ngIf="loggedIn" mat-menu-item (click)="toggleMenuClick()" routerLink="/login" routerLinkActive="activebutton">
+  Logout
+</button>

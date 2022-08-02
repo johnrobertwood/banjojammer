@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { PipeModule } from './app-pipe.module';
 import { AppQuizModule } from './review-dialogs/app-quiz.module';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     ProfileComponent,
     HomeComponent,
     SideNavComponent,
+    MenuComponent,
   ],
   bootstrap: [AppComponent],
 })

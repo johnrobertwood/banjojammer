@@ -18,43 +18,10 @@
 <mat-drawer-container class="nav-container">
   <mat-drawer #sidenav mode="over" position="end">
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="sidenav.close()" routerLink="/home" routerLinkActive="activebutton">
-        Home
-      </button>
-      <button [disabled]="!loggedIn" mat-menu-item (click)="sidenav.close()"
-        routerLink="/favorites/randy-tech/activeShooterResponse" routerLinkActive="activebutton">
-        <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-        Favorites
-      </button>
-      <button [disabled]="!loggedIn" mat-menu-item (click)="sidenav.close()"
-        routerLink="/quiz-deck/randy-tech/activeShooterResponse" routerLinkActive="activebutton">
-        <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-        Quiz Deck
-      </button>
-      <button [disabled]="!loggedIn" mat-menu-item (click)="sidenav.close()"
-        routerLink="/flashcard-deck/randy-tech/activeShooterResponse" routerLinkActive="activebutton">
-        <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-        Flashcard Deck
-      </button>
-      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/profile"
-        routerLinkActive="activebutton">
-        Profile
-      </button>
-      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/admin"
-        routerLinkActive="activebutton">
-        Admin
-      </button>
-      <button *ngIf="!loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/login"
-        routerLinkActive="activebutton">
-        Login
-      </button>
-      <button *ngIf="loggedIn" mat-menu-item (click)="sidenav.close()" routerLink="/login"
-        routerLinkActive="activebutton">
-        Logout
-      </button>
+      <app-menu (toggleMenu)="sidenav.close()" [loggedIn]="loggedIn"></app-menu>
     </mat-menu>
-    <app-side-nav [selectedName] [loggedIn]="loggedIn" [techniques$]
-      [techArray]="techArray" (closeSideNav)="sidenav.close()">
+    <app-side-nav [selectedName] [loggedIn]="loggedIn" [techniques$] [techArray]="techArray"
+      (closeSideNav)="sidenav.close()">
     </app-side-nav>
   </mat-drawer>
   <mat-drawer-content class="d-flex flex-column justify-content-between">
