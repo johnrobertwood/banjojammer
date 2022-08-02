@@ -1,0 +1,22 @@
+<div class="footer w-100">
+  <footer class="d-flex bd-footer m-3">
+    <div class="d-flex justify-content-start w-100 p-2 flex-wrap">
+      <div class="m-2">
+        <a class="text-muted" href="mailto: snapjohn77@gmail.com">
+          © 2022 Wood Web Dev
+        </a>
+      </div>
+      <div class="m-2">
+        <a class="text-muted" [routerLink]="[{ outlets: { popup: ['compose'] } }]">
+          Contact
+        </a>
+      </div>
+      <div class="m-2">
+        <a class="text-muted" routerLink="/tos"> Terms of Service </a>
+      </div>
+      <div class="m-2">
+        <a class="text-muted" routerLink="/privacy"> Privacy Policy </a>
+      </div>
+    </div>
+  </footer>
+</div>
