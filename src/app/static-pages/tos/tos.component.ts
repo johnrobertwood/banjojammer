@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './tos.component.html',
   styleUrls: ['./tos.component.css'],
 })
-export class TosComponent {}
+export class TosComponent { }
