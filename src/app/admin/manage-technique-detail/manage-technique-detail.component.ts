@@ -15,8 +15,8 @@ import { DialogService } from 'src/app/dialog.service';
   styleUrls: ['./manage-technique-detail.component.css'],
 })
 export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
-  technique$!: Observable<Technique>;
-  technique!: Technique;
+  technique$: Observable<Technique>;
+  technique: Technique;
   display = false;
   isSmallScreen = false;
   editName = '';

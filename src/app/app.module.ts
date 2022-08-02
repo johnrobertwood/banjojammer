@@ -16,6 +16,7 @@ import { AppMaterialModule } from './app-material.module';
 import { HomeComponent } from './home/home.component';
 import { PipeModule } from './app-pipe.module';
 import { AppQuizModule } from './review-dialogs/app-quiz.module';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { AppQuizModule } from './review-dialogs/app-quiz.module';
     PageNotFoundComponent,
     ProfileComponent,
     HomeComponent,
+    SideNavComponent,
   ],
   bootstrap: [AppComponent],
 })

@@ -53,57 +53,9 @@
         Logout
       </button>
     </mat-menu>
-    <mat-nav-list>
-      <mat-expansion-panel #gloverContent>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Grappling</mat-panel-title>
-        </mat-expansion-panel-header>
-        <mat-panel-description mat-menu-item [routerLink]="['technique', 'glover-tech', technique.name]"
-          (click)="sidenav.close()" routerLinkActive="activebutton" *ngFor="let technique of techArray[0] | async">
-          {{ technique.displayName }}
-        </mat-panel-description>
-      </mat-expansion-panel>
-      <mat-expansion-panel #randyContent [disabled]="!loggedIn">
-        <mat-expansion-panel-header>
-          <mat-panel-title>Pistol Tactics</mat-panel-title>
-          <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-        </mat-expansion-panel-header>
-        <mat-panel-description mat-menu-item [routerLink]="['technique', 'randy-tech', technique.name]"
-          (click)="sidenav.close()" routerLinkActive="activebutton" *ngFor="let technique of techArray[1] | async">
-          {{ technique.displayName }}
-        </mat-panel-description>
-      </mat-expansion-panel>
-      <mat-expansion-panel #gorillaContent [disabled]="!loggedIn">
-        <mat-expansion-panel-header>
-          <mat-panel-title>Non Lethal Weapons</mat-panel-title>
-          <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-        </mat-expansion-panel-header>
-        <mat-panel-description mat-menu-item [routerLink]="['technique', 'gorilla-tech', technique.name]"
-          (click)="sidenav.close()" routerLinkActive="activebutton" *ngFor="let technique of techArray[2] | async">
-          {{ technique.displayName }}
-        </mat-panel-description>
-      </mat-expansion-panel>
-      <mat-expansion-panel #gorillaContent [disabled]="!loggedIn">
-        <mat-expansion-panel-header>
-          <mat-panel-title>Edged Weapons</mat-panel-title>
-          <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-        </mat-expansion-panel-header>
-        <mat-panel-description mat-menu-item [routerLink]="['technique', 'grill-tech', technique.name]"
-          (click)="sidenav.close()" routerLinkActive="activebutton" *ngFor="let technique of techArray[3] | async">
-          {{ technique.displayName }}
-        </mat-panel-description>
-      </mat-expansion-panel>
-      <mat-expansion-panel #gorillaContent [disabled]="!loggedIn">
-        <mat-expansion-panel-header>
-          <mat-panel-title>Situational Awareness</mat-panel-title>
-          <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-        </mat-expansion-panel-header>
-        <mat-panel-description mat-menu-item [routerLink]="['technique', 'greek-tech', technique.name]"
-          (click)="sidenav.close()" routerLinkActive="activebutton" *ngFor="let technique of techArray[4] | async">
-          {{ technique.displayName }}
-        </mat-panel-description>
-      </mat-expansion-panel>
-    </mat-nav-list>
+    <app-side-nav [isSmallScreen]="isSmallScreen" [selectedName] [loggedIn]="loggedIn" [techniques$]
+      [techArray]="techArray" (closeSideNav)="sidenav.close()">
+    </app-side-nav>
   </mat-drawer>
   <mat-drawer-content class="d-flex flex-column justify-content-between">
     <div class="w-100 d-flex px-3">
