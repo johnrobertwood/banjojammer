@@ -9,11 +9,17 @@
         "*.ts"
       ],
       "parserOptions": {
+        "ecmaVersion": "latest",
         "project": [
           "tsconfig.json",
           "e2e/tsconfig.json"
         ],
         "createDefaultProgram": true
+      },
+      "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
       },
       "extends": [
         "plugin:@angular-eslint/ng-cli-compat",
