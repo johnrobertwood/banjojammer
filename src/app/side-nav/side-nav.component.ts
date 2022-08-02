@@ -21,7 +21,6 @@ export class SideNavComponent {
   @ViewChild('greekContent') greekExpansionPanel!: MatExpansionPanel;
   @ViewChild('gloverContent') gloverExpansionPanel!: MatExpansionPanel;
 
-  @Input() isSmallScreen: boolean;
   @Input() selectedName: string | null;
   @Input() loggedIn: boolean;
   @Input() techniques$: Observable<Technique[]>;

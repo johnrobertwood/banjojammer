@@ -4,9 +4,8 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap, map, mergeMap, pluck } from 'rxjs/operators';
+import { switchMap, map, mergeMap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { DialogService } from 'src/app/dialog.service';
 
 @Component({
@@ -18,13 +17,11 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   technique$: Observable<Technique>;
   technique: Technique;
   display = false;
-  isSmallScreen = false;
   editName = '';
   editAnswer = '';
   private ngUnsubscribe = new Subject();
 
   constructor(
-    private breakpointObserver: BreakpointObserver,
     private route: ActivatedRoute,
     private router: Router,
     private techniqueService: TechniqueService,
@@ -39,11 +36,6 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
       this.editAnswer = data.technique.flashcard.answer;
       this.technique = data.technique;
     });
-
-    this.breakpointObserver
-      .observe(['(max-width: 800px)'])
-      .pipe(pluck('matches'))
-      .subscribe((m: boolean) => (this.isSmallScreen = m));
   }
 
   getTechnique(): void {

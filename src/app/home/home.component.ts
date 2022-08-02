@@ -13,11 +13,11 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  pistolTactics$!: Observable<Technique[]>;
-  grappling$!: Observable<Technique[]>;
-  nonLethalWeapons$!: Observable<Technique[]>;
-  edgedWeapons$!: Observable<Technique[]>;
-  situationalAwareness$!: Observable<Technique[]>;
+  pistolTactics$: Observable<Technique[]>;
+  grappling$: Observable<Technique[]>;
+  nonLethalWeapons$: Observable<Technique[]>;
+  edgedWeapons$: Observable<Technique[]>;
+  situationalAwareness$: Observable<Technique[]>;
 
   isLoggedIn = false;
   thumbnailUrl = '';

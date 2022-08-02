@@ -10,8 +10,8 @@ import { Technique } from 'src/app/techniques/technique';
 })
 export class FlashcardDetailComponent implements OnInit {
   reveal = false;
-  technique!: Technique;
-  module!: string | null;
+  technique: Technique;
+  module: string | null;
 
   constructor(private route: ActivatedRoute) { }
 

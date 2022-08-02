@@ -13,9 +13,9 @@ import { TechniqueService } from '../technique.service';
   styleUrls: ['./favorites-list.component.css'],
 })
 export class FavoritesListComponent implements OnInit {
-  techniques$!: Observable<Technique[]>;
-  selectedName!: string | null;
-  modulePath!: string | null;
+  techniques$: Observable<Technique[]>;
+  selectedName: string | null;
+  modulePath: string | null;
   favArray: any;
 
   constructor(

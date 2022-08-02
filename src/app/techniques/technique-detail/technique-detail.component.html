@@ -1,6 +1,6 @@
 <div *ngIf="technique$ | async as technique" class="detail-container">
   <div class="d-flex flex-column justify-content-center align-items-center mb-2">
-    <app-video-frame [isSmallScreen]="isSmallScreen" [url]="technique.video.url"></app-video-frame>
+    <app-video-frame [url]="technique.video.url"></app-video-frame>
     <div class="d-flex flex-column justify-content-center my-2 title-container">
       <p class="h3 text-center mb-0">{{ technique.displayName }}</p>
     </div>

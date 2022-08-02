@@ -1,7 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
-// import { BreakpointObserver } from '@angular/cdk/layout';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { TechniqueService } from './techniques/technique.service';
 import { Technique } from './techniques/technique';
@@ -18,15 +17,13 @@ import { Observable, Subject } from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
-  isSmallScreen = false;
   selectedName: string | null;
   loggedIn = false;
-  techniques$!: Observable<Technique[]>;
+  techniques$: Observable<Technique[]>;
   techArray: Observable<Technique[]>[] = [];
   private ngUnsubscribe = new Subject();
 
   constructor(
-    // private breakpointObserver: BreakpointObserver,
     private techniqueService: TechniqueService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -46,13 +43,6 @@ export class AppComponent implements OnInit {
     this.getTechniques('grill-tech');
     this.getTechniques('greek-tech');
     this.checkLocalStorage();
-
-    // this.breakpointObserver
-    //   .observe(['(max-width: 800px)'])
-    //   .pipe(pluck('matches'))
-    //   .subscribe((m: boolean) => {
-    //     this.isSmallScreen = m;
-    //   });
   }
 
   getAnimationData(outlet: RouterOutlet) {

@@ -12,9 +12,9 @@ import { TechniqueService } from 'src/app/techniques/technique.service';
   styleUrls: ['./flashcard-list.component.css'],
 })
 export class FlashcardListComponent implements OnInit {
-  techniques$!: Observable<Technique[]>;
-  selectedName!: string | null;
-  modulePath!: string | null;
+  techniques$: Observable<Technique[]>;
+  selectedName: string | null;
+  modulePath: string | null;
 
   constructor(
     private techniqueService: TechniqueService,

@@ -4,9 +4,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { pluck, switchMap, tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { AuthenticationService } from 'src/app/auth/authentication.service';
 
 @Component({
@@ -15,19 +14,17 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
   styleUrls: ['./technique-detail.component.css'],
 })
 export class TechniqueDetailComponent implements OnInit, OnDestroy {
-  technique$!: Observable<Technique>;
-  isSmallScreen = false;
+  technique$: Observable<Technique>;
   isLoggedIn = false;
   isFavorite = false;
   isQuizDone = false;
   isFlashDone = false;
   url = '';
-  modulePath!: string | null;
-  techniqueName!: string | null;
+  modulePath: string | null;
+  techniqueName: string | null;
   private ngUnsubscribe = new Subject();
 
   constructor(
-    private breakpointObserver: BreakpointObserver,
     private activatedRoute: ActivatedRoute,
     private techniqueService: TechniqueService,
     private authService: AuthenticationService
@@ -35,11 +32,6 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getTechnique();
-
-    this.breakpointObserver
-      .observe(['(max-width: 600px)'])
-      .pipe(pluck('matches'))
-      .subscribe((m: boolean) => (this.isSmallScreen = m));
   }
 
   getTechnique(): void {

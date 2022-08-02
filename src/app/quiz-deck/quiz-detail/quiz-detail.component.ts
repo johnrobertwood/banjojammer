@@ -9,8 +9,8 @@ import { Technique } from 'src/app/techniques/technique';
   styleUrls: ['./quiz-detail.component.css'],
 })
 export class QuizDetailComponent implements OnInit {
-  technique!: Technique;
-  module!: string | null;
+  technique: Technique;
+  module: string | null;
   answered = false;
 
   constructor(private route: ActivatedRoute) { }

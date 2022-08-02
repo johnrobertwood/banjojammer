@@ -12,8 +12,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./manage-technique-list.component.css'],
 })
 export class ManageTechniqueListComponent implements OnInit {
-  techniques$!: Observable<Technique[]>;
-  selectedName!: string | null;
+  techniques$: Observable<Technique[]>;
+  selectedName: string | null;
 
   constructor(
     private techniqueService: TechniqueService,
