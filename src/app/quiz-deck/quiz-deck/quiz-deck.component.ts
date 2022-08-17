@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './quiz-deck.component.html',
   styleUrls: ['./quiz-deck.component.css'],
 })
-export class QuizDeckComponent { }
+export class QuizDeckComponent {}

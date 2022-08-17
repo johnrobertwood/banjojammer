@@ -14,15 +14,14 @@ import { TechniqueService } from './techniques/technique.service';
 
 import grillTech from './auth/grill-tech';
 
-
-
 describe('AppComponent', () => {
   let techniqueService;
   let getTechniquesSpy: jasmine.Spy;
 
   beforeEach(async () => {
-
-    techniqueService = jasmine.createSpyObj('TechniqueService', ['getTechniques']);
+    techniqueService = jasmine.createSpyObj('TechniqueService', [
+      'getTechniques',
+    ]);
 
     getTechniquesSpy = techniqueService.getTechniques.and.returnValue(
       of(grillTech)
@@ -34,11 +33,9 @@ describe('AppComponent', () => {
         RouterTestingModule,
         BrowserAnimationsModule,
         MatInputModule,
-        MatMenuModule
+        MatMenuModule,
       ],
-      providers: [
-        { provide: TechniqueService, useValue: techniqueService }
-      ],
+      providers: [{ provide: TechniqueService, useValue: techniqueService }],
       declarations: [AppComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
@@ -62,5 +59,4 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     expect(getTechniquesSpy.calls.any()).toBe(true);
   });
-
 });

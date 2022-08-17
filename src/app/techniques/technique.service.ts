@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 import { Technique } from './technique';
 import { ErrorHandlingService } from '../error-handling.service';
@@ -18,33 +18,38 @@ export class TechniqueService {
   apiGatewayUrl =
     'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production';
 
-  constructor(private http: HttpClient, private ehs: ErrorHandlingService) { }
+  constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
 
-  getTechniques(moduleName: string): Observable<Technique[]> {
+  getTechniques(moduleName: string | null): Observable<Technique[]> {
     const data = { moduleName };
 
     return this.http
-      .post<Technique[]>(`${this.apiGatewayUrl}/techniques`, data, this.httpOptions)
-      .pipe(
-        catchError(this.ehs.handleError<Technique[]>('getTechniques', []))
-      );
+      .post<Technique[]>(
+        `${this.apiGatewayUrl}/techniques`,
+        data,
+        this.httpOptions
+      )
+      .pipe(catchError(this.ehs.handleError<Technique[]>('getTechniques', [])));
   }
 
   getUserFilterTechnique(
-    moduleName: string,
-    techName: string
+    moduleName: string | null,
+    techName: string | null
   ): Observable<Technique> {
     const url = `${this.apiGatewayUrl}/user-filter`;
     const data = { moduleName, techName };
-    return this.http.post<Technique>(url, data, this.httpOptions).pipe(
-      catchError(this.ehs.handleError<Technique>('getUserFilterTechnique'))
-    );
+    return this.http
+      .post<Technique>(url, data, this.httpOptions)
+      .pipe(
+        catchError(this.ehs.handleError<Technique>('getUserFilterTechnique'))
+      );
   }
 
   updateTechnique(
     technique: Technique,
     quizType: string
   ): Observable<Technique> | Observable<null> {
+    //@ts-ignore
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser !== null) {
       const data = {
@@ -61,6 +66,7 @@ export class TechniqueService {
   }
 
   editTechnique(technique: Technique): Observable<Technique> {
+    //@ts-ignore
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const data = {
       currentUser,

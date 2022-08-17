@@ -9,4 +9,4 @@ import { AppMaterialModule } from './app-material.module';
   imports: [CommonModule, AppMaterialModule],
   exports: [SafePipe, RandomPipe],
 })
-export class PipeModule { }
+export class PipeModule {}

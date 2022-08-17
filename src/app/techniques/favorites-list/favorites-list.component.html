@@ -6,50 +6,87 @@
     <div class="row d-flex justify-content-center mt-2">
       <nav class="mb-2">
         <div class="mb-2">
-          <button mat-stroked-button class="mx-2" color="accent"
-            [routerLink]="['/favorites/randy-tech/activeShooterResponse']" routerLinkActive="activebutton">
+          <button
+            mat-stroked-button
+            class="mx-2"
+            color="accent"
+            [routerLink]="['/favorites/randy-tech/activeShooterResponse']"
+            routerLinkActive="activebutton"
+          >
             Pistol Tactics
           </button>
-          <button mat-stroked-button class="mx-2" color="accent" [routerLink]="['/favorites/glover-tech/kneeSlice']"
-            routerLinkActive="activebutton">
+          <button
+            mat-stroked-button
+            class="mx-2"
+            color="accent"
+            [routerLink]="['/favorites/glover-tech/kneeSlice']"
+            routerLinkActive="activebutton"
+          >
             Grappling
           </button>
-          <button mat-stroked-button class="mx-2" color="accent"
-            [routerLink]="['/favorites/gorilla-tech/baseballChoke']" routerLinkActive="activebutton">
+          <button
+            mat-stroked-button
+            class="mx-2"
+            color="accent"
+            [routerLink]="['/favorites/gorilla-tech/baseballChoke']"
+            routerLinkActive="activebutton"
+          >
             Non Lethal Weapons
           </button>
-          <button mat-stroked-button class="mx-2" color="accent" [routerLink]="['/favorites/grill-tech/bravoFlipChoke']"
-            routerLinkActive="activebutton">
+          <button
+            mat-stroked-button
+            class="mx-2"
+            color="accent"
+            [routerLink]="['/favorites/grill-tech/bravoFlipChoke']"
+            routerLinkActive="activebutton"
+          >
             Edged Weapons
           </button>
-          <button mat-stroked-button class="mx-2" color="accent" [routerLink]="['/favorites/greek-tech/dopeMount']"
-            routerLinkActive="activebutton">
+          <button
+            mat-stroked-button
+            class="mx-2"
+            color="accent"
+            [routerLink]="['/favorites/greek-tech/dopeMount']"
+            routerLinkActive="activebutton"
+          >
             Situational Awareness
           </button>
         </div>
-
       </nav>
     </div>
     <div class="row row-cols-1 row-cols-sm-2 g-3">
       <div *ngFor="let technique of techniques$ | async" class="col my-2">
         <ng-container>
           <div class="shadow-sm">
-            <img [src]="technique.video.thumbnail | safe" [routerLink]="['/technique', modulePath, technique.name]"
-              alt="Video Thumbnail" class="w-100" />
+            <img
+              [src]="technique.video.thumbnail | safe"
+              [routerLink]="['/technique', modulePath, technique.name]"
+              alt="Video Thumbnail"
+              class="w-100"
+            />
             <div class="p-2">
               <p class="h4">{{ technique.displayName }}</p>
               <p class="card-text text-muted">
                 {{ technique.flashcard.question }}
               </p>
-              <div class="d-flex flex-column justify-content-center align-items-center">
+              <div
+                class="d-flex flex-column justify-content-center align-items-center"
+              >
                 <div class="mb-2 w-100">
-                  <button mat-stroked-button color="accent" class="p-2 mr-2 w-100 btn-dark"
-                    [routerLink]="['/technique', modulePath, technique.name]">
+                  <button
+                    mat-stroked-button
+                    color="accent"
+                    class="p-2 mr-2 w-100 btn-dark"
+                    [routerLink]="['/technique', modulePath, technique.name]"
+                  >
                     Technique Details
                   </button>
                 </div>
                 <app-quiz class="mb-2 w-100" [technique]="technique"></app-quiz>
-                <app-flashcard class="w-100" [technique]="technique"></app-flashcard>
+                <app-flashcard
+                  class="w-100"
+                  [technique]="technique"
+                ></app-flashcard>
               </div>
             </div>
           </div>
@@ -58,9 +95,7 @@
     </div>
     <mat-chip-list class="mt-2">
       <ng-container *ngFor="let technique of techniques$ | async">
-        <mat-chip multiple color="accent">{{
-          technique.displayName
-          }}</mat-chip>
+        <mat-chip multiple color="accent">{{ technique.displayName }}</mat-chip>
       </ng-container>
     </mat-chip-list>
   </div>

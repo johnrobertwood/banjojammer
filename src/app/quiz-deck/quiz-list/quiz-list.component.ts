@@ -12,14 +12,14 @@ import { TechniqueService } from 'src/app/techniques/technique.service';
   styleUrls: ['./quiz-list.component.css'],
 })
 export class QuizListComponent implements OnInit {
-  techniques$: Observable<Technique[]>;
-  selectedName: string | null;
-  modulePath: string | null;
+  techniques$!: Observable<Technique[]>;
+  selectedName!: string | null;
+  modulePath!: string | null;
 
   constructor(
     private techniqueService: TechniqueService,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.getTechniques();

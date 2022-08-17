@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './flashcard-deck.component.html',
   styleUrls: ['./flashcard-deck.component.css'],
 })
-export class FlashcardDeckComponent { }
+export class FlashcardDeckComponent {}

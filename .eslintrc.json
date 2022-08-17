@@ -22,16 +22,19 @@
         "es6": true
       },
       "extends": [
-        "plugin:@angular-eslint/ng-cli-compat",
-        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:prettier/recommended"
       ],
       "rules": {
         "@angular-eslint/component-selector": [
           "error",
           {
             "type": "element",
-            "prefix": "",
+            "prefix": "app",
             "style": "kebab-case"
           }
         ],
@@ -45,12 +48,7 @@
             ],
             "style": "camelCase"
           }
-        ],
-        "@typescript-eslint/no-empty-function": "error",
-        "@typescript-eslint/no-var-requires": "error",
-        "@typescript-eslint/naming-convention": "off",
-        "import/no-deprecated": "off",
-        "no-empty": "error"
+        ]
       }
     },
     {
@@ -58,7 +56,8 @@
         "*.html"
       ],
       "extends": [
-        "plugin:@angular-eslint/template/recommended"
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:prettier/recommended"
       ],
       "rules": {}
     }

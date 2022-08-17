@@ -14,5 +14,7 @@
     "**/docs": true,
     "**/amplify": true,
     "package-lock.json": true
-  }
+  },
+  "html.format.enable": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

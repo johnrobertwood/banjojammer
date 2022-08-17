@@ -39,4 +39,4 @@ import { AddModuleComponent } from './add-module/add-module.component';
     PipeModule,
   ],
 })
-export class AdminModule { }
+export class AdminModule {}

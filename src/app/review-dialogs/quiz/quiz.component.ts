@@ -23,15 +23,15 @@ export interface DialogData {
   styleUrls: ['quiz.component.css'],
 })
 export class QuizComponent implements OnDestroy {
-  @Input() technique: Technique;
-  @Input() isQuizDone: boolean;
+  @Input() technique!: Technique;
+  @Input() isQuizDone!: boolean;
   answered = false;
   private ngUnsubscribe = new Subject();
 
   constructor(
     public dialog: MatDialog,
     private authService: AuthenticationService
-  ) { }
+  ) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(QuizDialogComponent, {
@@ -67,7 +67,7 @@ export class QuizDialogComponent implements OnDestroy {
   constructor(
     public dialogRef: MatDialogRef<QuizDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) { }
+  ) {}
 
   selectAnswer() {
     this.data.answered = true;

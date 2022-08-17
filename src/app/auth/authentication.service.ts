@@ -25,7 +25,7 @@ export class AuthenticationService {
     }),
   };
 
-  constructor(private http: HttpClient, private ehs: ErrorHandlingService) { }
+  constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
 
   login(payload: any) {
     this.userData = payload.data;
@@ -80,9 +80,7 @@ export class AuthenticationService {
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/module';
     return this.http
       .post<any>(url, data, this.httpOptions)
-      .pipe(
-        catchError(this.ehs.handleError<any>('addModule HTTP post error'))
-      );
+      .pipe(catchError(this.ehs.handleError<any>('addModule HTTP post error')));
   }
 
   addTechniques(tagForm: any, moduleName: any): Observable<any> {
@@ -128,15 +126,24 @@ export class AuthenticationService {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
 
-    const found = this.userHistory[saveType].find(
+    const userHistory = {
+      flashcard: [],
+      quiz: [],
+      favorite: [],
+    };
+
+    //@ts-ignore
+    const found = userHistory[saveType].find(
       (t: { name: string }) => t.name === technique.name
     );
     if (found) {
-      this.userHistory[saveType] = this.userHistory[saveType].filter(
+      //@ts-ignore
+      userHistory[saveType] = userHistory[saveType].filter(
         (tech: { name: string }) => tech.name !== technique.name
       );
     } else {
-      this.userHistory[saveType].push(technique);
+      //@ts-ignore
+      userHistory[saveType].push(technique);
     }
 
     const data = {

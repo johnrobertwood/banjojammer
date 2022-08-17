@@ -34,4 +34,4 @@ const quizDeckRoutes: Routes = [
   imports: [RouterModule.forChild(quizDeckRoutes)],
   exports: [RouterModule],
 })
-export class QuizDeckRoutingModule { }
+export class QuizDeckRoutingModule {}

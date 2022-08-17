@@ -23,4 +23,4 @@ const techniquesRoutes: Routes = [
   imports: [RouterModule.forChild(techniquesRoutes)],
   exports: [RouterModule],
 })
-export class TechniquesRoutingModule { }
+export class TechniquesRoutingModule {}

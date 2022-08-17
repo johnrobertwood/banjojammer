@@ -12,9 +12,7 @@ export class VideoFrameComponent implements OnInit {
   @Input() url = '';
   @Input() isSmallScreen = false;
 
-  constructor(
-    private breakpointObserver: BreakpointObserver,
-  ) { }
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {
     this.breakpointObserver

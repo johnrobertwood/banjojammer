@@ -21,15 +21,15 @@ export interface DialogData {
   styleUrls: ['flashcard.component.css'],
 })
 export class FlashcardComponent implements OnDestroy {
-  @Input() technique: Technique;
-  @Input() isFlashDone: boolean;
+  @Input() technique!: Technique;
+  @Input() isFlashDone!: boolean;
   answered = false;
   private ngUnsubscribe = new Subject();
 
   constructor(
     public dialog: MatDialog,
     private authService: AuthenticationService
-  ) { }
+  ) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(FlashcardDialogComponent, {
@@ -64,7 +64,7 @@ export class FlashcardDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<FlashcardDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) { }
+  ) {}
 
   onNoClick(): void {
     this.dialogRef.close();

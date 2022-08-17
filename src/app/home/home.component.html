@@ -5,9 +5,15 @@
   <div class="container card-body">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <div class="col my-2" *ngFor="let technique of grappling$ | async">
-        <div class="h-100 d-flex flex-column justify-content-between rounded-sm border">
-          <img [src]="technique.video.thumbnail | safe" [routerLink]="['/technique', 'glover-tech', technique.name]"
-            class="w-100 mb-1" alt="Video Thumbnail" />
+        <div
+          class="h-100 d-flex flex-column justify-content-between rounded-sm border"
+        >
+          <img
+            [src]="technique.video.thumbnail | safe"
+            [routerLink]="['/technique', 'glover-tech', technique.name]"
+            class="w-100 mb-1"
+            alt="Video Thumbnail"
+          />
           <div class="h-100 d-flex flex-column justify-content-between">
             <div class="d-flex flex-column px-2">
               <div class="title-text d-flex flex-column justify-content-center">
@@ -24,8 +30,12 @@
             <div class="p-2">
               <div class="d-flex justify-content-center align-items-center">
                 <div class="w-100 mb-2">
-                  <button mat-stroked-button color="accent" class="w-100 py-2 px-4 mb-1 btn-dark"
-                    [routerLink]="['/technique', 'glover-tech', technique.name]">
+                  <button
+                    mat-stroked-button
+                    color="accent"
+                    class="w-100 py-2 px-4 mb-1 btn-dark"
+                    [routerLink]="['/technique', 'glover-tech', technique.name]"
+                  >
                     Technique Details
                   </button>
                 </div>
@@ -34,11 +44,20 @@
           </div>
         </div>
       </div>
-      <div [class.disabled]="!isLoggedIn ? true : null" class="col my-2"
-        *ngFor="let technique of pistolTactics$ | async">
-        <div class="h-100 d-flex flex-column justify-content-between rounded-sm border">
-          <img [src]="technique.video.thumbnail | safe" [routerLink]="['/technique', 'randy-tech', technique.name]"
-            class="w-100 mb-1" alt="Video Thumbnail" />
+      <div
+        [class.disabled]="!isLoggedIn ? true : null"
+        class="col my-2"
+        *ngFor="let technique of pistolTactics$ | async"
+      >
+        <div
+          class="h-100 d-flex flex-column justify-content-between rounded-sm border"
+        >
+          <img
+            [src]="technique.video.thumbnail | safe"
+            [routerLink]="['/technique', 'randy-tech', technique.name]"
+            class="w-100 mb-1"
+            alt="Video Thumbnail"
+          />
           <div class="h-100 d-flex flex-column justify-content-between">
             <div class="d-flex flex-column px-2">
               <div class="title-text d-flex flex-column justify-content-center">
@@ -55,40 +74,13 @@
             <div class="p-2">
               <div class="d-flex justify-content-center align-items-center">
                 <div class="w-100 mb-2">
-                  <button [disabled]="!isLoggedIn" mat-stroked-button color="accent"
-                    class="w-100 py-2 px-4 mb-1 btn-dark" [routerLink]="['/technique', 'randy-tech', technique.name]">
-                    Technique Details
-                    <mat-icon [hidden]="isLoggedIn || false">lock</mat-icon>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div [class.disabled]="!isLoggedIn ? true : null" class="col my-2"
-        *ngFor="let technique of nonLethalWeapons$ | async">
-        <div class="h-100 d-flex flex-column justify-content-between rounded-sm border">
-          <img [src]="technique.video.thumbnail | safe" [routerLink]="['/technique', 'gorilla-tech', technique.name]"
-            class="w-100 mb-1" alt="Video Thumbnail" />
-          <div class="h-100 d-flex flex-column justify-content-between">
-            <div class="d-flex flex-column px-2">
-              <div class="title-text d-flex flex-column justify-content-center">
-                <h3 class="mb-0">
-                  {{ technique.displayName }}
-                </h3>
-              </div>
-              <div>
-                <p class="flashcard-text text-white-50 m-0">
-                  {{ technique.flashcard.answer }}
-                </p>
-              </div>
-            </div>
-            <div class="p-2">
-              <div class="d-flex justify-content-center align-items-center">
-                <div class="w-100 mb-2">
-                  <button [disabled]="!isLoggedIn" mat-stroked-button color="accent"
-                    class="w-100 py-2 px-4 mb-1 btn-dark" [routerLink]="['/technique', 'gorilla-tech', technique.name]">
+                  <button
+                    [disabled]="!isLoggedIn"
+                    mat-stroked-button
+                    color="accent"
+                    class="w-100 py-2 px-4 mb-1 btn-dark"
+                    [routerLink]="['/technique', 'randy-tech', technique.name]"
+                  >
                     Technique Details
                     <mat-icon [hidden]="isLoggedIn || false">lock</mat-icon>
                   </button>
@@ -98,11 +90,20 @@
           </div>
         </div>
       </div>
-      <div [class.disabled]="!isLoggedIn ? true : null" class="col my-2"
-        *ngFor="let technique of edgedWeapons$ | async">
-        <div class="h-100 d-flex flex-column justify-content-between rounded-sm border">
-          <img [src]="technique.video.thumbnail | safe" [routerLink]="['/technique', 'grill-tech', technique.name]"
-            class="w-100 mb-1" alt="Video Thumbnail" />
+      <div
+        [class.disabled]="!isLoggedIn ? true : null"
+        class="col my-2"
+        *ngFor="let technique of nonLethalWeapons$ | async"
+      >
+        <div
+          class="h-100 d-flex flex-column justify-content-between rounded-sm border"
+        >
+          <img
+            [src]="technique.video.thumbnail | safe"
+            [routerLink]="['/technique', 'gorilla-tech', technique.name]"
+            class="w-100 mb-1"
+            alt="Video Thumbnail"
+          />
           <div class="h-100 d-flex flex-column justify-content-between">
             <div class="d-flex flex-column px-2">
               <div class="title-text d-flex flex-column justify-content-center">
@@ -119,8 +120,17 @@
             <div class="p-2">
               <div class="d-flex justify-content-center align-items-center">
                 <div class="w-100 mb-2">
-                  <button [disabled]="!isLoggedIn" mat-stroked-button color="accent"
-                    class="w-100 py-2 px-4 mb-1 btn-dark" [routerLink]="['/technique', 'grill-tech', technique.name]">
+                  <button
+                    [disabled]="!isLoggedIn"
+                    mat-stroked-button
+                    color="accent"
+                    class="w-100 py-2 px-4 mb-1 btn-dark"
+                    [routerLink]="[
+                      '/technique',
+                      'gorilla-tech',
+                      technique.name
+                    ]"
+                  >
                     Technique Details
                     <mat-icon [hidden]="isLoggedIn || false">lock</mat-icon>
                   </button>
@@ -130,11 +140,20 @@
           </div>
         </div>
       </div>
-      <div [class.disabled]="!isLoggedIn ? true : null" class="col my-2"
-        *ngFor="let technique of situationalAwareness$ | async">
-        <div class="h-100 d-flex flex-column justify-content-between rounded-sm border">
-          <img [src]="technique.video.thumbnail | safe" [routerLink]="['/technique', 'greek-tech', technique.name]"
-            class="w-100 mb-1" alt="Video Thumbnail" />
+      <div
+        [class.disabled]="!isLoggedIn ? true : null"
+        class="col my-2"
+        *ngFor="let technique of edgedWeapons$ | async"
+      >
+        <div
+          class="h-100 d-flex flex-column justify-content-between rounded-sm border"
+        >
+          <img
+            [src]="technique.video.thumbnail | safe"
+            [routerLink]="['/technique', 'grill-tech', technique.name]"
+            class="w-100 mb-1"
+            alt="Video Thumbnail"
+          />
           <div class="h-100 d-flex flex-column justify-content-between">
             <div class="d-flex flex-column px-2">
               <div class="title-text d-flex flex-column justify-content-center">
@@ -151,8 +170,59 @@
             <div class="p-2">
               <div class="d-flex justify-content-center align-items-center">
                 <div class="w-100 mb-2">
-                  <button [disabled]="!isLoggedIn" mat-stroked-button color="accent"
-                    class="w-100 py-2 px-4 mb-1 btn-dark" [routerLink]="['/technique', 'greek-tech', technique.name]">
+                  <button
+                    [disabled]="!isLoggedIn"
+                    mat-stroked-button
+                    color="accent"
+                    class="w-100 py-2 px-4 mb-1 btn-dark"
+                    [routerLink]="['/technique', 'grill-tech', technique.name]"
+                  >
+                    Technique Details
+                    <mat-icon [hidden]="isLoggedIn || false">lock</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        [class.disabled]="!isLoggedIn ? true : null"
+        class="col my-2"
+        *ngFor="let technique of situationalAwareness$ | async"
+      >
+        <div
+          class="h-100 d-flex flex-column justify-content-between rounded-sm border"
+        >
+          <img
+            [src]="technique.video.thumbnail | safe"
+            [routerLink]="['/technique', 'greek-tech', technique.name]"
+            class="w-100 mb-1"
+            alt="Video Thumbnail"
+          />
+          <div class="h-100 d-flex flex-column justify-content-between">
+            <div class="d-flex flex-column px-2">
+              <div class="title-text d-flex flex-column justify-content-center">
+                <h3 class="mb-0">
+                  {{ technique.displayName }}
+                </h3>
+              </div>
+              <div>
+                <p class="flashcard-text text-white-50 m-0">
+                  {{ technique.flashcard.answer }}
+                </p>
+              </div>
+            </div>
+            <div class="p-2">
+              <div class="d-flex justify-content-center align-items-center">
+                <div class="w-100 mb-2">
+                  <button
+                    [disabled]="!isLoggedIn"
+                    mat-stroked-button
+                    color="accent"
+                    class="w-100 py-2 px-4 mb-1 btn-dark"
+                    [routerLink]="['/technique', 'greek-tech', technique.name]"
+                  >
                     Technique Details
                     <mat-icon [hidden]="isLoggedIn || false">lock</mat-icon>
                   </button>

@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap, map, mergeMap } from 'rxjs/operators';
+import { switchMap, map, tap, mergeMap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { DialogService } from 'src/app/dialog.service';
 
@@ -14,8 +14,8 @@ import { DialogService } from 'src/app/dialog.service';
   styleUrls: ['./manage-technique-detail.component.css'],
 })
 export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
-  technique$: Observable<Technique>;
-  technique: Technique;
+  technique$!: Observable<Technique>;
+  technique!: Technique;
   display = false;
   editName = '';
   editAnswer = '';
@@ -26,11 +26,11 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
     private router: Router,
     private techniqueService: TechniqueService,
     private dialogService: DialogService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getTechnique();
-
+    //@ts-ignore
     this.route.data.subscribe((data: { technique: Technique }) => {
       this.editName = data.technique.displayName;
       this.editAnswer = data.technique.flashcard.answer;
@@ -41,7 +41,10 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   getTechnique(): void {
     this.technique$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.techniqueService.getUserFilterTechnique('randy-tech', params.get('name'))
+        this.techniqueService.getUserFilterTechnique(
+          'randy-tech',
+          params.get('name')
+        )
       )
     );
   }

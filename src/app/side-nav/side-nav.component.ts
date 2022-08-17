@@ -1,11 +1,16 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 
 import { Observable } from 'rxjs';
 
 import { Technique } from '../techniques/technique';
 import { slideInAnimation } from '../animations';
-
 
 @Component({
   selector: 'app-side-nav',
@@ -14,16 +19,15 @@ import { slideInAnimation } from '../animations';
   animations: [slideInAnimation],
 })
 export class SideNavComponent {
-
   @ViewChild('randyContent') randyExpansionPanel!: MatExpansionPanel;
   @ViewChild('gorillaContent') gorillaExpansionPanel!: MatExpansionPanel;
   @ViewChild('grillContent') grillExpansionPanel!: MatExpansionPanel;
   @ViewChild('greekContent') greekExpansionPanel!: MatExpansionPanel;
   @ViewChild('gloverContent') gloverExpansionPanel!: MatExpansionPanel;
 
-  @Input() selectedName: string | null;
-  @Input() loggedIn: boolean;
-  @Input() techniques$: Observable<Technique[]>;
+  @Input() selectedName!: string;
+  @Input() loggedIn!: boolean;
+  @Input() techniques$!: Observable<Technique[]>;
   @Input() techArray: Observable<Technique[]>[] = [];
 
   @Output() closeSideNav = new EventEmitter();
@@ -31,5 +35,4 @@ export class SideNavComponent {
   navigateToDetail() {
     this.closeSideNav.emit(null);
   }
-
 }

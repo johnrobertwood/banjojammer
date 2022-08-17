@@ -22,4 +22,4 @@ import { AppMaterialModule } from '../app-material.module';
     FlashcardDetailComponent,
   ],
 })
-export class FlashcardDeckModule { }
+export class FlashcardDeckModule {}

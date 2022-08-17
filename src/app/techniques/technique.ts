@@ -2,8 +2,8 @@ export interface Technique {
   id: number;
   name: string;
   displayName: string;
-  prevTechnique: string;
-  nextTechnique: string;
+  prevTechnique: string | null;
+  nextTechnique: string | null;
   quiz: {
     complete: boolean;
     question: string;

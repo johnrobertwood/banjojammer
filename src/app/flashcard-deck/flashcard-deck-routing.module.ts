@@ -35,4 +35,4 @@ const flashcardDeckRoutes: Routes = [
   imports: [RouterModule.forChild(flashcardDeckRoutes)],
   exports: [RouterModule],
 })
-export class FlashcardDeckRoutingModule { }
+export class FlashcardDeckRoutingModule {}

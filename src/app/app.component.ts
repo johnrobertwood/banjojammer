@@ -16,16 +16,15 @@ import { Observable, Subject } from 'rxjs';
   animations: [slideInAnimation],
 })
 export class AppComponent implements OnInit {
-
-  selectedName: string | null;
+  selectedName = '';
   loggedIn = false;
-  techniques$: Observable<Technique[]>;
+  techniques$!: Observable<Technique[]>;
   techArray: Observable<Technique[]>[] = [];
   private ngUnsubscribe = new Subject();
 
   constructor(
     private techniqueService: TechniqueService,
-    private activatedRoute: ActivatedRoute,
+    private route: ActivatedRoute,
     private router: Router,
     private authService: AuthenticationService,
     private zone: NgZone
@@ -43,6 +42,10 @@ export class AppComponent implements OnInit {
     this.getTechniques('grill-tech');
     this.getTechniques('greek-tech');
     this.checkLocalStorage();
+    //@ts-ignore
+    this.route.data.subscribe((data: { technique: Technique }) => {
+      console.log(data);
+    });
   }
 
   getAnimationData(outlet: RouterOutlet) {
@@ -93,9 +96,11 @@ export class AppComponent implements OnInit {
   }
 
   getTechniques(techName: string): void {
-    this.techniques$ = this.activatedRoute.paramMap.pipe(
+    this.techniques$ = this.route.paramMap.pipe(
+      tap((x) => console.log(x)),
       switchMap((params) => {
-        this.selectedName = params.get('name');
+        console.log(params);
+        // this.selectedName = params.get('name') as string;
         return this.techniqueService.getTechniques(techName);
       }),
       tap(() => this.checkLocalStorage())

@@ -14,21 +14,21 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
   styleUrls: ['./technique-detail.component.css'],
 })
 export class TechniqueDetailComponent implements OnInit, OnDestroy {
-  technique$: Observable<Technique>;
+  technique$!: Observable<Technique>;
   isLoggedIn = false;
   isFavorite = false;
   isQuizDone = false;
   isFlashDone = false;
   url = '';
-  modulePath: string | null;
-  techniqueName: string | null;
+  modulePath!: string | null;
+  techniqueName!: string | null;
   private ngUnsubscribe = new Subject();
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private techniqueService: TechniqueService,
     private authService: AuthenticationService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getTechnique();

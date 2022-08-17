@@ -11,8 +11,8 @@ import { SelectivePreloadingStrategyService } from 'src/app/selective-preloading
   styleUrls: ['./admin-dashboard.component.css'],
 })
 export class AdminDashboardComponent implements OnInit {
-  sessionId: Observable<string>;
-  token: Observable<string>;
+  sessionId!: Observable<string>;
+  token!: Observable<string>;
   modules: string[];
 
   constructor(
@@ -24,6 +24,7 @@ export class AdminDashboardComponent implements OnInit {
 
   ngOnInit() {
     // Capture the session ID if available
+    //@ts-ignore
     this.sessionId = JSON.parse(localStorage.getItem('currentUser')).userId;
 
     // Capture the fragment if available

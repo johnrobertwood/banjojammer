@@ -9,13 +9,14 @@ import { Technique } from 'src/app/techniques/technique';
   styleUrls: ['./quiz-detail.component.css'],
 })
 export class QuizDetailComponent implements OnInit {
-  technique: Technique;
-  module: string | null;
+  technique!: Technique;
+  module!: string | null;
   answered = false;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
+    //@ts-ignore
     this.route.data.subscribe((data: { quiz: Technique }) => {
       this.answered = false;
       this.technique = data.quiz;

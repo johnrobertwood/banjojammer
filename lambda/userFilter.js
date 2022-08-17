@@ -14,7 +14,7 @@ exports.handler = function(event, context, callback) {
     }
   }).promise()
     .then((res) => {
-      const technique = res.Item.techniques;
+      let technique = res.Item.techniques;
       technique = technique[
         Object.keys(technique).filter(
           (t) => technique[t].name === techName

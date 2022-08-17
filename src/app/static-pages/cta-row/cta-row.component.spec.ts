@@ -8,9 +8,8 @@ describe('CtaRowComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CtaRowComponent ]
-    })
-    .compileComponents();
+      declarations: [CtaRowComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

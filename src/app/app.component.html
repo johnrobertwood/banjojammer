@@ -20,13 +20,21 @@
     <mat-menu #menu="matMenu">
       <app-menu (toggleMenu)="sidenav.close()" [loggedIn]="loggedIn"></app-menu>
     </mat-menu>
-    <app-side-nav [selectedName] [loggedIn]="loggedIn" [techniques$] [techArray]="techArray"
-      (closeSideNav)="sidenav.close()">
+    <app-side-nav
+      [selectedName]="selectedName"
+      [loggedIn]="loggedIn"
+      [techniques$]="techniques$"
+      [techArray]="techArray"
+      (closeSideNav)="sidenav.close()"
+    >
     </app-side-nav>
   </mat-drawer>
   <mat-drawer-content class="d-flex flex-column justify-content-between">
     <div class="w-100 d-flex px-3">
-      <div [@routeAnimation]="getAnimationData(routerOutlet)" class="w-100 d-flex flex-column align-items-center">
+      <div
+        [@routeAnimation]="getAnimationData(routerOutlet)"
+        class="w-100 d-flex flex-column align-items-center"
+      >
         <router-outlet #routerOutlet="outlet"></router-outlet>
         <router-outlet name="popup" class="popupContainer"></router-outlet>
       </div>

@@ -44,8 +44,8 @@ import { CtaRowComponent } from './static-pages/cta-row/cta-row.component';
     SideNavComponent,
     MenuComponent,
     FooterComponent,
-    CtaRowComponent
+    CtaRowComponent,
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
