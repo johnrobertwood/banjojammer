@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, Resolve, ActivatedRouteSnapshot } from '@angular/router';
+import { Router, Resolve } from '@angular/router';
 import { Observable, of, EMPTY } from 'rxjs';
 import { mergeMap, take } from 'rxjs/operators';
 
@@ -14,12 +14,7 @@ export class FavoritesListResolverService implements Resolve<Technique> {
   techName!: string | null;
   constructor(private ts: TechniqueService, private router: Router) {}
 
-  resolve(
-    route: ActivatedRouteSnapshot
-  ): Observable<Technique> | Observable<never> {
-    const name = route.paramMap.get('name');
-    const module = route.paramMap.get('module');
-
+  resolve(): Observable<Technique> | Observable<never> {
     return this.ts
       .getUserFilterTechnique(
         (this.modulePath = 'randy-tech'),
@@ -32,7 +27,7 @@ export class FavoritesListResolverService implements Resolve<Technique> {
             return of(technique);
           } else {
             // id not found
-            this.router.navigate([
+            void this.router.navigate([
               '/favorites/randy-tech/activeShooterResponse',
             ]);
             return EMPTY;

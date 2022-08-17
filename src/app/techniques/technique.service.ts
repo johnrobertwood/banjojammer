@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 import { Technique } from './technique';
 import { ErrorHandlingService } from '../error-handling.service';
@@ -50,16 +50,20 @@ export class TechniqueService {
     quizType: string
   ): Observable<Technique> | Observable<null> {
     //@ts-ignore
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const currentUser = <string>JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser !== null) {
       const data = {
         currentUser,
         technique,
         quizType,
       };
+      //@ts-ignore
       return this.http
-        .patch<any>(`${this.apiGatewayUrl}/user`, data, this.httpOptions)
-        .pipe(catchError(this.ehs.handleError<any>('updateTechnique')));
+        .patch<Technique>(`${this.apiGatewayUrl}/user`, data, this.httpOptions)
+        .pipe(
+          tap((x) => console.log(x)),
+          catchError(this.ehs.handleError<Technique>('updateTechnique'))
+        );
     } else {
       return of(null);
     }
@@ -75,8 +79,8 @@ export class TechniqueService {
     const url = `${this.apiGatewayUrl}/technique`;
 
     return this.http
-      .patch<any>(url, data, this.httpOptions)
-      .pipe(catchError(this.ehs.handleError<any>('editTechnique')));
+      .patch<Technique>(url, data, this.httpOptions)
+      .pipe(catchError(this.ehs.handleError<Technique>('editTechnique')));
   }
 
   addTechnique(technique: Technique): Observable<Technique> {

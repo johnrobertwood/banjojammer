@@ -27,7 +27,7 @@ export class FlashcardDetailResolverService implements Resolve<Technique> {
           return of(technique);
         } else {
           // id not found
-          this.router.navigate(['/flashcard-deck']);
+          void this.router.navigate(['/flashcard-deck']);
           return EMPTY;
         }
       })

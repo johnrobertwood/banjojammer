@@ -15,7 +15,7 @@ export class QuizDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     //@ts-ignore
     this.route.data.subscribe((data: { quiz: Technique }) => {
       this.answered = false;
@@ -27,11 +27,11 @@ export class QuizDetailComponent implements OnInit {
     });
   }
 
-  selectAnswer() {
+  selectAnswer(): void {
     this.answered = true;
   }
 
-  nextTechnique() {
+  nextTechnique(): void {
     this.answered = false;
   }
 }

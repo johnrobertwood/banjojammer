@@ -27,7 +27,7 @@ export class QuizDetailResolverService implements Resolve<Technique> {
           return of(technique);
         } else {
           // id not found
-          this.router.navigate(['/quiz-deck']);
+          void this.router.navigate(['/quiz-deck']);
           return EMPTY;
         }
       })

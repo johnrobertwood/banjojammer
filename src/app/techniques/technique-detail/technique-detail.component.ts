@@ -65,12 +65,12 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
     );
   }
 
-  updateTechnique(technique: Technique, saveType: string) {
+  updateTechnique(technique: Technique, saveType: string): void {
     this.authService.updateTechnique(technique, saveType).subscribe();
     this.isFavorite = !this.isFavorite;
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }

@@ -14,7 +14,7 @@ export class VideoFrameComponent implements OnInit {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.breakpointObserver
       .observe(['(max-width: 600px)'])
       .pipe(pluck('matches'))

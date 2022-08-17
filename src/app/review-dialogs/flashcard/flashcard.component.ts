@@ -39,7 +39,7 @@ export class FlashcardComponent implements OnDestroy {
       },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe(() => {
       this.authService
         .updateTechnique(this.technique, 'flashcard')
         .pipe(takeUntil(this.ngUnsubscribe))
@@ -47,7 +47,7 @@ export class FlashcardComponent implements OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
@@ -70,7 +70,7 @@ export class FlashcardDialogComponent {
     this.dialogRef.close();
   }
 
-  revealAnswer() {
+  revealAnswer(): void {
     this.reveal = true;
   }
 }

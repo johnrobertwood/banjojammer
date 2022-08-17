@@ -9,7 +9,7 @@ import { slideInAnimation } from 'src/app/animations';
   animations: [slideInAnimation],
 })
 export class AdminComponent {
-  getAnimationData(outlet: RouterOutlet) {
+  getAnimationData(outlet: RouterOutlet): string {
     return (
       outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation
     );

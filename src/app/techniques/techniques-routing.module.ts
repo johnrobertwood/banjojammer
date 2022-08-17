@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TechniqueDetailComponent } from './technique-detail/technique-detail.component';
 import { FavoritesListComponent } from './favorites-list/favorites-list.component';
-import { FavoritesListResolverService } from './favorites-list-resolver.service';
+// import { FavoritesListResolverService } from './favorites-list-resolver.service';
 
 const techniquesRoutes: Routes = [
   {

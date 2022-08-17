@@ -26,7 +26,7 @@ export class ManageTechniqueDetailResolverService
           return of(technique);
         } else {
           // id not found
-          this.router.navigate(['/manage-technique-list']);
+          void this.router.navigate(['/manage-technique-list']);
           return EMPTY;
         }
       })

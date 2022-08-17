@@ -13,4 +13,4 @@ if (environment.production) {
 
 Amplify.configure(aws_exports);
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+void platformBrowserDynamic().bootstrapModule(AppModule);

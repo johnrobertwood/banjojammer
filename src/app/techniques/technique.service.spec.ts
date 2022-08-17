@@ -6,7 +6,6 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 
-import { HttpClient } from '@angular/common/http';
 import { ErrorHandlingService } from '../error-handling.service';
 import { Technique } from './technique';
 
@@ -15,7 +14,6 @@ import grillTech from '../auth/grill-tech';
 //const testUrl = 'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/techniques';
 
 fdescribe('TechniqueService', () => {
-  let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
   let techniqueService: TechniqueService;
 
@@ -25,7 +23,6 @@ fdescribe('TechniqueService', () => {
       providers: [TechniqueService, ErrorHandlingService],
     });
 
-    httpClient = TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
     techniqueService = TestBed.inject(TechniqueService);
   });

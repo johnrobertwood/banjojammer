@@ -22,7 +22,7 @@ export class AdminDashboardComponent implements OnInit {
     this.modules = preloadStrategy.preloadedModules;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Capture the session ID if available
     //@ts-ignore
     this.sessionId = JSON.parse(localStorage.getItem('currentUser')).userId;

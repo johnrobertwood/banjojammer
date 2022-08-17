@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ErrorHandlingService } from './error-handling.service';
 
@@ -18,7 +19,7 @@ export class MessageService {
 
   constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
 
-  sendFeedback(message: string) {
+  sendFeedback(message: string): Observable<Object | never[]> {
     const feedback = { message };
     return this.http
       .post(this.feedbackUrl, feedback, this.httpOptions)

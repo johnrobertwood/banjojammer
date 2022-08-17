@@ -15,7 +15,7 @@ export class FlashcardDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     //@ts-ignore
     this.route.data.subscribe((data: { flashcard: Technique }) => {
       this.reveal = false;
@@ -27,7 +27,7 @@ export class FlashcardDetailComponent implements OnInit {
     });
   }
 
-  revealAnswer() {
+  revealAnswer(): void {
     this.reveal = true;
   }
 }

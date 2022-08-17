@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap, map, tap, mergeMap } from 'rxjs/operators';
+import { switchMap, map, mergeMap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { DialogService } from 'src/app/dialog.service';
 
@@ -50,7 +50,7 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   }
 
   goBack(techniqueName: string): void {
-    this.router.navigate([
+    void this.router.navigate([
       '/admin/manage-technique-list',
       { name: techniqueName },
     ]);
@@ -79,7 +79,7 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
       });
   }
 
-  canDeactivate() {
+  canDeactivate(): boolean | Observable<boolean> {
     if (
       !this.technique ||
       (this.technique.displayName === this.editName &&
@@ -91,7 +91,7 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
     return this.dialogService.confirm('Discard changes?');
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }

@@ -1,7 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
-import { switchMap, takeUntil, tap } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { TechniqueService } from './techniques/technique.service';
 import { Technique } from './techniques/technique';
 import { AuthenticationService } from './auth/authentication.service';
@@ -24,7 +24,6 @@ export class AppComponent implements OnInit {
 
   constructor(
     private techniqueService: TechniqueService,
-    private route: ActivatedRoute,
     private router: Router,
     private authService: AuthenticationService,
     private zone: NgZone
@@ -35,27 +34,23 @@ export class AppComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getTechniques('glover-tech');
     this.getTechniques('randy-tech');
     this.getTechniques('gorilla-tech');
     this.getTechniques('grill-tech');
     this.getTechniques('greek-tech');
     this.checkLocalStorage();
-    //@ts-ignore
-    this.route.data.subscribe((data: { technique: Technique }) => {
-      console.log(data);
-    });
   }
 
-  getAnimationData(outlet: RouterOutlet) {
+  getAnimationData(outlet: RouterOutlet): string {
     return (
       outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation
     );
   }
 
   checkLocalStorage() {
-    const localData = localStorage.getItem('currentUser');
+    const localData = void localStorage.getItem('currentUser');
     if (localData) {
       this.loggedIn = true;
       this.authService.login({
@@ -69,12 +64,12 @@ export class AppComponent implements OnInit {
     }
   }
 
-  onAuthEvent(data: HubPayload) {
+  onAuthEvent(data: HubPayload): void {
     if (data.event === 'signIn') {
       this.loggedIn = true;
       this.authService.login(data);
       this.zone.run(() => {
-        this.router.navigate(['/home']);
+        void this.router.navigate(['/home']);
       });
     }
 
@@ -90,21 +85,14 @@ export class AppComponent implements OnInit {
         .subscribe();
 
       this.zone.run(() => {
-        this.router.navigate(['/confirm']);
+        void this.router.navigate(['/confirm']);
       });
     }
   }
 
   getTechniques(techName: string): void {
-    this.techniques$ = this.route.paramMap.pipe(
-      tap((x) => console.log(x)),
-      switchMap((params) => {
-        console.log(params);
-        // this.selectedName = params.get('name') as string;
-        return this.techniqueService.getTechniques(techName);
-      }),
-      tap(() => this.checkLocalStorage())
-    );
+    this.techniques$ = this.techniqueService.getTechniques(techName);
+    // .pipe(tap(() => this.checkLocalStorage()));
     this.techArray.push(this.techniques$);
   }
 }

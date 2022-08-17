@@ -10,7 +10,7 @@ export class MenuComponent {
 
   @Output() toggleMenu = new EventEmitter();
 
-  toggleMenuClick() {
+  toggleMenuClick(): void {
     this.toggleMenu.emit(null);
   }
 }

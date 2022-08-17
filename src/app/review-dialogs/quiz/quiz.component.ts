@@ -50,7 +50,7 @@ export class QuizComponent implements OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
@@ -69,11 +69,11 @@ export class QuizDialogComponent implements OnDestroy {
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
-  selectAnswer() {
+  selectAnswer(): void {
     this.data.answered = true;
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     // this is to reset the green box after closing
     this.answered = false;
     // pass data back with this method

@@ -45,7 +45,7 @@ export class AddTechniqueComponent {
     private fb: FormBuilder
   ) {}
 
-  addTechnique(moduleName: string) {
+  addTechnique(moduleName: string): void {
     this.authService
       .addTechniques(this.tagForm.value, moduleName)
       .pipe(takeUntil(this.ngUnsubscribe))

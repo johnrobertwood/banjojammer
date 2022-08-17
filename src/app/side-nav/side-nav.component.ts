@@ -32,7 +32,7 @@ export class SideNavComponent {
 
   @Output() closeSideNav = new EventEmitter();
 
-  navigateToDetail() {
+  navigateToDetail(): void {
     this.closeSideNav.emit(null);
   }
 }

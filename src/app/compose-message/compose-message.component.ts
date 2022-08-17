@@ -17,7 +17,7 @@ export class ComposeMessageComponent implements OnDestroy {
 
   constructor(private router: Router, private messageService: MessageService) {}
 
-  send() {
+  send(): void {
     this.sending = true;
     this.details = 'Sending Message...';
 
@@ -32,17 +32,17 @@ export class ComposeMessageComponent implements OnDestroy {
       .subscribe();
   }
 
-  cancel() {
+  cancel(): void {
     this.closePopup();
   }
 
-  closePopup() {
+  closePopup(): void {
     // Providing a `null` value to the named outlet
     // clears the contents of the named outlet
-    this.router.navigate([{ outlets: { popup: null } }]);
+    void this.router.navigate([{ outlets: { popup: null } }]);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }

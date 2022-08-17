@@ -53,7 +53,7 @@ describe('AppComponent', () => {
     expect(h1.textContent).toEqual('BJJ Quiz');
   });
 
-  it('should call getTechniqueService', async () => {
+  it('should call getTechniqueService', () => {
     const fixture = TestBed.createComponent(AppComponent);
     expect(getTechniquesSpy.calls.any()).toBe(false);
     fixture.detectChanges();

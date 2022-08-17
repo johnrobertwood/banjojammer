@@ -28,7 +28,7 @@ export class FavoritesListComponent implements OnInit {
     this.getTechniques();
   }
 
-  selectTech(tech: Technique) {
+  selectTech(tech: Technique): void {
     this.selectedName = tech.name;
   }
 
