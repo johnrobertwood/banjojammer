@@ -1,19 +1,13 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
+  "ignorePatterns": ["projects/**/*"],
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
+      "excludedFiles": ["src/polyfills.ts"],
       "parserOptions": {
         "ecmaVersion": "latest",
-        "project": [
-          "tsconfig.json",
-          "e2e/tsconfig.json"
-        ],
+        "project": ["tsconfig.json", "e2e/tsconfig.json"],
         "createDefaultProgram": true
       },
       "env": {
@@ -42,19 +36,14 @@
           "error",
           {
             "type": "attribute",
-            "prefix": [
-              "app",
-              "toh"
-            ],
+            "prefix": ["app", "toh"],
             "style": "camelCase"
           }
         ]
       }
     },
     {
-      "files": [
-        "*.html"
-      ],
+      "files": ["*.html"],
       "extends": [
         "plugin:@angular-eslint/template/recommended",
         "plugin:prettier/recommended"
