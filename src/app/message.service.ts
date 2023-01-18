@@ -19,6 +19,7 @@ export class MessageService {
 
   constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   sendFeedback(message: string): Observable<Object | never[]> {
     const feedback = { message };
     return this.http

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -27,7 +29,8 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
 
-  login(payload: any) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  login(payload: any): void {
     this.userData = payload.data;
     this.isLoggedIn = true;
     localStorage.setItem(
@@ -40,12 +43,12 @@ export class AuthenticationService {
     );
   }
 
-  logout() {
+  logout(): void {
     this.isLoggedIn = false;
     localStorage.removeItem('currentUser');
   }
 
-  checkLocalStorage() {
+  checkLocalStorage(): void {
     if (localStorage.getItem('currentUser')) {
       this.isLoggedIn = true;
     } else {
@@ -53,7 +56,8 @@ export class AuthenticationService {
     }
   }
 
-  addUser(payload: any): Observable<any> {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  addUser(payload: any): Observable<void> {
     const data = {
       userId: payload.data.userSub,
       username: payload.data.user.username.toLowerCase(),
@@ -66,11 +70,11 @@ export class AuthenticationService {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/users';
     return this.http
-      .post<any>(url, data, this.httpOptions)
-      .pipe(catchError(this.ehs.handleError<any>('addUser HTTP post error')));
+      .post<void>(url, data, this.httpOptions)
+      .pipe(catchError(this.ehs.handleError<void>('addUser HTTP post error')));
   }
 
-  addModule(user: string): Observable<any> {
+  addModule(user: string): Observable<void> {
     const data = {
       user,
       techniques: {},
@@ -80,10 +84,12 @@ export class AuthenticationService {
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/module';
     return this.http
       .post<any>(url, data, this.httpOptions)
-      .pipe(catchError(this.ehs.handleError<any>('addModule HTTP post error')));
+      .pipe(
+        catchError(this.ehs.handleError<void>('addModule HTTP post error'))
+      );
   }
 
-  addTechniques(tagForm: any, moduleName: any): Observable<any> {
+  addTechniques(tagForm: any, moduleName: any): Observable<void> {
     tagForm.quiz.responses = [
       { text: tagForm.quiz.response1, correct: true },
       { text: tagForm.quiz.response2, correct: false },
@@ -116,13 +122,13 @@ export class AuthenticationService {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/technique';
     return this.http
-      .post<any>(url, data, this.httpOptions)
+      .post<void>(url, data, this.httpOptions)
       .pipe(
-        catchError(this.ehs.handleError<any>('addTechniques HTTP post error'))
+        catchError(this.ehs.handleError<void>('addTechniques HTTP post error'))
       );
   }
 
-  updateTechnique(technique: Technique, saveType: string): Observable<any> {
+  updateTechnique(technique: Technique, saveType: string): Observable<void> {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
 
@@ -132,17 +138,14 @@ export class AuthenticationService {
       favorite: [],
     };
 
-    //@ts-ignore
     const found = userHistory[saveType].find(
       (t: { name: string }) => t.name === technique.name
     );
     if (found) {
-      //@ts-ignore
       userHistory[saveType] = userHistory[saveType].filter(
         (tech: { name: string }) => tech.name !== technique.name
       );
     } else {
-      //@ts-ignore
       userHistory[saveType].push(technique);
     }
 
@@ -152,15 +155,15 @@ export class AuthenticationService {
     };
 
     return this.http
-      .patch<any>(url, data, this.httpOptions)
+      .patch<void>(url, data, this.httpOptions)
       .pipe(
         catchError(
-          this.ehs.handleError<any>('favoriteTechnique HTTP patch error')
+          this.ehs.handleError<void>('favoriteTechnique HTTP patch error')
         )
       );
   }
 
-  getUserHistory() {
+  getUserHistory(): Observable<any> {
     const data = {
       username: this.userData.username,
     };

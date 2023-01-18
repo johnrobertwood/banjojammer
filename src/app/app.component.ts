@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
     );
   }
 
-  checkLocalStorage() {
+  checkLocalStorage(): void {
     const localData = void localStorage.getItem('currentUser');
     if (localData) {
       this.loggedIn = true;

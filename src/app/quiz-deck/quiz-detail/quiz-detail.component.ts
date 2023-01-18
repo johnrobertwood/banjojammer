@@ -16,7 +16,6 @@ export class QuizDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    //@ts-ignore
     this.route.data.subscribe((data: { quiz: Technique }) => {
       this.answered = false;
       this.technique = data.quiz;

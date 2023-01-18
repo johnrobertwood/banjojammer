@@ -20,6 +20,7 @@
     <mat-menu #menu="matMenu">
       <app-menu (toggleMenu)="sidenav.close()" [loggedIn]="loggedIn"></app-menu>
     </mat-menu>
+
     <app-side-nav
       [selectedName]="selectedName"
       [loggedIn]="loggedIn"
