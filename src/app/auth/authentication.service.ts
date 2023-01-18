@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -27,6 +29,7 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   login(payload: any): void {
     this.userData = payload.data;
     this.isLoggedIn = true;
@@ -53,6 +56,7 @@ export class AuthenticationService {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   addUser(payload: any): Observable<void> {
     const data = {
       userId: payload.data.userSub,
@@ -134,17 +138,14 @@ export class AuthenticationService {
       favorite: [],
     };
 
-    //@ts-ignore
     const found = userHistory[saveType].find(
       (t: { name: string }) => t.name === technique.name
     );
     if (found) {
-      //@ts-ignore
       userHistory[saveType] = userHistory[saveType].filter(
         (tech: { name: string }) => tech.name !== technique.name
       );
     } else {
-      //@ts-ignore
       userHistory[saveType].push(technique);
     }
 

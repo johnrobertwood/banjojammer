@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
@@ -7,6 +8,7 @@ import { Observable, of } from 'rxjs';
 })
 export class ErrorHandlingService {
   handleError<T>(operation = 'operation', result?: T) {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead

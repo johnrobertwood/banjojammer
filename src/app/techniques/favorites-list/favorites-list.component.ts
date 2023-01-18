@@ -16,6 +16,7 @@ export class FavoritesListComponent implements OnInit {
   techniques$!: Observable<Technique[]>;
   selectedName!: string | null;
   modulePath!: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   favArray: any;
 
   constructor(

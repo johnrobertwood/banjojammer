@@ -6,7 +6,6 @@ import { AuthenticationService } from '../auth/authentication.service';
   templateUrl: './profile.component.html',
 })
 export class ProfileComponent implements OnInit {
-  //@ts-ignore
   userData: {
     attributes: { sub: string; email: string; phone_number: string };
     username: string;

@@ -49,7 +49,6 @@ export class TechniqueService {
     technique: Technique,
     quizType: string
   ): Observable<Technique> | Observable<null> {
-    //@ts-ignore
     const currentUser = <string>JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser !== null) {
       const data = {
@@ -57,7 +56,6 @@ export class TechniqueService {
         technique,
         quizType,
       };
-      //@ts-ignore
       return this.http
         .patch<Technique>(`${this.apiGatewayUrl}/user`, data, this.httpOptions)
         .pipe(
@@ -70,7 +68,6 @@ export class TechniqueService {
   }
 
   editTechnique(technique: Technique): Observable<Technique> {
-    //@ts-ignore
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const data = {
       currentUser,
