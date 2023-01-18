@@ -51,7 +51,7 @@ fdescribe('TechniqueService', () => {
       });
 
       const req = httpTestingController.expectOne(
-        `${techniqueService.apiGatewayUrl}/techniques`
+        `${techniqueService.apiGatewayUrl}/techniquesfoo`
       );
       expect(req.request.method).toEqual('POST');
 
