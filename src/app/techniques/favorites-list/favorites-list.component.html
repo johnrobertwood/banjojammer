@@ -66,9 +66,6 @@
             />
             <div class="p-2">
               <p class="h4">{{ technique.displayName }}</p>
-              <p class="card-text text-muted">
-                {{ technique.flashcard.question }}
-              </p>
               <div
                 class="d-flex flex-column justify-content-center align-items-center"
               >
@@ -82,11 +79,6 @@
                     Technique Details
                   </button>
                 </div>
-                <app-quiz class="mb-2 w-100" [technique]="technique"></app-quiz>
-                <app-flashcard
-                  class="w-100"
-                  [technique]="technique"
-                ></app-flashcard>
               </div>
             </div>
           </div>

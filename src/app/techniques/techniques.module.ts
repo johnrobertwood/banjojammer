@@ -7,7 +7,6 @@ import { FavoritesListComponent } from './favorites-list/favorites-list.componen
 import { TechniquesRoutingModule } from './techniques-routing.module';
 import { AppMaterialModule } from 'src/app/app-material.module';
 import { PipeModule } from '../app-pipe.module';
-import { AppQuizModule } from '../review-dialogs/app-quiz.module';
 import { VideoFrameComponent } from './video-frame/video-frame.component';
 
 @NgModule({
@@ -22,7 +21,6 @@ import { VideoFrameComponent } from './video-frame/video-frame.component';
     AppMaterialModule,
     TechniquesRoutingModule,
     PipeModule,
-    AppQuizModule,
   ],
 })
 export class TechniquesModule {}

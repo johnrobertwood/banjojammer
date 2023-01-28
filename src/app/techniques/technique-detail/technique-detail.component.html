@@ -1,9 +1,8 @@
 <div *ngIf="technique$ | async as technique" class="detail-container">
   <div>
     <app-video-frame
-      [url]="technique.video.url"
-      [video1url]="technique.video.videoUrl1"
-      [video2url]="technique.video.videoUrl2"
+      [demoUrl]="technique.video.demoUrl"
+      [jamUrl]="technique.video.jamUrl"
       [tabUrl]="technique.video.tabUrl"
     ></app-video-frame>
     <div class="my-2">

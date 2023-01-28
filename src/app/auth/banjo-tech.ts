@@ -22,11 +22,9 @@ export const banjoTech: any = {
     },
   ],
   video: {
-    url: 'https://www.youtube.com/embed/1i92oa6jLsA',
+    demoUrl: 'https://www.youtube.com/embed/NoFB9u94jFM',
+    jamUrl: 'https://www.youtube.com/embed/xAEjObNAPQQ',
     tabUrl: '/assets/cumberland.pdf',
-    videoUrl1: 'https://www.youtube.com/embed/xAEjObNAPQQ',
-    videoUrl2: 'https://www.youtube.com/embed/NoFB9u94jFM',
-    thumbnail: 'https://img.youtube.com/vi/1i92oa6jLsA/mqdefault.jpg',
   },
 };
 

@@ -9,28 +9,5 @@
         #nameInput
       />
     </mat-form-field>
-    <mat-form-field color="accent" class="example-full-width">
-      <mat-label>Edit Flashcard Answer</mat-label>
-      <textarea
-        matInput
-        [(ngModel)]="editAnswer"
-        name="editTechniqueFlashcard"
-        class="py-3"
-        #answerInput
-      ></textarea>
-    </mat-form-field>
   </form>
-  <div>
-    <button
-      mat-stroked-button
-      color="basic"
-      (click)="save(nameInput.value, answerInput.value)"
-      class="mr-2"
-    >
-      Save
-    </button>
-    <button mat-stroked-button color="accent" (click)="goBack(technique.name)">
-      Back
-    </button>
-  </div>
 </div>

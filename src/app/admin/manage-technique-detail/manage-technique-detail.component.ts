@@ -32,7 +32,6 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
     this.getTechnique();
     this.route.data.subscribe((data: { technique: Technique }) => {
       this.editName = data.technique.displayName;
-      this.editAnswer = data.technique.flashcard.answer;
       this.technique = data.technique;
     });
   }
@@ -61,11 +60,6 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
         map((technique: Technique) => ({
           ...technique,
           displayName,
-          flashcard: {
-            complete: this.technique.flashcard.complete,
-            question: this.technique.flashcard.question,
-            answer: flashcardAnswer,
-          },
         })),
         mergeMap((technique: Technique) =>
           this.techniqueService.editTechnique(technique)
@@ -73,17 +67,12 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
       )
       .subscribe(() => {
         this.technique.displayName = this.editName;
-        this.technique.flashcard.answer = this.editAnswer;
         this.goBack(this.technique.name);
       });
   }
 
   canDeactivate(): boolean | Observable<boolean> {
-    if (
-      !this.technique ||
-      (this.technique.displayName === this.editName &&
-        this.technique.flashcard.answer === this.editAnswer)
-    ) {
+    if (!this.technique || this.technique.displayName === this.editName) {
       return true;
     }
 

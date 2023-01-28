@@ -9,11 +9,9 @@ import { pluck } from 'rxjs/operators';
   styleUrls: ['./video-frame.component.css'],
 })
 export class VideoFrameComponent implements OnInit {
-  @Input() url = '';
-  @Input() video1url: any;
-  @Input() video2url: any;
-  @Input() tabUrl: any;
-  @Input() technique: any;
+  @Input() demoUrl = '';
+  @Input() jamUrl = '';
+  @Input() tabUrl = '';
   @Input() isSmallScreen = false;
 
   constructor(private breakpointObserver: BreakpointObserver) {}

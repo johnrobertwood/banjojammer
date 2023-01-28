@@ -11,31 +11,16 @@ import { FormBuilder } from '@angular/forms';
 })
 export class AddTechniqueComponent {
   tagForm = this.fb.group({
-    id: '',
-    name: '',
-    displayName: '',
-    prevTechnique: '',
+    id: '2',
+    name: 'cumberland3',
+    displayName: 'Cumberland3',
+    prevTechnique: 'cumberland2',
     nextTechnique: '',
-    quiz: this.fb.group({
-      question: '',
-      response1: '',
-      response2: '',
-      response3: '',
-      response4: '',
-    }),
-    flashcard: this.fb.group({
-      question: '',
-      answer: '',
-    }),
     video: this.fb.group({
-      url: '',
-      thumbnail: '',
-    }),
-    notes: this.fb.group({
-      note1: '',
-      note2: '',
-      note3: '',
-      note4: '',
+      thumbnail: 'https://img.youtube.com/vi/1i92oa6jLsA/mqdefault.jpg',
+      demoUrl: 'https://www.youtube.com/embed/NoFB9u94jFM',
+      jamUrl: 'https://www.youtube.com/embed/xAEjObNAPQQ',
+      tabUrl: '/assets/cumberland.pdf',
     }),
   });
   private ngUnsubscribe = new Subject();
@@ -47,7 +32,7 @@ export class AddTechniqueComponent {
 
   addTechnique(moduleName: string): void {
     this.authService
-      .addTechniques(this.tagForm.value, moduleName)
+      .addTechniques(this.tagForm.value, 'banjo-tech')
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe();
   }

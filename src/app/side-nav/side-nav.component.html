@@ -79,6 +79,7 @@
       [routerLink]="['technique', 'banjo-tech', technique.name]"
       routerLinkActive="activebutton"
       *ngFor="let technique of techArray[0] | async"
+      (click)="navigateToDetail()"
     >
       {{ technique.displayName }}
     </mat-panel-description>

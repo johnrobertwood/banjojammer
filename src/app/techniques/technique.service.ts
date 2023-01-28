@@ -7,7 +7,6 @@ import { catchError, tap } from 'rxjs/operators';
 import { Technique } from './technique';
 import { ErrorHandlingService } from '../error-handling.service';
 import banjoTech from '../auth/banjo-tech';
-import grillTech from '../auth/grill-tech';
 
 @Injectable({ providedIn: 'root' })
 export class TechniqueService {

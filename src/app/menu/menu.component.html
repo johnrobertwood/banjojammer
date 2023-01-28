@@ -10,31 +10,11 @@
   [disabled]="!loggedIn"
   mat-menu-item
   (click)="toggleMenuClick()"
-  routerLink="/favorites/randy-tech/activeShooterResponse"
+  routerLink="/favorites/banjo-tech/cumberland1"
   routerLinkActive="activebutton"
 >
   <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
   Favorites
-</button>
-<button
-  [disabled]="!loggedIn"
-  mat-menu-item
-  (click)="toggleMenuClick()"
-  routerLink="/quiz-deck/randy-tech/activeShooterResponse"
-  routerLinkActive="activebutton"
->
-  <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-  Quiz Deck
-</button>
-<button
-  [disabled]="!loggedIn"
-  mat-menu-item
-  (click)="toggleMenuClick()"
-  routerLink="/flashcard-deck/randy-tech/activeShooterResponse"
-  routerLinkActive="activebutton"
->
-  <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-  Flashcard Deck
 </button>
 <button
   *ngIf="loggedIn"
