@@ -6,6 +6,8 @@ import { catchError, tap } from 'rxjs/operators';
 
 import { Technique } from './technique';
 import { ErrorHandlingService } from '../error-handling.service';
+import banjoTech from '../auth/banjo-tech';
+import grillTech from '../auth/grill-tech';
 
 @Injectable({ providedIn: 'root' })
 export class TechniqueService {
@@ -30,6 +32,13 @@ export class TechniqueService {
         this.httpOptions
       )
       .pipe(catchError(this.ehs.handleError<Technique[]>('getTechniques', [])));
+  }
+
+  getStaticTechnique(): Observable<any> {
+    return of(banjoTech).pipe(
+      tap((_) => console.log(_)),
+      catchError(this.ehs.handleError<any>('getStaticTechnique', []))
+    );
   }
 
   getUserFilterTechnique(

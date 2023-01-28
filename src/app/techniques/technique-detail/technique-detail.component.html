@@ -1,62 +1,36 @@
 <div *ngIf="technique$ | async as technique" class="detail-container">
-  <div
-    class="d-flex flex-column justify-content-center align-items-center mb-2"
-  >
-    <app-video-frame [url]="technique.video.url"></app-video-frame>
-    <div class="d-flex flex-column justify-content-center my-2 title-container">
+  <div>
+    <app-video-frame
+      [url]="technique.video.url"
+      [video1url]="technique.video.videoUrl1"
+      [video2url]="technique.video.videoUrl2"
+      [tabUrl]="technique.video.tabUrl"
+    ></app-video-frame>
+    <div class="my-2">
       <p class="h3 text-center mb-0">{{ technique.displayName }}</p>
     </div>
-    <div class="d-flex justify-content-center answer-container mb-1">
-      <span class="d-flex justify-content-center align-items-center px-3">
-        <p class="text-center muted mb-0">
-          {{ technique.flashcard.answer }}
-        </p>
-      </span>
-    </div>
-    <div class="row d-flex w-100 flex-column">
-      <div class="d-flex mb-1 justify-content-center">
-        <div class="row w-100">
-          <div class="col-6 pr-1">
-            <button
-              [disabled]="technique.prevTechnique === null"
-              mat-stroked-button
-              color="accent"
-              class="p-2 w-100 btn-dark"
-              [routerLink]="['/technique', modulePath, technique.prevTechnique]"
-            >
-              <mat-icon>keyboard_arrow_left</mat-icon> Previous
-            </button>
-          </div>
-          <div class="col-6 pl-1">
-            <button
-              [disabled]="technique.nextTechnique === null"
-              mat-stroked-button
-              color="accent"
-              class="p-2 w-100 btn-dark"
-              [routerLink]="['/technique', modulePath, technique.nextTechnique]"
-            >
-              Next <mat-icon>keyboard_arrow_right</mat-icon>
-            </button>
-          </div>
-        </div>
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="w-25 mr-1">
+        <button
+          [disabled]="technique.prevTechnique === null"
+          mat-stroked-button
+          color="accent"
+          class="p-2 w-100 btn-dark"
+          [routerLink]="['/technique', modulePath, technique.prevTechnique]"
+        >
+          <mat-icon>keyboard_arrow_left</mat-icon> Previous
+        </button>
       </div>
-      <div class="d-flex w-100 justify-content-center">
-        <div class="d-flex justify-content-center row w-100">
-          <div class="row w-100">
-            <div class="col-6 pr-1">
-              <app-quiz
-                [technique]="technique"
-                [isQuizDone]="isQuizDone"
-              ></app-quiz>
-            </div>
-            <div class="col-6 pl-1">
-              <app-flashcard
-                [technique]="technique"
-                [isFlashDone]="isFlashDone"
-              ></app-flashcard>
-            </div>
-          </div>
-        </div>
+      <div class="w-25 ml-1">
+        <button
+          [disabled]="technique.nextTechnique === null"
+          mat-stroked-button
+          color="accent"
+          class="p-2 w-100 btn-dark"
+          [routerLink]="['/technique', modulePath, technique.nextTechnique]"
+        >
+          Next <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
       </div>
     </div>
   </div>

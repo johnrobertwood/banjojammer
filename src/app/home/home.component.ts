@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   nonLethalWeapons$!: Observable<Technique[]>;
   edgedWeapons$!: Observable<Technique[]>;
   situationalAwareness$!: Observable<Technique[]>;
+  banjo$!: Observable<Technique[]>;
 
   isLoggedIn = false;
   thumbnailUrl = '';
@@ -32,12 +33,12 @@ export class HomeComponent implements OnInit {
   }
 
   getTechniques(): void {
-    this.grappling$ = this.route.paramMap.pipe(
-      switchMap(() => this.techniqueService.getTechniques('glover-tech'))
-    );
-    this.pistolTactics$ = this.route.paramMap.pipe(
-      switchMap(() => this.techniqueService.getTechniques('randy-tech'))
-    );
+    // this.grappling$ = this.route.paramMap.pipe(
+    //   switchMap(() => this.techniqueService.getTechniques('glover-tech'))
+    // );
+    // this.pistolTactics$ = this.route.paramMap.pipe(
+    //   switchMap(() => this.techniqueService.getTechniques('randy-tech'))
+    // );
     // this.nonLethalWeapons$ = this.route.paramMap.pipe(
     //   switchMap(() => this.techniqueService.getTechniques('gorilla-tech')),
     // );
@@ -47,6 +48,9 @@ export class HomeComponent implements OnInit {
     // this.situationalAwareness$ = this.route.paramMap.pipe(
     //   switchMap(() => this.techniqueService.getTechniques('greek-tech')),
     // );
+    this.banjo$ = this.route.paramMap.pipe(
+      switchMap(() => this.techniqueService.getTechniques('banjo-tech'))
+    );
     if (localStorage.getItem('currentUser')) {
       this.isLoggedIn = true;
     } else {

@@ -33,6 +33,9 @@ export interface Technique {
   };
   video: {
     url: string;
+    videoUrl1?: string;
+    videoUrl2?: string;
+    tabUrl?: string;
     thumbnail: string;
   };
   notes: [

@@ -19,11 +19,12 @@ import { slideInAnimation } from '../animations';
   animations: [slideInAnimation],
 })
 export class SideNavComponent {
-  @ViewChild('randyContent') randyExpansionPanel!: MatExpansionPanel;
-  @ViewChild('gorillaContent') gorillaExpansionPanel!: MatExpansionPanel;
-  @ViewChild('grillContent') grillExpansionPanel!: MatExpansionPanel;
-  @ViewChild('greekContent') greekExpansionPanel!: MatExpansionPanel;
-  @ViewChild('gloverContent') gloverExpansionPanel!: MatExpansionPanel;
+  // @ViewChild('randyContent') randyExpansionPanel!: MatExpansionPanel;
+  // @ViewChild('gorillaContent') gorillaExpansionPanel!: MatExpansionPanel;
+  // @ViewChild('grillContent') grillExpansionPanel!: MatExpansionPanel;
+  // @ViewChild('greekContent') greekExpansionPanel!: MatExpansionPanel;
+  // @ViewChild('gloverContent') gloverExpansionPanel!: MatExpansionPanel;
+  @ViewChild('banjoContent') banjoExpansionPanel!: MatExpansionPanel;
 
   @Input() selectedName!: string;
   @Input() loggedIn!: boolean;

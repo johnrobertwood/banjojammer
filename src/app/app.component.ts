@@ -1,13 +1,14 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, tap } from 'rxjs/operators';
 import { TechniqueService } from './techniques/technique.service';
 import { Technique } from './techniques/technique';
 import { AuthenticationService } from './auth/authentication.service';
 import { Hub } from 'aws-amplify';
 import { HubPayload } from './hub-payload';
-import { Observable, Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
+import { banjoTech } from './auth/banjo-tech';
 
 @Component({
   selector: 'app-root',
@@ -35,11 +36,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTechniques('glover-tech');
-    this.getTechniques('randy-tech');
-    this.getTechniques('gorilla-tech');
-    this.getTechniques('grill-tech');
-    this.getTechniques('greek-tech');
+    // this.getTechniques('glover-tech');
+    // this.getTechniques('randy-tech');
+    // this.getTechniques('gorilla-tech');
+    // this.getTechniques('grill-tech');
+    // this.getTechniques('greek-tech');
+    this.getTechniques('banjo-tech');
     this.checkLocalStorage();
   }
 
@@ -50,7 +52,7 @@ export class AppComponent implements OnInit {
   }
 
   checkLocalStorage(): void {
-    const localData = void localStorage.getItem('currentUser');
+    const localData = localStorage.getItem('currentUser');
     if (localData) {
       this.loggedIn = true;
       this.authService.login({
@@ -91,7 +93,12 @@ export class AppComponent implements OnInit {
   }
 
   getTechniques(techName: string): void {
-    this.techniques$ = this.techniqueService.getTechniques(techName);
+    // this.techniques$ = of(banjoTech).pipe(
+    this.techniques$ = this.techniqueService.getTechniques(techName).pipe(
+      tap((x) => {
+        console.log(x);
+      })
+    );
     // .pipe(tap(() => this.checkLocalStorage()));
     this.techArray.push(this.techniques$);
   }

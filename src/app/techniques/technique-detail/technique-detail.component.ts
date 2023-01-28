@@ -43,25 +43,26 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
           this.modulePath,
           this.techniqueName
         );
-      }),
-      tap((technique) => {
-        if (localStorage.getItem('currentUser')) {
-          this.isLoggedIn = true;
-          this.authService.getUserHistory().subscribe((res) => {
-            this.isFavorite = res.userHistory.favorite.find(
-              (t: Technique) => t.name === technique.name
-            );
-            this.isQuizDone = res.userHistory.quiz.find(
-              (t: Technique) => t.name === technique.name
-            );
-            this.isFlashDone = res.userHistory.flashcard.find(
-              (t: Technique) => t.name === technique.name
-            );
-          });
-        } else {
-          this.isLoggedIn = false;
-        }
+        // return this.techniqueService.getStaticTechnique();
       })
+      // tap((technique) => {
+      //   if (localStorage.getItem('currentUser')) {
+      //     this.isLoggedIn = true;
+      //     this.authService.getUserHistory().subscribe((res) => {
+      //       this.isFavorite = res.userHistory.favorite.find(
+      //         (t: Technique) => t.name === technique.name
+      //       );
+      //       this.isQuizDone = res.userHistory.quiz.find(
+      //         (t: Technique) => t.name === technique.name
+      //       );
+      //       this.isFlashDone = res.userHistory.flashcard.find(
+      //         (t: Technique) => t.name === technique.name
+      //       );
+      //     });
+      //   } else {
+      //     this.isLoggedIn = false;
+      //   }
+      // })
     );
   }
 

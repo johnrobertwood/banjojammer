@@ -10,11 +10,16 @@ import { pluck } from 'rxjs/operators';
 })
 export class VideoFrameComponent implements OnInit {
   @Input() url = '';
+  @Input() video1url: any;
+  @Input() video2url: any;
+  @Input() tabUrl: any;
+  @Input() technique: any;
   @Input() isSmallScreen = false;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
+    // console.log(this.technique[0]);
     this.breakpointObserver
       .observe(['(max-width: 600px)'])
       .pipe(pluck('matches'))

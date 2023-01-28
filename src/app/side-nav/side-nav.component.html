@@ -1,5 +1,5 @@
 <mat-accordion>
-  <mat-expansion-panel [expanded]="!loggedIn">
+  <!-- <mat-expansion-panel [expanded]="!loggedIn">
     <mat-expansion-panel-header>
       <mat-panel-title>Grappling</mat-panel-title>
     </mat-expansion-panel-header>
@@ -65,6 +65,20 @@
       [routerLink]="['technique', 'greek-tech', technique.name]"
       routerLinkActive="activebutton"
       *ngFor="let technique of techArray[4] | async"
+    >
+      {{ technique.displayName }}
+    </mat-panel-description>
+  </mat-expansion-panel> -->
+  <mat-expansion-panel #banjoContent [disabled]="!loggedIn">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Banjo</mat-panel-title>
+      <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
+    </mat-expansion-panel-header>
+    <mat-panel-description
+      mat-menu-item
+      [routerLink]="['technique', 'banjo-tech', technique.name]"
+      routerLinkActive="activebutton"
+      *ngFor="let technique of techArray[0] | async"
     >
       {{ technique.displayName }}
     </mat-panel-description>

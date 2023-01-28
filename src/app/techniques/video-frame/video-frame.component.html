@@ -1,10 +1,17 @@
-<div class="mt-3">
-  <iframe
-    [src]="url | safe"
-    frameborder="0"
-    [width]="isSmallScreen || '560'"
-    [height]="isSmallScreen || '315'"
-    allow="autoplay; fullscreen"
-    allowfullscreen
-  ></iframe>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <div class="iframe-container">
+        <iframe class="responsive-iframe" [src]="video1url | safe"></iframe>
+      </div>
+      <div class="iframe-container">
+        <iframe class="responsive-iframe" [src]="video2url | safe"></iframe>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="pdf-container">
+        <iframe class="responsive-iframe" [src]="tabUrl | safe"></iframe>
+      </div>
+    </div>
+  </div>
 </div>
