@@ -36,9 +36,9 @@ export class HomeComponent implements OnInit {
     // this.grappling$ = this.route.paramMap.pipe(
     //   switchMap(() => this.techniqueService.getTechniques('glover-tech'))
     // );
-    // this.pistolTactics$ = this.route.paramMap.pipe(
-    //   switchMap(() => this.techniqueService.getTechniques('randy-tech'))
-    // );
+    this.pistolTactics$ = this.route.paramMap.pipe(
+      switchMap(() => this.techniqueService.getTechniques('randy-tech'))
+    );
     // this.nonLethalWeapons$ = this.route.paramMap.pipe(
     //   switchMap(() => this.techniqueService.getTechniques('gorilla-tech')),
     // );

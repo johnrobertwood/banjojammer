@@ -32,7 +32,7 @@ export class AddTechniqueComponent {
 
   addTechnique(moduleName: string): void {
     this.authService
-      .addTechniques(this.tagForm.value, 'banjo-tech')
+      .addTechniques(this.tagForm.value, moduleName)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe();
   }

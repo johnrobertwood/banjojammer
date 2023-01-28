@@ -1,11 +1,11 @@
 <mat-accordion>
-  <!-- <mat-expansion-panel [expanded]="!loggedIn">
+  <mat-expansion-panel #banjoContent>
     <mat-expansion-panel-header>
-      <mat-panel-title>Grappling</mat-panel-title>
+      <mat-panel-title>Banjo</mat-panel-title>
     </mat-expansion-panel-header>
     <mat-panel-description
       mat-menu-item
-      [routerLink]="['technique', 'glover-tech', technique.name]"
+      [routerLink]="['technique', 'banjo-tech', technique.name]"
       routerLinkActive="activebutton"
       *ngFor="let technique of techArray[0] | async"
       (click)="navigateToDetail()"
@@ -23,63 +23,6 @@
       [routerLink]="['technique', 'randy-tech', technique.name]"
       routerLinkActive="activebutton"
       *ngFor="let technique of techArray[1] | async"
-    >
-      {{ technique.displayName }}
-    </mat-panel-description>
-  </mat-expansion-panel>
-  <mat-expansion-panel [disabled]="!loggedIn">
-    <mat-expansion-panel-header>
-      <mat-panel-title>Non Lethal Weapons</mat-panel-title>
-      <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-    </mat-expansion-panel-header>
-    <mat-panel-description
-      mat-menu-item
-      [routerLink]="['technique', 'gorilla-tech', technique.name]"
-      routerLinkActive="activebutton"
-      *ngFor="let technique of techArray[2] | async"
-    >
-      {{ technique.displayName }}
-    </mat-panel-description>
-  </mat-expansion-panel>
-  <mat-expansion-panel [disabled]="!loggedIn">
-    <mat-expansion-panel-header>
-      <mat-panel-title>Edged Weapons</mat-panel-title>
-      <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-    </mat-expansion-panel-header>
-    <mat-panel-description
-      mat-menu-item
-      [routerLink]="['technique', 'grill-tech', technique.name]"
-      routerLinkActive="activebutton"
-      *ngFor="let technique of techArray[3] | async"
-    >
-      {{ technique.displayName }}
-    </mat-panel-description>
-  </mat-expansion-panel>
-  <mat-expansion-panel #gorillaContent [disabled]="!loggedIn">
-    <mat-expansion-panel-header>
-      <mat-panel-title>Situational Awareness</mat-panel-title>
-      <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-    </mat-expansion-panel-header>
-    <mat-panel-description
-      mat-menu-item
-      [routerLink]="['technique', 'greek-tech', technique.name]"
-      routerLinkActive="activebutton"
-      *ngFor="let technique of techArray[4] | async"
-    >
-      {{ technique.displayName }}
-    </mat-panel-description>
-  </mat-expansion-panel> -->
-  <mat-expansion-panel #banjoContent [disabled]="!loggedIn">
-    <mat-expansion-panel-header>
-      <mat-panel-title>Banjo</mat-panel-title>
-      <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-    </mat-expansion-panel-header>
-    <mat-panel-description
-      mat-menu-item
-      [routerLink]="['technique', 'banjo-tech', technique.name]"
-      routerLinkActive="activebutton"
-      *ngFor="let technique of techArray[0] | async"
-      (click)="navigateToDetail()"
     >
       {{ technique.displayName }}
     </mat-panel-description>

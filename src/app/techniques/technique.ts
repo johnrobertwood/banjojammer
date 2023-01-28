@@ -5,7 +5,6 @@ export interface Technique {
   prevTechnique: string | null;
   nextTechnique: string | null;
   video: {
-    url: string;
     demoUrl: string;
     jamUrl: string;
     tabUrl: string;

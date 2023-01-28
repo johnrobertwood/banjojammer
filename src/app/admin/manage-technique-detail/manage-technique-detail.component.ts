@@ -54,7 +54,7 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
     ]);
   }
 
-  save(displayName: string, flashcardAnswer: string): void {
+  save(displayName: string): void {
     this.technique$
       .pipe(
         map((technique: Technique) => ({

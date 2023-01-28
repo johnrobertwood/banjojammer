@@ -90,13 +90,6 @@ export class AuthenticationService {
   }
 
   addTechniques(tagForm: any, moduleName: any): Observable<void> {
-    // tagForm.quiz.responses = [
-    //   { text: tagForm.quiz.response1, correct: true },
-    //   { text: tagForm.quiz.response2, correct: false },
-    //   { text: tagForm.quiz.response3, correct: false },
-    //   { text: tagForm.quiz.response4, correct: false },
-    // ];
-
     // tagForm.notes = [
     //   { text: tagForm.notes.note1 },
     //   { text: tagForm.notes.note2 },
@@ -106,10 +99,6 @@ export class AuthenticationService {
 
     tagForm.nextTechnique = null;
 
-    // delete tagForm.quiz.response1;
-    // delete tagForm.quiz.response2;
-    // delete tagForm.quiz.response3;
-    // delete tagForm.quiz.response4;
     // delete tagForm.notes.note1;
     // delete tagForm.notes.note2;
     // delete tagForm.notes.note3;
@@ -139,14 +128,12 @@ export class AuthenticationService {
     const found = userHistory[saveType].find(
       (t: { name: string }) => t.name === technique.name
     );
-    debugger;
     if (found) {
       userHistory[saveType] = userHistory[saveType].filter(
         (tech: { name: string }) => tech.name !== technique.name
       );
     } else {
       userHistory[saveType].push(technique);
-      debugger;
     }
 
     const data = {

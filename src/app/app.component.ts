@@ -7,8 +7,7 @@ import { Technique } from './techniques/technique';
 import { AuthenticationService } from './auth/authentication.service';
 import { Hub } from 'aws-amplify';
 import { HubPayload } from './hub-payload';
-import { Observable, of, Subject } from 'rxjs';
-import { banjoTech } from './auth/banjo-tech';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -36,12 +35,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getTechniques('glover-tech');
-    // this.getTechniques('randy-tech');
-    // this.getTechniques('gorilla-tech');
-    // this.getTechniques('grill-tech');
-    // this.getTechniques('greek-tech');
     this.getTechniques('banjo-tech');
+    this.getTechniques('randy-tech');
     this.checkLocalStorage();
   }
 

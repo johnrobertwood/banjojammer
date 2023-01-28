@@ -1,6 +1,6 @@
 import { Technique } from '../techniques/technique';
 
-export const banjoTech: any = {
+export const banjoTech: Technique = {
   id: 0,
   name: 'bravoFlipChoke',
   displayName: 'Bravo Flip Choke',
@@ -25,6 +25,7 @@ export const banjoTech: any = {
     demoUrl: 'https://www.youtube.com/embed/NoFB9u94jFM',
     jamUrl: 'https://www.youtube.com/embed/xAEjObNAPQQ',
     tabUrl: '/assets/cumberland.pdf',
+    thumbnail: 'https://img.youtube.com/vi/xAEjObNAPQQ/mqdefault.jpg',
   },
 };
 
