@@ -19,7 +19,7 @@ export class ManageTechniqueDetailResolverService
   ): Observable<Technique> | Observable<never> {
     const name = route.paramMap.get('name');
 
-    return this.ts.getUserFilterTechnique('randy-tech', name).pipe(
+    return this.ts.getUserFilterTechnique('banjo-tech', name).pipe(
       take(1),
       mergeMap((technique) => {
         if (technique) {

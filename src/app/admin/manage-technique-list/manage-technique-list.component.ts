@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Technique } from 'src/app/techniques/technique';
 import { TechniqueService } from 'src/app/techniques/technique.service';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   templateUrl: './manage-technique-list.component.html',
   styleUrls: ['./manage-technique-list.component.css'],
 })
-export class ManageTechniqueListComponent implements OnInit {
+export class ManageTechniqueListComponent {
   techniques$!: Observable<Technique[]>;
   selectedName!: string | null;
 
@@ -20,15 +20,14 @@ export class ManageTechniqueListComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
-    this.getTechniques();
-  }
-
-  getTechniques(): void {
+  getTechniques(tech: string): void {
     this.techniques$ = this.route.paramMap.pipe(
       switchMap((params) => {
         this.selectedName = params.get('name');
-        return this.techniqueService.getTechniques('randy-tech');
+        return this.techniqueService.getTechniques(tech);
+      }),
+      tap((techniques) => {
+        console.log(techniques);
       })
     );
   }

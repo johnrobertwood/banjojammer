@@ -7,6 +7,7 @@ import { Technique } from 'src/app/techniques/technique';
 import { switchMap, map, mergeMap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { DialogService } from 'src/app/dialog.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-manage-technique-detail',
@@ -21,11 +22,26 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   editAnswer = '';
   private ngUnsubscribe = new Subject();
 
+  tagForm = this.fb.group({
+    id: '',
+    name: '',
+    displayName: '',
+    prevTechnique: '',
+    nextTechnique: '',
+    video: this.fb.group({
+      thumbnail: '',
+      demoUrl: '',
+      jamUrl: '',
+      tabUrl: '',
+    }),
+  });
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private techniqueService: TechniqueService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -37,14 +53,19 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   }
 
   getTechnique(): void {
-    this.technique$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.techniqueService.getUserFilterTechnique(
-          'randy-tech',
-          params.get('name')
+    this.route.paramMap
+      .pipe(
+        switchMap((params: ParamMap) =>
+          this.techniqueService.getUserFilterTechnique(
+            'banjo-tech',
+            params.get('name')
+          )
         )
       )
-    );
+      .subscribe((technique: Technique) => {
+        this.tagForm.patchValue(technique);
+        console.log(this.tagForm.value);
+      });
   }
 
   goBack(techniqueName: string): void {
@@ -54,21 +75,10 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
     ]);
   }
 
-  save(displayName: string): void {
-    this.technique$
-      .pipe(
-        map((technique: Technique) => ({
-          ...technique,
-          displayName,
-        })),
-        mergeMap((technique: Technique) =>
-          this.techniqueService.editTechnique(technique)
-        )
-      )
-      .subscribe(() => {
-        this.technique.displayName = this.editName;
-        this.goBack(this.technique.name);
-      });
+  save(): void {
+    this.techniqueService.editTechnique(this.tagForm.value).subscribe(() => {
+      this.goBack(this.technique.name);
+    });
   }
 
   canDeactivate(): boolean | Observable<boolean> {

@@ -1,5 +1,10 @@
 <div>
   <h2>Manage Techniques List</h2>
+  <nav>
+    <a mat-stroked-button color="accent" (click)="getTechniques('banjo-tech')"
+      >Banjo</a
+    >
+  </nav>
   <mat-selection-list [multiple]="false" class="techniques">
     <mat-list-option
       *ngFor="let technique of techniques$ | async"
@@ -8,7 +13,7 @@
       routerLinkActive="activebutton"
       class="d-flex justify-content-center"
     >
-      {{ technique.displayName }}
+      {{ technique.name }}
     </mat-list-option>
   </mat-selection-list>
 </div>

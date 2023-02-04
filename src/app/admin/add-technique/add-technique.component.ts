@@ -11,16 +11,16 @@ import { FormBuilder } from '@angular/forms';
 })
 export class AddTechniqueComponent {
   tagForm = this.fb.group({
-    id: '2',
-    name: 'cumberland3',
-    displayName: 'Cumberland3',
-    prevTechnique: 'cumberland2',
+    id: '',
+    name: '',
+    displayName: '',
+    prevTechnique: '',
     nextTechnique: '',
     video: this.fb.group({
-      thumbnail: 'https://img.youtube.com/vi/1i92oa6jLsA/mqdefault.jpg',
-      demoUrl: 'https://www.youtube.com/embed/NoFB9u94jFM',
-      jamUrl: 'https://www.youtube.com/embed/xAEjObNAPQQ',
-      tabUrl: '/assets/cumberland.pdf',
+      thumbnail: '',
+      demoUrl: '',
+      jamUrl: '',
+      tabUrl: '',
     }),
   });
   private ngUnsubscribe = new Subject();

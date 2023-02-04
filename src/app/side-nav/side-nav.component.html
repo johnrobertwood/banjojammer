@@ -1,5 +1,5 @@
 <mat-accordion>
-  <mat-expansion-panel #banjoContent>
+  <mat-expansion-panel #banjoContent expanded>
     <mat-expansion-panel-header>
       <mat-panel-title>Banjo</mat-panel-title>
     </mat-expansion-panel-header>
@@ -13,7 +13,7 @@
       {{ technique.displayName }}
     </mat-panel-description>
   </mat-expansion-panel>
-  <mat-expansion-panel [disabled]="!loggedIn">
+  <!-- <mat-expansion-panel [disabled]="!loggedIn">
     <mat-expansion-panel-header>
       <mat-panel-title>Pistol Tactics</mat-panel-title>
       <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
@@ -26,5 +26,5 @@
     >
       {{ technique.displayName }}
     </mat-panel-description>
-  </mat-expansion-panel>
+  </mat-expansion-panel> -->
 </mat-accordion>
