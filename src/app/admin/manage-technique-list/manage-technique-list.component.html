@@ -1,8 +1,12 @@
 <div>
   <h2>Manage Techniques List</h2>
   <nav>
-    <a mat-stroked-button color="accent" (click)="getTechniques('banjo-tech')"
-      >Banjo</a
+    <a
+      *ngFor="let module of modules$ | async"
+      mat-stroked-button
+      color="accent"
+      (click)="getTechniques(module.userId)"
+      >{{ module.userId }}</a
     >
   </nav>
   <mat-selection-list [multiple]="false" class="techniques">

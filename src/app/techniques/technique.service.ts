@@ -32,6 +32,13 @@ export class TechniqueService {
       .pipe(catchError(this.ehs.handleError<Technique[]>('getTechniques', [])));
   }
 
+  getModules(): Observable<any> {
+    return this.http.get<any>(`${this.apiGatewayUrl}/modules`).pipe(
+      tap((x) => console.log(x)),
+      catchError(this.ehs.handleError<any>('getModules', []))
+    );
+  }
+
   getUserFilterTechnique(
     moduleName: string | null,
     techName: string | null
