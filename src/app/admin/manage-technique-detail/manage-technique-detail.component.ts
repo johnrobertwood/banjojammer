@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap, map, mergeMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { DialogService } from 'src/app/dialog.service';
 import { FormBuilder } from '@angular/forms';
@@ -57,14 +57,13 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
       .pipe(
         switchMap((params: ParamMap) =>
           this.techniqueService.getUserFilterTechnique(
-            'banjo-tech',
+            params.get('module'),
             params.get('name')
           )
         )
       )
       .subscribe((technique: Technique) => {
         this.tagForm.patchValue(technique);
-        console.log(this.tagForm.value);
       });
   }
 

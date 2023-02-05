@@ -4,13 +4,13 @@
   </section>
   <div class="container card-body">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      <div class="col my-2" *ngFor="let technique of banjo$ | async">
+      <div class="col my-2" *ngFor="let technique of homePageTechniques">
         <div
           class="h-100 d-flex flex-column justify-content-between rounded-sm border"
         >
           <img
             [src]="technique.video.thumbnail | safe"
-            [routerLink]="['/technique', 'banjo-tech', technique.name]"
+            [routerLink]="['/technique', homeModule, technique.name]"
             class="w-100 mb-1"
             alt="Video Thumbnail"
           />
@@ -29,7 +29,7 @@
                     mat-stroked-button
                     color="accent"
                     class="w-100 py-2 px-4 mb-1 btn-dark"
-                    [routerLink]="['/technique', 'banjo-tech', technique.name]"
+                    [routerLink]="['/technique', homeModule, technique.name]"
                   >
                     Song Details
                   </button>

@@ -12,12 +12,16 @@
   <mat-selection-list [multiple]="false" class="techniques">
     <mat-list-option
       *ngFor="let technique of techniques$ | async"
-      [routerLink]="['/admin/manage-technique-detail', technique.name]"
+      [routerLink]="[
+        '/admin/manage-technique-detail',
+        moduleName,
+        technique.name
+      ]"
       [class.selected]="technique.name === selectedName"
       routerLinkActive="activebutton"
       class="d-flex justify-content-center"
     >
-      {{ technique.name }}
+      {{ technique.displayName }}
     </mat-list-option>
   </mat-selection-list>
 </div>

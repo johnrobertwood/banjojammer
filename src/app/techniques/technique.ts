@@ -10,18 +10,17 @@ export interface Technique {
     tabUrl: string;
     thumbnail: string;
   };
-  notes: [
-    {
-      text: string;
-    },
-    {
-      text: string;
-    },
-    {
-      text: string;
-    },
-    {
-      text: string;
-    }
-  ];
+}
+
+export interface SongModule {
+  userId: string;
+}
+
+export interface ModuleObject {
+  module: string;
+  techniques: Technique[];
+}
+
+export interface ModuleNames {
+  userId: string;
 }

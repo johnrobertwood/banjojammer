@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-import { Technique } from '../techniques/technique';
 import { TechniqueService } from '../techniques/technique.service';
-
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -13,28 +7,33 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  banjo$!: Observable<Technique[]>;
-  // pistolTactics$!: Observable<Technique[]>;
-
   isLoggedIn = false;
   thumbnailUrl = '';
+  homePageTechniques = [];
+  homeModule = '';
 
-  constructor(
-    private route: ActivatedRoute,
-    private techniqueService: TechniqueService
-  ) {}
+  constructor(private techniqueService: TechniqueService) {}
 
   ngOnInit(): void {
-    this.getTechniques();
+    this.getHomeModuleTechniques();
   }
 
-  getTechniques(): void {
-    this.banjo$ = this.route.paramMap.pipe(
-      switchMap(() => this.techniqueService.getTechniques('banjo-tech'))
+  getHomeModuleTechniques(): void {
+    this.techniqueService.getModules().subscribe(
+      (data) => {
+        this.homeModule = data[0].userId;
+        this.getTechniques(this.homeModule);
+      },
+      (err) => {
+        console.error(err);
+      }
     );
-    // this.pistolTactics$ = this.route.paramMap.pipe(
-    //   switchMap(() => this.techniqueService.getTechniques('randy-tech'))
-    // );
+  }
+
+  getTechniques(homeModule: string): void {
+    this.techniqueService.getTechniques(homeModule).subscribe((data) => {
+      this.homePageTechniques = data;
+    });
     if (localStorage.getItem('currentUser')) {
       this.isLoggedIn = true;
     } else {
