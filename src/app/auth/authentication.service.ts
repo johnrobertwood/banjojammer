@@ -97,7 +97,10 @@ export class AuthenticationService {
     //   { text: tagForm.notes.note4 },
     // ];
 
-    tagForm.nextTechnique = null;
+    tagForm.nextTechnique =
+      tagForm.nextTechnique === '' ? null : tagForm.nextTechnique;
+    tagForm.prevTechnique =
+      tagForm.prevTechnique === '' ? null : tagForm.prevTechnique;
 
     // delete tagForm.notes.note1;
     // delete tagForm.notes.note2;

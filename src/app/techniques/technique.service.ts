@@ -81,11 +81,15 @@ export class TechniqueService {
     }
   }
 
-  editTechnique(technique: Technique): Observable<Technique> {
+  editTechnique(
+    technique: Technique,
+    moduleName: string
+  ): Observable<Technique> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const data = {
       currentUser,
       technique,
+      module: moduleName,
     };
     const url = `${this.apiGatewayUrl}/technique`;
 

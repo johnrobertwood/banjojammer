@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { TechniqueService } from 'src/app/techniques/technique.service';
@@ -20,7 +20,9 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   display = false;
   editName = '';
   editAnswer = '';
+  moduleName = '';
   private ngUnsubscribe = new Subject();
+  @ViewChild('modInput') modInput!: HTMLInputElement;
 
   tagForm = this.fb.group({
     id: '',
@@ -46,7 +48,8 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getTechnique();
-    this.route.data.subscribe((data: { technique: Technique }) => {
+
+    this.route.data.subscribe((data) => {
       this.editName = data.technique.displayName;
       this.technique = data.technique;
     });
@@ -55,12 +58,13 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   getTechnique(): void {
     this.route.paramMap
       .pipe(
-        switchMap((params: ParamMap) =>
-          this.techniqueService.getUserFilterTechnique(
+        switchMap((params: ParamMap) => {
+          this.moduleName = params.get('module');
+          return this.techniqueService.getUserFilterTechnique(
             params.get('module'),
             params.get('name')
-          )
-        )
+          );
+        })
       )
       .subscribe((technique: Technique) => {
         this.tagForm.patchValue(technique);
@@ -75,9 +79,11 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   }
 
   save(): void {
-    this.techniqueService.editTechnique(this.tagForm.value).subscribe(() => {
-      this.goBack(this.technique.name);
-    });
+    this.techniqueService
+      .editTechnique(this.tagForm.value, this.moduleName)
+      .subscribe(() => {
+        this.goBack(this.technique.name);
+      });
   }
 
   canDeactivate(): boolean | Observable<boolean> {

@@ -1,4 +1,16 @@
 <div>
+  <div class="d-flex justify-content-center">
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Module Name</mat-label>
+      <input
+        [(ngModel)]="moduleName"
+        type="text"
+        placeholder="Module Name"
+        matInput
+        disabled
+      />
+    </mat-form-field>
+  </div>
   <div [formGroup]="tagForm">
     <div class="d-flex flex-column justify-content-center align-items-center">
       <div class="d-flex">
@@ -70,7 +82,7 @@
           />
         </mat-form-field>
         <mat-form-field appearance="outline" color="accent">
-          <mat-label>Video URL</mat-label>
+          <mat-label>Thumbnail URL</mat-label>
           <input
             type="text"
             placeholder="Video Thumbnail"

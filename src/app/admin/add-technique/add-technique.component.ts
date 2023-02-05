@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/auth/authentication.service';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-technique',
@@ -27,13 +28,16 @@ export class AddTechniqueComponent {
 
   constructor(
     private authService: AuthenticationService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   addTechnique(moduleName: string): void {
     this.authService
       .addTechniques(this.tagForm.value, moduleName)
       .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe();
+      .subscribe(() => {
+        this.router.navigate(['/admin/manage-technique-list']);
+      });
   }
 }
