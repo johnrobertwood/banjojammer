@@ -120,28 +120,15 @@ export class AuthenticationService {
       );
   }
 
-  updateTechnique(technique: Technique, saveType: string): Observable<void> {
+  updateTechnique(favArray: any) {
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/favorite';
 
-    const userHistory = {
-      favorite: [],
-    };
-
-    const found = userHistory[saveType].find(
-      (t: { name: string }) => t.name === technique.name
-    );
-    if (found) {
-      userHistory[saveType] = userHistory[saveType].filter(
-        (tech: { name: string }) => tech.name !== technique.name
-      );
-    } else {
-      userHistory[saveType].push(technique);
-    }
-
     const data = {
       username: this.userData.username,
-      userHistory: userHistory,
+      userHistory: {
+        favorite: favArray,
+      },
     };
 
     return this.http
@@ -153,14 +140,16 @@ export class AuthenticationService {
       );
   }
 
-  getUserHistory(): Observable<any> {
+  getUserHistory() {
     const data = {
       username: this.userData.username,
     };
     const url =
       'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/user';
     return this.http.post<any>(url, data, this.httpOptions).pipe(
-      tap((user) => (user ? (this.userHistory = user.userHistory) : null)),
+      tap((user) => {
+        user ? (this.userHistory = user.userHistory) : null;
+      }),
       catchError(this.ehs.handleError<any>('getUserHistory HTTP get error'))
     );
   }

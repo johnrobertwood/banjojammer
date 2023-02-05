@@ -7,49 +7,14 @@
       <nav class="mb-2">
         <div class="mb-2">
           <button
+            *ngFor="let module of modules$ | async"
             mat-stroked-button
             class="mx-2"
             color="accent"
-            [routerLink]="['/favorites/randy-tech/activeShooterResponse']"
+            (click)="getTechniques(module.userId)"
             routerLinkActive="activebutton"
           >
-            Pistol Tactics
-          </button>
-          <button
-            mat-stroked-button
-            class="mx-2"
-            color="accent"
-            [routerLink]="['/favorites/glover-tech/kneeSlice']"
-            routerLinkActive="activebutton"
-          >
-            Grappling
-          </button>
-          <button
-            mat-stroked-button
-            class="mx-2"
-            color="accent"
-            [routerLink]="['/favorites/gorilla-tech/baseballChoke']"
-            routerLinkActive="activebutton"
-          >
-            Non Lethal Weapons
-          </button>
-          <button
-            mat-stroked-button
-            class="mx-2"
-            color="accent"
-            [routerLink]="['/favorites/grill-tech/bravoFlipChoke']"
-            routerLinkActive="activebutton"
-          >
-            Edged Weapons
-          </button>
-          <button
-            mat-stroked-button
-            class="mx-2"
-            color="accent"
-            [routerLink]="['/favorites/greek-tech/dopeMount']"
-            routerLinkActive="activebutton"
-          >
-            Situational Awareness
+            {{ module.userId }}
           </button>
         </div>
       </nav>

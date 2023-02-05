@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap, tap } from 'rxjs/operators';
+import { concatMap, switchMap, tap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { AuthenticationService } from 'src/app/auth/authentication.service';
 
@@ -22,6 +22,7 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
   url = '';
   modulePath!: string | null;
   techniqueName!: string | null;
+  favorites: any;
   private ngUnsubscribe = new Subject();
 
   constructor(
@@ -43,15 +44,17 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
           this.modulePath,
           this.techniqueName
         );
-        // return this.techniqueService.getStaticTechnique();
       }),
       tap((technique) => {
         if (localStorage.getItem('currentUser')) {
           this.isLoggedIn = true;
+          this.isFavorite = false;
           this.authService.getUserHistory().subscribe((res) => {
-            this.isFavorite = res.userHistory.favorite.find(
-              (t: Technique) => t.name === technique.name
-            );
+            res.userHistory.favorite.find((t: Technique) => {
+              if (t.name === technique.name) {
+                this.isFavorite = true;
+              }
+            });
           });
         } else {
           this.isLoggedIn = false;
@@ -60,9 +63,26 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
     );
   }
 
-  updateTechnique(technique: Technique, saveType: string): void {
-    this.authService.updateTechnique(technique, saveType).subscribe();
-    this.isFavorite = !this.isFavorite;
+  updateTechnique(technique: Technique): void {
+    this.authService
+      .getUserHistory()
+      .pipe(
+        concatMap((res) => {
+          let favoriteArr = res.userHistory.favorite;
+          this.isFavorite = true;
+          favoriteArr = favoriteArr.filter((t: Technique) => {
+            if (t.name === technique.name) {
+              this.isFavorite = false;
+            }
+            return t.name !== technique.name;
+          });
+          if (this.isFavorite) {
+            favoriteArr.push(technique);
+          }
+          return this.authService.updateTechnique(favoriteArr);
+        })
+      )
+      .subscribe();
   }
 
   ngOnDestroy(): void {
