@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Technique } from '../techniques/technique';
 import { slideInAnimation } from '../animations';
 import { TechniqueService } from '../techniques/technique.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-side-nav',
@@ -24,7 +25,14 @@ export class SideNavComponent implements OnInit {
   constructor(private techniqueService: TechniqueService) {}
 
   ngOnInit(): void {
-    this.moduleObject$ = this.techniqueService.getAllTechniques();
+    this.moduleObject$ = this.techniqueService.getAllTechniques().pipe(
+      map((x) => {
+        x.forEach((y) => {
+          y.techniques.sort((a, b) => a.id - b.id);
+        });
+        return x;
+      })
+    );
   }
 
   getHomeModuleTechniques(): void {
