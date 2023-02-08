@@ -34,6 +34,7 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
       thumbnail: '',
       demoUrl: '',
       jamUrl: '',
+      fastJamUrl: '',
       tabUrl: '',
     }),
   });

@@ -1,13 +1,23 @@
 <div class="container-fluid mt-3">
   <div class="row">
     <div class="col-4">
-      <h2>Demo</h2>
-      <div class="iframe-container mb-3">
-        <iframe class="responsive-iframe" [src]="demoUrl | safe"></iframe>
+      <div *ngIf="demoUrl" class="mb-2">
+        <h2>Demo</h2>
+        <div class="iframe-container mb-2">
+          <iframe class="responsive-iframe" [src]="demoUrl | safe"></iframe>
+        </div>
       </div>
-      <h2>Jam</h2>
-      <div class="iframe-container">
-        <iframe class="responsive-iframe" [src]="jamUrl | safe"></iframe>
+      <div *ngIf="jamUrl" class="mb-2">
+        <h2>Slow Jam</h2>
+        <div class="iframe-container mb-2">
+          <iframe class="responsive-iframe" [src]="jamUrl | safe"></iframe>
+        </div>
+      </div>
+      <div *ngIf="fastJamUrl" class="mb-2">
+        <h2>Fast Jam</h2>
+        <div class="iframe-container">
+          <iframe class="responsive-iframe" [src]="fastJamUrl | safe"></iframe>
+        </div>
       </div>
     </div>
     <div class="col-8">

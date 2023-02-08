@@ -1,6 +1,6 @@
 <mat-accordion>
-  <ng-container *ngFor="let moduleObject of moduleObject$ | async">
-    <mat-expansion-panel>
+  <ng-container *ngFor="let moduleObject of moduleObject$ | async; index as i">
+    <mat-expansion-panel [expanded]="i === 0">
       <mat-expansion-panel-header>
         <mat-panel-title>{{ moduleObject.module }}</mat-panel-title>
       </mat-expansion-panel-header>

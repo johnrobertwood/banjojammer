@@ -6,10 +6,8 @@
 }
 
 .pdf-container {
-  position: relative;
   width: 100%;
-  overflow: hidden;
-  padding-top: 130%;
+  padding-top: 75vh;
 }
 
 .responsive-iframe {

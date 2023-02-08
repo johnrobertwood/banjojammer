@@ -11,7 +11,7 @@ const techniquesRoutes: Routes = [
     component: TechniqueDetailComponent,
   },
   {
-    path: 'favorites/:module/:name',
+    path: 'favorites',
     component: FavoritesListComponent,
     // resolve: {
     //   flashcard: FavoritesListResolverService,

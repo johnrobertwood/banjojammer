@@ -28,6 +28,7 @@ export class FavoritesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getModules();
+    this.getTechniques('banjo-tech');
   }
 
   selectTech(tech: Technique): void {
@@ -41,6 +42,7 @@ export class FavoritesListComponent implements OnInit {
   getTechniques(moduleName: string): void {
     this.techniques$ = this.route.paramMap.pipe(
       switchMap((params) => {
+        this.modulePath = params.get('module');
         this.selectedName = params.get('name');
         return this.authService.getUserHistory();
       }),

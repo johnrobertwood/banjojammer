@@ -11,6 +11,7 @@ import { pluck } from 'rxjs/operators';
 export class VideoFrameComponent implements OnInit {
   @Input() demoUrl = '';
   @Input() jamUrl = '';
+  @Input() fastJamUrl = 'x';
   @Input() tabUrl = '';
   @Input() isSmallScreen = false;
 

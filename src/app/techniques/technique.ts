@@ -7,6 +7,7 @@ export interface Technique {
   video: {
     demoUrl: string;
     jamUrl: string;
+    fastJamUrl?: string;
     tabUrl: string;
     thumbnail: string;
   };
