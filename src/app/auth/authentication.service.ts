@@ -6,7 +6,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ErrorHandlingService } from '../error-handling.service';
-import { Technique } from '../techniques/technique';
 
 @Injectable({
   providedIn: 'root',
