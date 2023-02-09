@@ -22,7 +22,6 @@ export class TechniqueDetailComponent implements OnInit, OnDestroy {
   url = '';
   modulePath!: string | null;
   techniqueName!: string | null;
-  favorites: unknown;
   private ngUnsubscribe = new Subject();
 
   constructor(
