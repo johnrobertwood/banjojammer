@@ -27,9 +27,8 @@
       [tabUrl]="technique.video.tabUrl"
     ></app-video-frame>
     <div class="d-flex align-items-center justify-content-center mt-3">
-      <div class="w-25 mr-1">
+      <div class="w-25 mr-1" *ngIf="technique.prevTechnique">
         <a
-          [disabled]="technique.prevTechnique === null"
           mat-stroked-button
           color="accent"
           class="p-2 w-100 btn-dark"
@@ -38,9 +37,8 @@
           <mat-icon>keyboard_arrow_left</mat-icon> Previous
         </a>
       </div>
-      <div class="w-25 ml-1">
+      <div class="w-25 ml-1" *ngIf="technique.nextTechnique">
         <a
-          [disabled]="technique.nextTechnique === null"
           mat-stroked-button
           color="accent"
           class="p-2 w-100 btn-dark"

@@ -39,17 +39,17 @@
           </div>
         </div>
       </div>
-      <!-- <div
-        [class.disabled]="!isLoggedIn ? true : null" 
+      <div
+        [class.disabled]="!isLoggedIn ? true : null"
         class="col my-2"
-        *ngFor="let technique of pistolTactics$ | async"
+        *ngFor="let technique of paidTechniques"
       >
         <div
           class="h-100 d-flex flex-column justify-content-between rounded-sm border"
         >
           <img
             [src]="technique.video.thumbnail | safe"
-            [routerLink]="['/technique', 'randy-tech', technique.name]"
+            [routerLink]="['/technique', paidModule, technique.name]"
             class="w-100 mb-1"
             alt="Video Thumbnail"
           />
@@ -69,7 +69,7 @@
                     mat-stroked-button
                     color="accent"
                     class="w-100 py-2 px-4 mb-1 btn-dark"
-                    [routerLink]="['/technique', 'randy-tech', technique.name]"
+                    [routerLink]="['/technique', paidModule, technique.name]"
                   >
                     Song Details
                     <mat-icon [hidden]="isLoggedIn || false">lock</mat-icon>
@@ -79,7 +79,7 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </main>

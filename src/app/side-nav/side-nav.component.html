@@ -1,32 +1,35 @@
-<mat-accordion>
-  <ng-container *ngFor="let moduleObject of moduleObject$ | async; index as i">
-    <mat-expansion-panel [expanded]="i === 0" [disabled]="!loggedIn && i > 0">
-      <mat-expansion-panel-header>
-        <mat-panel-title>{{ moduleObject.module }}</mat-panel-title>
-        <mat-icon [hidden]="loggedIn || i === 0">lock</mat-icon>
-      </mat-expansion-panel-header>
-      <mat-panel-description
-        mat-menu-item
-        [routerLink]="['technique', moduleObject.module, technique.name]"
-        routerLinkActive="activebutton"
-        (click)="navigateToDetail()"
-        *ngFor="let technique of moduleObject.techniques"
-      >
-        {{ technique.displayName }}
-      </mat-panel-description>
-    </mat-expansion-panel>
-  </ng-container>
-  <a
-    mat-stroked-button
-    routerLink="/login"
-    (click)="navigateToDetail()"
-    [hidden]="loggedIn"
-    color="accent"
-    class="cta-button btn btn-secondary m-1 px-2 py-1 br-2"
+<!-- <mat-accordion> -->
+<ng-container *ngFor="let moduleObject of moduleObject$ | async; index as i">
+  <mat-expansion-panel
+    [expanded]="loggedIn || (!loggedIn && i === 0)"
+    [disabled]="!loggedIn && i > 0"
   >
-    Create Account To Unlock Content
-  </a>
-  <!-- <mat-expansion-panel [disabled]="!loggedIn">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{ moduleObject.module }}</mat-panel-title>
+      <mat-icon [hidden]="loggedIn || i === 0">lock</mat-icon>
+    </mat-expansion-panel-header>
+    <mat-panel-description
+      mat-menu-item
+      [routerLink]="['technique', moduleObject.module, technique.name]"
+      routerLinkActive="activebutton"
+      (click)="navigateToDetail()"
+      *ngFor="let technique of moduleObject.techniques"
+    >
+      {{ technique.displayName }}
+    </mat-panel-description>
+  </mat-expansion-panel>
+</ng-container>
+<a
+  mat-stroked-button
+  routerLink="/login"
+  (click)="navigateToDetail()"
+  [hidden]="loggedIn"
+  color="accent"
+  class="cta-button btn btn-secondary m-1 px-2 py-1 br-2"
+>
+  Create Account To Unlock Content
+</a>
+<!-- <mat-expansion-panel [disabled]="!loggedIn">
     <mat-expansion-panel-header>
       <mat-panel-title>Pistol Tactics</mat-panel-title>
       <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
@@ -40,4 +43,4 @@
       {{ technique.displayName }}
     </mat-panel-description>
   </mat-expansion-panel> -->
-</mat-accordion>
+<!-- </mat-accordion> -->
