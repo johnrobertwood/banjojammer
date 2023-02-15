@@ -1,12 +1,12 @@
 <!-- <mat-accordion> -->
 <ng-container *ngFor="let moduleObject of moduleObject$ | async; index as i">
   <mat-expansion-panel
-    [expanded]="loggedIn || (!loggedIn && i === 0)"
-    [disabled]="!loggedIn && i > 0"
+    [expanded]="loggedIn || (!loggedIn && i <= 1)"
+    [disabled]="!loggedIn && i > 1"
   >
     <mat-expansion-panel-header>
       <mat-panel-title>{{ moduleObject.module }}</mat-panel-title>
-      <mat-icon [hidden]="loggedIn || i === 0">lock</mat-icon>
+      <mat-icon [hidden]="!(!loggedIn && i > 1)">lock</mat-icon>
     </mat-expansion-panel-header>
     <mat-panel-description
       mat-menu-item
@@ -22,7 +22,6 @@
 <a
   mat-stroked-button
   routerLink="/login"
-  (click)="navigateToDetail()"
   [hidden]="loggedIn"
   color="accent"
   class="cta-button btn btn-secondary m-1 px-2 py-1 br-2"

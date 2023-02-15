@@ -21,9 +21,9 @@ img {
 }
 
 .disabled {
-  pointer-events: none;
-  cursor: default;
-  opacity: .5;
+  /* pointer-events: none;
+  cursor: default; */
+  opacity: 0.5;
 }
 
 .cta-button {

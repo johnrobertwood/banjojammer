@@ -11,8 +11,10 @@ export class HomeComponent implements OnInit {
   thumbnailUrl = '';
   homePageTechniques = [];
   paidTechniques = [];
+  gTechniques = [];
   homeModule = '';
   paidModule = '';
+  gModule = '';
 
   constructor(private techniqueService: TechniqueService) {}
 
@@ -23,10 +25,12 @@ export class HomeComponent implements OnInit {
   getHomeModuleTechniques(): void {
     this.techniqueService.getModules().subscribe(
       (data) => {
-        this.homeModule = data[0].userId;
-        this.paidModule = data[1].userId;
+        this.homeModule = data[1].userId;
+        this.gModule = data[2].userId;
+        this.paidModule = data[0].userId;
         this.getTechniques(this.homeModule);
         this.getPaidTechniques(this.paidModule);
+        this.getGTechniques(this.gModule);
       },
       (err) => {
         console.error(err);
@@ -43,6 +47,17 @@ export class HomeComponent implements OnInit {
   getPaidTechniques(paidModule: string): void {
     this.techniqueService.getTechniques(paidModule).subscribe((data) => {
       this.paidTechniques = data;
+    });
+    if (localStorage.getItem('currentUser')) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
+  }
+
+  getGTechniques(paidModule: string): void {
+    this.techniqueService.getTechniques(paidModule).subscribe((data) => {
+      this.gTechniques = data;
     });
     if (localStorage.getItem('currentUser')) {
       this.isLoggedIn = true;

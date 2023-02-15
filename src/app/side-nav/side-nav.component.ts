@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Technique } from '../techniques/technique';
 import { slideInAnimation } from '../animations';
 import { TechniqueService } from '../techniques/technique.service';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-side-nav',
@@ -31,32 +31,36 @@ export class SideNavComponent implements OnInit {
           y.techniques.sort((a, b) => a.id - b.id);
         });
         return x;
+      }),
+      tap((x) => console.log(x)),
+      map((x) => {
+        return x.sort().reverse();
       })
     );
   }
 
-  getHomeModuleTechniques(): void {
-    this.techniqueService.getModules().subscribe(
-      (data) => {
-        this.homeModule = data[0].userId;
-        this.getTechniques(this.homeModule);
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
-  }
+  // getHomeModuleTechniques(): void {
+  //   this.techniqueService.getModules().subscribe(
+  //     (data) => {
+  //       this.homeModule = data[0].userId;
+  //       this.getTechniques(this.homeModule);
+  //     },
+  //     (err) => {
+  //       console.error(err);
+  //     }
+  //   );
+  // }
 
-  getTechniques(homeModule: string): void {
-    this.techniqueService.getTechniques(homeModule).subscribe((data) => {
-      this.homePageTechniques = data;
-    });
-    // if (localStorage.getItem('currentUser')) {
-    //   this.isLoggedIn = true;
-    // } else {
-    //   this.isLoggedIn = false;
-    // }
-  }
+  // getTechniques(homeModule: string): void {
+  //   this.techniqueService.getTechniques(homeModule).subscribe((data) => {
+  //     this.homePageTechniques = data;
+  //   });
+  // if (localStorage.getItem('currentUser')) {
+  //   this.isLoggedIn = true;
+  // } else {
+  //   this.isLoggedIn = false;
+  // }
+  // }
 
   navigateToDetail(): void {
     this.closeSideNav.emit(null);
