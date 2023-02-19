@@ -55,8 +55,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  getGTechniques(paidModule: string): void {
-    this.techniqueService.getTechniques(paidModule).subscribe((data) => {
+  getGTechniques(gModule: string): void {
+    this.techniqueService.getTechniques(gModule).subscribe((data) => {
       this.gTechniques = data;
     });
     if (localStorage.getItem('currentUser')) {
