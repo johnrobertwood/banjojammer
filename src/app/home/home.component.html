@@ -10,7 +10,7 @@
         >
           <img
             [src]="technique.video.thumbnail | safe"
-            [routerLink]="['/technique', gModule, technique.name]"
+            [routerLink]="['/technique/G-Songs', technique.name]"
             class="w-100 mb-1"
             alt="Video Thumbnail"
           />
@@ -29,7 +29,7 @@
                     mat-stroked-button
                     color="accent"
                     class="w-100 py-2 px-4 mb-1 btn-dark"
-                    [routerLink]="['/technique', gModule, technique.name]"
+                    [routerLink]="['/technique/G-Songs', technique.name]"
                   >
                     Song Details
                   </button>
