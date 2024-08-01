@@ -1,8 +1,8 @@
-# bjjquiz
+# Banjo Jammer
 
-**Self defense and martial arts technique app**
+**An app for learning to play old time banjo**
 
-(https://bjjquiz.com)
+(https://banjojammer.com)
 
 ### Getting started
 
