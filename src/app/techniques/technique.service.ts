@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { Technique } from './technique';
+import { ModuleNames, ModuleObject, Technique } from './technique';
 import { ErrorHandlingService } from '../error-handling.service';
 
 @Injectable({ providedIn: 'root' })
@@ -30,6 +30,20 @@ export class TechniqueService {
         this.httpOptions
       )
       .pipe(catchError(this.ehs.handleError<Technique[]>('getTechniques', [])));
+  }
+
+  getAllTechniques(): Observable<ModuleObject[]> {
+    return this.http
+      .get<ModuleObject[]>(`${this.apiGatewayUrl}/techniques`)
+      .pipe(
+        catchError(this.ehs.handleError<ModuleObject[]>('getAllTechniques', []))
+      );
+  }
+
+  getModules(): Observable<ModuleNames[]> {
+    return this.http
+      .get<ModuleNames[]>(`${this.apiGatewayUrl}/modules`)
+      .pipe(catchError(this.ehs.handleError<ModuleNames[]>('getModules', [])));
   }
 
   getUserFilterTechnique(
@@ -67,11 +81,15 @@ export class TechniqueService {
     }
   }
 
-  editTechnique(technique: Technique): Observable<Technique> {
+  editTechnique(
+    technique: Technique,
+    moduleName: string
+  ): Observable<Technique> {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const data = {
       currentUser,
       technique,
+      module: moduleName,
     };
     const url = `${this.apiGatewayUrl}/technique`;
 

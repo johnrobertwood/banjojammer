@@ -18,8 +18,9 @@ export class ManageTechniqueDetailResolverService
     route: ActivatedRouteSnapshot
   ): Observable<Technique> | Observable<never> {
     const name = route.paramMap.get('name');
+    const module = route.paramMap.get('module');
 
-    return this.ts.getUserFilterTechnique('randy-tech', name).pipe(
+    return this.ts.getUserFilterTechnique(module, name).pipe(
       take(1),
       mergeMap((technique) => {
         if (technique) {

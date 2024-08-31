@@ -1,72 +1,45 @@
-<mat-accordion>
-  <mat-expansion-panel [expanded]="!loggedIn">
+<!-- <mat-accordion> -->
+<ng-container *ngFor="let moduleObject of moduleObject$ | async; index as i">
+  <mat-expansion-panel
+    [expanded]="loggedIn || (!loggedIn && i <= 1)"
+    [disabled]="!loggedIn && i > 1"
+  >
     <mat-expansion-panel-header>
-      <mat-panel-title>Grappling</mat-panel-title>
+      <mat-panel-title>{{ moduleObject.module }}</mat-panel-title>
+      <mat-icon [hidden]="!(!loggedIn && i > 1)">lock</mat-icon>
     </mat-expansion-panel-header>
     <mat-panel-description
       mat-menu-item
-      [routerLink]="['technique', 'glover-tech', technique.name]"
+      [routerLink]="['technique', moduleObject.module, technique.name]"
       routerLinkActive="activebutton"
-      *ngFor="let technique of techArray[0] | async"
       (click)="navigateToDetail()"
+      *ngFor="let technique of moduleObject.techniques"
     >
       {{ technique.displayName }}
     </mat-panel-description>
   </mat-expansion-panel>
-  <mat-expansion-panel [disabled]="!loggedIn">
+</ng-container>
+<a
+  mat-stroked-button
+  routerLink="/login"
+  [hidden]="loggedIn"
+  color="accent"
+  class="cta-button btn btn-secondary m-1 px-2 py-1 br-2"
+>
+  Create Account To Unlock Content
+</a>
+<!-- <mat-expansion-panel [disabled]="!loggedIn">
     <mat-expansion-panel-header>
       <mat-panel-title>Pistol Tactics</mat-panel-title>
       <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
     </mat-expansion-panel-header>
     <mat-panel-description
-      mat-menu-item
+    mat-menu-item
       [routerLink]="['technique', 'randy-tech', technique.name]"
       routerLinkActive="activebutton"
       *ngFor="let technique of techArray[1] | async"
     >
       {{ technique.displayName }}
     </mat-panel-description>
-  </mat-expansion-panel>
-  <mat-expansion-panel [disabled]="!loggedIn">
-    <mat-expansion-panel-header>
-      <mat-panel-title>Non Lethal Weapons</mat-panel-title>
-      <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-    </mat-expansion-panel-header>
-    <mat-panel-description
-      mat-menu-item
-      [routerLink]="['technique', 'gorilla-tech', technique.name]"
-      routerLinkActive="activebutton"
-      *ngFor="let technique of techArray[2] | async"
-    >
-      {{ technique.displayName }}
-    </mat-panel-description>
-  </mat-expansion-panel>
-  <mat-expansion-panel [disabled]="!loggedIn">
-    <mat-expansion-panel-header>
-      <mat-panel-title>Edged Weapons</mat-panel-title>
-      <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-    </mat-expansion-panel-header>
-    <mat-panel-description
-      mat-menu-item
-      [routerLink]="['technique', 'grill-tech', technique.name]"
-      routerLinkActive="activebutton"
-      *ngFor="let technique of techArray[3] | async"
-    >
-      {{ technique.displayName }}
-    </mat-panel-description>
-  </mat-expansion-panel>
-  <mat-expansion-panel #gorillaContent [disabled]="!loggedIn">
-    <mat-expansion-panel-header>
-      <mat-panel-title>Situational Awareness</mat-panel-title>
-      <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-    </mat-expansion-panel-header>
-    <mat-panel-description
-      mat-menu-item
-      [routerLink]="['technique', 'greek-tech', technique.name]"
-      routerLinkActive="activebutton"
-      *ngFor="let technique of techArray[4] | async"
-    >
-      {{ technique.displayName }}
-    </mat-panel-description>
-  </mat-expansion-panel>
-</mat-accordion>
+  </mat-expansion-panel> -->
+<!-- </mat-accordion> -->

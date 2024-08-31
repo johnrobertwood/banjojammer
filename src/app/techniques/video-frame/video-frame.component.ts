@@ -9,12 +9,16 @@ import { pluck } from 'rxjs/operators';
   styleUrls: ['./video-frame.component.css'],
 })
 export class VideoFrameComponent implements OnInit {
-  @Input() url = '';
+  @Input() demoUrl = '';
+  @Input() jamUrl = '';
+  @Input() fastJamUrl = 'x';
+  @Input() tabUrl = '';
   @Input() isSmallScreen = false;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
+    // console.log(this.technique[0]);
     this.breakpointObserver
       .observe(['(max-width: 600px)'])
       .pipe(pluck('matches'))

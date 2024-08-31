@@ -1,9 +1,22 @@
 <div>
   <h2>Manage Techniques List</h2>
+  <nav>
+    <a
+      *ngFor="let module of modules$ | async"
+      mat-stroked-button
+      color="accent"
+      (click)="getTechniques(module.userId)"
+      >{{ module.userId }}</a
+    >
+  </nav>
   <mat-selection-list [multiple]="false" class="techniques">
     <mat-list-option
       *ngFor="let technique of techniques$ | async"
-      [routerLink]="['/admin/manage-technique-detail', technique.name]"
+      [routerLink]="[
+        '/admin/manage-technique-detail',
+        moduleName,
+        technique.name
+      ]"
       [class.selected]="technique.name === selectedName"
       routerLinkActive="activebutton"
       class="d-flex justify-content-center"

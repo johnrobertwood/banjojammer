@@ -24,20 +24,6 @@ const appRoutes: Routes = [
     canLoad: [AuthGuard],
   },
   {
-    path: 'quiz-deck',
-    loadChildren: () =>
-      import('./quiz-deck/quiz-deck.module').then((m) => m.QuizDeckModule),
-    data: { preload: true },
-  },
-  {
-    path: 'flashcard-deck',
-    loadChildren: () =>
-      import('./flashcard-deck/flashcard-deck.module').then(
-        (m) => m.FlashcardDeckModule
-      ),
-    data: { preload: true },
-  },
-  {
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard],

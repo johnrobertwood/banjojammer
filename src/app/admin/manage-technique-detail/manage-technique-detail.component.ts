@@ -1,12 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { TechniqueService } from 'src/app/techniques/technique.service';
 import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap, map, mergeMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { DialogService } from 'src/app/dialog.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-manage-technique-detail',
@@ -19,33 +20,56 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   display = false;
   editName = '';
   editAnswer = '';
+  moduleName = '';
   private ngUnsubscribe = new Subject();
+  @ViewChild('modInput') modInput!: HTMLInputElement;
+
+  tagForm = this.fb.group({
+    id: '',
+    name: '',
+    displayName: '',
+    prevTechnique: '',
+    nextTechnique: '',
+    video: this.fb.group({
+      thumbnail: '',
+      demoUrl: '',
+      jamUrl: '',
+      fastJamUrl: '',
+      tabUrl: '',
+    }),
+  });
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private techniqueService: TechniqueService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
     this.getTechnique();
-    this.route.data.subscribe((data: { technique: Technique }) => {
+
+    this.route.data.subscribe((data) => {
       this.editName = data.technique.displayName;
-      this.editAnswer = data.technique.flashcard.answer;
       this.technique = data.technique;
     });
   }
 
   getTechnique(): void {
-    this.technique$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.techniqueService.getUserFilterTechnique(
-          'randy-tech',
-          params.get('name')
-        )
+    this.route.paramMap
+      .pipe(
+        switchMap((params: ParamMap) => {
+          this.moduleName = params.get('module');
+          return this.techniqueService.getUserFilterTechnique(
+            params.get('module'),
+            params.get('name')
+          );
+        })
       )
-    );
+      .subscribe((technique: Technique) => {
+        this.tagForm.patchValue(technique);
+      });
   }
 
   goBack(techniqueName: string): void {
@@ -55,35 +79,16 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
     ]);
   }
 
-  save(displayName: string, flashcardAnswer: string): void {
-    this.technique$
-      .pipe(
-        map((technique: Technique) => ({
-          ...technique,
-          displayName,
-          flashcard: {
-            complete: this.technique.flashcard.complete,
-            question: this.technique.flashcard.question,
-            answer: flashcardAnswer,
-          },
-        })),
-        mergeMap((technique: Technique) =>
-          this.techniqueService.editTechnique(technique)
-        )
-      )
+  save(): void {
+    this.techniqueService
+      .editTechnique(this.tagForm.value, this.moduleName)
       .subscribe(() => {
-        this.technique.displayName = this.editName;
-        this.technique.flashcard.answer = this.editAnswer;
         this.goBack(this.technique.name);
       });
   }
 
   canDeactivate(): boolean | Observable<boolean> {
-    if (
-      !this.technique ||
-      (this.technique.displayName === this.editName &&
-        this.technique.flashcard.answer === this.editAnswer)
-    ) {
+    if (!this.technique || this.technique.displayName === this.editName) {
       return true;
     }
 

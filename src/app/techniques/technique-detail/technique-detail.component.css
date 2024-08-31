@@ -1,11 +1,11 @@
-.goldheart {
-  color: yellow;
+.redheart {
+  color: #f55448;
 }
 
-.detail-container {
+/* .detail-container {
   max-width: 560px;
   margin: 0 auto;
-}
+} */
 
 .title-container {
   min-height: 70px;

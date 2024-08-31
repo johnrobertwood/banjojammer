@@ -4,49 +4,24 @@ export interface Technique {
   displayName: string;
   prevTechnique: string | null;
   nextTechnique: string | null;
-  quiz: {
-    complete: boolean;
-    question: string;
-    responses: [
-      {
-        text: string;
-        correct: boolean;
-      },
-      {
-        text: string;
-        correct: boolean;
-      },
-      {
-        text: string;
-        correct: boolean;
-      },
-      {
-        text: string;
-        correct: boolean;
-      }
-    ];
-  };
-  flashcard: {
-    complete: boolean;
-    question: string;
-    answer: string;
-  };
   video: {
-    url: string;
+    demoUrl: string;
+    jamUrl: string;
+    fastJamUrl?: string;
+    tabUrl: string;
     thumbnail: string;
   };
-  notes: [
-    {
-      text: string;
-    },
-    {
-      text: string;
-    },
-    {
-      text: string;
-    },
-    {
-      text: string;
-    }
-  ];
+}
+
+export interface SongModule {
+  userId: string;
+}
+
+export interface ModuleObject {
+  module: string;
+  techniques: Technique[];
+}
+
+export interface ModuleNames {
+  userId: string;
 }
