@@ -4,6 +4,7 @@ import { Technique } from '../techniques/technique';
 import { slideInAnimation } from '../animations';
 import { TechniqueService } from '../techniques/technique.service';
 import { map, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-nav',
@@ -22,11 +23,15 @@ export class SideNavComponent implements OnInit {
   homePageTechniques: Technique[];
   moduleObject$: Observable<{ module: string; techniques: Technique[] }[]>;
 
-  constructor(private techniqueService: TechniqueService) {}
+  constructor(
+    private techniqueService: TechniqueService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.moduleObject$ = this.techniqueService.getAllTechniques().pipe(
       map((x) => {
+        x = x.filter((y) => y.module !== 'songs');
         x.forEach((y) => {
           y.techniques.sort((a, b) => a.id - b.id);
         });
@@ -64,5 +69,10 @@ export class SideNavComponent implements OnInit {
 
   navigateToDetail(): void {
     this.closeSideNav.emit(null);
+  }
+
+  navigateToLogin(): void {
+    this.closeSideNav.emit(null);
+    this.router.navigate(['/login']);
   }
 }

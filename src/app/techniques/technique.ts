@@ -1,6 +1,8 @@
 export interface Technique {
   id: number;
   name: string;
+  premium: boolean;
+  key: string;
   displayName: string;
   prevTechnique: string | null;
   nextTechnique: string | null;
