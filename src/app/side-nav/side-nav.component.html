@@ -1,25 +1,35 @@
 <!-- <mat-accordion> -->
 <ng-container *ngFor="let moduleObject of moduleObject$ | async; index as i">
-  <mat-expansion-panel
+  <!-- <mat-expansion-panel
     [expanded]="loggedIn || (!loggedIn && i <= 1)"
     [disabled]="!loggedIn && i > 1"
-  >
+  > -->
+  <mat-expansion-panel expanded>
     <mat-expansion-panel-header>
-      <mat-panel-title>{{ moduleObject.module }}</mat-panel-title>
-      <mat-icon [hidden]="!(!loggedIn && i > 1)">lock</mat-icon>
+      <mat-panel-title
+        >{{ moduleObject.module | uppercase }} Songs</mat-panel-title
+      >
     </mat-expansion-panel-header>
     <mat-panel-description
       mat-menu-item
-      [routerLink]="['technique', moduleObject.module, technique.name]"
+      [routerLink]="
+        loggedIn || !technique.premium
+          ? ['song', moduleObject.module, technique.name]
+          : null
+      "
+      [disabled]="!loggedIn && i > 1 && technique.premium"
       routerLinkActive="activebutton"
-      (click)="navigateToDetail()"
+      (click)="
+        loggedIn || !technique.premium ? navigateToDetail() : navigateToLogin()
+      "
       *ngFor="let technique of moduleObject.techniques"
     >
+      <mat-icon [hidden]="!loggedIn && !technique.premium">lock</mat-icon>
       {{ technique.displayName }}
     </mat-panel-description>
   </mat-expansion-panel>
 </ng-container>
-<a
+<!-- <a
   mat-stroked-button
   routerLink="/login"
   [hidden]="loggedIn"
@@ -27,19 +37,4 @@
   class="cta-button btn btn-secondary m-1 px-2 py-1 br-2"
 >
   Create Account To Unlock Content
-</a>
-<!-- <mat-expansion-panel [disabled]="!loggedIn">
-    <mat-expansion-panel-header>
-      <mat-panel-title>Pistol Tactics</mat-panel-title>
-      <mat-icon [hidden]="loggedIn || false">lock</mat-icon>
-    </mat-expansion-panel-header>
-    <mat-panel-description
-    mat-menu-item
-      [routerLink]="['technique', 'randy-tech', technique.name]"
-      routerLinkActive="activebutton"
-      *ngFor="let technique of techArray[1] | async"
-    >
-      {{ technique.displayName }}
-    </mat-panel-description>
-  </mat-expansion-panel> -->
-<!-- </mat-accordion> -->
+</a> -->

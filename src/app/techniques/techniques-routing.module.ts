@@ -7,7 +7,7 @@ import { FavoritesListComponent } from './favorites-list/favorites-list.componen
 
 const techniquesRoutes: Routes = [
   {
-    path: 'technique/:module/:name',
+    path: 'song/:module/:name',
     component: TechniqueDetailComponent,
   },
   {
