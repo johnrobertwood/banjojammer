@@ -26,15 +26,6 @@
   Profile
 </button>
 <button
-  *ngIf="loggedIn"
-  mat-menu-item
-  (click)="toggleMenuClick()"
-  routerLink="/admin"
-  routerLinkActive="activebutton"
->
-  Admin
-</button>
-<button
   *ngIf="!loggedIn"
   mat-menu-item
   (click)="toggleMenuClick()"

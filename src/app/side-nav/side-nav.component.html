@@ -24,7 +24,7 @@
       "
       *ngFor="let technique of moduleObject.techniques"
     >
-      <mat-icon [hidden]="!loggedIn && !technique.premium">lock</mat-icon>
+      <mat-icon [hidden]="loggedIn || !technique.premium">lock</mat-icon>
       {{ technique.displayName }}
     </mat-panel-description>
   </mat-expansion-panel>
