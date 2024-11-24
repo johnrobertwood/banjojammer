@@ -1,41 +1,41 @@
-import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute, ParamMap, Router } from "@angular/router";
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
-import { TechniqueService } from "src/app/techniques/technique.service";
-import { Technique } from "src/app/techniques/technique";
+import { TechniqueService } from 'src/app/techniques/technique.service';
+import { Technique } from 'src/app/techniques/technique';
 
-import { switchMap } from "rxjs/operators";
-import { Observable, Subject } from "rxjs";
-import { DialogService } from "src/app/dialog.service";
-import { FormBuilder } from "@angular/forms";
+import { switchMap } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { DialogService } from 'src/app/dialog.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: "app-manage-technique-detail",
-  templateUrl: "./manage-technique-detail.component.html",
-  styleUrls: ["./manage-technique-detail.component.css"],
+  selector: 'app-manage-technique-detail',
+  templateUrl: './manage-technique-detail.component.html',
+  styleUrls: ['./manage-technique-detail.component.css'],
 })
 export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
   technique$!: Observable<Technique>;
   technique!: Technique;
   display = false;
-  editName = "";
-  editAnswer = "";
-  moduleName = "";
+  editName = '';
+  editAnswer = '';
+  moduleName = '';
   private ngUnsubscribe = new Subject();
-  @ViewChild("modInput") modInput!: HTMLInputElement;
+  @ViewChild('modInput') modInput!: HTMLInputElement;
 
   tagForm = this.fb.group({
-    id: "",
-    name: "",
-    displayName: "",
-    prevTechnique: "",
-    nextTechnique: "",
+    id: '',
+    name: '',
+    displayName: '',
+    prevTechnique: '',
+    nextTechnique: '',
     video: this.fb.group({
-      thumbnail: "",
-      demoUrl: "",
-      jamUrl: "",
-      fastJamUrl: "",
-      tabUrl: "",
+      thumbnail: '',
+      demoUrl: '',
+      jamUrl: '',
+      fastJamUrl: '',
+      tabUrl: '',
     }),
   });
 
@@ -60,10 +60,10 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
     this.route.paramMap
       .pipe(
         switchMap((params: ParamMap) => {
-          this.moduleName = params.get("module");
+          this.moduleName = params.get('module');
           return this.techniqueService.getUserFilterTechnique(
-            params.get("module"),
-            params.get("name")
+            params.get('module'),
+            params.get('name')
           );
         })
       )
@@ -77,7 +77,7 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
 
   goBack(techniqueName: string): void {
     void this.router.navigate([
-      "/admin/manage-technique-list",
+      '/admin/manage-technique-list',
       { name: techniqueName },
     ]);
   }
@@ -87,11 +87,11 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
       ...this.technique,
       ...this.tagForm.value,
       video: {
-        thumbnail: this.tagForm.value.video.thumbnail || "",
-        demoUrl: this.tagForm.value.video.demoUrl || "",
-        jamUrl: this.tagForm.value.video.jamUrl || "",
-        fastJamUrl: this.tagForm.value.video.fastJamUrl || "",
-        tabUrl: this.tagForm.value.video.tabUrl || "",
+        thumbnail: this.tagForm.value.video.thumbnail || '',
+        demoUrl: this.tagForm.value.video.demoUrl || '',
+        jamUrl: this.tagForm.value.video.jamUrl || '',
+        fastJamUrl: this.tagForm.value.video.fastJamUrl || '',
+        tabUrl: this.tagForm.value.video.tabUrl || '',
       },
       id: Number(this.tagForm.value.id),
       premium: this.technique.premium,
@@ -110,7 +110,7 @@ export class ManageTechniqueDetailComponent implements OnInit, OnDestroy {
       return true;
     }
 
-    return this.dialogService.confirm("Discard changes?");
+    return this.dialogService.confirm('Discard changes?');
   }
 
   ngOnDestroy(): void {
