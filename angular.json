@@ -117,8 +117,9 @@
       }
     }
   },
-  "defaultProject": "grapplingreview",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
