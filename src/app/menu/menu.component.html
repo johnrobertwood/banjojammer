@@ -25,21 +25,13 @@
 >
   Profile
 </button>
-<button
-  *ngIf="!loggedIn"
-  mat-menu-item
-  (click)="toggleMenuClick()"
-  routerLink="/login"
-  routerLinkActive="activebutton"
->
-  Login
-</button>
-<button
-  *ngIf="loggedIn"
-  mat-menu-item
-  (click)="toggleMenuClick()"
-  routerLink="/login"
-  routerLinkActive="activebutton"
->
-  Logout
-</button>
+<ul>
+  @if(authService.isLoggedIn()) {
+  <li>
+    <a (click)="logout()" class="nav-link">Logout</a>
+  </li>
+  } @else {
+  <li><a routerLink="/register" class="nav-link">Register</a></li>
+  <li><a routerLink="/login" class="nav-link">Login</a></li>
+  }
+</ul>

@@ -1,7 +1,32 @@
-<div class="m-3">
-  <amplify-authenticator class="auth-container">
-    <div class="sign-out-button">
-      <amplify-sign-out></amplify-sign-out>
+<div class="register-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" />
+      @if(loginForm.get('email')?.invalid && loginForm.get('email')?.touched){
+
+      <div class="error-message">Valid email is required</div>
+      }
     </div>
-  </amplify-authenticator>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" />
+      @if(loginForm.get('password')?.invalid &&
+      loginForm.get('password')?.touched){
+      <div class="error-message">
+        Password must be at least 6 characters long
+      </div>
+      }
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+
+  @if(errorMessage) {
+  <div class="error-message">
+    {{ errorMessage }}
+  </div>
+  }
 </div>

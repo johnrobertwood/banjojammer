@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { AuthService } from '../auth/auth.service'; // Adjust the path as necessary
 
 @Component({
   selector: 'app-menu',
@@ -12,5 +13,11 @@ export class MenuComponent {
 
   toggleMenuClick(): void {
     this.toggleMenu.emit(null);
+  }
+
+  authService = inject(AuthService);
+
+  logout() {
+    this.authService.logout();
   }
 }

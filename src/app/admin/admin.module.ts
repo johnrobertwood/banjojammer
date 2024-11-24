@@ -16,6 +16,7 @@ import { AddTechniqueComponent } from './add-technique/add-technique.component';
 import { TosComponent } from '../static-pages/tos/tos.component';
 import { PrivacyComponent } from '../static-pages/privacy/privacy.component';
 import { AddModuleComponent } from './add-module/add-module.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AddModuleComponent } from './add-module/add-module.component';
     AppMaterialModule,
     AdminRoutingModule,
     PipeModule,
+    RouterModule,
   ],
 })
 export class AdminModule {}

@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { PageNotFoundComponent } from './static-pages/page-not-found/page-not-found.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { TosComponent } from './static-pages/tos/tos.component';
 import { PrivacyComponent } from './static-pages/privacy/privacy.component';
@@ -17,11 +19,13 @@ const appRoutes: Routes = [
     component: ComposeMessageComponent,
     outlet: 'popup',
   },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'admin',
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
-    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'profile',
@@ -39,6 +43,7 @@ const appRoutes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthGuard],
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
