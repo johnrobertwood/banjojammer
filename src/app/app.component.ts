@@ -5,7 +5,6 @@ import { takeUntil, tap } from 'rxjs/operators';
 import { TechniqueService } from './techniques/technique.service';
 import { Technique } from './techniques/technique';
 import { AuthenticationService } from './auth/authentication.service';
-import { Hub } from 'aws-amplify';
 import { HubPayload } from './hub-payload';
 import { Observable, Subject } from 'rxjs';
 
@@ -27,12 +26,7 @@ export class AppComponent implements OnInit {
     private router: Router,
     private authService: AuthenticationService,
     private zone: NgZone
-  ) {
-    Hub.listen('auth', (data) => {
-      const { payload } = data;
-      this.onAuthEvent(payload);
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getTechniques('banjo-tech');

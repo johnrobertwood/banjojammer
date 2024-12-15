@@ -12,7 +12,7 @@ _npm run-script build_ creates a folder for production deployment on S3 or GH pa
 
 ### Tech Stack
 
-Built with Angular 13, Material UI, Bootstrap, S3, API Gateway, Lambda, DynamoDB and Amplify.
+Built with Angular 13, Material UI, Bootstrap, S3, API Gateway, Lambda, DynamoDB.
 
 ### GitHub Actions
 

@@ -18,20 +18,3 @@ body {
   font-size: 32px;
   cursor: pointer;
 }
-
-@media screen and (max-width: 767px) {
-  input,
-  select,
-  textarea,
-  amplify-button {
-    margin-top: 20px;
-    font-size: 16px;
-  }
-}
-
-:root {
-  --amplify-primary-color: #11a29b;
-  --amplify-primary-tint: #3f6060;
-  --amplify-primary-shade: #2dba89;
-  --amplify-background-color: #e0faf4;
-}
