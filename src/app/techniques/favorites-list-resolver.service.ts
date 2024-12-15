@@ -12,7 +12,10 @@ import { Technique } from '../techniques/technique';
 export class FavoritesListResolverService implements Resolve<Technique> {
   modulePath!: string | null;
   techName!: string | null;
-  constructor(private ts: TechniqueService, private router: Router) {}
+  constructor(
+    private ts: TechniqueService,
+    private router: Router
+  ) {}
 
   resolve(): Observable<Technique> | Observable<never> {
     return this.ts

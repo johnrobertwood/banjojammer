@@ -18,17 +18,18 @@ export class TechniqueService {
   apiGatewayUrl =
     'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production';
 
-  constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
+  constructor(
+    private http: HttpClient,
+    private ehs: ErrorHandlingService
+  ) {}
 
   getTechniques(moduleName: string | null): Observable<Technique[]> {
     const data = { moduleName };
 
     return this.http
-      .post<Technique[]>(
-        `${this.apiGatewayUrl}/techniques`,
-        data,
-        this.httpOptions
-      )
+      .post<
+        Technique[]
+      >(`${this.apiGatewayUrl}/techniques`, data, this.httpOptions)
       .pipe(catchError(this.ehs.handleError<Technique[]>('getTechniques', [])));
   }
 

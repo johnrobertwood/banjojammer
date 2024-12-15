@@ -26,7 +26,10 @@ export class AuthenticationService {
     }),
   };
 
-  constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
+  constructor(
+    private http: HttpClient,
+    private ehs: ErrorHandlingService
+  ) {}
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   login(payload: any): void {

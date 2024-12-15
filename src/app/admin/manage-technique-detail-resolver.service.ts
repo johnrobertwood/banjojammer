@@ -12,7 +12,10 @@ import { Technique } from '../techniques/technique';
 export class ManageTechniqueDetailResolverService
   implements Resolve<Technique>
 {
-  constructor(private ts: TechniqueService, private router: Router) {}
+  constructor(
+    private ts: TechniqueService,
+    private router: Router
+  ) {}
 
   resolve(
     route: ActivatedRouteSnapshot

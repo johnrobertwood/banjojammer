@@ -15,7 +15,10 @@ export class ComposeMessageComponent implements OnDestroy {
   sending = false;
   private ngUnsubscribe = new Subject();
 
-  constructor(private router: Router, private messageService: MessageService) {}
+  constructor(
+    private router: Router,
+    private messageService: MessageService
+  ) {}
 
   send(): void {
     this.sending = true;

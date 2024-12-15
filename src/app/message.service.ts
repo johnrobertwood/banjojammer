@@ -17,7 +17,10 @@ export class MessageService {
   private feedbackUrl =
     'https://o7qz9dt15c.execute-api.us-east-1.amazonaws.com/Production/feedback';
 
-  constructor(private http: HttpClient, private ehs: ErrorHandlingService) {}
+  constructor(
+    private http: HttpClient,
+    private ehs: ErrorHandlingService
+  ) {}
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   sendFeedback(message: string): Observable<Object | never[]> {
