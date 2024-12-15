@@ -43,7 +43,6 @@ export class AuthService {
   }
 
   register({ firstName, lastName, email, password, role }: RegisterRequest) {
-    debugger;
     return this.http
       .post<TokenResponse>(`${this.apiUrl}/register`, {
         firstName,
