@@ -50,10 +50,10 @@
         </ng-container>
       </div>
     </div>
-    <mat-chip-list class="mt-2">
+    <mat-chip-listbox class="mt-2">
       <ng-container *ngFor="let technique of techniques$ | async">
-        <mat-chip multiple color="accent">{{ technique.displayName }}</mat-chip>
+        <mat-chip-option multiple color="accent">{{ technique.displayName }}</mat-chip-option>
       </ng-container>
-    </mat-chip-list>
+    </mat-chip-listbox>
   </div>
 </main>
