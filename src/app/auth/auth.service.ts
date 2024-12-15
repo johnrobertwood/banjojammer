@@ -10,8 +10,8 @@ type TokenResponse = {
 };
 
 export type RegisterRequest = {
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   role: 'USER' | 'ADMIN' | 'MANAGER';
@@ -42,11 +42,12 @@ export class AuthService {
       );
   }
 
-  register({ firstname, lastname, email, password, role }: RegisterRequest) {
+  register({ firstName, lastName, email, password, role }: RegisterRequest) {
+    debugger;
     return this.http
       .post<TokenResponse>(`${this.apiUrl}/register`, {
-        firstname,
-        lastname,
+        firstName,
+        lastName,
         email,
         password,
         role,
