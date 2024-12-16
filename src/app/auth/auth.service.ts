@@ -21,14 +21,18 @@ export type RegisterRequest = {
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/api/auth';
+  private apiUrl = `https://banjojammer.com/api/auth`;
+  // private apiUrl = 'http://localhost:8080/api/auth';
   private http = inject(HttpClient);
   private storageService = inject(StorageService);
   private router = inject(Router);
 
   login(email: string, password: string) {
     return this.http
-      .post<TokenResponse>(`${this.apiUrl}/login`, { email, password })
+      .post<TokenResponse>(`${this.apiUrl}/login`, {
+        email,
+        password,
+      })
       .pipe(
         tap((response) => {
           this.storageService._setToken(response.token);
