@@ -8,6 +8,10 @@ import { AuthGuard } from '../auth/auth.guard';
 
 const techniquesRoutes: Routes = [
   {
+    path: 'song/g/willTheCircleBeUnbroken',
+    component: TechniqueDetailComponent,
+  },
+  {
     path: 'song/:module/:name',
     component: TechniqueDetailComponent,
     canActivate: [AuthGuard],
