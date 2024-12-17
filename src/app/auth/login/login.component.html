@@ -22,6 +22,13 @@
     </div>
 
     <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    <br />
+    <p>
+      Need to register?
+      <a (click)="navigateToRegister()" class="register-link"
+        ><strong>Click Here</strong></a
+      >
+    </p>
   </form>
 
   @if (errorMessage) {

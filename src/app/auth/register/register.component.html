@@ -26,6 +26,7 @@
     <div class="form-group">
       <label for="email">Email</label>
       <input id="email" type="email" formControlName="email" />
+
       @if (
         registerForm.get('email')?.invalid && registerForm.get('email')?.touched
       ) {
@@ -36,6 +37,7 @@
     <div class="form-group">
       <label for="password">Password</label>
       <input id="password" type="password" formControlName="password" />
+
       @if (
         registerForm.get('password')?.invalid &&
         registerForm.get('password')?.touched
@@ -46,7 +48,7 @@
       }
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="role">Role</label>
       <select id="role" formControlName="role">
         <option value="USER">User</option>
@@ -58,11 +60,17 @@
       ) {
         <div class="error-message">Role is required</div>
       }
-    </div>
+    </div> -->
 
     <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    <br />
+    <p>
+      Already have an account?
+      <a (click)="navigateToLogin()" class="login-link"
+        ><strong>Click Here</strong></a
+      >
+    </p>
   </form>
-
   @if (errorMessage) {
     <div class="error-message">
       {{ errorMessage }}

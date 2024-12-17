@@ -6,19 +6,23 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   loginForm: FormGroup;
   authService = inject(AuthService);
   errorMessage = '';
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -40,5 +44,9 @@ export class LoginComponent {
     } else {
       this.errorMessage = 'Please fill in all the required fields.';
     }
+  }
+
+  navigateToRegister() {
+    this.router.navigate(['/register']);
   }
 }

@@ -6,19 +6,23 @@ import {
   Validators,
 } from '@angular/forms';
 import { RegisterRequest, AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css',
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
   registerForm: FormGroup;
   authService = inject(AuthService);
   errorMessage = '';
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     this.registerForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -33,7 +37,11 @@ export class RegisterComponent {
       const registerRequest: RegisterRequest = this.registerForm.value;
       this.authService.register(registerRequest).subscribe();
     } else {
-      this.errorMessage = 'Please fill in all the required fields.';
+      this.errorMessage = 'Please fill out the form correctly.';
     }
+  }
+
+  navigateToLogin() {
+    this.router.navigate(['/login']);
   }
 }
