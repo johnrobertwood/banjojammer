@@ -7,10 +7,10 @@ import { AuthGuard } from '../auth/auth.guard';
 // import { FavoritesListResolverService } from './favorites-list-resolver.service';
 
 const techniquesRoutes: Routes = [
-  {
-    path: 'song/g/willTheCircleBeUnbroken',
-    component: TechniqueDetailComponent,
-  },
+  // {
+  //   path: 'song/g/willTheCircleBeUnbroken',
+  //   component: TechniqueDetailComponent,
+  // },
   {
     path: 'song/:module/:name',
     component: TechniqueDetailComponent,
