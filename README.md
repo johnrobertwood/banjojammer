@@ -4,6 +4,10 @@
 
 (https://banjojammer.com)
 
+### System Architecture
+
+![banjo-jammer-diagram](https://github.com/user-attachments/assets/11169fcc-c1f8-4d77-bb16-3ba76b4a4d9b)
+
 ### Getting started
 
 _npm run-script start_ to run ng serve for local development
