@@ -2,12 +2,13 @@
 
 **An app for learning to play old time banjo**
 
-(https://banjojammer.com)
+https://banjojammer.com
 
 ### System Architecture
 
 ![banjo-jammer-diagram](https://github.com/user-attachments/assets/11169fcc-c1f8-4d77-bb16-3ba76b4a4d9b)
 
+[Java Spring Authentication module](https://github.com/johnrobertwood/banjojammer-api)
 ### Getting started
 
 _npm run start_ for local development.
